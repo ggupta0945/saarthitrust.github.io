@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saarthi Trust | सारथी ट्रस्ट</title>
+<meta name="description" content="Free employment matching, career mentorship, and community support for rural youth across India. By IIT, IIM, AIIMS alumni.">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231B7A4A'/><text y='22' x='4' font-size='20'>🛤️</text></svg>">
+
+<!-- Open Graph / Social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Saarthi Trust | सारथी ट्रस्ट">
+<meta property="og:description" content="Free employment matching, career mentorship &amp; community support for rural youth across India. By IIT, IIM &amp; AIIMS alumni. No fees. No middlemen.">
+<meta property="og:image" content="https://saarthitrust.org/og-image.jpg">
+<meta property="og:url" content="https://saarthitrust.org">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Saarthi Trust | सारथी ट्रस्ट">
+<meta name="twitter:description" content="Free employment matching for rural youth. By IIT, IIM &amp; AIIMS alumni.">
+<meta name="twitter:image" content="https://saarthitrust.org/og-image.jpg">
+
+<!-- Schema.org structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "name": "Saarthi Trust",
+  "alternateName": "सारथी ट्रस्ट",
+  "description": "Free employment matching, career mentorship, and community support for rural youth across India.",
+  "url": "https://saarthitrust.org",
+  "foundingDate": "2024",
+  "areaServed": "India",
+  "founder": {
+    "@type": "Organization",
+    "name": "IIT, IIM & AIIMS Alumni"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "availableLanguage": ["English", "Hindi"]
+  }
+}
+</script>
+
+<!-- Fonts: consolidated with display=swap for performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Libre+Baskerville:wght@400;700&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#FAFAF7;--cream:#FAF8F3;--sand:#E8E4DA;
+--tx:#1A1A18;--tx2:#5C5B56;--tx3:#6b6965; /* improved contrast: was #8A8880 */
+--gr:#1B7A4A;--grl:#E8F5EE;--grd:#0F5630;
+--wr:#D4602C;--wrl:#FDF0EA;
+--pu:#6D28D9;--pul:#EDE9FE;
+--fd:'Book Antiqua','Libre Baskerville','Palatino Linotype',Palatino,serif;
+--fb:'DM Sans',sans-serif;
+--fh:'Noto Sans Devanagari','DM Sans',sans-serif;
+--mw:1080px;
+}
+/* Skip to main content for keyboard users */
+.skip-link{position:absolute;top:-100px;left:1rem;background:var(--gr);color:#fff;padding:.5rem 1rem;border-radius:0 0 8px 8px;font-size:.85rem;font-weight:600;text-decoration:none;z-index:9999;transition:top .2s}
+.skip-link:focus{top:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);color:var(--tx);background:var(--bg);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.w{max-width:var(--mw);margin:0 auto;padding:0 1.5rem}
+a{color:var(--gr);text-decoration:none}
+.rv{opacity:1;transform:none;transition:opacity .6s,transform .6s}
+.rv-ready .rv{opacity:0;transform:translateY(24px)}
+.rv-ready .rv.v{opacity:1;transform:none}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,247,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,0,0,.05);transition:box-shadow .3s}
+nav.sc{box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.ni{max-width:var(--mw);margin:0 auto;padding:.7rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.nl{font-family:var(--fd);font-size:1.2rem;font-weight:700;color:var(--grd);text-decoration:none}
+.nl i{font-style:normal;color:var(--wr)}
+.nr{display:flex;gap:1.5rem;align-items:center}
+.nr a{font-size:.82rem;font-weight:500;color:var(--tx2);text-decoration:none;transition:.2s}
+.nr a:hover{color:var(--gr)}
+.lb{font-size:.74rem;padding:.28rem .7rem;border:1.5px solid var(--sand);border-radius:100px;cursor:pointer;background:none;color:var(--tx2);font-weight:600;font-family:var(--fh);transition:.2s}
+.lb:hover{border-color:var(--gr);color:var(--gr)}
+.nc{background:var(--gr);color:#fff!important;padding:.45rem 1rem;border-radius:100px;font-size:.78rem;font-weight:600;transition:.2s}
+.nc:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(27,122,74,.25)}
+@media(max-width:700px){.nr a.hm{display:none}.nr{gap:.6rem}}
+
+/* HERO */
+.hero{padding:7rem 0 3rem;position:relative;overflow:hidden;background:linear-gradient(175deg,var(--cream),var(--bg) 55%,var(--grl))}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:2rem;align-items:center;position:relative;z-index:1;max-width:680px}
+.hero-left{animation:fadeUp .8s ease}
+.hero-right{display:flex;justify-content:center;animation:fadeUp 1s ease .2s both}
+.hb{display:inline-flex;align-items:center;gap:.4rem;background:var(--grl);color:var(--grd);padding:.32rem .85rem;border-radius:100px;font-size:.74rem;font-weight:600;margin-bottom:1.2rem;letter-spacing:.02em}
+.hb::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gr);animation:pulse 2s infinite}
+.hero h1{font-family:var(--fd);font-size:clamp(1.7rem,4vw,2.8rem);font-weight:700;line-height:1.2;letter-spacing:-.02em;margin-bottom:.5rem}
+.hero h1 em{font-style:normal;color:var(--gr)}
+.htl{font-family:var(--fh);font-size:clamp(.88rem,1.8vw,1.05rem);color:var(--tx2);font-weight:500;line-height:1.6;margin-bottom:.3rem}
+.hq{font-size:.82rem;color:var(--tx3);font-style:italic;margin-bottom:1.2rem}
+.hero .hd{font-size:.9rem;color:var(--tx2);max-width:480px;margin-bottom:1.5rem;line-height:1.7}
+.hbtns{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.72rem 1.5rem;border-radius:100px;font-size:.85rem;font-weight:600;text-decoration:none!important;transition:all .2s;border:none;cursor:pointer}
+.bg{background:var(--gr);color:#fff;box-shadow:0 3px 16px rgba(27,122,74,.2)}
+.bg:hover{transform:translateY(-2px);box-shadow:0 5px 24px rgba(27,122,74,.28)}
+.bo{background:transparent;color:var(--grd);border:2px solid var(--gr)}
+.bo:hover{background:var(--grl)}
+.hero-illust{width:100%;max-width:380px;display:none}
+@media(max-width:768px){.hero-grid{grid-template-columns:1fr}.hero{padding:6.5rem 0 2.5rem}}
+@media(max-width:500px){.btn{width:100%;justify-content:center}.hbtns{flex-direction:column}}
+
+/* IMPACT */
+.imp{padding:2.5rem 0;background:var(--tx);color:#fff}
+.ig{display:grid;grid-template-columns:repeat(4,1fr);gap:1.8rem;text-align:center}
+.in{font-family:var(--fd);font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:700;line-height:1;transition:all .3s}
+.il{font-size:.75rem;color:rgba(255,255,255,.5);margin-top:.25rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.is{font-family:var(--fh);font-size:.7rem;color:rgba(255,255,255,.3);margin-top:.1rem}
+@keyframes countUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.imp .ig>div{opacity:0;animation:countUp .5s ease forwards}
+.imp .ig>div:nth-child(1){animation-delay:.1s}
+.imp .ig>div:nth-child(2){animation-delay:.25s}
+.imp .ig>div:nth-child(3){animation-delay:.4s}
+.imp .ig>div:nth-child(4){animation-delay:.55s}
+.imp-animated .ig>div{opacity:1}
+@media(max-width:600px){.ig{grid-template-columns:repeat(2,1fr);gap:1.2rem}}
+
+/* SECTIONS */
+.sec{padding:4rem 0}
+.st{font-size:.7rem;font-weight:600;color:var(--gr);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.4rem}
+.sh{font-family:var(--fd);font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.35rem}
+.ss{font-size:.92rem;color:var(--tx2);max-width:500px;margin-bottom:2.2rem;line-height:1.7}
+
+/* STEPS */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.stp{position:relative;padding:1.7rem 1.5rem;border:1px solid var(--sand);transition:.3s}
+.stp:first-child{border-radius:14px 0 0 14px}
+.stp:last-child{border-radius:0 14px 14px 0}
+.stp:hover{background:var(--cream);border-color:rgba(27,122,74,.12)}
+.stn{font-family:var(--fd);font-size:3rem;font-weight:700;color:var(--gr);opacity:.08;position:absolute;top:.6rem;right:1rem;line-height:1}
+.sti{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:.9rem;font-size:1.2rem}
+.stp h3{font-size:.95rem;font-weight:700;margin-bottom:.15rem}
+.stp .shi{font-family:var(--fh);font-size:.82rem;color:var(--tx2);font-weight:500;margin-bottom:.5rem}
+.stp .sen{font-size:.82rem;color:var(--tx3);line-height:1.6}
+.cn{position:absolute;top:50%;width:18px;height:2px;background:var(--sand);right:-10px;z-index:2}
+.cn::after{content:'';position:absolute;right:-2px;top:-3px;border-left:5px solid var(--sand);border-top:4px solid transparent;border-bottom:4px solid transparent}
+@media(max-width:768px){.steps{grid-template-columns:1fr;gap:.7rem}.stp{border-radius:11px!important}.cn{display:none}}
+
+/* PILLARS */
+.pil{background:#fff;border:1px solid var(--sand);border-radius:16px;overflow:hidden;margin-bottom:1.3rem;transition:.3s}
+.pil:hover{border-color:rgba(27,122,74,.12)}
+.pil-body{padding:1.6rem 1.8rem}
+.ph{display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem}
+.pi{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0}
+.pil p.pd{font-size:.85rem;color:var(--tx2);line-height:1.65}
+.pcg{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:.6rem;margin-top:.9rem}
+.pc{background:var(--bg);border:1px solid rgba(0,0,0,.04);border-radius:9px;padding:.6rem .75rem}
+.pc .pci{font-size:.85rem;margin-bottom:.2rem}
+.pc h4{font-size:.76rem;font-weight:600;margin-bottom:.1rem}
+.pc p{font-size:.68rem;color:var(--tx3);line-height:1.5}
+.pq{margin-top:.9rem;padding:.65rem .85rem;border-radius:9px;font-size:.78rem;line-height:1.6;font-family:var(--fh);font-weight:500}
+
+/* ABOUT */
+.abg{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.abc{background:#fff;border-radius:16px;padding:1.8rem;box-shadow:0 6px 32px rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.04);position:relative;overflow:hidden}
+.abc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gr),var(--wr))}
+.abc blockquote{font-family:var(--fd);font-size:1.15rem;font-weight:700;line-height:1.4;margin-bottom:.6rem}
+.abc .cs{font-family:var(--fh);font-size:.88rem;color:var(--tx2);line-height:1.6;font-weight:500;margin-bottom:.4rem}
+.abc .cm{font-size:.8rem;color:var(--tx3);line-height:1.6;margin-bottom:.8rem}
+.br{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .65rem;background:var(--grl);border-radius:7px}
+.bp{font-size:.58rem;font-weight:700;padding:.1rem .4rem;border-radius:3px;background:var(--gr);color:#fff;letter-spacing:.03em}
+.bl{font-size:.7rem;font-weight:600;color:var(--grd)}
+.abt p{font-size:.88rem;color:var(--tx2);margin-bottom:.6rem;line-height:1.7}
+.abt .au{font-size:.8rem;color:var(--tx3);font-style:italic;line-height:1.6}
+.vr{display:flex;gap:.8rem;margin-top:1rem;flex-wrap:wrap}
+.vc{display:flex;align-items:center;gap:.3rem;padding:.32rem .7rem;background:#fff;border-radius:7px;border:1px solid var(--sand);font-size:.76rem;font-weight:600;color:var(--tx2)}
+.vd{width:6px;height:6px;border-radius:50%}
+@media(max-width:768px){.abg{grid-template-columns:1fr;gap:1.8rem}}
+
+/* DIGNITY */
+.dig{max-width:660px;margin:0 auto;text-align:center;padding:1.2rem 1.6rem;background:var(--grl);border-radius:12px;border:1px solid rgba(27,122,74,.1)}
+.dig p{font-size:.85rem;color:var(--grd);line-height:1.7;font-family:var(--fh)}
+
+/* VOLUNTEER */
+.vol{padding:4rem 0;background:var(--grl)}
+.vc2{max-width:700px;margin:0 auto;text-align:center}
+.vol h2{font-family:var(--fd);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;letter-spacing:-.02em;margin-bottom:1rem}
+.vol .vp{font-size:.95rem;color:var(--tx2);line-height:1.75;max-width:560px;margin:0 auto 1.6rem}
+.pills{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.6rem}
+.pill{padding:.45rem 1.1rem;background:#fff;border-radius:100px;font-size:.84rem;font-weight:500;color:var(--tx2);border:1px solid var(--sand)}
+
+/* CTA */
+.cta{padding:3.5rem 0;text-align:center;background:linear-gradient(170deg,var(--grl),var(--bg) 40%,var(--wrl))}
+.cta h2{font-family:var(--fd);font-size:clamp(1.5rem,3.2vw,2.3rem);font-weight:700;margin-bottom:.3rem}
+.cta .chi{font-family:var(--fh);font-size:1rem;color:var(--tx2);font-weight:500;margin-bottom:.5rem}
+.cta .cd{font-size:.88rem;color:var(--tx2);max-width:440px;margin:0 auto 1.4rem}
+.cbs{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem}
+.cta .cn2{font-size:.74rem;color:var(--tx3);max-width:380px;margin:0 auto}
+
+footer{padding:2rem 0;background:var(--tx);color:rgba(255,255,255,.5)}
+.fi{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem}
+.fb2{font-family:var(--fd);font-size:1rem;font-weight:700;color:#fff}
+.fl{display:flex;gap:1.2rem}
+.fl a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.78rem;transition:.2s}
+.fl a:hover{color:#fff}
+.fc{font-size:.7rem;text-align:center;margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.06)}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav id="nav">
+<div class="ni">
+  <a href="#" class="nl">Saarthi Trust<i>.</i></a>
+  <div class="nr">
+    <a href="#how" class="hm">How it works</a>
+    <a href="#pillars" class="hm">What we do</a>
+    <a href="#about" class="hm">About</a>
+    <button class="lb" onclick="toggleLang()" id="langBtn">हिंदी</button>
+    <a href="https://forms.gle/o3rcneE2MNVFH863A" class="nc" target="_blank" data-en="Register free →" data-hi="मुफ़्त रजिस्टर →">Register free →</a>
+  </div>
+</div>
+</nav>
+
+<!-- HERO with illustration -->
+<section class="hero" id="main-content">
+<div class="w">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hb" data-en="Community-driven employment platform" data-hi="समुदाय-आधारित रोज़गार मंच">Community-driven employment platform</div>
+      <h1 data-en="Connecting local <em>talent</em> with local <em>opportunity</em>" data-hi="स्थानीय <em>प्रतिभा</em> को स्थानीय <em>अवसर</em> से जोड़ना">Connecting local <em>talent</em> with local <em>opportunity</em></h1>
+      <p class="htl" data-en="Every skill deserves recognition. Every effort deserves respect." data-hi="हर हुनर की एक पहचान होती है, और हर मेहनत का हक़दार होता है सम्मान।">हर हुनर की एक पहचान होती है, और हर मेहनत का हक़दार होता है सम्मान।</p>
+      <p class="hq" data-en="&ldquo;It's not just about learning — it's about learning how to learn.&rdquo;" data-hi="&ldquo;सिर्फ सीखना नहीं — सीखना सीखना ज़रूरी है।&rdquo;">&ldquo;It's not just about learning — it's about learning how to learn.&rdquo;</p>
+      <p class="hd" data-en="Saarthi is a free, community-driven platform by IIT, IIM &amp; AIIMS alumni. We bridge the gap between unemployed youth and local employers in rural and semi-urban areas — no fees, no middlemen." data-hi="सारथी IIT, IIM और AIIMS के पूर्व छात्रों द्वारा बनाया गया मुफ़्त मंच है। हम ग्रामीण क्षेत्रों में बेरोज़गार युवाओं और नियोक्ताओं के बीच की खाई पाटते हैं — कोई शुल्क नहीं, कोई बिचौलिया नहीं।">Saarthi is a free, community-driven platform by IIT, IIM &amp; AIIMS alumni. We bridge the gap between unemployed youth and local employers in rural and semi-urban areas — no fees, no middlemen.</p>
+      <div class="hbtns">
+        <a href="https://forms.gle/o3rcneE2MNVFH863A" class="btn bg" target="_blank" data-en="I'm looking for work →" data-hi="मुझे काम चाहिए →">I'm looking for work →</a>
+        <a href="https://forms.gle/o3rcneE2MNVFH863A?role=employer" class="btn bo" target="_blank" data-en="I want to hire →" data-hi="मुझे कर्मचारी चाहिए →">I want to hire →</a>
+      </div>
+    </div>
+    <div class="hero-right" style="display:none">
+      <!-- Rich SVG Illustration: Community bridge concept -->
+      <svg class="hero-illust" viewBox="0 0 400 380" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#E8F5EE" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#E8F5EE" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="bridgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#1B7A4A"/>
+            <stop offset="100%" stop-color="#D4602C"/>
+          </linearGradient>
+          <linearGradient id="groundGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#C8E6D4"/>
+            <stop offset="100%" stop-color="#E8F5EE"/>
+          </linearGradient>
+          <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#1B7A4A" flood-opacity="0.12"/>
+          </filter>
+        </defs>
+
+        <!-- Background glow -->
+        <ellipse cx="200" cy="200" rx="170" ry="150" fill="url(#bgGlow)"/>
+
+        <!-- Ground / landscape base -->
+        <ellipse cx="200" cy="330" rx="180" ry="28" fill="#D4EDDA" opacity=".5"/>
+        <path d="M20 310 Q100 290 200 295 Q300 290 380 310 L380 340 L20 340 Z" fill="url(#groundGrad)" opacity=".4"/>
+
+        <!-- Rolling hills background -->
+        <path d="M0 280 Q60 245 120 260 Q180 275 240 250 Q300 225 380 255 L380 320 L0 320 Z" fill="#B8DFC7" opacity=".35"/>
+
+        <!-- BRIDGE arc - thick and prominent -->
+        <path d="M60 295 Q200 140 340 295" stroke="url(#bridgeGrad)" stroke-width="4" fill="none" opacity=".7"/>
+        <path d="M60 295 Q200 155 340 295" stroke="#fff" stroke-width="1.5" fill="none" opacity=".5" stroke-dasharray="6 5"/>
+        <!-- Bridge pillars -->
+        <line x1="115" y1="230" x2="115" y2="295" stroke="#1B7A4A" stroke-width="2" opacity=".3"/>
+        <line x1="200" y1="157" x2="200" y2="295" stroke="#1B7A4A" stroke-width="2" opacity=".2"/>
+        <line x1="285" y1="230" x2="285" y2="295" stroke="#D4602C" stroke-width="2" opacity=".3"/>
+
+        <!-- LEFT SIDE: Job Seeker cluster -->
+        <!-- Main person 1 -->
+        <g style="animation:float 3.5s ease-in-out infinite">
+          <circle cx="75" cy="270" r="26" fill="#E8F5EE" stroke="#1B7A4A" stroke-width="2" filter="url(#shadow)"/>
+          <!-- Head -->
+          <circle cx="75" cy="258" r="9" fill="#1B7A4A" opacity=".85"/>
+          <!-- Body -->
+          <path d="M63 278 Q75 270 87 278 L87 290 Q75 294 63 290 Z" fill="#1B7A4A" opacity=".5"/>
+          <!-- Briefcase -->
+          <rect x="68" y="286" width="14" height="9" rx="2" fill="#0F5630" opacity=".6"/>
+          <rect x="71" y="284" width="8" height="3" rx="1" fill="#0F5630" opacity=".4"/>
+        </g>
+        <!-- Person 2 - smaller, behind -->
+        <g style="animation:float 3s ease-in-out infinite .6s">
+          <circle cx="38" cy="248" r="18" fill="#E8F5EE" stroke="#1B7A4A" stroke-width="1.5"/>
+          <circle cx="38" cy="239" r="6" fill="#1B7A4A" opacity=".6"/>
+          <path d="M30 250 Q38 245 46 250 L46 260 Q38 263 30 260 Z" fill="#1B7A4A" opacity=".4"/>
+        </g>
+        <!-- Person 3 -->
+        <g style="animation:float 4s ease-in-out infinite 1.2s">
+          <circle cx="110" cy="242" r="16" fill="#E8F5EE" stroke="#1B7A4A" stroke-width="1.5"/>
+          <circle cx="110" cy="234" r="5.5" fill="#1B7A4A" opacity=".6"/>
+          <path d="M103 244 Q110 240 117 244 L117 253 Q110 256 103 253 Z" fill="#1B7A4A" opacity=".4"/>
+        </g>
+        <!-- Resume / document icon near seekers -->
+        <g style="animation:float 2.8s ease-in-out infinite .3s">
+          <rect x="48" y="210" width="28" height="34" rx="4" fill="#fff" stroke="#1B7A4A" stroke-width="1.5"/>
+          <rect x="52" y="218" width="20" height="2" rx="1" fill="#1B7A4A" opacity=".4"/>
+          <rect x="52" y="223" width="16" height="2" rx="1" fill="#1B7A4A" opacity=".3"/>
+          <rect x="52" y="228" width="18" height="2" rx="1" fill="#1B7A4A" opacity=".3"/>
+          <text x="62" y="238" text-anchor="middle" font-size="9" fill="#1B7A4A" font-weight="700">CV</text>
+        </g>
+        <!-- Label -->
+        <rect x="40" y="303" width="72" height="20" rx="10" fill="#1B7A4A" opacity=".1"/>
+        <text x="76" y="316" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#0F5630" font-weight="700">Job Seekers</text>
+
+        <!-- RIGHT SIDE: Employer cluster -->
+        <!-- Shop / office building -->
+        <g style="animation:float 3.2s ease-in-out infinite .4s">
+          <circle cx="325" cy="268" r="28" fill="#FDF0EA" stroke="#D4602C" stroke-width="2" filter="url(#shadow)"/>
+          <!-- Building -->
+          <rect x="312" y="254" width="26" height="22" rx="3" fill="#D4602C" opacity=".7"/>
+          <!-- Windows -->
+          <rect x="315" y="257" width="8" height="6" rx="1" fill="#fff" opacity=".8"/>
+          <rect x="327" y="257" width="8" height="6" rx="1" fill="#fff" opacity=".8"/>
+          <rect x="315" y="266" width="8" height="6" rx="1" fill="#fff" opacity=".5"/>
+          <rect x="327" y="266" width="8" height="6" rx="1" fill="#fff" opacity=".5"/>
+          <!-- Door -->
+          <rect x="320" y="272" width="8" height="5" rx="1" fill="#fff" opacity=".7"/>
+          <!-- Roof -->
+          <path d="M309 255 L325 243 L341 255 Z" fill="#B44D22" opacity=".8"/>
+        </g>
+        <!-- Employer person 2 -->
+        <g style="animation:float 3.8s ease-in-out infinite .9s">
+          <circle cx="362" cy="246" r="18" fill="#FDF0EA" stroke="#D4602C" stroke-width="1.5"/>
+          <circle cx="362" cy="237" r="6" fill="#D4602C" opacity=".6"/>
+          <path d="M354 248 Q362 244 370 248 L370 257 Q362 260 354 257 Z" fill="#D4602C" opacity=".4"/>
+        </g>
+        <!-- Kirana shop icon -->
+        <g style="animation:float 2.6s ease-in-out infinite 1.5s">
+          <rect x="290" y="215" width="30" height="26" rx="4" fill="#fff" stroke="#D4602C" stroke-width="1.5"/>
+          <path d="M287 218 L305 208 L323 218 Z" fill="#FDF0EA" stroke="#D4602C" stroke-width="1"/>
+          <rect x="295" y="222" width="8" height="6" rx="1" fill="#D4602C" opacity=".3"/>
+          <rect x="306" y="222" width="8" height="6" rx="1" fill="#D4602C" opacity=".3"/>
+          <text x="305" y="234" text-anchor="middle" font-size="8" fill="#D4602C" font-weight="700">SHOP</text>
+        </g>
+        <!-- Label -->
+        <rect x="293" y="303" width="66" height="20" rx="10" fill="#D4602C" opacity=".1"/>
+        <text x="326" y="316" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#B44D22" font-weight="700">Employers</text>
+
+        <!-- CENTER: Saarthi hub -->
+        <g filter="url(#shadow)">
+          <circle cx="200" cy="185" r="42" fill="#1B7A4A" opacity=".12"/>
+          <circle cx="200" cy="185" r="30" fill="#1B7A4A"/>
+          <circle cx="200" cy="185" r="26" fill="none" stroke="#fff" stroke-width="1" opacity=".2"/>
+        </g>
+        <text x="200" y="181" text-anchor="middle" font-family="Book Antiqua,Libre Baskerville,serif" font-size="9.5" fill="#fff" font-weight="700" letter-spacing="1">SAARTHI</text>
+        <text x="200" y="194" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="rgba(255,255,255,.75)">The Bridge</text>
+
+        <!-- AI / WhatsApp floating badges -->
+        <g style="animation:float 3.5s ease-in-out infinite .2s">
+          <rect x="155" y="125" width="44" height="22" rx="11" fill="#fff" stroke="#25D366" stroke-width="1.5"/>
+          <text x="175" y="136" text-anchor="middle" font-size="9" font-family="DM Sans,sans-serif" fill="#128C7E" font-weight="700">📱 WA</text>
+          <line x1="177" y1="147" x2="196" y2="157" stroke="#25D366" stroke-width="1" opacity=".4"/>
+        </g>
+        <g style="animation:float 4s ease-in-out infinite 1s">
+          <rect x="201" y="125" width="46" height="22" rx="11" fill="#fff" stroke="#6D28D9" stroke-width="1.5"/>
+          <text x="224" y="136" text-anchor="middle" font-size="9" font-family="DM Sans,sans-serif" fill="#6D28D9" font-weight="700">🤖 AI</text>
+          <line x1="212" y1="147" x2="204" y2="157" stroke="#6D28D9" stroke-width="1" opacity=".4"/>
+        </g>
+
+        <!-- Connection arrows -->
+        <path d="M100 270 Q150 240 172 195" stroke="#1B7A4A" stroke-width="2" stroke-dasharray="5 4" fill="none" opacity=".5" marker-end="url(#arrowGreen)"/>
+        <path d="M300 268 Q255 238 228 195" stroke="#D4602C" stroke-width="2" stroke-dasharray="5 4" fill="none" opacity=".5" marker-end="url(#arrowOrange)"/>
+        <defs>
+          <marker id="arrowGreen" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L6,3 z" fill="#1B7A4A" opacity=".6"/>
+          </marker>
+          <marker id="arrowOrange" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L6,3 z" fill="#D4602C" opacity=".6"/>
+          </marker>
+        </defs>
+
+        <!-- Free badge -->
+        <g style="animation:float 3s ease-in-out infinite .7s">
+          <rect x="160" y="340" width="80" height="26" rx="13" fill="#1B7A4A"/>
+          <text x="200" y="356" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#fff" font-weight="700">✓ Always Free</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- IMPACT -->
+<section class="imp">
+<div class="w">
+  <div class="ig">
+    <div><div class="in">145+</div><div class="il" data-en="Registrations" data-hi="पंजीकरण">Registrations</div><div class="is" data-en="in first 7 days" data-hi="पहले 7 दिनों में">in first 7 days</div></div>
+    <div><div class="in">13</div><div class="il" data-en="Local employers" data-hi="स्थानीय नियोक्ता">Local employers</div><div class="is" data-en="and growing" data-hi="और बढ़ रहे हैं">and growing</div></div>
+    <div><div class="in">15+</div><div class="il" data-en="Villages reached" data-hi="गाँव जुड़े">Villages reached</div><div class="is" data-en="across Jhalawar" data-hi="झालावाड़ भर में">across Jhalawar</div></div>
+    <div><div class="in">₹0</div><div class="il" data-en="Cost to users" data-hi="उपयोगकर्ताओं को शुल्क">Cost to users</div><div class="is" data-en="always free" data-hi="हमेशा मुफ़्त">always free</div></div>
+  </div>
+</div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="sec" id="how">
+<div class="w">
+  <div class="st" data-en="How it works" data-hi="कैसे काम करता है">How it works</div>
+  <div class="sh" data-en="Three steps. Two minutes. Zero cost." data-hi="तीन कदम। दो मिनट। शून्य शुल्क।">Three steps. Two minutes. Zero cost.</div>
+  <p class="ss" data-en="No app needed. Just a Google Form and WhatsApp." data-hi="कोई ऐप नहीं। बस एक फ़ॉर्म और WhatsApp।">No app needed. Just a Google Form and WhatsApp.</p>
+  <div class="steps rv">
+    <div class="stp">
+      <div class="stn">1</div>
+      <div class="sti" style="background:var(--grl);color:var(--gr)">✍️</div>
+      <h3 data-en="Fill the form" data-hi="फ़ॉर्म भरें">Fill the form</h3>
+      <p class="sen" data-en="Name, area, work type. 2 minutes. In Hindi." data-hi="नाम, क्षेत्र, काम का प्रकार। 2 मिनट। हिंदी में।">Name, area, work type. 2 minutes. In Hindi.</p>
+      <div class="cn"></div>
+    </div>
+    <div class="stp">
+      <div class="stn">2</div>
+      <div class="sti" style="background:var(--pul);color:var(--pu)">🤖</div>
+      <h3 data-en="AI matches you" data-hi="AI मिलान करता है">AI matches you</h3>
+      <p class="sen" data-en="Multilingual AI finds the best match for your skills and location." data-hi="बहुभाषी AI आपकी स्किल और लोकेशन के अनुसार सबसे अच्छा मिलान खोजता है।">Multilingual AI finds the best match for your skills and location.</p>
+      <div class="cn"></div>
+    </div>
+    <div class="stp">
+      <div class="stn">3</div>
+      <div class="sti" style="background:var(--wrl);color:var(--wr)">📱</div>
+      <h3 data-en="Connect on WhatsApp" data-hi="WhatsApp पर जुड़ें">Connect on WhatsApp</h3>
+      <p class="sen" data-en="Get matched contacts on WhatsApp. Call directly. Saarthi is just the bridge." data-hi="WhatsApp पर मिलान संपर्क मिलते हैं। सीधे कॉल करें। सारथी सिर्फ पुल है।">Get matched contacts on WhatsApp. Call directly. Saarthi is just the bridge.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- THREE PILLARS with images -->
+<section class="sec" id="pillars" style="background:var(--cream)">
+<div class="w">
+  <div class="st" data-en="What we do" data-hi="हम क्या करते हैं">What we do</div>
+  <div class="sh" data-en="Three pillars of Saarthi" data-hi="सारथी के तीन स्तंभ">Three pillars of Saarthi</div>
+  <p class="ss" data-en="Employment is just the start. We're building a complete support system." data-hi="रोज़गार तो बस शुरुआत है। हम एक पूरा सहयोग तंत्र बना रहे हैं।">Employment is just the start. We're building a complete support system.</p>
+
+  <!-- PILLAR 1: Employment -->
+  <div class="pil rv">
+    <div class="pil-body">
+      <div class="ph">
+        <div class="pi" style="background:var(--grl);color:var(--gr)">💼</div>
+        <div>
+          <h3 style="font-size:1.05rem;font-weight:700" data-en="Employment matching" data-hi="रोज़गार मिलान">Employment matching</h3>
+          <p style="font-size:.76rem;color:var(--tx3)" data-en="Connecting seekers with employers" data-hi="नौकरी चाहने वालों को नियोक्ताओं से जोड़ना">Connecting seekers with employers</p>
+        </div>
+      </div>
+      <p class="pd" data-en="We bridge the gap between local talent and local demand in rural and semi-urban areas — connecting youth with businesses, shops, and employers." data-hi="हम ग्रामीण और अर्ध-शहरी क्षेत्रों में स्थानीय युवाओं और व्यवसायों के बीच पुल का काम करते हैं।">We bridge the gap between local talent and local demand in rural and semi-urban areas — connecting youth with businesses, shops, and employers.</p>
+      <div class="pcg">
+        <div class="pc"><div class="pci">🏪</div><h4 data-en="Shops & retail" data-hi="दुकान और व्यापार">Shops & retail</h4><p data-en="Kirana · Clothing · Sweets · Local stores" data-hi="किराना · कपड़ा · मिठाई · दुकानें">Kirana · Clothing · Sweets · Local stores</p></div>
+        <div class="pc"><div class="pci">💻</div><h4 data-en="Computer & office work" data-hi="कंप्यूटर और दफ़्तर">Computer & office work</h4><p data-en="Tally · Data entry · Typing · Online" data-hi="टैली · डेटा एंट्री · टाइपिंग · ऑनलाइन">Tally · Data entry · Typing · Online</p></div>
+        <div class="pc"><div class="pci">🔨</div><h4 data-en="Labour, home & care" data-hi="मज़दूरी, घर और देखभाल">Labour, home & care</h4><p data-en="Construction · Driver · Guard · Cook · Helper" data-hi="निर्माण · ड्राइवर · गार्ड · कुक · हेल्पर">Construction · Driver · Guard · Cook · Helper</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PILLAR 2: Career Mentorship -->
+  <div class="pil rv">
+    <div class="pil-body">
+      <div class="ph">
+        <div class="pi" style="background:var(--pul);color:var(--pu)">🎓</div>
+        <div>
+          <h3 style="font-size:1.05rem;font-weight:700" data-en="Career mentorship" data-hi="करियर मार्गदर्शन">Career mentorship</h3>
+          <p style="font-size:.76rem;color:var(--tx3)" data-en="Guiding students toward the right path" data-hi="छात्रों को सही राह दिखाना">Guiding students toward the right path</p>
+        </div>
+      </div>
+      <p class="pd" data-en="Most students in rural India lack guidance on career paths. We're building a mentorship ecosystem where alumni help students make informed career decisions." data-hi="ग्रामीण भारत के अधिकांश छात्रों को करियर मार्गदर्शन नहीं मिलता। हम एक ऐसा तंत्र बना रहे हैं जहाँ पूर्व छात्र सही करियर निर्णय लेने में मदद करें।">Most students in rural India lack guidance on career paths. We're building a mentorship ecosystem where alumni help students make informed career decisions.</p>
+      <div class="pcg">
+        <div class="pc"><div class="pci">🧭</div><h4 data-en="Career guidance programs" data-hi="करियर मार्गदर्शन कार्यक्रम">Career guidance programs</h4><p data-en="Helping make informed decisions" data-hi="सोच-समझकर फ़ैसले लेने में मदद">Helping make informed decisions</p></div>
+        <div class="pc"><div class="pci">📚</div><h4 data-en="Scholarships & resources" data-hi="छात्रवृत्ति और संसाधन">Scholarships & resources</h4><p data-en="For high-intent, low-resource students" data-hi="मेहनती लेकिन संसाधनहीन छात्रों के लिए">For high-intent, low-resource students</p></div>
+        <div class="pc"><div class="pci">🏫</div><h4 data-en="School & college workshops" data-hi="स्कूल और कॉलेज कार्यशालाएं">School & college workshops</h4><p data-en="Awareness on real career options" data-hi="असली करियर विकल्पों पर जागरूकता">Awareness on real career options</p></div>
+      </div>
+      <div class="pq" style="background:rgba(109,40,217,.05);color:var(--pu)" data-en="&ldquo;We believe this problem can't be solved without parental guidance, community support, and understanding why education matters.&rdquo;" data-hi="&ldquo;हम मानते हैं कि यह समस्या माता-पिता के मार्गदर्शन, सामुदायिक सहयोग और शिक्षा की समझ के बिना हल नहीं हो सकती।&rdquo;">&ldquo;We believe this problem can't be solved without parental guidance, community support, and understanding why education matters.&rdquo;</div>
+    </div>
+  </div>
+
+  <!-- PILLAR 3: Community Support -->
+  <div class="pil rv">
+    <div class="pil-body">
+      <div class="ph">
+        <div class="pi" style="background:var(--wrl);color:var(--wr)">🌿</div>
+        <div>
+          <h3 style="font-size:1.05rem;font-weight:700" data-en="Small acts, big change" data-hi="छोटे कदम, बड़ा बदलाव">Small acts, big change</h3>
+          <p style="font-size:.76rem;color:var(--tx3)" data-en="Your kindness can shape their future" data-hi="आपकी दयालुता किसी का कल बदल सकती है">Your kindness can shape their future</p>
+        </div>
+      </div>
+      <p class="pd" data-en="You don't need money to change a life. Sometimes all it takes is showing up — with a meal, a book, an hour, or a smile." data-hi="किसी की ज़िंदगी बदलने के लिए पैसों की ज़रूरत नहीं। कभी एक थाली, कभी एक किताब, कभी बस एक घंटा — बदलाव यहीं से शुरू होता है।">You don't need money to change a life. Sometimes all it takes is showing up — with a meal, a book, an hour, or a smile.</p>
+      <div class="pcg">
+        <div class="pc"><div class="pci">🍲</div><h4 data-en="Feed & care" data-hi="खिलाएं और देखभाल करें">Feed & care</h4><p data-en="Share a meal, help the elderly, visit someone who has no one" data-hi="एक थाली बाँटें, बुज़ुर्गों की मदद करें, अकेले लोगों से मिलें">Share a meal, help the elderly, visit someone who has no one</p></div>
+        <div class="pc"><div class="pci">📚</div><h4 data-en="Teach & inspire" data-hi="सिखाएं और प्रेरित करें">Teach & inspire</h4><p data-en="Visit a school, donate books, play with kids, share your story" data-hi="स्कूल जाएं, किताबें दें, बच्चों से खेलें, अपनी कहानी सुनाएं">Visit a school, donate books, play with kids, share your story</p></div>
+        <div class="pc"><div class="pci">💚</div><h4 data-en="Show up & spread" data-hi="पहुँचें और फैलाएं">Show up & spread</h4><p data-en="Give your time, visit rural areas, share this page — kindness is contagious" data-hi="समय दें, गाँव जाएं, इस पेज को शेयर करें — दया संक्रामक है">Give your time, visit rural areas, share this page — kindness is contagious</p></div>
+      </div>
+      <div class="pq" style="background:rgba(212,96,44,.05);color:var(--wr)" data-en="&ldquo;No one should have to choose between eating today and building a future for tomorrow.&rdquo;" data-hi="&ldquo;किसी को आज का खाना और कल का भविष्य — इनमें से चुनना न पड़े।&rdquo;">&ldquo;No one should have to choose between eating today and building a future for tomorrow.&rdquo;</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+<div class="w">
+  <div class="abg">
+    <div class="abc rv">
+      <blockquote data-en="&ldquo;We believe dreams need guidance, and opportunity should never go to waste.&rdquo;" data-hi="&ldquo;सपनों को दिशा चाहिए, और अवसर कभी बर्बाद नहीं होना चाहिए।&rdquo;">&ldquo;We believe dreams need guidance, and opportunity should never go to waste.&rdquo;</blockquote>
+      <p class="cs" data-en="Founded on a dream, fuelled by passion." data-hi="एक सपने से जन्मा, जुनून से भरा।">Founded on a dream, fuelled by passion.</p>
+      <p class="cm" data-en="Whether it's a student seeking direction, a graduate facing confusion, or an employer looking for the right talent — we aim to empower, educate, and enable." data-hi="चाहे छात्र हो, ग्रेजुएट हो, या नियोक्ता — हमारा उद्देश्य सशक्त करना, शिक्षित करना और सक्षम बनाना है।">Whether it's a student seeking direction, a graduate facing confusion, or an employer looking for the right talent — we aim to empower, educate, and enable.</p>
+      <div class="br"><span class="bp">IIT</span><span class="bp">IIM</span><span class="bp">AIIMS</span><span class="bp">NLU</span><span class="bl" data-en="Alumni-led initiative" data-hi="पूर्व छात्रों की पहल">Alumni-led initiative</span></div>
+    </div>
+    <div class="abt rv">
+      <div class="st" data-en="About us" data-hi="हमारे बारे में">About us</div>
+      <div class="sh" data-en="Built by people who grew up in towns like yours" data-hi="उन लोगों द्वारा बनाया जो आपके जैसे कस्बों में पले-बढ़े">Built by people who grew up in towns like yours</div>
+      <p data-en="We are graduates from IITs, IIMs, AIIMS, NLUs — united by a shared vision of giving back to our roots. We understand the gap between ability and opportunity." data-hi="हम IITs, IIMs, AIIMS, NLUs से पढ़े — जड़ों को वापस देने की साझा दृष्टि से एकजुट। हम काबिलियत और अवसर के बीच की खाई समझते हैं।">We are graduates from IITs, IIMs, AIIMS, NLUs — united by a shared vision of giving back to our roots. We understand the gap between ability and opportunity.</p>
+      <p data-en="Saarthi uses AI matching, WhatsApp automation, and data-driven insights to connect people who need work with people who need workers." data-hi="सारथी AI मिलान, WhatsApp ऑटोमेशन, और डेटा इनसाइट्स से काम चाहने वालों को काम देने वालों से जोड़ता है।">Saarthi uses AI matching, WhatsApp automation, and data-driven insights to connect people who need work with people who need workers.</p>
+      <div class="vr">
+        <div class="vc"><span class="vd" style="background:var(--gr)"></span> <span data-en="100% free" data-hi="100% मुफ़्त">100% free</span></div>
+        <div class="vc"><span class="vd" style="background:var(--wr)"></span> <span data-en="No middlemen" data-hi="कोई बिचौलिया नहीं">No middlemen</span></div>
+        <div class="vc"><span class="vd" style="background:var(--pu)"></span> <span data-en="AI-powered" data-hi="AI-संचालित">AI-powered</span></div>
+        <div class="vc"><span class="vd" style="background:#2563EB"></span> <span data-en="Community-first" data-hi="समुदाय-प्रथम">Community-first</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- DIGNITY BANNER -->
+<section style="padding:2rem 0;background:var(--bg)">
+<div class="w">
+  <div class="dig rv">
+    <p data-en="&ldquo;The hand that makes the bread deserves respect too. Saarthi only connects — employer and effort. We hope those who hire will give fair treatment, dignity, and honest pay.&rdquo;" data-hi="&ldquo;जिस हाथ से रोटी बनती है, उस हाथ का भी सम्मान हो। सारथी सिर्फ जोड़ता है — मालिक और मेहनत को। उसे इंसाफ़, इज्ज़त और सही मेहनताना ज़रूर दें।&rdquo;">&ldquo;The hand that makes the bread deserves respect too. Saarthi only connects — employer and effort. We hope those who hire will give fair treatment, dignity, and honest pay.&rdquo;</p>
+  </div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="register">
+<div class="w">
+  <h2 data-en="We believe in hope." data-hi="हम उम्मीद में विश्वास करते हैं।">We believe in hope.</h2>
+  <p class="chi" data-en="Dreams need guidance. Opportunity should never go to waste." data-hi="सपनों को दिशा चाहिए। अवसर कभी बर्बाद नहीं होना चाहिए।">Dreams need guidance. Opportunity should never go to waste.</p>
+  <p class="cd" data-en="Whether you're looking for work, looking to hire, or want to volunteer — Saarthi is here." data-hi="चाहे काम ढूंढ रहे हों, कर्मचारी चाहिए, या स्वयंसेवा करना हो — सारथी तैयार है।">Whether you're looking for work, looking to hire, or want to volunteer — Saarthi is here.</p>
+  <div class="cbs">
+    <a href="https://forms.gle/o3rcneE2MNVFH863A" class="btn bg" target="_blank" data-en="Register now — it's free →" data-hi="अभी रजिस्टर करें — मुफ़्त →">Register now — it's free →</a>
+    <a href="https://wa.me/919509731448?text=Hi%20Saarthi%20%F0%9F%99%8F" class="btn bo" target="_blank" data-en="WhatsApp us" data-hi="WhatsApp पर संपर्क करें">WhatsApp us</a>
+  </div>
+  <p class="cn2" data-en="Your data is safe. We never share without consent. Zero fees, always." data-hi="आपका डेटा सुरक्षित है। बिना सहमति साझा नहीं करते। कभी शुल्क नहीं।">Your data is safe. We never share without consent. Zero fees, always.</p>
+</div>
+</section>
+
+<!-- BE SOMEONE'S SAARTHI -->
+<section class="vol">
+<div class="w vc2">
+  <h2 class="rv" data-en="Be Someone's Saarthi" data-hi="किसी के सारथी बनें">Be Someone's Saarthi</h2>
+  <p class="vp rv" data-en="You don't need money to make a difference. Share your time, your skills, or your story. Every small act builds a better community." data-hi="फ़र्क लाने के लिए पैसों की ज़रूरत नहीं। अपना समय दें, हुनर बाँटें, या कहानी सुनाएं। हर छोटा कदम एक बेहतर समुदाय बनाता है।">You don't need money to make a difference. Share your time, your skills, or your story. Every small act builds a better community.</p>
+  <div class="pills rv">
+    <span class="pill" data-en="Visit a school" data-hi="स्कूल जाएं">Visit a school</span>
+    <span class="pill" data-en="Mentor a student" data-hi="छात्र को मार्गदर्शन दें">Mentor a student</span>
+    <span class="pill" data-en="Share job leads" data-hi="नौकरी की जानकारी साझा करें">Share job leads</span>
+    <span class="pill" data-en="Donate books" data-hi="किताबें दान करें">Donate books</span>
+  </div>
+  <a href="https://forms.gle/o3rcneE2MNVFH863A" class="btn bg rv" target="_blank" style="font-size:.92rem;padding:.85rem 2rem" data-en="I want to volunteer →" data-hi="मैं स्वयंसेवा करना चाहता हूँ →">I want to volunteer →</a>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="w">
+  <div class="fi">
+    <div class="fb2">Saarthi Trust — सारथी ट्रस्ट</div>
+    <div class="fl">
+      <a href="https://instagram.com/saarthi.trust" target="_blank">Instagram</a>
+      <a href="https://facebook.com/officialsaarthi" target="_blank">Facebook</a>
+      <a href="/cdn-cgi/l/email-protection#6a190b0b181e02031e181f191e2a0d070b030644090507">Email</a>
+    </div>
+  </div>
+  <div class="fc">© 2025 Saarthi Trust. An initiative by IIT, IIM & AIIMS alumni for Bharat. Founded on a dream, fuelled by passion. Because we believe in hope. 🇮🇳</div>
+</div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){nav.classList.toggle('sc',window.scrollY>40)});
+if('IntersectionObserver' in window){
+  document.documentElement.classList.add('rv-ready');
+  var obs=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('v');obs.unobserve(x.target)}})},{threshold:0.05,rootMargin:'0px 0px -20px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){obs.observe(el)});
+  setTimeout(function(){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('v')})},3000);
+}
+
+// Count-up animation for impact numbers
+function animateCount(el, target, suffix, duration) {
+  var start = 0;
+  var isRupee = suffix.indexOf('₹') !== -1 || el.textContent.indexOf('₹') !== -1;
+  var rawTarget = target;
+  var step = rawTarget / (duration / 16);
+  var timer = setInterval(function() {
+    start += step;
+    if (start >= rawTarget) { start = rawTarget; clearInterval(timer); }
+    el.textContent = (isRupee ? '₹' : '') + (start < 10 ? Math.round(start) : Math.floor(start)) + suffix;
+  }, 16);
+}
+var impactObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      var nums = entry.target.querySelectorAll('.in');
+      var configs = [
+        { target: 145, suffix: '+' },
+        { target: 13, suffix: '' },
+        { target: 15, suffix: '+' },
+        { target: 0, suffix: '', prefix: '₹' }
+      ];
+      nums.forEach(function(el, i) {
+        var cfg = configs[i];
+        if (!cfg) return;
+        if (cfg.prefix === '₹') { el.textContent = '₹0'; return; }
+        animateCount(el, cfg.target, cfg.suffix, 1200);
+      });
+      impactObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+var impSection = document.querySelector('.imp');
+if (impSection) impactObserver.observe(impSection);
+
+var hi=false;
+function toggleLang(){
+  hi=!hi;
+  document.getElementById('langBtn').textContent=hi?'English':'हिंदी';
+  document.documentElement.lang=hi?'hi':'en';
+  // Update page title and meta description
+  if (hi) {
+    document.title = 'सारथी ट्रस्ट | Saarthi Trust';
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', 'ग्रामीण युवाओं के लिए मुफ़्त रोज़गार मिलान, करियर मार्गदर्शन और सामुदायिक सहयोग। IIT, IIM, AIIMS के पूर्व छात्रों द्वारा।');
+  } else {
+    document.title = 'Saarthi Trust | सारथी ट्रस्ट';
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', 'Free employment matching, career mentorship, and community support for rural youth across India. By IIT, IIM, AIIMS alumni.');
+  }
+  var els=document.querySelectorAll('[data-en]');
+  for(var i=0;i<els.length;i++){
+    var val=els[i].getAttribute(hi?'data-hi':'data-en');
+    if(val)els[i].innerHTML=val;
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})});
+</script>
+</body>
+</html>
