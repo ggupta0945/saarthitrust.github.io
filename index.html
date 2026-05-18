@@ -182,6 +182,24 @@ nav.sc{box-shadow:0 2px 20px rgba(0,0,0,.06)}
 .dig{max-width:660px;margin:0 auto;text-align:center;padding:1.2rem 1.6rem;background:var(--grl);border-radius:12px;border:1px solid rgba(27,122,74,.1)}
 .dig p{font-size:.85rem;color:var(--grd);line-height:1.7;font-family:var(--fh)}
 
+/* FAQ (homepage compact) */
+.faq-intro{display:flex;justify-content:space-between;align-items:flex-end;gap:1.2rem;flex-wrap:wrap;margin-bottom:1.6rem}
+.faq-intro .fi-left{flex:1;min-width:240px}
+.faq-all{font-size:.82rem;font-weight:600;color:var(--gr);white-space:nowrap;display:inline-flex;align-items:center;gap:.25rem;transition:.2s}
+.faq-all:hover{transform:translateX(2px)}
+.faq-list{display:flex;flex-direction:column;gap:.6rem;max-width:820px}
+.faq-item{background:#fff;border:1px solid var(--sand);border-radius:12px;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.faq-item[open]{border-color:rgba(27,122,74,.22);box-shadow:0 4px 18px rgba(0,0,0,.04)}
+.faq-item summary{padding:.95rem 1.25rem;cursor:pointer;font-weight:600;font-size:.93rem;line-height:1.5;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;list-style:none;color:var(--tx);transition:color .2s}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:hover{color:var(--gr)}
+.faq-item summary::after{content:'+';font-size:1.4rem;color:var(--gr);transition:transform .25s;flex-shrink:0;font-weight:300;line-height:1;margin-top:.05rem;width:18px;text-align:center}
+.faq-item[open] summary::after{content:'−'}
+.faq-body{padding:.25rem 1.25rem 1.15rem;border-top:1px solid var(--sand)}
+.faq-body p{font-size:.85rem;color:var(--tx2);line-height:1.75;margin-top:.85rem}
+.faq-foot{margin-top:1.4rem;font-size:.82rem;color:var(--tx3)}
+.faq-foot a{font-weight:600}
+
 /* VOLUNTEER */
 .vol{padding:4rem 0;background:var(--grl)}
 .vc2{max-width:700px;margin:0 auto;text-align:center}
@@ -217,6 +235,7 @@ footer{padding:2rem 0;background:var(--tx);color:rgba(255,255,255,.5)}
   <div class="nr">
     <a href="#how" class="hm">How it works</a>
     <a href="#pillars" class="hm">What we do</a>
+    <a href="#faq" class="hm" data-en="FAQ" data-hi="सवाल-जवाब">FAQ</a>
     <a href="#about" class="hm">About</a>
     <button class="lb" onclick="toggleLang()" id="langBtn">हिंदी</button>
     <a href="https://forms.gle/o3rcneE2MNVFH863A" class="nc" target="_blank" data-en="Register free →" data-hi="मुफ़्त रजिस्टर →">Register free →</a>
@@ -567,12 +586,63 @@ footer{padding:2rem 0;background:var(--tx);color:rgba(255,255,255,.5)}
 </div>
 </section>
 
+<!-- FAQ (homepage compact — top 4, sits last before footer) -->
+<section class="sec" id="faq">
+<div class="w">
+  <div class="faq-intro">
+    <div class="fi-left">
+      <div class="st" data-en="Got doubts?" data-hi="कोई शंका है?">Got doubts?</div>
+      <div class="sh" data-en="Quick honest answers" data-hi="ईमानदार जवाब, सीधे शब्दों में">Quick honest answers</div>
+      <p class="ss" style="margin-bottom:0" data-en="The questions we get asked most — answered in plain English and Hindi." data-hi="सबसे ज़्यादा पूछे जाने वाले सवाल — सरल हिंदी और अंग्रेज़ी में।">The questions we get asked most — answered in plain English and Hindi.</p>
+    </div>
+    <a href="faq.html" class="faq-all" data-en="See all questions →" data-hi="सभी सवाल देखें →">See all questions →</a>
+  </div>
+
+  <div class="faq-list rv">
+
+    <details class="faq-item">
+      <summary data-en="Is this really free? Will you ever ask me for money?" data-hi="क्या यह सच में मुफ़्त है? क्या आप कभी मुझसे पैसे माँगेंगे?">Is this really free? Will you ever ask me for money?</summary>
+      <div class="faq-body">
+        <p data-en="Yes, completely free. We will never ask you for any fee — not for registration, not for matching, not for &lsquo;premium access,&rsquo; not ever. If anyone claiming to represent Saarthi asks you for money, please report it to us on WhatsApp immediately." data-hi="हाँ, पूरी तरह मुफ़्त। हम आपसे कभी कोई शुल्क नहीं माँगेंगे — न रजिस्ट्रेशन के लिए, न मिलान के लिए, न किसी &lsquo;प्रीमियम&rsquo; के लिए, कभी नहीं। अगर कोई व्यक्ति सारथी का नाम लेकर पैसे माँगे, तो कृपया तुरंत WhatsApp पर हमें बताएं।">Yes, completely free. We will never ask you for any fee — not for registration, not for matching, not for &lsquo;premium access,&rsquo; not ever. If anyone claiming to represent Saarthi asks you for money, please report it to us on WhatsApp immediately.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary data-en="How long will it take to find me a job? How does the matching work?" data-hi="मेरे लिए काम ढूंढने में कितना समय लगेगा? मिलान कैसे होता है?">How long will it take to find me a job? How does the matching work?</summary>
+      <div class="faq-body">
+        <p data-en="There's no manual process involved in matching. We've built an AI-powered multilingual system that runs on a weekly basis, finding the best match based on inputs from both sides — job seekers and employers." data-hi="मिलान की प्रक्रिया में कोई manual काम शामिल नहीं है। हमने एक AI-आधारित multilingual system बनाया है जो हर हफ़्ते चलता है, और दोनों तरफ़ — नौकरी ढूँढने वालों और एम्प्लॉयर्स — से मिले इनपुट के आधार पर सबसे अच्छा मिलान ढूँढता है।">There's no manual process involved in matching. We've built an AI-powered multilingual system that runs on a weekly basis, finding the best match based on inputs from both sides — job seekers and employers.</p>
+        <p data-en="Most matches are shared within 1&ndash;2 weekly runs, sent directly to you on WhatsApp. If nothing fits yet, your profile stays in the system and is considered every week." data-hi="ज़्यादातर मिलान 1&ndash;2 हफ़्ते के अंदर WhatsApp पर भेज दिए जाते हैं। अभी कुछ सही नहीं मिला तो आपका profile हर हफ़्ते दोबारा देखा जाता है।">Most matches are shared within 1&ndash;2 weekly runs, sent directly to you on WhatsApp. If nothing fits yet, your profile stays in the system and is considered every week.</p>
+        <p data-en="We built it this way for one reason: so every person gets a fair, unbiased chance — and so the solution can scale as we grow." data-hi="हमने इसे ऐसे क्यों बनाया? एक ही वजह से — ताकि हर व्यक्ति को निष्पक्ष और बराबरी का मौक़ा मिले, और जैसे-जैसे हम बढ़ें, यह तरीक़ा और लोगों तक पहुँच सके।">We built it this way for one reason: so every person gets a fair, unbiased chance — and so the solution can scale as we grow.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary data-en="Who is behind Saarthi Trust?" data-hi="सारथी ट्रस्ट के पीछे कौन है?">Who is behind Saarthi Trust?</summary>
+      <div class="faq-body">
+        <p data-en="A small team of alumni from IITs, IIMs, AIIMS and NLUs — most of us grew up in towns and villages and understand the gap between ability and opportunity. We are registered as a Trust under the Indian Trusts Act." data-hi="IIT, IIM, AIIMS और NLU के पूर्व छात्रों की एक छोटी टीम — हम में से ज़्यादातर कस्बों और गाँवों में पले-बढ़े हैं। हम Indian Trusts Act के तहत पंजीकृत ट्रस्ट हैं।">A small team of alumni from IITs, IIMs, AIIMS and NLUs — most of us grew up in towns and villages and understand the gap between ability and opportunity. We are registered as a Trust under the Indian Trusts Act.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary data-en="What if you can't find anything for me?" data-hi="अगर आप मेरे लिए कुछ नहीं ढूंढ पाए तो?">What if you can't find anything for me?</summary>
+      <div class="faq-body">
+        <p data-en="It happens. Sometimes there's no local demand for a specific skill, or your area isn't yet covered by our employer network. If that's the case, we'll tell you honestly — and may suggest free skill courses that could open more matches. We don't make false promises." data-hi="ऐसा होता है। कभी-कभी आपके क्षेत्र में किसी स्किल की माँग नहीं होती, या वहाँ हमारा एम्प्लॉयर नेटवर्क नहीं पहुँचा। ऐसा हो तो हम सीधे बताएंगे — और कौशल सीखने के लिए मुफ़्त संसाधन सुझाएँगे। हम झूठे वादे नहीं करते।">It happens. Sometimes there's no local demand for a specific skill, or your area isn't yet covered by our employer network. If that's the case, we'll tell you honestly — and may suggest free skill courses that could open more matches. We don't make false promises.</p>
+      </div>
+    </details>
+
+  </div>
+
+  <p class="faq-foot" data-en="More questions about hiring, partnerships, or how to help? <a href='faq.html'>Read all 8 →</a>" data-hi="भर्ती, साझेदारी, या मदद कैसे करें — और सवाल? <a href='faq.html'>पूरे 8 पढ़ें →</a>">More questions about hiring, partnerships, or how to help? <a href="faq.html">Read all 8 →</a></p>
+</div>
+</section>
+
 <!-- FOOTER -->
 <footer>
 <div class="w">
   <div class="fi">
     <div class="fb2">Saarthi Trust — सारथी ट्रस्ट</div>
     <div class="fl">
+      <a href="faq.html" data-en="FAQ" data-hi="सवाल-जवाब">FAQ</a>
       <a href="https://instagram.com/saarthi.trust" target="_blank">Instagram</a>
       <a href="https://facebook.com/officialsaarthi" target="_blank">Facebook</a>
       <a href="/cdn-cgi/l/email-protection#6a190b0b181e02031e181f191e2a0d070b030644090507">Email</a>
