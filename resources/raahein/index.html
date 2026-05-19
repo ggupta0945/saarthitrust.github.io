@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raahein · Possibilities ahead | Saarthi Trust</title>
+<meta name="description" content="A scrollable map of where science, math, and engineering can actually take you — from Class 10 to age 30. By Saarthi Trust.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://saarthitrust.org/resources/raahein/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Raahein · Possibilities ahead | Saarthi Trust">
+<meta property="og:description" content="A future built on curiosity, not pressure. The map of life after Class 10.">
+<meta property="og:image" content="https://saarthitrust.org/og-image.jpg">
+<meta property="og:url" content="https://saarthitrust.org/resources/raahein/">
+<meta property="og:locale" content="en_IN">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Raahein · Possibilities ahead | Saarthi Trust">
+<meta name="twitter:description" content="A future built on curiosity, not pressure.">
+<meta name="twitter:image" content="https://saarthitrust.org/og-image.jpg">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231B7A4A'/><text y='22' x='4' font-size='20'>🛤️</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Libre+Baskerville:wght@400;700&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.4.0/dist/tabler-icons.min.css" rel="stylesheet">
+
+<style>
+/* ============================================================
+   Inherits the site's design tokens exactly — keep in sync with
+   index.html if you ever change colors / fonts globally.
+   ============================================================ */
+:root{
+  --bg:#FAFAF7; --cream:#FAF8F3; --sand:#E8E4DA;
+  --tx:#1A1A18; --tx2:#5C5B56; --tx3:#6b6965;
+  --gr:#1B7A4A; --grl:#E8F5EE; --grd:#0F5630;
+  --wr:#D4602C; --wrl:#FDF0EA;
+  --pu:#6D28D9; --pul:#EDE9FE;
+  --fd:'Book Antiqua','Libre Baskerville','Palatino Linotype',Palatino,serif;
+  --fb:'DM Sans',sans-serif;
+  --fh:'Noto Sans Devanagari','DM Sans',sans-serif;
+  --mw:1080px;
+  /* aliases used by the embedded journey content */
+  --color-background-primary:#fff;
+  --color-background-secondary:var(--cream);
+  --color-text-primary:var(--tx);
+  --color-text-secondary:var(--tx2);
+  --color-text-tertiary:var(--tx3);
+  --color-border-secondary:var(--sand);
+  --color-border-tertiary:var(--sand);
+  --border-radius-lg:12px;
+  --border-radius-md:8px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:var(--fb);line-height:1.55;-webkit-font-smoothing:antialiased}
+:lang(hi),[lang="hi"] body{font-family:var(--fh)}
+a{color:inherit;text-decoration:none}
+em{font-style:italic;color:var(--gr)}
+
+.w{max-width:var(--mw);margin:0 auto;padding:0 24px}
+.skip-link{position:absolute;left:-9999px}
+.skip-link:focus{left:8px;top:8px;background:var(--gr);color:#fff;padding:8px 12px;border-radius:6px;z-index:100}
+
+/* ---------- NAV (matches index.html) ---------- */
+nav#nav{position:sticky;top:0;background:rgba(250,250,247,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--sand);z-index:50}
+.ni{max-width:var(--mw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.nl{font-family:var(--fd);font-size:21px;font-weight:700;color:var(--tx)}
+.nl i{color:var(--gr);font-style:normal}
+.nr{display:flex;align-items:center;gap:22px}
+.hm{font-size:14px;color:var(--tx2);font-weight:500}
+.hm:hover{color:var(--gr)}
+.lb{background:none;border:1px solid var(--sand);padding:6px 12px;border-radius:20px;font-size:13px;color:var(--tx2);cursor:pointer;font-family:inherit}
+.lb:hover{border-color:var(--gr);color:var(--gr)}
+.nc{background:var(--gr);color:#fff;padding:9px 16px;border-radius:24px;font-size:14px;font-weight:500}
+.nc:hover{background:var(--grd)}
+@media(max-width:720px){.nr{gap:12px}.hm{display:none}}
+
+/* ---------- PAGE HEADER ---------- */
+.page-hd{padding:70px 0 50px;text-align:center;border-bottom:1px solid var(--sand)}
+.crumb{font-size:13px;color:var(--tx3);margin-bottom:14px;letter-spacing:.04em;text-transform:uppercase}
+.crumb a{color:var(--gr)}
+.page-hd h1{font-family:var(--fd);font-size:clamp(36px,5.5vw,56px);font-weight:700;line-height:1.1;margin-bottom:18px;letter-spacing:-.01em}
+.page-hd h1 em{font-style:italic;color:var(--gr)}
+.page-hd .lead{font-size:18px;color:var(--tx2);max-width:620px;margin:0 auto;line-height:1.6}
+.page-hd .hi-tag{font-family:var(--fh);font-size:16px;color:var(--gr);margin-top:14px;font-style:italic}
+.page-hd .badges{display:flex;gap:10px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+.bdg{background:var(--cream);border:1px solid var(--sand);padding:7px 14px;border-radius:20px;font-size:13px;color:var(--tx2)}
+.bdg b{color:var(--gr);font-weight:600}
+
+/* ---------- CATEGORY SECTIONS ---------- */
+.sec{padding:64px 0;border-bottom:1px solid var(--sand)}
+.sec:last-of-type{border-bottom:none}
+.st{font-size:13px;color:var(--gr);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+.sh{font-family:var(--fd);font-size:32px;font-weight:700;line-height:1.2;margin-bottom:10px}
+.ss{font-size:16px;color:var(--tx2);max-width:580px;margin-bottom:36px}
+
+/* ---------- RESOURCE CARDS ---------- */
+.rcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.rcard{background:#fff;border:1px solid var(--sand);border-radius:14px;padding:24px;display:flex;flex-direction:column;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;position:relative}
+.rcard:hover{transform:translateY(-3px);border-color:var(--gr);box-shadow:0 12px 32px -16px rgba(27,122,74,.18)}
+.ri{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
+.rtag{position:absolute;top:18px;right:18px;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--tx3);background:var(--cream);padding:4px 9px;border-radius:10px;border:1px solid var(--sand)}
+.rcard h3{font-family:var(--fd);font-size:19px;font-weight:700;line-height:1.3;margin-bottom:8px;padding-right:60px}
+.rcard .hi-sub{font-family:var(--fh);font-size:14px;color:var(--gr);margin-bottom:12px;font-style:italic}
+.rcard p{font-size:14px;color:var(--tx2);line-height:1.55;margin-bottom:18px;flex-grow:1}
+.rcard .meta{display:flex;gap:14px;font-size:12px;color:var(--tx3);margin-bottom:14px}
+.rcard .meta span{display:flex;align-items:center;gap:4px}
+.rcard .actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn-dl{background:var(--gr);color:#fff;padding:9px 16px;border-radius:22px;font-size:13px;font-weight:500;display:inline-flex;align-items:center;gap:6px;border:none;cursor:pointer;font-family:inherit;transition:background .15s ease}
+.btn-dl:hover{background:var(--grd)}
+.btn-dl[disabled]{background:var(--sand);color:var(--tx3);cursor:not-allowed}
+.btn-dl[disabled]:hover{background:var(--sand)}
+.btn-ext{background:transparent;color:var(--gr);padding:9px 14px;border-radius:22px;font-size:13px;font-weight:500;border:1px solid var(--gr);display:inline-flex;align-items:center;gap:6px}
+.btn-ext:hover{background:var(--grl)}
+.fb-btns{display:flex;gap:6px;margin-left:auto;align-items:center}
+.fb-lbl{font-size:11px;color:var(--tx3);margin-right:4px}
+.fb-btn{background:none;border:1px solid var(--sand);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;padding:0;transition:all .15s ease}
+.fb-btn:hover{border-color:var(--gr);background:var(--grl)}
+.fb-btn.active{background:var(--grl);border-color:var(--gr)}
+.coming{opacity:.7}
+.coming .ri{background:var(--cream)!important;color:var(--tx3)!important}
+
+/* ---------- TWO-COL HELP CTA ---------- */
+.cta{padding:64px 0;background:var(--cream);border-top:1px solid var(--sand);border-bottom:1px solid var(--sand)}
+.cta .w{text-align:center;max-width:680px}
+.cta h2{font-family:var(--fd);font-size:30px;font-weight:700;margin-bottom:12px}
+.cta p{font-size:16px;color:var(--tx2);margin-bottom:24px;line-height:1.6}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta-btn-p{background:var(--gr);color:#fff;padding:13px 26px;border-radius:30px;font-size:15px;font-weight:500}
+.cta-btn-p:hover{background:var(--grd)}
+.cta-btn-s{background:#fff;color:var(--tx);padding:13px 26px;border-radius:30px;font-size:15px;font-weight:500;border:1px solid var(--sand)}
+.cta-btn-s:hover{border-color:var(--gr);color:var(--gr)}
+
+/* ---------- FOOTER ---------- */
+footer{padding:48px 0 32px;background:var(--bg)}
+.fi{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:24px}
+.fb2{font-family:var(--fd);font-size:18px;font-weight:700}
+.fl{display:flex;gap:18px;font-size:14px;color:var(--tx2)}
+.fl a:hover{color:var(--gr)}
+.fc{font-size:13px;color:var(--tx3);text-align:center;line-height:1.6;padding-top:24px;border-top:1px solid var(--sand)}
+
+/* ---------- INTRO ---------- */
+.intro{padding:54px 0 14px}
+.intro .w{max-width:720px}
+.intro p{font-size:18px;color:var(--tx2);line-height:1.7;text-align:center}
+.intro p b{color:var(--tx);font-weight:600}
+.intro .hi-line{font-family:var(--fh);font-size:15px;color:var(--gr);text-align:center;margin-top:14px;font-style:italic}
+
+/* ---------- CAREER JOURNEYS ---------- */
+.jcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.jcard{background:#fff;border:1px solid var(--sand);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:14px;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;position:relative}
+.jcard:hover{transform:translateY(-3px);border-color:var(--gr);box-shadow:0 12px 32px -16px rgba(27,122,74,.18)}
+.jcard.featured{background:linear-gradient(135deg,var(--grl) 0%,#fff 60%);border-color:var(--gr)}
+.jcard.placeholder{background:var(--cream);border-style:dashed}
+.jcard.share{background:var(--cream);align-items:flex-start}
+.jc-head{display:flex;align-items:center;gap:12px}
+.jc-avatar{width:46px;height:46px;border-radius:50%;background:var(--gr);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;font-family:var(--fd);flex-shrink:0}
+.jc-avatar.gray{background:var(--sand);color:var(--tx3)}
+.jc-name{font-family:var(--fd);font-size:17px;font-weight:700;line-height:1.2}
+.jc-now{font-size:13px;color:var(--tx3);margin-top:3px}
+.jc-arc{font-size:14px;color:var(--tx2);padding-bottom:10px;border-bottom:1px dashed var(--sand)}
+.jc-arc b{color:var(--gr);font-weight:600}
+.jc-story{font-size:14px;color:var(--tx2);line-height:1.6;flex-grow:1;margin:0}
+.jc-steps{display:flex;flex-wrap:wrap;gap:6px}
+.jc-steps span{background:var(--cream);border:1px solid var(--sand);padding:4px 10px;border-radius:14px;font-size:12px;color:var(--tx2)}
+.jcard.featured .jc-steps span{background:#fff}
+.jc-quote{font-family:var(--fd);font-style:italic;font-size:14px;color:var(--tx);border-left:3px solid var(--gr);padding:2px 0 2px 12px;line-height:1.5}
+.jcard.placeholder h4{font-family:var(--fd);font-size:17px;font-weight:700;margin:0}
+.jcard.share .jc-icon{font-size:30px}
+.jcard.share h4{font-family:var(--fd);font-size:17px;font-weight:700;margin:0}
+.jcard.share p{font-size:14px;color:var(--tx2);line-height:1.55;margin:0;flex-grow:1}
+.btn-share{background:var(--gr);color:#fff;padding:10px 18px;border-radius:22px;font-size:13px;font-weight:500;align-self:flex-start;display:inline-flex;align-items:center;gap:6px}
+.btn-share:hover{background:var(--grd)}
+.btn-share.outline{background:transparent;color:var(--gr);border:1px solid var(--gr)}
+.btn-share.outline:hover{background:var(--grl)}
+
+/* ---------- GOV STRIP ---------- */
+.gov-disclaimer{background:var(--wrl);border:1px solid #f4d4be;border-radius:10px;padding:12px 16px;font-size:13px;color:var(--tx);margin-bottom:22px;line-height:1.55}
+.gov-disclaimer b{color:var(--wr)}
+.gov-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.gov-link{background:#fff;border:1px solid var(--sand);padding:18px 20px;border-radius:12px;display:flex;flex-direction:column;gap:4px;transition:transform .15s ease,border-color .15s ease}
+.gov-link:hover{border-color:var(--gr);transform:translateY(-2px)}
+.gov-link b{font-family:var(--fd);font-size:16px;color:var(--tx);font-weight:700}
+.gov-link span{font-size:13px;color:var(--tx3)}
+.gov-link em{font-size:12px;color:var(--gr);font-style:normal;margin-top:6px}
+
+/* ---------- FEATURED JOURNEY ---------- */
+.feat-sec{padding:64px 0;background:linear-gradient(180deg,var(--grl) 0%,#fff 40%);border-bottom:1px solid var(--sand)}
+.feat-sec .w{max-width:760px}
+.feat-sec .st{text-align:center;margin-bottom:14px}
+.feat-sec .sh{text-align:center;font-size:clamp(28px,4.2vw,40px);line-height:1.15;margin-bottom:14px}
+.feat-quote{text-align:center;font-family:var(--fd);font-style:italic;font-size:18px;color:var(--gr);margin:0 auto;max-width:520px}
+.feat-quote-hi{text-align:center;font-family:var(--fh);font-size:15px;color:var(--tx3);margin-top:6px;font-style:italic}
+.feat-journey{margin-top:40px}
+.feat-journey .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.feat-mid-tag{font-family:var(--fd);font-style:italic;font-size:15px;color:var(--tx2);text-align:center;line-height:1.55;max-width:480px;margin:24px auto;padding:0 16px}
+.feat-close{margin-top:40px}
+.closing-quote{font-family:var(--fd);font-style:italic;font-size:18px;color:var(--tx);line-height:1.55;text-align:center;max-width:540px;margin:0 auto;padding:24px 28px;background:var(--cream);border-radius:14px;border:1px solid var(--sand)}
+
+/* ---------- POSTCARD ---------- */
+.postcard-section{width:100%;margin-top:36px}
+.postcard-eyebrow{font-size:12px;color:var(--gr);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;text-align:center}
+.postcard-h3{font-family:var(--fd);font-size:22px;font-weight:700;line-height:1.3;text-align:center;margin:0 auto 24px;color:var(--tx);max-width:520px}
+.postcard{display:grid;grid-template-columns:160px 1fr;gap:24px;background:#fff;border:1px solid var(--sand);border-radius:14px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,.05);position:relative;overflow:hidden}
+.postcard::before{content:'';position:absolute;top:0;right:0;bottom:0;width:5px;background:repeating-linear-gradient(45deg,var(--gr) 0 6px,transparent 6px 12px);opacity:.4}
+.postcard-photo{aspect-ratio:1/1;background:linear-gradient(135deg,var(--grl),var(--cream));border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:64px;font-weight:700;color:var(--gr);align-self:start;overflow:hidden}
+.postcard-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.postcard-meta{margin-bottom:14px;padding-bottom:14px;border-bottom:1px dashed var(--sand)}
+.postcard-meta strong{font-family:var(--fd);font-size:18px;display:block;font-weight:700;color:var(--tx)}
+.postcard-meta span{font-size:13px;color:var(--tx2);font-style:italic}
+.postcard-body{font-size:14px;line-height:1.65;color:var(--tx2)}
+.postcard-body p{margin:0 0 12px}
+.postcard-body p:last-child{margin-bottom:0}
+.postcard-body em{font-style:italic;color:var(--tx)}
+.postcard-body .pc-key{background:var(--cream);padding:14px 16px;border-radius:10px;margin:14px 0;font-style:italic;color:var(--tx);border-left:3px solid var(--gr);line-height:1.6}
+.postcard-body .pc-steps{display:flex;flex-direction:column;gap:10px;margin:14px 0;padding:14px 16px;background:var(--cream);border-radius:10px}
+.postcard-body .pc-steps>div{font-size:13px;line-height:1.6;color:var(--tx2);margin:0}
+.postcard-body .pc-steps b{color:var(--tx);font-weight:600;font-family:var(--fd)}
+.postcard-sign{margin-top:18px;padding-top:14px;border-top:1px dashed var(--sand);font-family:var(--fd);font-style:italic;color:var(--gr);font-size:14px}
+@media(max-width:600px){
+  .postcard{grid-template-columns:1fr}
+  .postcard-photo{width:120px;height:120px;margin:0 auto;aspect-ratio:auto;font-size:48px}
+}
+
+/* ---------- ENGINEERING BRANCHES ---------- */
+.branches-section{width:100%;margin-top:40px}
+.branches-intro{font-size:14px;color:var(--tx2);line-height:1.65;text-align:center;max-width:600px;margin:0 auto 28px}
+.branches-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+.branch-card{background:#fff;border:1px solid var(--sand);border-radius:12px;padding:20px;display:flex;flex-direction:column}
+.branch-card h4{font-family:var(--fd);font-size:16px;font-weight:700;margin:0 0 2px;line-height:1.3;color:var(--tx)}
+.branch-card .branch-sub{font-size:12px;color:var(--tx3);margin-bottom:14px}
+.branch-card p{font-size:13px;color:var(--tx2);line-height:1.55;margin:0 0 10px}
+.branch-card p b{color:var(--tx);font-weight:600}
+.branch-salary{background:var(--grl);border-radius:8px;padding:8px 10px;font-size:12px;color:var(--grd);margin:6px 0 10px;line-height:1.5}
+.branch-salary b{color:var(--gr);font-weight:600}
+.branch-card .who{font-size:12px;color:var(--tx3);font-style:italic;margin-top:auto;padding-top:10px;border-top:1px dashed var(--sand);line-height:1.5}
+.branch-card .who b{color:var(--tx);font-style:normal;font-weight:600}
+
+.branches-newer{background:var(--cream);border:1px solid var(--sand);border-radius:12px;padding:20px;margin-top:20px}
+.branches-newer h4{font-family:var(--fd);font-size:16px;font-weight:700;margin:0 0 6px;color:var(--tx)}
+.branches-newer .nb-intro{font-size:13px;color:var(--tx2);margin:0 0 12px;line-height:1.55}
+.branches-newer ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px}
+.branches-newer li{font-size:13px;color:var(--tx2);padding-left:14px;position:relative;line-height:1.55}
+.branches-newer li::before{content:'›';color:var(--gr);position:absolute;left:0;font-weight:700}
+.branches-newer li b{color:var(--tx);font-weight:600}
+
+.branch-truth{background:linear-gradient(135deg,var(--grl) 0%,#fff 70%);border:1px solid var(--gr);border-radius:14px;padding:24px;margin-top:24px;font-size:14px;line-height:1.7;color:var(--tx)}
+.branch-truth p{margin:0 0 12px}
+.branch-truth p:last-child{margin-bottom:0}
+.branch-truth p.lead{font-family:var(--fd);font-size:16px;font-weight:700}
+.branch-truth em{font-style:italic;color:var(--gr)}
+.branch-truth .sign{font-style:italic;color:var(--gr);text-align:right;margin-top:14px;font-family:var(--fd)}
+
+/* Reveal on scroll */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav id="nav">
+<div class="ni">
+  <a href="/" class="nl">Saarthi Trust<i>.</i></a>
+  <div class="nr">
+    <a href="/#how" class="hm">How it works</a>
+    <a href="/#pillars" class="hm">What we do</a>
+    <a href="/#about" class="hm">About</a>
+    <a href="/resources/" class="hm" data-en="Resources" data-hi="संसाधन">Resources</a>
+    <a href="/#faq" class="hm" data-en="FAQ" data-hi="सवाल-जवाब">FAQ</a>
+    <button class="lb" onclick="toggleLang()" id="langBtn">हिंदी</button>
+    <a href="https://forms.gle/o3rcneE2MNVFH863A" class="nc" target="_blank" rel="noopener" data-en="Register free →" data-hi="मुफ़्त रजिस्टर →">Register free →</a>
+  </div>
+</div>
+</nav>
+
+<header class="page-hd" id="main-content">
+<div class="w">
+  <div class="crumb"><a href="/">Saarthi Trust</a> / <a href="/resources/">Resources</a> / <span data-en="Raahein" data-hi="राहें">Raahein</span></div>
+  <h1 data-en="Raahein <em>·</em> Possibilities ahead" data-hi="<em>राहें</em> · आगे की संभावनाएं">Raahein <em>·</em> Possibilities ahead</h1>
+  <div class="hi-tag" data-en="A future built on curiosity, not pressure." data-hi="जिज्ञासा से बना भविष्य — दबाव से नहीं।">A future built on curiosity, not pressure.</div>
+  <p class="lead" data-en="“You are not behind. You are just beginning.” A scrollable map of where science, math, and engineering can actually take you — from Class 10 through to age 30." data-hi="“आप पीछे नहीं हैं। आपकी शुरुआत हो रही है।” विज्ञान, गणित और इंजीनियरिंग आपको कहाँ ले जा सकते हैं — कक्षा 10 से 30 साल तक।">“You are not behind. You are just beginning.” A scrollable map of where science, math, and engineering can actually take you — from Class 10 through to age 30.</p>
+</div>
+</header>
+
+<section class="feat-sec" id="curiosity">
+<div class="w">
+<div class="w">
+  <div class="st" data-en="Raahein · Possibilities ahead" data-hi="राहें · आगे की संभावनाएं">Raahein · Possibilities ahead</div>
+  <h2 class="sh" data-en="A future built on <em>curiosity</em>, not pressure." data-hi="<em>जिज्ञासा</em> से बना भविष्य — दबाव से नहीं।">A future built on <em>curiosity</em>, not pressure.</h2>
+  <p class="feat-quote" data-en="“You are not behind. You are just beginning.”" data-hi="“आप पीछे नहीं हैं। आपकी शुरुआत हो रही है।”">“You are not behind. You are just beginning.”</p>
+
+  <div class="feat-journey">
+    <h2 class="sr-only">An interactive journey map showing the paths available to a Class 10 student choosing science and math, from stream selection through to career outcomes at age 30.</h2>
+
+    <div style="padding: 1.5rem 0 2rem;">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <p style="font-size: 13px; color: var(--color-text-tertiary); letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 8px;">your journey starts here</p>
+        <h3 style="font-size: 26px; font-weight: 500; margin: 0 0 8px; line-height: 1.3; font-family:var(--fd);">Life after Class 10</h3>
+        <p style="font-size: 14px; color: var(--color-text-secondary); margin: 0; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.6;">A scrollable map of where science, math, and engineering can actually take you.</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 0;">
+
+        <div style="background: var(--color-background-secondary); padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 500; color: var(--color-text-secondary); margin-bottom: 12px;">age 15 · your job isn't to decide. it's to discover.</div>
+        <div style="width: 280px; background: var(--color-background-primary); border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; text-align: center;">
+          <i class="ti ti-school" style="font-size: 24px; color: var(--color-text-secondary);" aria-hidden="true"></i>
+          <p style="font-size: 15px; font-weight: 500; margin: 6px 0 2px;">Class 10 finished</p>
+          <p style="font-size: 13px; color: var(--color-text-secondary); margin: 0;">Big question: which stream?</p>
+        </div>
+
+        <div style="width: 2px; height: 32px; background: var(--color-border-tertiary); margin: 8px 0;"></div>
+
+        <div style="background: var(--color-background-secondary); padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 500; color: var(--color-text-secondary); margin-bottom: 12px;">age 16–18 · class 11 & 12</div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; width: 100%;">
+          <div style="padding: 14px; border-radius: var(--border-radius-lg); background: #E6F1FB;">
+            <p style="font-size: 14px; font-weight: 500; margin: 0 0 4px; color: #0C447C;">PCM</p>
+            <p style="font-size: 12px; margin: 0 0 8px; color: #185FA5;">physics, chem, math</p>
+            <p style="font-size: 12px; color: #185FA5; line-height: 1.5; margin: 0;">Engineering, design, economics, defense, sciences. Widest door.</p>
+          </div>
+          <div style="padding: 14px; border-radius: var(--border-radius-lg); background: #E1F5EE;">
+            <p style="font-size: 14px; font-weight: 500; margin: 0 0 4px; color: #085041;">PCB</p>
+            <p style="font-size: 12px; margin: 0 0 8px; color: #0F6E56;">physics, chem, bio</p>
+            <p style="font-size: 12px; color: #0F6E56; line-height: 1.5; margin: 0;">Doctor, dentist, biotech, pharma, nutrition, research.</p>
+          </div>
+          <div style="padding: 14px; border-radius: var(--border-radius-lg); background: #EEEDFE;">
+            <p style="font-size: 14px; font-weight: 500; margin: 0 0 4px; color: #3C3489;">PCMB</p>
+            <p style="font-size: 12px; margin: 0 0 8px; color: #534AB7;">all four subjects</p>
+            <p style="font-size: 12px; color: #534AB7; line-height: 1.5; margin: 0;">Both doors open. Intense workload. Pick only if undecided.</p>
+          </div>
+        </div>
+
+        <div style="width: 100%; display: flex; justify-content: center; margin: 16px 0 8px;">
+          <div style="font-size: 12px; color: var(--color-text-tertiary); background: var(--color-background-secondary); padding: 6px 12px; border-radius: 999px;">+ entrance exams: JEE · NEET · BITSAT · CUET</div>
+        </div>
+
+        <div style="width: 2px; height: 32px; background: var(--color-border-tertiary); margin: 8px 0;"></div>
+
+        <div style="background: var(--color-background-secondary); padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 500; color: var(--color-text-secondary); margin-bottom: 12px;">age 18–22 · undergraduate (4–5.5 yrs)</div>
+        <p style="font-size: 13px; color: var(--color-text-secondary); text-align: center; margin: 0 0 16px; max-width: 460px;">This is where life actually splits. Six main roads — none is wrong, each shapes a different future.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; width: 100%;">
+
+          <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+              <i class="ti ti-cpu" style="font-size: 22px; color: #185FA5;" aria-hidden="true"></i>
+              <p style="font-size: 14px; font-weight: 500; margin: 0;">Engineering (B.Tech)</p>
+            </div>
+            <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0 0 8px; line-height: 1.5;">CSE, ECE, mechanical, civil, electrical, chemical, biotech, AI/ML.</p>
+            <span style="display: inline-block; background: #E6F1FB; color: #0C447C; font-size: 11px; padding: 3px 8px; border-radius: 999px; font-weight: 500;">most common road</span>
+          </div>
+
+          <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+              <i class="ti ti-stethoscope" style="font-size: 22px; color: #0F6E56;" aria-hidden="true"></i>
+              <p style="font-size: 14px; font-weight: 500; margin: 0;">Medicine (MBBS)</p>
+            </div>
+            <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0 0 8px; line-height: 1.5;">5.5 years + 3 yr specialization. Long road, deep purpose.</p>
+            <span style="display: inline-block; background: #E1F5EE; color: #085041; font-size: 11px; padding: 3px 8px; border-radius: 999px; font-weight: 500;">PCB only</span>
+          </div>
+
+          <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+              <i class="ti ti-atom" style="font-size: 22px; color: #534AB7;" aria-hidden="true"></i>
+              <p style="font-size: 14px; font-weight: 500; margin: 0;">Pure sciences (B.Sc)</p>
+            </div>
+            <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0 0 8px; line-height: 1.5;">Math, physics, stats, chemistry at IISc, IISERs, CMI, ISI.</p>
+            <span style="display: inline-block; background: #EEEDFE; color: #3C3489; font-size: 11px; padding: 3px 8px; border-radius: 999px; font-weight: 500;">underrated</span>
+          </div>
+
+          <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+              <i class="ti ti-bulb" style="font-size: 22px; color: #993C1D;" aria-hidden="true"></i>
+              <p style="font-size: 14px; font-weight: 500; margin: 0;">Design (NID, NIFT)</p>
+            </div>
+            <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0 0 8px; line-height: 1.5;">Product, UX, automotive, industrial design.</p>
+            <span style="display: inline-block; background: #FAECE7; color: #993C1D; font-size: 11px; padding: 3px 8px; border-radius: 999px; font-weight: 500;">creative + STEM</span>
+          </div>
+
+          <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+              <i class="ti ti-chart-line" style="font-size: 22px; color: #993556;" aria-hidden="true"></i>
+              <p style="font-size: 14px; font-weight: 500; margin: 0;">Economics + math</p>
+            </div>
+            <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0 0 8px; line-height: 1.5;">SRCC, Ashoka, Krea, ISI. Leads to finance, consulting.</p>
+            <span style="display: inline-block; background: #FBEAF0; color: #72243E; font-size: 11px; padding: 3px 8px; border-radius: 999px; font-weight: 500;">finance route</span>
+          </div>
+
+          <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+              <i class="ti ti-shield" style="font-size: 22px; color: #5F5E5A;" aria-hidden="true"></i>
+              <p style="font-size: 14px; font-weight: 500; margin: 0;">Defense (NDA)</p>
+            </div>
+            <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0 0 8px; line-height: 1.5;">Army, Navy, Air Force. Service, fitness, respect.</p>
+            <span style="display: inline-block; background: #F1EFE8; color: #2C2C2A; font-size: 11px; padding: 3px 8px; border-radius: 999px; font-weight: 500;">officer track</span>
+          </div>
+
+        </div>
+
+        <!-- ===== POSTCARD FROM GAURAV ===== -->
+        <div class="postcard-section rv" id="postcard">
+          <div class="postcard-eyebrow" data-en="Postcards from the Path" data-hi="राहों से चिट्ठियाँ">Postcards from the Path</div>
+          <h3 class="postcard-h3" data-en="A note from someone who walked the engineering road" data-hi="जो इंजीनियरिंग की राह पर चले — उनसे एक चिट्ठी">A note from someone who walked the engineering road</h3>
+
+          <article class="postcard">
+            <div class="postcard-photo">
+              <!-- Swap in a real photo: <img src="/resources/raahein/gaurav.jpg" alt="Gaurav"> -->
+              G
+            </div>
+            <div class="postcard-body">
+              <div class="postcard-meta">
+                <strong>A Postcard from Gaurav</strong>
+                <span>IIT Kharagpur → Data Scientist</span>
+              </div>
+              <p>Hey,</p>
+              <p>I'm writing this from my desk in a tech company, where I get paid to teach machines how to predict things. Seven years ago, I had no idea this job existed. Ten years ago, I was a student like you — just trying to figure out the next step, and honestly, still trying to figure things out today.</p>
+              <p>I chose engineering because I liked math and I liked figuring out how things worked. That was it. I didn't have a master plan. I didn't know what "data science" meant. I didn't know what AI was. I just kept saying yes to things that pulled me — a project here, a course there, a question that wouldn't leave my head.</p>
+              <p>Engineering didn't give me a job. <em>It gave me a toolkit.</em> A way of thinking. Once you learn to break a hard problem into smaller ones, you can apply it to anything — building software, running a company, solving problems in your own village.</p>
+              <p>I've worked at Zomato, at OLA, and now at a global logistics company. I've published research in top conferences like ICASSP. I help build Saarthi alongside my work. None of these were on any list I was shown in Class 10.</p>
+              <div class="pc-key">Here's what I want you to know: you don't need to know your destination at 15. I didn't. Most of the people I admire didn't either. You just need to pick a direction, walk honestly, and stay curious. Engineering is one such direction — wide, forgiving, and full of doors you can't even see yet.</div>
+              <p>If you love asking "how does this work?" — you'll be fine here.</p>
+              <div class="postcard-sign">— Gaurav · IIT Kharagpur, 2021 · Data Scientist</div>
+            </div>
+          </article>
+        </div>
+
+        <!-- ===== ENGINEERING BRANCHES ===== -->
+        <div class="branches-section rv">
+          <div class="postcard-eyebrow" data-en="Engineering ke Andar" data-hi="इंजीनियरिंग के अंदर">Engineering ke Andar</div>
+          <h3 class="postcard-h3" data-en="What's actually inside" data-hi="असल में क्या-क्या है">What's actually inside</h3>
+          <p class="branches-intro">When people say "engineering," they say it like it's one thing. It's not. Engineering is a forest with many trails — and each trail leads to a completely different life. Some engineers build apps. Some build bridges. Some build chips smaller than a grain of rice. Some never touch a machine and end up running companies.</p>
+
+          <div class="branches-grid">
+
+            <article class="branch-card">
+              <h4>🖥️ Computer Science & Engineering</h4>
+              <div class="branch-sub">CSE · IT · AI</div>
+              <p><b>What you'll study:</b> How software works. How computers think. How to build websites, apps, AI systems, games — anything digital.</p>
+              <p><b>What you'll do at work:</b> Write code, design systems, build products used by millions. Hybrid work, mostly indoors, lots of learning.</p>
+              <p><b>Where it leads:</b> Software engineer at Google, Microsoft, Flipkart, Razorpay · Data Scientist / AI Engineer · Product Manager · founder of a tech startup · researcher in AI labs.</p>
+              <div class="branch-salary"><b>Salary in India:</b> ₹6–15 LPA at start (good colleges) → ₹25–60 LPA in 5 years → ₹1 crore+ in 10 years. International (US, EU) packages can hit ₹2–4 crore.</div>
+              <div class="who"><b>Who fits:</b> Curious about how apps work. Likes logic puzzles. Doesn't mind sitting at a screen.</div>
+            </article>
+
+            <article class="branch-card">
+              <h4>⚡ Electronics & Communication</h4>
+              <div class="branch-sub">ECE · chips · signals</div>
+              <p><b>What you'll study:</b> Circuits, chips, signals, communication systems — the brain behind every phone, laptop, and satellite.</p>
+              <p><b>What you'll do at work:</b> Design hardware, work on semiconductors, telecom, embedded systems, robotics.</p>
+              <p><b>Where it leads:</b> Hardware engineer at Intel, Qualcomm, Samsung · embedded systems in cars, drones, medical devices · telecom (Jio, Airtel) · many ECE grads also become software engineers — the skills overlap.</p>
+              <div class="branch-salary"><b>Salary:</b> ₹5–12 LPA at start → ₹15–40 LPA in 5 years. India's semiconductor sector is exploding right now.</div>
+              <div class="who"><b>Who fits:</b> Likes physics + math. Curious about how phones and chips actually work. Enjoys building real things.</div>
+            </article>
+
+            <article class="branch-card">
+              <h4>🔧 Mechanical Engineering</h4>
+              <div class="branch-sub">Machines · manufacturing</div>
+              <p><b>What you'll study:</b> How machines work — engines, motors, robots, cars, manufacturing.</p>
+              <p><b>What you'll do at work:</b> Design parts, run simulations, work at factories or design centres. Sometimes outdoor, sometimes on a computer.</p>
+              <p><b>Where it leads:</b> Automotive (Tata Motors, Mahindra, Maruti, Tesla) · aerospace (HAL, ISRO, Boeing) · manufacturing, robotics, EV companies. Many also pivot to software, consulting, or MBA → finance.</p>
+              <div class="branch-salary"><b>Salary:</b> ₹4–10 LPA at start → ₹12–25 LPA in 5 years. Slower than CSE but very stable. Picks up sharply with MBA or an international move.</div>
+              <div class="who"><b>Who fits:</b> Likes tinkering. Curious about machines. Doesn't mind getting hands dirty.</div>
+            </article>
+
+            <article class="branch-card">
+              <h4>💡 Electrical Engineering</h4>
+              <div class="branch-sub">EE · power · energy</div>
+              <p><b>What you'll study:</b> Electricity, power systems, motors, renewable energy.</p>
+              <p><b>What you'll do at work:</b> Work on power grids, electric vehicles, solar plants, batteries — the future of energy.</p>
+              <p><b>Where it leads:</b> Power sector (NTPC, Tata Power, Adani) · electric vehicles (Tesla, Ola Electric, Ather) · renewables — India's solar and wind boom. Many EE grads also enter software or finance.</p>
+              <div class="branch-salary"><b>Salary:</b> ₹4–10 LPA at start → ₹12–30 LPA in 5 years. EV and renewable sectors are paying well right now.</div>
+              <div class="who"><b>Who fits:</b> Likes physics. Curious about energy and how the world is powered.</div>
+            </article>
+
+            <article class="branch-card">
+              <h4>🏗️ Civil Engineering</h4>
+              <div class="branch-sub">Infrastructure · buildings</div>
+              <p><b>What you'll study:</b> Buildings, roads, bridges, dams, water systems — the physical infrastructure of a country.</p>
+              <p><b>What you'll do at work:</b> Design and supervise construction projects. Outdoor work, site visits, blueprints, real-world impact.</p>
+              <p><b>Where it leads:</b> Construction (L&T, Tata Projects, DLF) · government engineering services (CPWD, PWD, Railways) · urban planning, smart cities · real estate · MBA → consulting / management.</p>
+              <div class="branch-salary"><b>Salary:</b> ₹3.5–8 LPA at start → ₹10–20 LPA in 5 years. Slower curve, but huge demand in India — every road and metro line needs civil engineers.</div>
+              <div class="who"><b>Who fits:</b> Likes building things you can see and touch. Doesn't mind being outdoors. Patient, big-picture thinker.</div>
+            </article>
+
+            <article class="branch-card">
+              <h4>🧪 Chemical Engineering</h4>
+              <div class="branch-sub">Materials · pharma · fuels</div>
+              <p><b>What you'll study:</b> How chemicals, materials, fuels, and medicines are made at scale.</p>
+              <p><b>What you'll do at work:</b> Work in refineries, pharma companies, FMCG, energy plants.</p>
+              <p><b>Where it leads:</b> Pharma (Sun Pharma, Cipla, Dr. Reddy's) · oil & gas (Reliance, IOCL, ONGC) · FMCG (HUL, P&G, Nestlé). Many chemical grads pivot to consulting, data science, or MBA.</p>
+              <div class="branch-salary"><b>Salary:</b> ₹5–10 LPA at start → ₹15–30 LPA in 5 years. PSU jobs offer stability + status.</div>
+              <div class="who"><b>Who fits:</b> Loves chemistry + math. Interested in materials, energy, or medicine.</div>
+            </article>
+
+          </div>
+
+          <div class="branches-newer">
+            <h4>🌱 Newer branches worth knowing</h4>
+            <p class="nb-intro">These didn't exist 15 years ago — and may shape the next 30.</p>
+            <ul>
+              <li><b>Biotech / Biomedical</b> — genetic engineering, medical devices, healthcare AI</li>
+              <li><b>Robotics & Mechatronics</b> — robots, automation, drones</li>
+              <li><b>Aerospace</b> — ISRO, private space (SpaceX, Skyroot, Agnikul)</li>
+              <li><b>Data Science / AI degrees</b> — pure focus on data and ML</li>
+              <li><b>Environmental Engineering</b> — climate, water, sustainability</li>
+            </ul>
+          </div>
+
+          <aside class="branch-truth">
+            <p class="lead" data-en="One thing to remember:" data-hi="एक बात याद रखें:">One thing to remember:</p>
+            <p>The branch matters. But it matters less than people tell you.</p>
+            <p>After 5 years of work, no one asks what branch you did. They ask <em>what you can build</em>, <em>what problems you've solved</em>, <em>what you keep learning</em>. A mechanical engineer can become a coder. A civil engineer can become a founder. A chemical engineer can become a banker.</p>
+            <p><em>Engineering is not a box. It's a foundation.</em> What you build on top of it — that's up to you.</p>
+            <p>So pick the branch that excites you most, not the one that "has the highest package." Curiosity will take you further than any starting salary ever will.</p>
+            <p class="sign">— Saarthi</p>
+          </aside>
+        </div>
+
+        <div style="width: 2px; height: 32px; background: var(--color-border-tertiary); margin: 24px 0 8px;"></div>
+
+        <div style="background: var(--color-background-secondary); padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 500; color: var(--color-text-secondary); margin-bottom: 12px;">age 22–25 · first job, real world</div>
+        <p style="font-size: 13px; color: var(--color-text-secondary); text-align: center; margin: 0 0 16px; max-width: 460px;">Some real careers a STEM grad ends up in — and what their Tuesday actually looks like.</p>
+
+        <div style="display: grid; grid-template-columns: 1fr; gap: 10px; width: 100%;">
+
+          <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+              <div style="flex: 1;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                  <i class="ti ti-code" style="font-size: 18px; color: #185FA5;" aria-hidden="true"></i>
+                  <p style="font-size: 14px; font-weight: 500; margin: 0;">Software engineer</p>
+                </div>
+                <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5;">Build apps, websites, AI systems. Hybrid work, jeans culture, fast learning.</p>
+              </div>
+              <div style="text-align: right; min-width: 110px;">
+                <p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;">starting</p>
+                <p style="font-size: 14px; font-weight: 500; margin: 0; color: #0F6E56;">₹6–50 LPA</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+              <div style="flex: 1;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                  <i class="ti ti-chart-dots" style="font-size: 18px; color: #534AB7;" aria-hidden="true"></i>
+                  <p style="font-size: 14px; font-weight: 500; margin: 0;">Data scientist</p>
+                </div>
+                <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5;">Find patterns in data. Predict prices, behavior, delivery times.</p>
+              </div>
+              <div style="text-align: right; min-width: 110px;">
+                <p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;">starting</p>
+                <p style="font-size: 14px; font-weight: 500; margin: 0; color: #0F6E56;">₹10–35 LPA</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+              <div style="flex: 1;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                  <i class="ti ti-heartbeat" style="font-size: 18px; color: #0F6E56;" aria-hidden="true"></i>
+                  <p style="font-size: 14px; font-weight: 500; margin: 0;">Doctor (post-MD)</p>
+                </div>
+                <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5;">Patients, surgeries, long hours. Money builds slowly but deeply.</p>
+              </div>
+              <div style="text-align: right; min-width: 110px;">
+                <p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;">post-MD</p>
+                <p style="font-size: 14px; font-weight: 500; margin: 0; color: #0F6E56;">₹15 LPA – crores</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+              <div style="flex: 1;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                  <i class="ti ti-tools" style="font-size: 18px; color: #993C1D;" aria-hidden="true"></i>
+                  <p style="font-size: 14px; font-weight: 500; margin: 0;">Core engineer (mech, civil, EE)</p>
+                </div>
+                <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5;">Design parts, supervise sites, factories. Tangible, real-world work.</p>
+              </div>
+              <div style="text-align: right; min-width: 110px;">
+                <p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;">starting</p>
+                <p style="font-size: 14px; font-weight: 500; margin: 0; color: #0F6E56;">₹4–12 LPA</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+              <div style="flex: 1;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                  <i class="ti ti-trending-up" style="font-size: 18px; color: #993556;" aria-hidden="true"></i>
+                  <p style="font-size: 14px; font-weight: 500; margin: 0;">Quant / analyst</p>
+                </div>
+                <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5;">Math models for stock markets. Tiny teams, huge salaries, intense.</p>
+              </div>
+              <div style="text-align: right; min-width: 110px;">
+                <p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;">starting</p>
+                <p style="font-size: 14px; font-weight: 500; margin: 0; color: #0F6E56;">₹30 LPA – 1 cr</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+              <div style="flex: 1;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                  <i class="ti ti-pencil" style="font-size: 18px; color: #BA7517;" aria-hidden="true"></i>
+                  <p style="font-size: 14px; font-weight: 500; margin: 0;">Designer (product / UX)</p>
+                </div>
+                <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5;">Sketch, prototype, talk to users. Creative + technical mix.</p>
+              </div>
+              <div style="text-align: right; min-width: 110px;">
+                <p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;">starting</p>
+                <p style="font-size: 14px; font-weight: 500; margin: 0; color: #0F6E56;">₹8–30 LPA</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+              <div style="flex: 1;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                  <i class="ti ti-flask" style="font-size: 18px; color: #444441;" aria-hidden="true"></i>
+                  <p style="font-size: 14px; font-weight: 500; margin: 0;">Researcher / scientist</p>
+                </div>
+                <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5;">Papers, experiments, deep curiosity. PhD usually required.</p>
+              </div>
+              <div style="text-align: right; min-width: 110px;">
+                <p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;">starting</p>
+                <p style="font-size: 14px; font-weight: 500; margin: 0; color: #0F6E56;">₹8–25 LPA</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="width: 2px; height: 32px; background: var(--color-border-tertiary); margin: 24px 0 8px;"></div>
+
+        <div style="background: var(--color-background-secondary); padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 500; color: var(--color-text-secondary); margin-bottom: 12px;">age 25–32 · the second leap</div>
+        <p style="font-size: 13px; color: var(--color-text-secondary); text-align: center; margin: 0 0 16px; max-width: 460px;">Your first job isn't your last. Most people pivot 2–4 times. Some popular leaps:</p>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; width: 100%;">
+          <div style="padding: 12px; background: var(--color-background-secondary); border-radius: var(--border-radius-md);">
+            <p style="font-size: 13px; font-weight: 500; margin: 0 0 4px;"><i class="ti ti-briefcase" style="font-size:16px; vertical-align:-2px; margin-right:6px; color: var(--color-text-secondary);" aria-hidden="true"></i>MBA</p>
+            <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5;">IIM, ISB, abroad. Pivot to consulting, product, finance.</p>
+          </div>
+          <div style="padding: 12px; background: var(--color-background-secondary); border-radius: var(--border-radius-md);">
+            <p style="font-size: 13px; font-weight: 500; margin: 0 0 4px;"><i class="ti ti-plane" style="font-size:16px; vertical-align:-2px; margin-right:6px; color: var(--color-text-secondary);" aria-hidden="true"></i>MS abroad</p>
+            <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5;">US, Europe, Singapore. Tech roles, ₹1–3 cr possible.</p>
+          </div>
+          <div style="padding: 12px; background: var(--color-background-secondary); border-radius: var(--border-radius-md);">
+            <p style="font-size: 13px; font-weight: 500; margin: 0 0 4px;"><i class="ti ti-building-bank" style="font-size:16px; vertical-align:-2px; margin-right:6px; color: var(--color-text-secondary);" aria-hidden="true"></i>UPSC / civil services</p>
+            <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5;">IAS, IPS, IFS. Influence over income.</p>
+          </div>
+          <div style="padding: 12px; background: var(--color-background-secondary); border-radius: var(--border-radius-md);">
+            <p style="font-size: 13px; font-weight: 500; margin: 0 0 4px;"><i class="ti ti-rocket" style="font-size:16px; vertical-align:-2px; margin-right:6px; color: var(--color-text-secondary);" aria-hidden="true"></i>Founder / startup</p>
+            <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5;">High risk, high reward, rare unicorns.</p>
+          </div>
+        </div>
+
+        <!-- ===== POSTCARD FROM NIKITA (MBA road) ===== -->
+        <div class="postcard-section rv" id="postcard-mba">
+          <div class="postcard-eyebrow" data-en="Postcards from the Path" data-hi="राहों से चिट्ठियाँ">Postcards from the Path</div>
+          <h3 class="postcard-h3" data-en="A note from someone who took the MBA road" data-hi="MBA की राह पर चलने वाली से एक चिट्ठी">A note from someone who took the MBA road</h3>
+
+          <article class="postcard">
+            <div class="postcard-photo">
+              <!-- Swap in real photo: <img src="/resources/raahein/nikita.jpg" alt="Nikita"> -->
+              N
+            </div>
+            <div class="postcard-body">
+              <div class="postcard-meta">
+                <strong>A Postcard from Nikita</strong>
+                <span>IIT Kharagpur → IIM Ahmedabad → Consultant at BCG</span>
+              </div>
+              <p>Hi,</p>
+              <p>Let me tell you what my life looks like today — because when I was in Class 10, no one ever told me this kind of life was even possible.</p>
+              <p>This week, I'm in Mumbai. Last week, Bangalore. Next month, maybe Jakarta or Dubai — my company pays for all of it. I'm 24. I work at <b>BCG</b>, one of the most respected consulting firms in the world. My job is to help the biggest companies in India and abroad solve their hardest problems.</p>
+              <p>Imagine this: the CEO of a huge company — someone who runs a business of thousands of crores — sits across from me and asks, "Nikita, should we launch this product? Should we enter this country?" And my team and I spend weeks figuring out the answer.</p>
+              <p>I earn more in a year than my parents earned in ten. I work hard — sometimes very hard — but I'm learning things every day that most people don't learn in a lifetime.</p>
+              <div class="pc-key">And here's the wild part — five years ago, I was a student just like you.</div>
+              <p><em>Let me tell you how I got here.</em></p>
+              <div class="pc-steps">
+                <div><b>1. Engineering at IIT Kharagpur.</b> I studied Electronics — but loved math more than circuits. I joined a club that helped small businesses solve problems. Slowly I figured out: I didn't just want to build things, I wanted to decide <em>what</em> should be built and <em>why</em>.</div>
+                <div><b>2. The CAT decision.</b> In my final year, while friends applied for coding jobs, I prepared for CAT — the entrance exam for IIMs. Just like JEE opens IITs, CAT opens IIMs.</div>
+                <div><b>3. Two years at IIM Ahmedabad.</b> The hardest two years of my life. Cases at midnight. Classmates so sharp they made me question myself daily. I came out clearer, more confident, knowing what I wanted next.</div>
+                <div><b>4. Joining BCG.</b> Starting salary higher than most engineers earn after 10 years of work. But more than the money — the work was the dream. Travel, big problems, smart people, real impact.</div>
+              </div>
+              <p>Here's what I want you to know: this entire road starts with what you choose after Class 10. Pick science with math. Take the entrance exams seriously. Get into a good engineering college — doesn't have to be IIT; NITs, BITS and good state colleges lead here too. Somewhere in those 4 years, you'll discover what excites you.</p>
+              <p>I came from a normal middle-class family. No one in my family had done an MBA before me. If I could walk this path — you can too.</p>
+              <div class="pc-key">"Dream a little bigger. The road is wider than your school is telling you."</div>
+              <div class="postcard-sign">— Nikita · IIT Kharagpur, 2021 · IIM Ahmedabad, 2023 · Consultant at BCG</div>
+            </div>
+          </article>
+        </div>
+
+        <!-- ===== MBA KE ANDAR ===== -->
+        <div class="branches-section rv">
+          <div class="postcard-eyebrow" data-en="MBA ke Andar" data-hi="MBA के अंदर">MBA ke Andar</div>
+          <h3 class="postcard-h3" data-en="What life actually looks like — after an MBA" data-hi="MBA के बाद असली ज़िंदगी कैसी होती है">What life actually looks like — after an MBA</h3>
+          <p class="branches-intro">There are mainly four big roads people take after a top IIM. Each shapes a different life.</p>
+
+          <div class="branches-grid">
+
+            <article class="branch-card">
+              <h4>🎯 Consulting</h4>
+              <div class="branch-sub">BCG · McKinsey · Bain</div>
+              <p><b>What you'll do:</b> Help the biggest companies solve their hardest problems. One month pharma, next month an airline.</p>
+              <p><b>Lifestyle:</b> Lots of travel — Mumbai, Bangalore, Singapore, Dubai. Intense work, smart teams, fast learning.</p>
+              <div class="branch-salary"><b>Salary:</b> ₹25–40 LPA at age 23–24 (straight out of IIM) → ₹50 LPA – ₹1 crore by year 4 → ₹2–3 crore by year 10.</div>
+              <div class="who"><b>Who fits:</b> Loves thinking across industries. Curious about how businesses really work. OK with travel and intensity.</div>
+            </article>
+
+            <article class="branch-card">
+              <h4>📱 Product Management</h4>
+              <div class="branch-sub">Google · Flipkart · Amazon · Microsoft</div>
+              <p><b>What you'll do:</b> Decide what new features and products tech companies should build. Sit between engineers, designers, and business teams.</p>
+              <p><b>Lifestyle:</b> Office in Bangalore, Mumbai, or abroad. Hybrid work, deep tech exposure, building things millions use.</p>
+              <div class="branch-salary"><b>Salary:</b> ₹25–35 LPA in India at start. Senior PM roles in the US can hit ₹1.5–3 crore in 5–7 years.</div>
+              <div class="who"><b>Who fits:</b> Loves technology and business. Wants to build things, not just advise on them.</div>
+            </article>
+
+            <article class="branch-card">
+              <h4>💰 Finance / Investment Banking</h4>
+              <div class="branch-sub">Goldman Sachs · Morgan Stanley · JPMC</div>
+              <p><b>What you'll do:</b> Help companies raise money, buy other companies, invest in markets.</p>
+              <p><b>Lifestyle:</b> Very high pay, very long hours. Mumbai, London, NYC, Singapore.</p>
+              <div class="branch-salary"><b>Salary:</b> ₹30–50 LPA at start in India. International packages routinely cross ₹3–5 crore by year 5–7.</div>
+              <div class="who"><b>Who fits:</b> Loves numbers and high-stakes decisions. Can handle long hours and pressure.</div>
+            </article>
+
+            <article class="branch-card">
+              <h4>📦 Marketing / Sales Leadership</h4>
+              <div class="branch-sub">HUL · Nestlé · ITC · Tata</div>
+              <p><b>What you'll do:</b> Decide how products like Maggi, Dove, Tata Salt are sold to millions of Indians.</p>
+              <p><b>Lifestyle:</b> Travel across the country, deep consumer understanding, building brands.</p>
+              <div class="branch-salary"><b>Salary:</b> ₹20–28 LPA at start → ₹40–80 LPA in 5 years → ₹1.5–3 crore at senior leadership.</div>
+              <div class="who"><b>Who fits:</b> Creative + analytical. Loves understanding what makes people buy.</div>
+            </article>
+
+          </div>
+
+          <div class="branches-newer">
+            <h4>📈 The long-term picture</h4>
+            <p class="nb-intro">By their late 30s, top-IIM grads often look like this:</p>
+            <ul>
+              <li><b>Senior leader</b> at a big company — VP, Director, sometimes CEO</li>
+              <li><b>₹2–5 crore per year</b>, sometimes much more</li>
+              <li><b>Big city life</b>, owning a house, traveling internationally with family</li>
+              <li><b>Some start their own company</b> by this stage and build something of their own</li>
+              <li><b>Some go abroad</b> — US, UK, Singapore for global roles</li>
+            </ul>
+          </div>
+
+          <aside class="branch-truth">
+            <p class="lead" data-en="A money comparison, since no one tells you this in Class 10:" data-hi="एक तुलना जो कक्षा 10 में कोई नहीं बताता:">A money comparison, since no one tells you this in Class 10:</p>
+            <p>A typical engineer in India earns ₹6–10 LPA in their first job. An IIM graduate often earns <em>3–5× that on day one</em>. By year 10, the gap widens further.</p>
+            <p>But here's the honest part: the MBA isn't a magic wand. It's a door. What you do once you walk through it — the questions you ask, the problems you take on, the people you learn from — that's what builds the life.</p>
+            <p>Pick the road that excites you most. The money follows curiosity more than the other way around.</p>
+            <p class="sign">— Saarthi</p>
+          </aside>
+        </div>
+
+        <!-- ===== POSTCARD FROM ANIKET (Founder road) ===== -->
+        <div class="postcard-section rv" id="postcard-founder">
+          <div class="postcard-eyebrow" data-en="Postcards from the Path" data-hi="राहों से चिट्ठियाँ">Postcards from the Path</div>
+          <h3 class="postcard-h3" data-en="A note from someone who built a company from scratch" data-hi="जिसने ज़ीरो से कंपनी खड़ी की — उससे एक चिट्ठी">A note from someone who built a company from scratch</h3>
+
+          <article class="postcard">
+            <div class="postcard-photo" style="background:linear-gradient(135deg,#FDF0EA,var(--cream));color:var(--wr)">
+              <!-- Swap in real photo: <img src="/resources/raahein/aniket.jpg" alt="Aniket"> -->
+              A
+            </div>
+            <div class="postcard-body">
+              <div class="postcard-meta">
+                <strong>A Postcard from Aniket</strong>
+                <span>IIT Kharagpur → 4 jobs → Founder of Swish</span>
+              </div>
+              <p>Hi,</p>
+              <p>Let me start with something that might sound crazy.</p>
+              <p>Two years ago, I had a stable job at a well-known company. Good salary. Comfortable life. Everything most people would call "successful." And then I quit. I left it all to start a company from scratch — with two friends, a small kitchen, and an idea.</p>
+              <p>Today that company is called <b>Swish</b>. We deliver hot, freshly cooked food to your door in 10 minutes — faster than the time it takes to boil water. We started in 2024 with nothing. Today we have 350+ employees, kitchens across Bangalore, and investors who've trusted us with over <b>₹300 crore</b> of funding.</p>
+              <p>I'm 26 years old.</p>
+              <div class="pc-key">I'm telling you this not to brag — but to show what's possible. Being a founder is hard. It's risky. But it's also the only career where, at 25 or 30, you can be running a company that thousands of people work at and millions use.</div>
+              <p><em>Let me tell you how I got here. It didn't happen in one big jump — it happened in many small steps.</em></p>
+              <div class="pc-steps">
+                <div><b>1. Engineering at IIT Kharagpur (age 18–22).</b> I studied Mechanical. Honestly? I didn't fall in love with the subject. But IIT taught me how to think, how to solve hard problems, how to be around really smart people. That mindset builds founders. I also did a research internship at NUS Singapore — my first time abroad. It opened my eyes to how big the world is.</div>
+                <div><b>2. First job at Citi (age 22).</b> Credit Risk Analyst. Good salary, comfortable office. But after a few months I realised — this wasn't the work that excited me. I wanted to be where things were being <em>built</em>, not just analysed.</div>
+                <div><b>3. Joining startups to learn (age 22–25).</b> <b>Jupiter</b> — how a digital bank gets built from scratch. <b>Pillow</b> — how to grow a product from zero to thousands of users. <b>Meesho</b> — how a company scales to millions. The secret nobody tells you: most successful founders don't start straight out of college. They work for 3–5 years first.</div>
+                <div><b>4. Starting Swish (age 25).</b> Ujjwal, Saran and I noticed something. In Bangalore you could get groceries in 10 minutes. But hot food still took 30–45. Why couldn't food be 10 minutes too? We started Swish. Tested with friends first. Within months, investors believed: $14M first round, $38M a year later.</div>
+              </div>
+              <p>I won't lie. Becoming a founder is not the safest path. It's not for everyone. But if you're the kind of student who notices problems and thinks "why hasn't anyone fixed this?" — keep this path in mind.</p>
+              <p>You don't need to come from a rich or business family. I didn't. Most founders I know didn't. India is becoming a place where anyone with a good idea and willingness to work hard can build something huge.</p>
+              <div class="pc-key">Even if you never become a founder yourself, someone in your generation will build the next Flipkart, the next Zomato. Why not you? Dream a little crazier.</div>
+              <div class="postcard-sign">— Aniket · IIT Kharagpur, 2020 · Co-Founder & CEO, Swish</div>
+            </div>
+          </article>
+        </div>
+
+        <!-- ===== FOUNDER KE ANDAR ===== -->
+        <div class="branches-section rv">
+          <div class="postcard-eyebrow" data-en="Founder ki Zindagi" data-hi="संस्थापक की ज़िंदगी">Founder ki Zindagi</div>
+          <h3 class="postcard-h3" data-en="The hard truth — and the other side" data-hi="कड़वी सच्चाई — और उसका दूसरा पहलू">The hard truth — and the other side</h3>
+          <p class="branches-intro">Being a founder is very different from being an employee. Here are both sides, honestly.</p>
+
+          <div class="branches-grid">
+            <article class="branch-card" style="border-color:#f4d4be;background:#FDF7F2">
+              <h4>⚠️ The hard truth first</h4>
+              <div class="branch-sub">What no one talks about</div>
+              <p>· You work harder than anyone else at your company. <b>12–14 hour days</b> are normal.</p>
+              <p>· For the first few years, you might earn <b>less than your friends</b> in regular jobs.</p>
+              <p>· <b>Most startups fail.</b> About 9 out of 10. That's the truth.</p>
+              <p>· You'll have nights where you wonder if you made the right choice.</p>
+              <div class="who"><b>And yet:</b> Many "failed" founders end up at top jobs at big companies — companies value that experience enormously.</div>
+            </article>
+
+            <article class="branch-card" style="border-color:var(--gr);background:linear-gradient(135deg,var(--grl) 0%,#fff 70%)">
+              <h4>✨ But here's the other side</h4>
+              <div class="branch-sub">What makes it worth it</div>
+              <p>· You build something <b>yours</b>. Not just doing what your boss tells you.</p>
+              <p>· If it succeeds, rewards are enormous. Founders of <b>Zomato, Flipkart, BYJU'S, Nykaa, Zerodha</b> each built fortunes of thousands of crores.</p>
+              <p>· You <b>create jobs</b>. Swish now employs 350+ people. That's 350 families with an income because of a company we started.</p>
+              <p>· You're never bored. Every day is a new problem.</p>
+              <div class="who"><b>The lifestyle:</b> You live in startup hubs — Bangalore, Mumbai, Gurgaon, sometimes San Francisco or Singapore. You meet investors, customers, journalists, other founders. You become part of a network building the future.</div>
+            </article>
+          </div>
+
+          <div class="branches-newer">
+            <h4>💸 The money picture (honestly)</h4>
+            <p class="nb-intro">This one depends on whether your company succeeds. A rough map:</p>
+            <ul>
+              <li><b>Years 1–3 (early days)</b> — ₹50,000–₹1.5 L/month. Often less than what an IIT grad earns at a normal job.</li>
+              <li><b>If startup grows (Series A, B)</b> — ₹30 LPA – ₹1 crore salary, plus you own a piece of the company.</li>
+              <li><b>If startup becomes big</b> — when sold or goes public, founders can become worth ₹100 crore – ₹10,000 crore+.</li>
+              <li><b>If startup fails</b> — you go back to a job, but with experience companies pay heavily for.</li>
+            </ul>
+          </div>
+
+          <div class="branches-newer" style="margin-top:14px">
+            <h4>🌱 Other kinds of entrepreneurs</h4>
+            <p class="nb-intro">When people say "entrepreneur," most students imagine a tech founder. There are many kinds:</p>
+            <ul>
+              <li><b>Tech founders</b> — apps, software, delivery, AI</li>
+              <li><b>D2C brands</b> — Mamaearth, boAt, Sugar — all started by young Indians</li>
+              <li><b>Manufacturing</b> — building factories, products you can hold</li>
+              <li><b>Family business</b> — taking your family's shop and growing it 10× with new ideas</li>
+              <li><b>Social entrepreneurs</b> — organisations solving social problems sustainably (Saarthi is one)</li>
+            </ul>
+          </div>
+
+          <aside class="branch-truth">
+            <p class="lead" data-en="If this is for you, here's the honest path:" data-hi="अगर यह आपके लिए है, तो ईमानदार रास्ता यह है:">If this is for you, here's the honest path:</p>
+            <p>Don't try to start a company tomorrow. <em>Get an education. Work at someone else's company for a few years. Learn everything you can.</em> And when you're ready — start your own thing.</p>
+            <p>Most founders I know didn't come from rich or business families. India is becoming a place where anyone with a good idea and willingness to work hard can build something huge. The doors are open like never before.</p>
+            <p class="sign">— Saarthi</p>
+          </aside>
+        </div>
+
+                <div style="width: 2px; height: 32px; background: var(--color-border-tertiary); margin: 24px 0 8px;"></div>
+
+        <div style="background: var(--color-background-secondary); padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 500; color: var(--color-text-secondary); margin-bottom: 12px;">a realistic money map</div>
+        <p style="font-size: 13px; color: var(--color-text-secondary); text-align: center; margin: 0 0 16px; max-width: 460px;">A typical STEM grad's earning curve in India (huge variance — this is just the middle path).</p>
+
+        <div style="width: 100%; background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 16px;">
+          <div style="display: flex; align-items: stretch; gap: 16px; height: 180px; padding: 0 8px; border-bottom: 0.5px solid var(--color-border-tertiary);">
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; height: 100%;">
+              <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">₹8 L</p>
+              <div style="width: 100%; height: 18%; background: #B5D4F4; border-radius: 4px 4px 0 0;"></div>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; height: 100%;">
+              <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">₹18 L</p>
+              <div style="width: 100%; height: 35%; background: #85B7EB; border-radius: 4px 4px 0 0;"></div>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; height: 100%;">
+              <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">₹35 L</p>
+              <div style="width: 100%; height: 55%; background: #378ADD; border-radius: 4px 4px 0 0;"></div>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; height: 100%;">
+              <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">₹70 L</p>
+              <div style="width: 100%; height: 80%; background: #185FA5; border-radius: 4px 4px 0 0;"></div>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; height: 100%;">
+              <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">₹1.2 cr</p>
+              <div style="width: 100%; height: 100%; background: #0C447C; border-radius: 4px 4px 0 0;"></div>
+            </div>
+          </div>
+          <div style="display: flex; gap: 16px; padding: 8px 8px 0;">
+            <div style="flex: 1; text-align: center;"><p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;">age 22</p></div>
+            <div style="flex: 1; text-align: center;"><p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;">age 25</p></div>
+            <div style="flex: 1; text-align: center;"><p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;">age 28</p></div>
+            <div style="flex: 1; text-align: center;"><p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;">age 32</p></div>
+            <div style="flex: 1; text-align: center;"><p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;">age 40</p></div>
+          </div>
+        </div>
+
+        <p class="feat-mid-tag">“You don't need to know the destination. You need to know what makes you curious.”</p>
+
+        <div style="width: 100%; padding: 20px; background: var(--color-background-secondary); border-radius: var(--border-radius-lg);">
+          <p style="font-size: 13px; font-weight: 500; margin: 0 0 12px; color: var(--color-text-primary);">three questions to ask yourself</p>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; gap: 10px; align-items: flex-start;">
+              <span style="font-size: 11px; font-weight: 500; background: var(--color-background-primary); color: var(--color-text-secondary); padding: 2px 7px; border-radius: 999px; margin-top: 2px;">01</span>
+              <p style="font-size: 13px; color: var(--color-text-secondary); margin: 0; line-height: 1.6;">What do you lose track of time doing? <em>That's the real signal.</em></p>
+            </div>
+            <div style="display: flex; gap: 10px; align-items: flex-start;">
+              <span style="font-size: 11px; font-weight: 500; background: var(--color-background-primary); color: var(--color-text-secondary); padding: 2px 7px; border-radius: 999px; margin-top: 2px;">02</span>
+              <p style="font-size: 13px; color: var(--color-text-secondary); margin: 0; line-height: 1.6;">What kind of life do you want at 30? Indoors, outdoors, travel, stability?</p>
+            </div>
+            <div style="display: flex; gap: 10px; align-items: flex-start;">
+              <span style="font-size: 11px; font-weight: 500; background: var(--color-background-primary); color: var(--color-text-secondary); padding: 2px 7px; border-radius: 999px; margin-top: 2px;">03</span>
+              <p style="font-size: 13px; color: var(--color-text-secondary); margin: 0; line-height: 1.6;">What are you genuinely good at — and what will you keep getting better at?</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="feat-close">
+    <p class="closing-quote" data-en="“The path doesn't have to be clear. You just have to start walking.”" data-hi="“रास्ता साफ़ होना ज़रूरी नहीं है। बस चलना शुरू करना ज़रूरी है।”">“The path doesn't have to be clear. You just have to start walking.”</p>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="cta">
+<div class="w">
+  <h2 data-en="Want to explore more?" data-hi="और देखना चाहते हैं?">Want to explore more?</h2>
+  <p data-en="Career guides, real journeys, scheme info — all on the Resources page." data-hi="करियर गाइड, असली यात्राएं, सरकारी योजनाएं — सब Resources पेज पर।">Career guides, real journeys, scheme info — all on the Resources page.</p>
+  <div class="cta-btns">
+    <a href="/resources/" class="cta-btn-p" data-en="← Back to Resources" data-hi="← संसाधनों पर वापस">← Back to Resources</a>
+    <a href="https://wa.me/917019593085?text=Hi%20Saarthi%20%F0%9F%99%8F%20I%27d%20like%20to%20suggest%20a%20path%20for%20Raahein%3A%20" target="_blank" rel="noopener" class="cta-btn-s" data-en="Suggest a path on WhatsApp" data-hi="WhatsApp पर सुझाव दें">Suggest a path on WhatsApp</a>
+  </div>
+</div>
+</section>
+
+<footer>
+<div class="w">
+  <div class="fi">
+    <div class="fb2">Saarthi Trust — सारथी ट्रस्ट</div>
+    <div class="fl">
+      <a href="/">Home</a>
+      <a href="/resources/" data-en="Resources" data-hi="संसाधन">Resources</a>
+      <a href="/faq.html" data-en="FAQ" data-hi="सवाल-जवाब">FAQ</a>
+      <a href="https://instagram.com/saarthi.trust" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://facebook.com/officialsaarthi" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+  <div class="fc">© 2025 Saarthi Trust. An initiative by IIT, IIM &amp; AIIMS alumni for Bharat. Founded on a dream, fuelled by passion. Because we believe in hope. 🇮🇳</div>
+</div>
+</footer>
+
+<script>
+var hi=false;
+function toggleLang(){
+  hi=!hi;
+  document.getElementById('langBtn').textContent=hi?'English':'हिंदी';
+  document.documentElement.lang=hi?'hi':'en';
+  document.title = hi ? 'राहें · आगे की संभावनाएं | सारथी ट्रस्ट' : 'Raahein · Possibilities ahead | Saarthi Trust';
+  var els=document.querySelectorAll('[data-en]');
+  for(var i=0;i<els.length;i++){
+    var val=els[i].getAttribute(hi?'data-hi':'data-en');
+    if(val)els[i].innerHTML=val;
+  }
+}
+
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+}, {threshold:0.08});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+</script>
+
+</body>
+</html>

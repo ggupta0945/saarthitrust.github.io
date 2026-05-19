@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources | Saarthi Trust — मुफ़्त संसाधन</title>
+<meta name="description" content="Free career guides, government scheme info, CV templates and skill-building resources for rural youth — in Hindi and English. By Saarthi Trust.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://saarthitrust.org/resources/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free Resources | Saarthi Trust">
+<meta property="og:description" content="Career guides, govt schemes, CV templates & skill resources for rural youth — in Hindi. Always free.">
+<meta property="og:image" content="https://saarthitrust.org/og-image.jpg">
+<meta property="og:url" content="https://saarthitrust.org/resources/">
+<meta property="og:locale" content="en_IN">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Resources | Saarthi Trust">
+<meta name="twitter:description" content="Career guides & skill resources for rural youth. Free, in Hindi.">
+<meta name="twitter:image" content="https://saarthitrust.org/og-image.jpg">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231B7A4A'/><text y='22' x='4' font-size='20'>🛤️</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Libre+Baskerville:wght@400;700&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.4.0/dist/tabler-icons.min.css" rel="stylesheet">
+
+<style>
+/* ============================================================
+   Inherits the site's design tokens exactly — keep in sync with
+   index.html if you ever change colors / fonts globally.
+   ============================================================ */
+:root{
+  --bg:#FAFAF7; --cream:#FAF8F3; --sand:#E8E4DA;
+  --tx:#1A1A18; --tx2:#5C5B56; --tx3:#6b6965;
+  --gr:#1B7A4A; --grl:#E8F5EE; --grd:#0F5630;
+  --wr:#D4602C; --wrl:#FDF0EA;
+  --pu:#6D28D9; --pul:#EDE9FE;
+  --fd:'Book Antiqua','Libre Baskerville','Palatino Linotype',Palatino,serif;
+  --fb:'DM Sans',sans-serif;
+  --fh:'Noto Sans Devanagari','DM Sans',sans-serif;
+  --mw:1080px;
+  /* aliases used by the embedded journey content */
+  --color-background-primary:#fff;
+  --color-background-secondary:var(--cream);
+  --color-text-primary:var(--tx);
+  --color-text-secondary:var(--tx2);
+  --color-text-tertiary:var(--tx3);
+  --color-border-secondary:var(--sand);
+  --color-border-tertiary:var(--sand);
+  --border-radius-lg:12px;
+  --border-radius-md:8px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:var(--fb);line-height:1.55;-webkit-font-smoothing:antialiased}
+:lang(hi),[lang="hi"] body{font-family:var(--fh)}
+a{color:inherit;text-decoration:none}
+em{font-style:italic;color:var(--gr)}
+
+.w{max-width:var(--mw);margin:0 auto;padding:0 24px}
+.skip-link{position:absolute;left:-9999px}
+.skip-link:focus{left:8px;top:8px;background:var(--gr);color:#fff;padding:8px 12px;border-radius:6px;z-index:100}
+
+/* ---------- NAV (matches index.html) ---------- */
+nav#nav{position:sticky;top:0;background:rgba(250,250,247,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--sand);z-index:50}
+.ni{max-width:var(--mw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.nl{font-family:var(--fd);font-size:21px;font-weight:700;color:var(--tx)}
+.nl i{color:var(--gr);font-style:normal}
+.nr{display:flex;align-items:center;gap:22px}
+.hm{font-size:14px;color:var(--tx2);font-weight:500}
+.hm:hover{color:var(--gr)}
+.lb{background:none;border:1px solid var(--sand);padding:6px 12px;border-radius:20px;font-size:13px;color:var(--tx2);cursor:pointer;font-family:inherit}
+.lb:hover{border-color:var(--gr);color:var(--gr)}
+.nc{background:var(--gr);color:#fff;padding:9px 16px;border-radius:24px;font-size:14px;font-weight:500}
+.nc:hover{background:var(--grd)}
+@media(max-width:720px){.nr{gap:12px}.hm{display:none}}
+
+/* ---------- PAGE HEADER ---------- */
+.page-hd{padding:70px 0 50px;text-align:center;border-bottom:1px solid var(--sand)}
+.crumb{font-size:13px;color:var(--tx3);margin-bottom:14px;letter-spacing:.04em;text-transform:uppercase}
+.crumb a{color:var(--gr)}
+.page-hd h1{font-family:var(--fd);font-size:clamp(36px,5.5vw,56px);font-weight:700;line-height:1.1;margin-bottom:18px;letter-spacing:-.01em}
+.page-hd h1 em{font-style:italic;color:var(--gr)}
+.page-hd .lead{font-size:18px;color:var(--tx2);max-width:620px;margin:0 auto;line-height:1.6}
+.page-hd .hi-tag{font-family:var(--fh);font-size:16px;color:var(--gr);margin-top:14px;font-style:italic}
+.page-hd .badges{display:flex;gap:10px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+.bdg{background:var(--cream);border:1px solid var(--sand);padding:7px 14px;border-radius:20px;font-size:13px;color:var(--tx2)}
+.bdg b{color:var(--gr);font-weight:600}
+
+/* ---------- CATEGORY SECTIONS ---------- */
+.sec{padding:64px 0;border-bottom:1px solid var(--sand)}
+.sec:last-of-type{border-bottom:none}
+.st{font-size:13px;color:var(--gr);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+.sh{font-family:var(--fd);font-size:32px;font-weight:700;line-height:1.2;margin-bottom:10px}
+.ss{font-size:16px;color:var(--tx2);max-width:580px;margin-bottom:36px}
+
+/* ---------- RESOURCE CARDS ---------- */
+.rcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.rcard{background:#fff;border:1px solid var(--sand);border-radius:14px;padding:24px;display:flex;flex-direction:column;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;position:relative}
+.rcard:hover{transform:translateY(-3px);border-color:var(--gr);box-shadow:0 12px 32px -16px rgba(27,122,74,.18)}
+.ri{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
+.rtag{position:absolute;top:18px;right:18px;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--tx3);background:var(--cream);padding:4px 9px;border-radius:10px;border:1px solid var(--sand)}
+.rcard h3{font-family:var(--fd);font-size:19px;font-weight:700;line-height:1.3;margin-bottom:8px;padding-right:60px}
+.rcard .hi-sub{font-family:var(--fh);font-size:14px;color:var(--gr);margin-bottom:12px;font-style:italic}
+.rcard p{font-size:14px;color:var(--tx2);line-height:1.55;margin-bottom:18px;flex-grow:1}
+.rcard .meta{display:flex;gap:14px;font-size:12px;color:var(--tx3);margin-bottom:14px}
+.rcard .meta span{display:flex;align-items:center;gap:4px}
+.rcard .actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn-dl{background:var(--gr);color:#fff;padding:9px 16px;border-radius:22px;font-size:13px;font-weight:500;display:inline-flex;align-items:center;gap:6px;border:none;cursor:pointer;font-family:inherit;transition:background .15s ease}
+.btn-dl:hover{background:var(--grd)}
+.btn-dl[disabled]{background:var(--sand);color:var(--tx3);cursor:not-allowed}
+.btn-dl[disabled]:hover{background:var(--sand)}
+.btn-ext{background:transparent;color:var(--gr);padding:9px 14px;border-radius:22px;font-size:13px;font-weight:500;border:1px solid var(--gr);display:inline-flex;align-items:center;gap:6px}
+.btn-ext:hover{background:var(--grl)}
+.fb-btns{display:flex;gap:6px;margin-left:auto;align-items:center}
+.fb-lbl{font-size:11px;color:var(--tx3);margin-right:4px}
+.fb-btn{background:none;border:1px solid var(--sand);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;padding:0;transition:all .15s ease}
+.fb-btn:hover{border-color:var(--gr);background:var(--grl)}
+.fb-btn.active{background:var(--grl);border-color:var(--gr)}
+.coming{opacity:.7}
+.coming .ri{background:var(--cream)!important;color:var(--tx3)!important}
+
+/* ---------- TWO-COL HELP CTA ---------- */
+.cta{padding:64px 0;background:var(--cream);border-top:1px solid var(--sand);border-bottom:1px solid var(--sand)}
+.cta .w{text-align:center;max-width:680px}
+.cta h2{font-family:var(--fd);font-size:30px;font-weight:700;margin-bottom:12px}
+.cta p{font-size:16px;color:var(--tx2);margin-bottom:24px;line-height:1.6}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta-btn-p{background:var(--gr);color:#fff;padding:13px 26px;border-radius:30px;font-size:15px;font-weight:500}
+.cta-btn-p:hover{background:var(--grd)}
+.cta-btn-s{background:#fff;color:var(--tx);padding:13px 26px;border-radius:30px;font-size:15px;font-weight:500;border:1px solid var(--sand)}
+.cta-btn-s:hover{border-color:var(--gr);color:var(--gr)}
+
+/* ---------- FOOTER ---------- */
+footer{padding:48px 0 32px;background:var(--bg)}
+.fi{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:24px}
+.fb2{font-family:var(--fd);font-size:18px;font-weight:700}
+.fl{display:flex;gap:18px;font-size:14px;color:var(--tx2)}
+.fl a:hover{color:var(--gr)}
+.fc{font-size:13px;color:var(--tx3);text-align:center;line-height:1.6;padding-top:24px;border-top:1px solid var(--sand)}
+
+/* ---------- INTRO ---------- */
+.intro{padding:54px 0 14px}
+.intro .w{max-width:720px}
+.intro p{font-size:18px;color:var(--tx2);line-height:1.7;text-align:center}
+.intro p b{color:var(--tx);font-weight:600}
+.intro .hi-line{font-family:var(--fh);font-size:15px;color:var(--gr);text-align:center;margin-top:14px;font-style:italic}
+
+/* ---------- CAREER JOURNEYS ---------- */
+.jcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.jcard{background:#fff;border:1px solid var(--sand);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:14px;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;position:relative}
+.jcard:hover{transform:translateY(-3px);border-color:var(--gr);box-shadow:0 12px 32px -16px rgba(27,122,74,.18)}
+.jcard.featured{background:linear-gradient(135deg,var(--grl) 0%,#fff 60%);border-color:var(--gr)}
+.jcard.placeholder{background:var(--cream);border-style:dashed}
+.jcard.share{background:var(--cream);align-items:flex-start}
+.jc-head{display:flex;align-items:center;gap:12px}
+.jc-avatar{width:46px;height:46px;border-radius:50%;background:var(--gr);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;font-family:var(--fd);flex-shrink:0}
+.jc-avatar.gray{background:var(--sand);color:var(--tx3)}
+.jc-name{font-family:var(--fd);font-size:17px;font-weight:700;line-height:1.2}
+.jc-now{font-size:13px;color:var(--tx3);margin-top:3px}
+.jc-arc{font-size:14px;color:var(--tx2);padding-bottom:10px;border-bottom:1px dashed var(--sand)}
+.jc-arc b{color:var(--gr);font-weight:600}
+.jc-story{font-size:14px;color:var(--tx2);line-height:1.6;flex-grow:1;margin:0}
+.jc-steps{display:flex;flex-wrap:wrap;gap:6px}
+.jc-steps span{background:var(--cream);border:1px solid var(--sand);padding:4px 10px;border-radius:14px;font-size:12px;color:var(--tx2)}
+.jcard.featured .jc-steps span{background:#fff}
+.jc-quote{font-family:var(--fd);font-style:italic;font-size:14px;color:var(--tx);border-left:3px solid var(--gr);padding:2px 0 2px 12px;line-height:1.5}
+.jcard.placeholder h4{font-family:var(--fd);font-size:17px;font-weight:700;margin:0}
+.jcard.share .jc-icon{font-size:30px}
+.jcard.share h4{font-family:var(--fd);font-size:17px;font-weight:700;margin:0}
+.jcard.share p{font-size:14px;color:var(--tx2);line-height:1.55;margin:0;flex-grow:1}
+.btn-share{background:var(--gr);color:#fff;padding:10px 18px;border-radius:22px;font-size:13px;font-weight:500;align-self:flex-start;display:inline-flex;align-items:center;gap:6px}
+.btn-share:hover{background:var(--grd)}
+.btn-share.outline{background:transparent;color:var(--gr);border:1px solid var(--gr)}
+.btn-share.outline:hover{background:var(--grl)}
+
+/* ---------- CJ SUBSECTIONS (new layout) ---------- */
+.cj-sub{margin-bottom:44px}
+.cj-sub:last-of-type{margin-bottom:0}
+.cj-sub-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--sand);gap:14px;flex-wrap:wrap}
+.cj-sub-title{font-family:var(--fd);font-size:18px;font-weight:600;color:var(--tx);margin:0}
+.cj-sub-meta{font-size:13px;color:var(--tx3)}
+
+/* MAP CARD (single, prominent banner for Raahein) */
+.map-card{display:grid;grid-template-columns:auto 1fr;gap:24px;background:#fff;border:1px solid var(--sand);border-radius:14px;padding:24px 26px;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
+.map-card:hover{transform:translateY(-2px);border-color:var(--gr);box-shadow:0 12px 32px -16px rgba(27,122,74,.18)}
+.map-icon{width:60px;height:60px;background:var(--grl);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0}
+.map-body h3{font-family:var(--fd);font-size:22px;font-weight:700;margin:0 0 4px;line-height:1.2}
+.map-meta{font-size:13px;color:var(--tx3);margin-bottom:10px}
+.map-body p{font-size:14px;color:var(--tx2);line-height:1.6;margin:0 0 14px}
+.map-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.map-chips span{background:var(--cream);border:1px solid var(--sand);padding:5px 12px;border-radius:14px;font-size:12px;color:var(--tx2)}
+.map-cta{display:inline-flex;background:var(--gr);color:#fff;padding:10px 18px;border-radius:22px;font-size:13px;font-weight:500;align-items:center;gap:6px}
+.map-cta:hover{background:var(--grd)}
+.map-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:14px;border-top:1px solid var(--sand);flex-wrap:wrap}
+@media(max-width:600px){.map-card{grid-template-columns:1fr}}
+
+/* POSTCARD GRID (2x2 of postcards) */
+.postcards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.pcard{background:#fff;border:1px solid var(--sand);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
+.pcard:hover{transform:translateY(-3px);border-color:var(--gr);box-shadow:0 12px 32px -16px rgba(27,122,74,.15)}
+.pcard-head{display:flex;align-items:center;gap:12px}
+.pcard-avatar{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:18px;font-weight:700;flex-shrink:0;background:var(--grl);color:var(--gr)}
+.pcard-avatar.builder{background:#E6F1FB;color:#0C447C}
+.pcard-avatar.strategist{background:#FBEAF0;color:#72243E}
+.pcard-avatar.founder{background:#FAECE7;color:#993C1D}
+.pcard-avatar.public{background:#E1F5EE;color:#0F6E56}
+.pcard-name{font-family:var(--fd);font-size:18px;font-weight:700;line-height:1.2;color:var(--tx)}
+.pcard-role{font-size:13px;color:var(--tx3);margin-top:3px}
+.pcard-tag{align-self:flex-start;padding:4px 12px;border-radius:14px;font-size:12px;font-weight:500;line-height:1.4}
+.tag-builder{background:#E6F1FB;color:#0C447C}
+.tag-strategist{background:#FBEAF0;color:#72243E}
+.tag-founder{background:#FAECE7;color:#993C1D}
+.tag-public{background:#E1F5EE;color:#0F6E56}
+.pcard-arc{font-size:13px;color:var(--tx2);padding-bottom:10px;border-bottom:1px dashed var(--sand);line-height:1.5}
+.pcard-arc b{color:var(--gr);font-weight:600}
+.pcard-story{font-size:14px;color:var(--tx2);line-height:1.6;margin:0}
+.pcard-quote{font-family:var(--fd);font-style:italic;font-size:14px;line-height:1.55;color:var(--tx);border-left:3px solid var(--gr);padding:2px 0 2px 12px;margin:0;flex-grow:1}
+.pcard-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:14px;border-top:1px solid var(--sand);flex-wrap:wrap}
+.pcard-stats{display:flex;gap:14px;font-size:12px;color:var(--tx3);align-items:center}
+.pcard-stats .like-btn{background:none;border:none;padding:0;cursor:pointer;font:inherit;color:inherit;display:inline-flex;align-items:center;gap:4px;transition:color .15s ease}
+.pcard-stats .like-btn:hover{color:var(--wr)}
+.pcard-stats .like-btn.liked{color:var(--wr)}
+.pcard-cta{font-size:13px;color:var(--gr);font-weight:500;display:inline-flex;align-items:center;gap:4px}
+.pcard-cta:hover{color:var(--grd)}
+
+/* SHARE ROW — single centered card */
+.share-row{display:flex;justify-content:center}
+.share-row .jcard{max-width:520px;width:100%;align-items:center;text-align:center}
+.share-row .jcard p{text-align:center}
+.share-row .jcard .btn-share{align-self:center}
+
+/* ---------- GOV STRIP ---------- */
+.gov-disclaimer{background:var(--wrl);border:1px solid #f4d4be;border-radius:10px;padding:12px 16px;font-size:13px;color:var(--tx);margin-bottom:22px;line-height:1.55}
+.gov-disclaimer b{color:var(--wr)}
+.gov-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.gov-link{background:#fff;border:1px solid var(--sand);padding:18px 20px;border-radius:12px;display:flex;flex-direction:column;gap:4px;transition:transform .15s ease,border-color .15s ease}
+.gov-link:hover{border-color:var(--gr);transform:translateY(-2px)}
+.gov-link b{font-family:var(--fd);font-size:16px;color:var(--tx);font-weight:700}
+.gov-link span{font-size:13px;color:var(--tx3)}
+.gov-link em{font-size:12px;color:var(--gr);font-style:normal;margin-top:6px}
+
+/* ---------- FEATURED JOURNEY ---------- */
+.feat-sec{padding:64px 0;background:linear-gradient(180deg,var(--grl) 0%,#fff 40%);border-bottom:1px solid var(--sand)}
+.feat-sec .w{max-width:760px}
+.feat-sec .st{text-align:center;margin-bottom:14px}
+.feat-sec .sh{text-align:center;font-size:clamp(28px,4.2vw,40px);line-height:1.15;margin-bottom:14px}
+.feat-quote{text-align:center;font-family:var(--fd);font-style:italic;font-size:18px;color:var(--gr);margin:0 auto;max-width:520px}
+.feat-quote-hi{text-align:center;font-family:var(--fh);font-size:15px;color:var(--tx3);margin-top:6px;font-style:italic}
+.feat-journey{margin-top:40px}
+.feat-journey .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.feat-mid-tag{font-family:var(--fd);font-style:italic;font-size:15px;color:var(--tx2);text-align:center;line-height:1.55;max-width:480px;margin:24px auto;padding:0 16px}
+.feat-close{margin-top:40px}
+.closing-quote{font-family:var(--fd);font-style:italic;font-size:18px;color:var(--tx);line-height:1.55;text-align:center;max-width:540px;margin:0 auto;padding:24px 28px;background:var(--cream);border-radius:14px;border:1px solid var(--sand)}
+
+/* Reveal on scroll */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- ============= NAV ============= -->
+<nav id="nav">
+<div class="ni">
+  <a href="/" class="nl">Saarthi Trust<i>.</i></a>
+  <div class="nr">
+    <a href="/#how" class="hm">How it works</a>
+    <a href="/#pillars" class="hm">What we do</a>
+    <a href="/#about" class="hm">About</a>
+    <a href="/resources/" class="hm" data-en="Resources" data-hi="संसाधन">Resources</a>
+    <a href="/#faq" class="hm" data-en="FAQ" data-hi="सवाल-जवाब">FAQ</a>
+    <button class="lb" onclick="toggleLang()" id="langBtn">हिंदी</button>
+    <a href="https://forms.gle/o3rcneE2MNVFH863A" class="nc" target="_blank" rel="noopener" data-en="Register free →" data-hi="मुफ़्त रजिस्टर →">Register free →</a>
+  </div>
+</div>
+</nav>
+
+<!-- ============= PAGE HEADER ============= -->
+<header class="page-hd" id="main-content">
+<div class="w">
+  <div class="crumb"><a href="/">Saarthi Trust</a> / <span data-en="Resources" data-hi="संसाधन">Resources</span></div>
+  <h1 data-en="Everything we wish someone had told us — answers, paths, and <em>proof</em>." data-hi="वो सब कुछ जो काश किसी ने बताया होता — जवाब, रास्ते, <em>सच्चाई</em>।">Everything we wish someone had told us — answers, paths, and <em>proof</em>.</h1>
+  <p class="lead" data-en="Career guides, government schemes, CV templates, and real career journeys from people who took the path." data-hi="करियर गाइड, सरकारी योजनाएं, CV टेम्पलेट, और उन लोगों की असली करियर यात्राएं जिन्होंने यह रास्ता तय किया है।">Career guides, government schemes, CV templates, and real career journeys from people who took the path.</p>
+</div>
+</header>
+
+<!-- ============= INTRO ============= -->
+<section class="intro">
+<div class="w">
+  <p data-en="For the past year, the same WhatsApp messages kept arriving. <b>“Bhaiya, 12वीं के बाद क्या करें?”</b> <b>“Bhaiya, kahaan padhne jaayein?”</b> We answered one by one. This page is what we wished existed instead — every answer, every path, every form, in one place, with true stories." data-hi="पिछले एक साल से वही WhatsApp मैसेज आते रहे। <b>“भैया, 12वीं के बाद क्या करें?”</b> <b>“भैया, कहाँ पढ़ने जाएँ?”</b> हम एक-एक करके जवाब देते रहे। यह पेज वो है जो हम चाहते थे कि पहले से होता — हर जवाब, हर रास्ता, हर फॉर्म, एक जगह, असली कहानियों के साथ।">For the past year, the same WhatsApp messages kept arriving. <b>“Bhaiya, 12वीं के बाद क्या करें?”</b> <b>“Bhaiya, kahaan padhne jaayein?”</b> We answered one by one. This page is what we wished existed instead — every answer, every path, every form, in one place, with true stories.</p>
+  <div class="hi-line">— सारथी टीम</div>
+</div>
+</section>
+
+<!-- ============= CAREER JOURNEYS ============= -->
+<section class="sec" id="journeys">
+<div class="w">
+  <div class="st" data-en="यात्राएं · Career Journeys" data-hi="यात्राएं · असली रास्ते">यात्राएं · Career Journeys</div>
+  <h2 class="sh" data-en="Real paths from people like you" data-hi="आप जैसे लोगों के असली रास्ते">Real paths from people like you</h2>
+  <p class="ss" data-en="No shortcuts. No fairy tales. A scrollable map of what's possible — and honest letters from people who walked it." data-hi="कोई शॉर्टकट नहीं। कोई कहानी नहीं। क्या मुमकिन है उसका नक्शा — और चलने वालों की ईमानदार चिट्ठियाँ।">No shortcuts. No fairy tales. A scrollable map of what's possible — and honest letters from people who walked it.</p>
+
+  <!-- ===== Subsection 1: The journey map ===== -->
+  <div class="cj-sub rv">
+    <div class="cj-sub-head">
+      <h3 class="cj-sub-title" data-en="The journey map" data-hi="यात्रा का नक्शा">The journey map</h3>
+    </div>
+    <article class="map-card">
+      <div class="map-icon">🗺️</div>
+      <div class="map-body">
+        <h3 data-en="Raahein · Possibilities ahead" data-hi="राहें · आगे की संभावनाएं">Raahein · Possibilities ahead</h3>
+        <div class="map-meta" data-en="A future built on curiosity, not pressure" data-hi="जिज्ञासा से बना भविष्य — दबाव से नहीं">A future built on curiosity, not pressure</div>
+        <p data-en="Where science, math, and engineering can actually take you — from age 15 to 32. Six undergrad roads. Real first-job salaries. Honest numbers, no brochure stuff." data-hi="विज्ञान, गणित और इंजीनियरिंग आपको कहाँ ले जा सकते हैं — 15 से 32 साल तक। छह स्नातक रास्ते, असली पहली तनख्वाह, ईमानदार आँकड़े।">Where science, math, and engineering can actually take you — from age 15 to 32. Six undergrad roads. Real first-job salaries. Honest numbers, no brochure stuff.</p>
+        <div class="map-chips">
+          <span>6 paths</span>
+          <span>age 15 → 32</span>
+          <span>realistic ₹</span>
+        </div>
+        <div class="map-footer">
+          <div class="pcard-stats">
+            <span>~5 min read</span>
+            <span>👁 142</span>
+            <button class="like-btn" data-rid="raahein-map" type="button">♥ <span class="like-count">28</span></button>
+          </div>
+          <a href="/resources/raahein/" class="map-cta" data-en="Open the journey map →" data-hi="यात्रा नक्शा खोलें →">Open the journey map →</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- ===== Subsection 2: Postcards from the path ===== -->
+  <div class="cj-sub rv">
+    <div class="cj-sub-head">
+      <h3 class="cj-sub-title" data-en="Postcards from the path" data-hi="राहों से चिट्ठियाँ">Postcards from the path</h3>
+    </div>
+
+    <div class="postcards-grid">
+
+      <article class="pcard">
+        <div class="pcard-head">
+          <div class="pcard-avatar builder">G</div>
+          <div>
+            <div class="pcard-name">Gaurav</div>
+            <div class="pcard-role">IIT KGP · Data Scientist</div>
+          </div>
+        </div>
+        <span class="pcard-tag tag-builder" data-en="The builder" data-hi="निर्माता">The builder</span>
+        <div class="pcard-arc" data-en="From <b>Class 10 doubt</b> → IIT → <b>building things he didn't know existed at 15</b>" data-hi="<b>10वीं की उलझन</b> → IIT → <b>ऐसी चीज़ें बनाना जो 15 की उम्र में पता ही नहीं थीं</b>">From <b>Class 10 doubt</b> → IIT → <b>building things he didn't know existed at 15</b></div>
+        <p class="pcard-story" data-en="“I chose engineering because I liked math and figuring out how things worked. That was it. I didn't have a master plan. I didn't know what ‘data science' meant. I just kept saying yes to things that pulled me — a project here, a course there, a question that wouldn't leave my head…”" data-hi="“मैंने इंजीनियरिंग इसलिए चुनी क्योंकि मुझे गणित और चीज़ें कैसे काम करती हैं समझना अच्छा लगता था। कोई बड़ा प्लान नहीं था…”">“I chose engineering because I liked math and figuring out how things worked. That was it. I didn't have a master plan. I didn't know what ‘data science' meant. I just kept saying yes to things that pulled me — a project here, a course there, a question that wouldn't leave my head…”</p>
+        <div class="pcard-quote" data-en="“You don't need to know your destination at 15. Pick a direction, walk honestly, stay curious.”" data-hi="“15 साल की उम्र में मंज़िल पता होना ज़रूरी नहीं है। एक दिशा चुनो, ईमानदारी से चलो, जिज्ञासु रहो।”">“You don't need to know your destination at 15. Pick a direction, walk honestly, stay curious.”</div>
+        <div class="pcard-footer">
+          <div class="pcard-stats">
+            <span>4 min read</span>
+            <span>👁 72</span>
+            <button class="like-btn" data-rid="gaurav" type="button">♥ <span class="like-count">16</span></button>
+          </div>
+          <a href="/resources/raahein/#postcard" class="pcard-cta" data-en="Read postcard →" data-hi="चिट्ठी पढ़ें →">Read postcard →</a>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-head">
+          <div class="pcard-avatar strategist">N</div>
+          <div>
+            <div class="pcard-name">Nikita</div>
+            <div class="pcard-role">IIT KGP · IIM Ahmedabad · BCG consultant</div>
+          </div>
+        </div>
+        <span class="pcard-tag tag-strategist" data-en="The strategist" data-hi="रणनीतिकार">The strategist</span>
+        <div class="pcard-arc" data-en="From a <b>normal middle-class family</b> → IIT → IIM → <b>flying between Mumbai, Bangalore, Jakarta at 24</b>" data-hi="<b>आम मध्यमवर्गीय परिवार</b> से → IIT → IIM → <b>24 की उम्र में मुंबई-बैंगलोर-जकार्ता उड़ना</b>">From a <b>normal middle-class family</b> → IIT → IIM → <b>flying between Mumbai, Bangalore, Jakarta at 24</b></div>
+        <p class="pcard-story" data-en="“Imagine this: the CEO of a huge company sits across from me and asks, ‘Should we launch this product? Should we enter this country?' And my team and I spend weeks figuring out the answer. I'm 24. I earn more in a year than my parents earned in ten…”" data-hi="“कल्पना कीजिए: एक बड़ी कंपनी का CEO मेरे सामने बैठकर पूछता है, ‘क्या हमें यह प्रोडक्ट लॉन्च करना चाहिए?' और हमारी टीम हफ़्तों में जवाब निकालती है। मैं 24 साल की हूँ…”">“Imagine this: the CEO of a huge company sits across from me and asks, ‘Should we launch this product? Should we enter this country?' And my team and I spend weeks figuring out the answer. I'm 24. I earn more in a year than my parents earned in ten…”</p>
+        <div class="pcard-quote" data-en="“Dream a little bigger. The road is wider than your school is telling you.”" data-hi="“थोड़ा बड़ा सपना देखो। रास्ता उससे चौड़ा है जितना तुम्हारा स्कूल बता रहा है।”">“Dream a little bigger. The road is wider than your school is telling you.”</div>
+        <div class="pcard-footer">
+          <div class="pcard-stats">
+            <span>6 min read</span>
+            <span>👁 68</span>
+            <button class="like-btn" data-rid="nikita" type="button">♥ <span class="like-count">18</span></button>
+          </div>
+          <a href="/resources/raahein/#postcard-mba" class="pcard-cta" data-en="Read postcard →" data-hi="चिट्ठी पढ़ें →">Read postcard →</a>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pcard-head">
+          <div class="pcard-avatar founder">A</div>
+          <div>
+            <div class="pcard-name">Aniket</div>
+            <div class="pcard-role">IIT KGP · Founder & CEO, Swish</div>
+          </div>
+        </div>
+        <span class="pcard-tag tag-founder" data-en="The founder" data-hi="संस्थापक">The founder</span>
+        <div class="pcard-arc" data-en="From <b>IIT Mech</b> → <b>quit a stable job</b> → <b>building Swish — 350+ employees by age 26</b>" data-hi="<b>IIT मैकेनिकल</b> → <b>स्थिर नौकरी छोड़ी</b> → <b>26 की उम्र में 350+ कर्मचारियों वाली Swish</b>">From <b>IIT Mech</b> → <b>quit a stable job</b> → <b>building Swish — 350+ employees by age 26</b></div>
+        <p class="pcard-story" data-en="“Two years ago I had a stable job. Good salary. Comfortable life. Everything most people would call ‘successful.' And then I quit. I left it all to start a company from scratch — with two friends, a small kitchen, and an idea…”" data-hi="“दो साल पहले मेरे पास एक स्थिर नौकरी थी, अच्छी सैलरी, आरामदायक ज़िंदगी। फिर मैंने सब छोड़ दिया — दो दोस्तों, एक छोटे रसोई और एक आइडिया के साथ…”">“Two years ago I had a stable job. Good salary. Comfortable life. Everything most people would call ‘successful.' And then I quit. I left it all to start a company from scratch — with two friends, a small kitchen, and an idea…”</p>
+        <div class="pcard-quote" data-en="“Even if you never become a founder, someone in your generation will. Why not you? Dream a little crazier.”" data-hi="“अगर आप कभी संस्थापक नहीं बनेंगे, तो भी आपकी पीढ़ी का कोई बनेगा। आप क्यों नहीं? थोड़ा पागलपन वाला सपना देखो।”">“Even if you never become a founder, someone in your generation will. Why not you? Dream a little crazier.”</div>
+        <div class="pcard-footer">
+          <div class="pcard-stats">
+            <span>7 min read</span>
+            <span>👁 135</span>
+            <button class="like-btn" data-rid="aniket" type="button">♥ <span class="like-count">22</span></button>
+          </div>
+          <a href="/resources/raahein/#postcard-founder" class="pcard-cta" data-en="Read postcard →" data-hi="चिट्ठी पढ़ें →">Read postcard →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- ===== Subsection 3: Share / nominate ===== -->
+  <div class="cj-sub rv">
+    <div class="cj-sub-head">
+      <h3 class="cj-sub-title" data-en="Have a story to tell?" data-hi="कोई कहानी सुनानी है?">Have a story to tell?</h3>
+    </div>
+    <div class="share-row">
+      <article class="jcard share">
+        <div class="jc-icon">✍️</div>
+        <h4 data-en="Share your own journey" data-hi="अपनी यात्रा बताएं">Share your own journey</h4>
+        <p data-en="From village to wherever you are now — your story could help another kid see what's possible. 10 minutes on WhatsApp. We'll write it up for you." data-hi="गाँव से लेकर आज तक — आपकी कहानी किसी और बच्चे को रास्ता दिखा सकती है। WhatsApp पर 10 मिनट। हम लिख देंगे।">From village to wherever you are now — your story could help another kid see what's possible. 10 minutes on WhatsApp. We'll write it up for you.</p>
+        <a href="https://wa.me/917019593085?text=Hi%20Saarthi%20%F0%9F%99%8F%20I%27d%20like%20to%20share%20my%20career%20journey." target="_blank" rel="noopener" class="btn-share" data-en="Share on WhatsApp →" data-hi="WhatsApp पर बताएं →">Share on WhatsApp →</a>
+      </article>
+
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ============= CATEGORY 2: SKILL UP ============= -->
+<section class="sec" id="learn">
+<div class="w">
+  <div class="st" data-en="Skill Up" data-hi="कौशल बढ़ाएं">Skill Up</div>
+  <h2 class="sh" data-en="कौशल सीखें — Free, in Hindi, from your phone" data-hi="कौशल सीखें — मुफ़्त, हिंदी में, फ़ोन से">कौशल सीखें — Free, in Hindi, from your phone</h2>
+  <p class="ss" data-en="Hand-picked free playlists and tools. Start with one. No paid course nonsense." data-hi="चुनिंदा मुफ़्त प्लेलिस्ट और टूल। एक से शुरू करें। कोई पेड कोर्स बकवास नहीं।">Hand-picked free playlists and tools. Start with one. No paid course nonsense.</p>
+
+  <div class="rcards">
+
+    <article class="rcard rv">
+      <span class="rtag">YouTube</span>
+      <div class="ri" style="background:var(--wrl);color:var(--wr)">📊</div>
+      <h3 data-en="Learn Tally — free, in Hindi" data-hi="मुफ़्त टैली — हिंदी में">Learn Tally — free, in Hindi</h3>
+      <div class="hi-sub">दुकान का हिसाब — Tally Prime</div>
+      <p data-en="Curated free YouTube playlist (Hindi). Covers basics → GST → reports in ~12 hours. Most-watched by Indian small-business owners." data-hi="चुनिंदा मुफ़्त YouTube प्लेलिस्ट (हिंदी)। बेसिक से GST से रिपोर्ट तक ~12 घंटे में।">Curated free YouTube playlist (Hindi). Covers basics → GST → reports in ~12 hours. Most-watched by Indian small-business owners.</p>
+      <div class="meta"><span>▶️ YouTube</span><span>🇮🇳 Hindi</span><span>⏱ ~12 hrs</span></div>
+      <div class="actions">
+        <a href="https://www.youtube.com/results?search_query=tally+prime+full+course+hindi" target="_blank" rel="noopener" class="btn-ext">Watch →</a>
+        <div class="fb-btns">
+          <span class="fb-lbl">Helpful?</span>
+          <button class="fb-btn" data-rid="tally" data-vote="up">👍</button>
+          <button class="fb-btn" data-rid="tally" data-vote="down">👎</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="rcard rv">
+      <span class="rtag">YouTube</span>
+      <div class="ri" style="background:var(--wrl);color:var(--wr)">💻</div>
+      <h3 data-en="Computer basics in 30 days" data-hi="30 दिन में कंप्यूटर बेसिक">Computer basics in 30 days</h3>
+      <div class="hi-sub">MS Word, Excel, ईमेल, इंटरनेट</div>
+      <p data-en="Free playlist covering Windows, MS Word, Excel basics, email, and safe internet use. Perfect for first-time computer users." data-hi="विंडोज़, वर्ड, एक्सेल, ईमेल, सुरक्षित इंटरनेट — मुफ़्त प्लेलिस्ट।">Free playlist covering Windows, MS Word, Excel basics, email, and safe internet use. Perfect for first-time computer users.</p>
+      <div class="meta"><span>▶️ YouTube</span><span>🇮🇳 Hindi</span><span>⏱ ~20 hrs</span></div>
+      <div class="actions">
+        <a href="https://www.youtube.com/results?search_query=computer+basic+course+hindi" target="_blank" rel="noopener" class="btn-ext">Watch →</a>
+        <div class="fb-btns">
+          <span class="fb-lbl">Helpful?</span>
+          <button class="fb-btn" data-rid="computer-basics" data-vote="up">👍</button>
+          <button class="fb-btn" data-rid="computer-basics" data-vote="down">👎</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="rcard rv">
+      <span class="rtag">YouTube</span>
+      <div class="ri" style="background:var(--wrl);color:var(--wr)">💬</div>
+      <h3 data-en="Spoken English for interviews" data-hi="इंटरव्यू के लिए English">Spoken English for interviews</h3>
+      <div class="hi-sub">बोलना सीखें — सरल तरीके से</div>
+      <p data-en="Practical, no-shame spoken English for job interviews. Common questions, how to answer, how to introduce yourself." data-hi="नौकरी इंटरव्यू के लिए व्यावहारिक स्पोकन इंग्लिश। आम सवाल, जवाब, खुद का परिचय।">Practical, no-shame spoken English for job interviews. Common questions, how to answer, how to introduce yourself.</p>
+      <div class="meta"><span>▶️ YouTube</span><span>🇮🇳 Hindi explained</span><span>⏱ ~8 hrs</span></div>
+      <div class="actions">
+        <a href="https://www.youtube.com/results?search_query=spoken+english+for+job+interview+hindi" target="_blank" rel="noopener" class="btn-ext">Watch →</a>
+        <div class="fb-btns">
+          <span class="fb-lbl">Helpful?</span>
+          <button class="fb-btn" data-rid="spoken-english" data-vote="up">👍</button>
+          <button class="fb-btn" data-rid="spoken-english" data-vote="down">👎</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="rcard rv">
+      <span class="rtag" data-en="Start here" data-hi="यहाँ से शुरू">Start here</span>
+      <div class="ri" style="background:var(--pul);color:var(--pu)">🤖</div>
+      <h3 data-en="AI & data — start here" data-hi="AI और डेटा — शुरुआत यहाँ से">AI & data — start here</h3>
+      <div class="hi-sub">AI क्या है — पहला कदम</div>
+      <p data-en="Honest, no-hype intro in Hindi: what AI and data jobs actually are, what people in them do day-to-day, and the simplest free first step. No paid courses." data-hi="ईमानदार, बिना हाइप के हिंदी परिचय: AI और डेटा की नौकरियाँ असल में क्या हैं, उनमें रोज़ क्या होता है, और सबसे आसान पहला कदम। कोई पेड कोर्स नहीं।">Honest, no-hype intro in Hindi: what AI and data jobs actually are, what people in them do day-to-day, and the simplest free first step. No paid courses.</p>
+      <div class="meta"><span>▶️ YouTube</span><span>🇮🇳 Hindi</span><span>⏱ ~4 hrs</span></div>
+      <div class="actions">
+        <a href="https://www.youtube.com/results?search_query=ai+kya+hai+hindi+beginner" target="_blank" rel="noopener" class="btn-ext">Watch →</a>
+        <div class="fb-btns">
+          <span class="fb-lbl">Helpful?</span>
+          <button class="fb-btn" data-rid="ai-data" data-vote="up">👍</button>
+          <button class="fb-btn" data-rid="ai-data" data-vote="down">👎</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</div>
+</section>
+
+<!-- ============= GOVERNMENT INITIATIVES ============= -->
+<section class="sec" id="govt">
+<div class="w">
+  <div class="st" data-en="Government Initiatives" data-hi="सरकारी पहल">Government Initiatives</div>
+  <h2 class="sh" data-en="Official portals worth bookmarking" data-hi="आधिकारिक पोर्टल — सहेजने लायक">Official portals worth bookmarking</h2>
+  <p class="ss" data-en="Three places we keep going back to. We don't run these — we just point to them." data-hi="तीन जगहें जहाँ हम बार-बार जाते हैं। ये हमारी नहीं हैं — हम बस रास्ता दिखा रहे हैं।">Three places we keep going back to. We don't run these — we just point to them.</p>
+
+  <div class="gov-disclaimer rv">
+    <b data-en="Please verify on the official site." data-hi="कृपया आधिकारिक वेबसाइट पर पुष्टि करें।">Please verify on the official site.</b>
+    <span data-en=" Scheme rules, eligibility and deadlines change without notice. Always confirm before applying or paying any fee." data-hi=" योजना के नियम, पात्रता और तारीखें बिना सूचना के बदल सकती हैं। आवेदन या भुगतान से पहले हमेशा पुष्टि करें।"> Scheme rules, eligibility and deadlines change without notice. Always confirm before applying or paying any fee.</span>
+  </div>
+
+  <div class="gov-strip">
+    <a href="https://www.myscheme.gov.in/" target="_blank" rel="noopener" class="gov-link rv">
+      <b>myScheme</b>
+      <span data-en="Universal scheme finder — central + state" data-hi="हर सरकारी योजना का खोज पोर्टल">Universal scheme finder — central + state</span>
+      <em data-en="myscheme.gov.in →" data-hi="myscheme.gov.in →">myscheme.gov.in →</em>
+    </a>
+    <a href="https://vikaspedia.in/" target="_blank" rel="noopener" class="gov-link rv">
+      <b>Vikaspedia</b>
+      <span data-en="Rural-India focused — agri, education, health, livelihood" data-hi="ग्रामीण भारत के लिए — कृषि, शिक्षा, स्वास्थ्य, रोज़गार">Rural-India focused — agri, education, health, livelihood</span>
+      <em data-en="vikaspedia.in →" data-hi="vikaspedia.in →">vikaspedia.in →</em>
+    </a>
+    <a href="https://services.india.gov.in/" target="_blank" rel="noopener" class="gov-link rv">
+      <b>India.gov.in services</b>
+      <span data-en="Every central + state govt service in one place" data-hi="हर केंद्रीय + राज्य सेवा एक जगह">Every central + state govt service in one place</span>
+      <em data-en="services.india.gov.in →" data-hi="services.india.gov.in →">services.india.gov.in →</em>
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- ============= HELP CTA ============= -->
+<section class="cta">
+<div class="w">
+  <h2 data-en="Something missing? Tell us." data-hi="कुछ छूट रहा है? बताएं।">Something missing? Tell us.</h2>
+  <p data-en="These resources are shaped by what our community asks for. If there's a guide, scheme or skill you want covered — message us on WhatsApp. We'll add it." data-hi="ये संसाधन हमारी कम्युनिटी की माँग से बनते हैं। कोई गाइड, योजना या कौशल चाहिए — WhatsApp पर मैसेज करें। हम जोड़ देंगे।">These resources are shaped by what our community asks for. If there's a guide, scheme or skill you want covered — message us on WhatsApp. We'll add it.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/917019593085?text=Hi%20Saarthi%20%F0%9F%99%8F%20I%27d%20like%20to%20suggest%20a%20resource%3A%20" target="_blank" rel="noopener" class="cta-btn-p" data-en="Suggest a resource on WhatsApp" data-hi="WhatsApp पर सुझाव दें">Suggest a resource on WhatsApp</a>
+    <a href="/" class="cta-btn-s" data-en="Back to home" data-hi="होम पर वापस">Back to home</a>
+  </div>
+</div>
+</section>
+
+<!-- ============= FOOTER ============= -->
+<footer>
+<div class="w">
+  <div class="fi">
+    <div class="fb2">Saarthi Trust — सारथी ट्रस्ट</div>
+    <div class="fl">
+      <a href="/">Home</a>
+      <a href="/resources/" data-en="Resources" data-hi="संसाधन">Resources</a>
+      <a href="/faq.html" data-en="FAQ" data-hi="सवाल-जवाब">FAQ</a>
+      <a href="https://instagram.com/saarthi.trust" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://facebook.com/officialsaarthi" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+  <div class="fc">© 2025 Saarthi Trust. An initiative by IIT, IIM &amp; AIIMS alumni for Bharat. Founded on a dream, fuelled by passion. Because we believe in hope. 🇮🇳</div>
+</div>
+</footer>
+
+<script>
+/* ===== Language toggle — kept identical to index.html ===== */
+var hi=false;
+function toggleLang(){
+  hi=!hi;
+  document.getElementById('langBtn').textContent=hi?'English':'हिंदी';
+  document.documentElement.lang=hi?'hi':'en';
+  if (hi) {
+    document.title = 'संसाधन | सारथी ट्रस्ट';
+  } else {
+    document.title = 'Resources | Saarthi Trust — मुफ़्त संसाधन';
+  }
+  var els=document.querySelectorAll('[data-en]');
+  for(var i=0;i<els.length;i++){
+    var val=els[i].getAttribute(hi?'data-hi':'data-en');
+    if(val)els[i].innerHTML=val;
+  }
+}
+
+/* ===== Scroll reveal ===== */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+}, {threshold:0.08});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+
+/* ===== Feedback buttons — stores votes locally, then fires a beacon =====
+   Replace the fetch URL with your Google Apps Script webhook / Plausible
+   custom-event endpoint when ready. For now it just logs locally so it
+   never breaks. */
+document.querySelectorAll('.fb-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var rid = btn.getAttribute('data-rid');
+    var vote = btn.getAttribute('data-vote');
+    var key = 'saarthi-fb-'+rid;
+    if(localStorage.getItem(key)){ return; } // one vote per resource per device
+    localStorage.setItem(key, vote);
+    btn.classList.add('active');
+    btn.parentElement.querySelectorAll('.fb-btn').forEach(function(b){ if(b!==btn) b.disabled=true; });
+    // Fire-and-forget beacon — wire to a real endpoint later
+    try {
+      if (window.plausible) { window.plausible('Resource feedback', {props:{resource:rid, vote:vote}}); }
+    } catch(e) {}
+    // Visual thank-you
+    var lbl = btn.parentElement.querySelector('.fb-lbl');
+    if(lbl) lbl.textContent = (hi ? 'धन्यवाद!' : 'Thanks!');
+  });
+});
+
+/* Restore previous votes on load */
+document.querySelectorAll('.fb-btn').forEach(function(btn){
+  var rid = btn.getAttribute('data-rid');
+  var prev = localStorage.getItem('saarthi-fb-'+rid);
+  if(prev){
+    btn.parentElement.querySelectorAll('.fb-btn').forEach(function(b){ b.disabled = true; });
+    if(prev === btn.getAttribute('data-vote')) btn.classList.add('active');
+    var lbl = btn.parentElement.querySelector('.fb-lbl');
+    if(lbl) lbl.textContent = '✓';
+  }
+});
+
+/* ===== Postcard like buttons (localStorage-backed) ===== */
+document.querySelectorAll('.like-btn').forEach(function(btn){
+  var rid = btn.getAttribute('data-rid');
+  var key = 'saarthi-like-'+rid;
+  var countSpan = btn.querySelector('.like-count');
+  if(localStorage.getItem(key)){
+    btn.classList.add('liked');
+  }
+  btn.addEventListener('click', function(){
+    if(localStorage.getItem(key)){
+      // unlike
+      localStorage.removeItem(key);
+      btn.classList.remove('liked');
+      countSpan.textContent = parseInt(countSpan.textContent,10) - 1;
+    } else {
+      localStorage.setItem(key, '1');
+      btn.classList.add('liked');
+      countSpan.textContent = parseInt(countSpan.textContent,10) + 1;
+    }
+  });
+});
+</script>
+</body>
+</html>
