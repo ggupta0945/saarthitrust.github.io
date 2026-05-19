@@ -461,5 +461,19 @@ function toggleLang(){
   }
 }
 </script>
+
+<script>
+/* View counter (Abacus + 30-min anti-spam) */
+(function(){
+  try {
+    var id = 'postcard-gaurav';
+    var k = 'saarthi-sv-' + id;
+    var last = parseInt(localStorage.getItem(k) || '0', 10);
+    if (Date.now() - last < 30 * 60 * 1000) return;
+    localStorage.setItem(k, Date.now());
+    fetch('https://abacus.jasoncameron.dev/hit/saarthitrust/' + id, {mode:'cors'}).catch(function(){});
+  } catch(e) {}
+})();
+</script>
 </body>
 </html>

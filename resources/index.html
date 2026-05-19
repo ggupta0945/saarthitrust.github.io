@@ -330,7 +330,7 @@ footer{padding:48px 0 32px;background:var(--bg)}
         <div class="map-footer">
           <div class="pcard-stats">
             <span>~5 min read</span>
-            <span>👁 142</span>
+            <span class="view-count" data-rid="raahein-map" data-baseline="142">👁 142</span>
             <button class="like-btn" data-rid="raahein-map" type="button">♥ <span class="like-count">28</span></button>
           </div>
           <a href="/resources/raahein/" class="map-cta" data-en="Open the journey map →" data-hi="यात्रा नक्शा खोलें →">Open the journey map →</a>
@@ -362,7 +362,7 @@ footer{padding:48px 0 32px;background:var(--bg)}
         <div class="pcard-footer">
           <div class="pcard-stats">
             <span>4 min read</span>
-            <span>👁 72</span>
+            <span class="view-count" data-rid="postcard-gaurav" data-baseline="72">👁 72</span>
             <button class="like-btn" data-rid="gaurav" type="button">♥ <span class="like-count">16</span></button>
           </div>
           <a href="/resources/postcards/gaurav/" class="pcard-cta" data-en="Read postcard →" data-hi="चिट्ठी पढ़ें →">Read postcard →</a>
@@ -384,7 +384,7 @@ footer{padding:48px 0 32px;background:var(--bg)}
         <div class="pcard-footer">
           <div class="pcard-stats">
             <span>6 min read</span>
-            <span>👁 68</span>
+            <span class="view-count" data-rid="postcard-nikita" data-baseline="68">👁 68</span>
             <button class="like-btn" data-rid="nikita" type="button">♥ <span class="like-count">18</span></button>
           </div>
           <a href="/resources/postcards/nikita/" class="pcard-cta" data-en="Read postcard →" data-hi="चिट्ठी पढ़ें →">Read postcard →</a>
@@ -406,7 +406,7 @@ footer{padding:48px 0 32px;background:var(--bg)}
         <div class="pcard-footer">
           <div class="pcard-stats">
             <span>7 min read</span>
-            <span>👁 135</span>
+            <span class="view-count" data-rid="postcard-aniket" data-baseline="135">👁 135</span>
             <button class="like-btn" data-rid="aniket" type="button">♥ <span class="like-count">22</span></button>
           </div>
           <a href="/resources/postcards/aniket/" class="pcard-cta" data-en="Read postcard →" data-hi="चिट्ठी पढ़ें →">Read postcard →</a>
@@ -513,6 +513,25 @@ document.querySelectorAll('.fb-btn').forEach(function(btn){
     if(lbl) lbl.textContent = (hi ? 'धन्यवाद!' : 'Thanks!');
   });
 });
+
+/* ===== Live view counters (Abacus) — fetch + display (baseline + live) ===== */
+(function(){
+  function refresh(){
+    document.querySelectorAll('.view-count').forEach(function(el){
+      var id = el.getAttribute('data-rid');
+      var base = parseInt(el.getAttribute('data-baseline') || '0', 10);
+      fetch('https://abacus.jasoncameron.dev/get/saarthitrust/' + id, {mode:'cors'})
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          if (typeof d.value === 'number') {
+            el.textContent = '👁 ' + (base + d.value).toLocaleString('en-IN');
+          }
+        })
+        .catch(function(){});
+    });
+  }
+  refresh();
+})();
 
 /* Restore previous votes on load */
 document.querySelectorAll('.fb-btn').forEach(function(btn){
