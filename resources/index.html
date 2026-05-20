@@ -191,7 +191,7 @@ footer{padding:48px 0 32px;background:var(--bg)}
 .cj-sub-meta{font-size:13px;color:var(--tx3)}
 
 /* MAP CARD (single, prominent banner for Raahein) */
-.map-card{display:grid;grid-template-columns:auto 1fr;gap:24px;background:#fff;border:1px solid var(--sand);border-radius:14px;padding:24px 26px;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
+.map-card{display:grid;grid-template-columns:auto 1fr;gap:24px;background:#fff;border:1px solid var(--sand);border-radius:14px;padding:24px 26px;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;cursor:pointer}
 .map-card:hover{transform:translateY(-2px);border-color:var(--gr);box-shadow:0 12px 32px -16px rgba(27,122,74,.18)}
 .map-icon{width:60px;height:60px;background:var(--grl);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0}
 .map-body h3{font-family:var(--fd);font-size:22px;font-weight:700;margin:0 0 4px;line-height:1.2}
@@ -206,7 +206,7 @@ footer{padding:48px 0 32px;background:var(--bg)}
 
 /* POSTCARD GRID (2x2 of postcards) */
 .postcards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
-.pcard{background:#fff;border:1px solid var(--sand);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
+.pcard{background:#fff;border:1px solid var(--sand);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;cursor:pointer}
 .pcard:hover{transform:translateY(-3px);border-color:var(--gr);box-shadow:0 12px 32px -16px rgba(27,122,74,.15)}
 .pcard-head{display:flex;align-items:center;gap:12px}
 .pcard-avatar{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:18px;font-weight:700;flex-shrink:0;background:var(--grl);color:var(--gr)}
@@ -265,6 +265,23 @@ footer{padding:48px 0 32px;background:var(--bg)}
 /* Reveal on scroll */
 .rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
 .rv.in{opacity:1;transform:none}
+
+/* ---------- MOBILE NAV (hamburger + wrap fix) ---------- */
+.nl{white-space:nowrap}
+.nc{white-space:nowrap}
+.nav-menu{display:flex;align-items:center;gap:22px}
+.nav-toggle{display:none;background:none;border:1px solid var(--sand);border-radius:8px;width:38px;height:38px;cursor:pointer;padding:0;align-items:center;justify-content:center;color:var(--tx)}
+.nav-toggle:hover{border-color:var(--gr);color:var(--gr)}
+.nav-toggle svg{display:block}
+@media(max-width:720px){
+  .nav-toggle{display:inline-flex}
+  .nav-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#FAFAF7;flex-direction:column;align-items:stretch;gap:0;padding:6px 0;border-bottom:1px solid var(--sand);box-shadow:0 8px 20px rgba(0,0,0,.06)}
+  nav#nav.nav-open .nav-menu{display:flex}
+  .nav-menu .hm{display:block;padding:13px 24px;font-size:16px;color:var(--tx);font-weight:500}
+  .nav-menu .hm:hover,.nav-menu .hm:active{background:var(--cream);color:var(--gr)}
+  .nc{padding:8px 14px;font-size:13px}
+  .nr{gap:8px}
+}
 </style>
 </head>
 <body>
@@ -276,11 +293,13 @@ footer{padding:48px 0 32px;background:var(--bg)}
 <div class="ni">
   <a href="/" class="nl">Saarthi Trust<i>.</i></a>
   <div class="nr">
-    <a href="/#how" class="hm">How it works</a>
+    <div class="nav-menu"><a href="/#how" class="hm">How it works</a>
     <a href="/#pillars" class="hm">What we do</a>
     <a href="/#about" class="hm">About</a>
     <a href="/resources/" class="hm" data-en="Resources" data-hi="संसाधन">Resources</a>
     <a href="/#faq" class="hm" data-en="FAQ" data-hi="सवाल-जवाब">FAQ</a>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"><svg viewBox="0 0 18 14" width="18" height="14" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"><path d="M1 1h16M1 7h16M1 13h16"/></svg></button>
     <button class="lb" onclick="toggleLang()" id="langBtn">हिंदी</button>
     <a href="https://forms.gle/o3rcneE2MNVFH863A" class="nc" target="_blank" rel="noopener" data-en="Register free →" data-hi="मुफ़्त रजिस्टर →">Register free →</a>
   </div>
@@ -330,7 +349,7 @@ footer{padding:48px 0 32px;background:var(--bg)}
         <div class="map-footer">
           <div class="pcard-stats">
             <span>~5 min read</span>
-            <span>👁 142</span>
+            <span class="view-count" data-rid="raahein-map" data-baseline="142">👁 142</span>
             <button class="like-btn" data-rid="raahein-map" type="button">♥ <span class="like-count">28</span></button>
           </div>
           <a href="/resources/raahein/" class="map-cta" data-en="Open the journey map →" data-hi="यात्रा नक्शा खोलें →">Open the journey map →</a>
@@ -362,10 +381,10 @@ footer{padding:48px 0 32px;background:var(--bg)}
         <div class="pcard-footer">
           <div class="pcard-stats">
             <span>4 min read</span>
-            <span>👁 72</span>
+            <span class="view-count" data-rid="postcard-gaurav" data-baseline="72">👁 72</span>
             <button class="like-btn" data-rid="gaurav" type="button">♥ <span class="like-count">16</span></button>
           </div>
-          <a href="/resources/raahein/#engineering" class="pcard-cta" data-en="Read postcard →" data-hi="चिट्ठी पढ़ें →">Read postcard →</a>
+          <a href="/resources/postcards/gaurav/" class="pcard-cta" data-en="View Journey →" data-hi="यात्रा देखें →">View Journey →</a>
         </div>
       </article>
 
@@ -384,10 +403,10 @@ footer{padding:48px 0 32px;background:var(--bg)}
         <div class="pcard-footer">
           <div class="pcard-stats">
             <span>6 min read</span>
-            <span>👁 68</span>
+            <span class="view-count" data-rid="postcard-nikita" data-baseline="68">👁 68</span>
             <button class="like-btn" data-rid="nikita" type="button">♥ <span class="like-count">18</span></button>
           </div>
-          <a href="/resources/raahein/#mba" class="pcard-cta" data-en="Read postcard →" data-hi="चिट्ठी पढ़ें →">Read postcard →</a>
+          <a href="/resources/postcards/nikita/" class="pcard-cta" data-en="View Journey →" data-hi="यात्रा देखें →">View Journey →</a>
         </div>
       </article>
 
@@ -406,10 +425,10 @@ footer{padding:48px 0 32px;background:var(--bg)}
         <div class="pcard-footer">
           <div class="pcard-stats">
             <span>7 min read</span>
-            <span>👁 135</span>
+            <span class="view-count" data-rid="postcard-aniket" data-baseline="135">👁 135</span>
             <button class="like-btn" data-rid="aniket" type="button">♥ <span class="like-count">22</span></button>
           </div>
-          <a href="/resources/raahein/#founder" class="pcard-cta" data-en="Read postcard →" data-hi="चिट्ठी पढ़ें →">Read postcard →</a>
+          <a href="/resources/postcards/aniket/" class="pcard-cta" data-en="View Journey →" data-hi="यात्रा देखें →">View Journey →</a>
         </div>
       </article>
 
@@ -514,6 +533,25 @@ document.querySelectorAll('.fb-btn').forEach(function(btn){
   });
 });
 
+/* ===== Live view counters (Abacus) — fetch + display (baseline + live) ===== */
+(function(){
+  function refresh(){
+    document.querySelectorAll('.view-count').forEach(function(el){
+      var id = el.getAttribute('data-rid');
+      var base = parseInt(el.getAttribute('data-baseline') || '0', 10);
+      fetch('https://abacus.jasoncameron.dev/get/saarthitrust/' + id, {mode:'cors'})
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          if (typeof d.value === 'number') {
+            el.textContent = '👁 ' + (base + d.value).toLocaleString('en-IN');
+          }
+        })
+        .catch(function(){});
+    });
+  }
+  refresh();
+})();
+
 /* Restore previous votes on load */
 document.querySelectorAll('.fb-btn').forEach(function(btn){
   var rid = btn.getAttribute('data-rid');
@@ -545,6 +583,29 @@ document.querySelectorAll('.like-btn').forEach(function(btn){
       btn.classList.add('liked');
       countSpan.textContent = parseInt(countSpan.textContent,10) + 1;
     }
+  });
+});
+
+/* Mobile nav hamburger toggle */
+(function(){
+  var btn = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('nav');
+  if(!btn || !nav) return;
+  btn.addEventListener('click', function(){ nav.classList.toggle('nav-open'); });
+  document.querySelectorAll('.nav-menu .hm').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('nav-open'); });
+  });
+})();
+
+/* ===== Make whole postcard / journey-map card clickable ===== */
+document.querySelectorAll('.pcard, .map-card').forEach(function(card){
+  card.addEventListener('click', function(e){
+    // Don't navigate if user interacted with the like button or its children
+    if (e.target.closest('.like-btn')) return;
+    // The CTA link inside the card handles its own navigation
+    if (e.target.closest('a')) return;
+    var cta = card.querySelector('.pcard-cta, .map-cta');
+    if (cta && cta.href) window.location.href = cta.href;
   });
 });
 </script>
