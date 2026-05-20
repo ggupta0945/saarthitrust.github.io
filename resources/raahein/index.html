@@ -263,6 +263,23 @@ footer{padding:48px 0 32px;background:var(--bg)}
 /* Reveal on scroll */
 .rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
 .rv.in{opacity:1;transform:none}
+
+/* ---------- MOBILE NAV (hamburger + wrap fix) ---------- */
+.nl{white-space:nowrap}
+.nc{white-space:nowrap}
+.nav-menu{display:flex;align-items:center;gap:22px}
+.nav-toggle{display:none;background:none;border:1px solid var(--sand);border-radius:8px;width:38px;height:38px;cursor:pointer;padding:0;align-items:center;justify-content:center;color:var(--tx)}
+.nav-toggle:hover{border-color:var(--gr);color:var(--gr)}
+.nav-toggle svg{display:block}
+@media(max-width:720px){
+  .nav-toggle{display:inline-flex}
+  .nav-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#FAFAF7;flex-direction:column;align-items:stretch;gap:0;padding:6px 0;border-bottom:1px solid var(--sand);box-shadow:0 8px 20px rgba(0,0,0,.06)}
+  nav#nav.nav-open .nav-menu{display:flex}
+  .nav-menu .hm{display:block;padding:13px 24px;font-size:16px;color:var(--tx);font-weight:500}
+  .nav-menu .hm:hover,.nav-menu .hm:active{background:var(--cream);color:var(--gr)}
+  .nc{padding:8px 14px;font-size:13px}
+  .nr{gap:8px}
+}
 </style>
 </head>
 <body>
@@ -273,11 +290,13 @@ footer{padding:48px 0 32px;background:var(--bg)}
 <div class="ni">
   <a href="/" class="nl">Saarthi Trust<i>.</i></a>
   <div class="nr">
-    <a href="/#how" class="hm">How it works</a>
+    <div class="nav-menu"><a href="/#how" class="hm">How it works</a>
     <a href="/#pillars" class="hm">What we do</a>
     <a href="/#about" class="hm">About</a>
     <a href="/resources/" class="hm" data-en="Resources" data-hi="संसाधन">Resources</a>
     <a href="/#faq" class="hm" data-en="FAQ" data-hi="सवाल-जवाब">FAQ</a>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"><svg viewBox="0 0 18 14" width="18" height="14" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"><path d="M1 1h16M1 7h16M1 13h16"/></svg></button>
     <button class="lb" onclick="toggleLang()" id="langBtn">हिंदी</button>
     <a href="https://forms.gle/o3rcneE2MNVFH863A" class="nc" target="_blank" rel="noopener" data-en="Register free →" data-hi="मुफ़्त रजिस्टर →">Register free →</a>
   </div>
@@ -899,6 +918,17 @@ document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
     localStorage.setItem(k, Date.now());
     fetch('https://abacus.jasoncameron.dev/hit/saarthitrust/' + id, {mode:'cors'}).catch(function(){});
   } catch(e) {}
+})();
+
+/* Mobile nav hamburger toggle */
+(function(){
+  var btn = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('nav');
+  if(!btn || !nav) return;
+  btn.addEventListener('click', function(){ nav.classList.toggle('nav-open'); });
+  document.querySelectorAll('.nav-menu .hm').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('nav-open'); });
+  });
 })();
 </script>
 </body>

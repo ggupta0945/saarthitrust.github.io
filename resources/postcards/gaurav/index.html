@@ -295,6 +295,37 @@ footer{padding:48px 0 32px;background:var(--bg)}
 .wa-stage ul.wa-opts li b{color:var(--tx);font-weight:600}
 .wa-closing{background:linear-gradient(135deg,var(--grl) 0%,#fff 70%);border:1px solid var(--gr);border-radius:14px;padding:22px 24px;margin-top:18px;font-style:italic;color:var(--tx);font-size:15px;line-height:1.65;text-align:center;font-family:var(--fd)}
 .wa-closing b{color:var(--gr);font-weight:600;font-style:normal}
+
+/* ---------- POSTCARD ACTIONS (like / share / send a thought) ---------- */
+.pc-actions{margin-top:36px;padding-top:28px;border-top:1px solid var(--sand)}
+.pc-actions-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.pc-action-btn{background:#fff;border:1px solid var(--sand);border-radius:24px;padding:10px 18px;font-size:14px;font-weight:500;color:var(--tx);cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:8px;transition:all .15s ease;text-decoration:none}
+.pc-action-btn:hover{border-color:var(--gr);color:var(--gr);transform:translateY(-2px)}
+.pc-action-btn .pc-action-icon{font-size:16px;line-height:1}
+.pc-like.liked{background:var(--grl);border-color:var(--gr);color:var(--gr)}
+.pc-like.liked .pc-action-icon{color:var(--wr)}
+.pc-share.copied{background:var(--grl);border-color:var(--gr);color:var(--gr)}
+.pc-actions-note{text-align:center;font-size:13px;color:var(--tx3);margin:18px auto 0;max-width:480px;line-height:1.55;font-style:italic}
+/* Toast for clipboard feedback */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--tx);color:#fff;padding:10px 20px;border-radius:24px;font-size:13.5px;opacity:0;transition:opacity .2s ease;z-index:1000;pointer-events:none;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.toast.show{opacity:1}
+
+/* ---------- MOBILE NAV (hamburger + wrap fix) ---------- */
+.nl{white-space:nowrap}
+.nc{white-space:nowrap}
+.nav-menu{display:flex;align-items:center;gap:22px}
+.nav-toggle{display:none;background:none;border:1px solid var(--sand);border-radius:8px;width:38px;height:38px;cursor:pointer;padding:0;align-items:center;justify-content:center;color:var(--tx)}
+.nav-toggle:hover{border-color:var(--gr);color:var(--gr)}
+.nav-toggle svg{display:block}
+@media(max-width:720px){
+  .nav-toggle{display:inline-flex}
+  .nav-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#FAFAF7;flex-direction:column;align-items:stretch;gap:0;padding:6px 0;border-bottom:1px solid var(--sand);box-shadow:0 8px 20px rgba(0,0,0,.06)}
+  nav#nav.nav-open .nav-menu{display:flex}
+  .nav-menu .hm{display:block;padding:13px 24px;font-size:16px;color:var(--tx);font-weight:500}
+  .nav-menu .hm:hover,.nav-menu .hm:active{background:var(--cream);color:var(--gr)}
+  .nc{padding:8px 14px;font-size:13px}
+  .nr{gap:8px}
+}
 </style>
 </head>
 <body>
@@ -305,11 +336,13 @@ footer{padding:48px 0 32px;background:var(--bg)}
 <div class="ni">
   <a href="/" class="nl">Saarthi Trust<i>.</i></a>
   <div class="nr">
-    <a href="/#how" class="hm">How it works</a>
+    <div class="nav-menu"><a href="/#how" class="hm">How it works</a>
     <a href="/#pillars" class="hm">What we do</a>
     <a href="/#about" class="hm">About</a>
     <a href="/resources/" class="hm" data-en="Resources" data-hi="संसाधन">Resources</a>
     <a href="/#faq" class="hm" data-en="FAQ" data-hi="सवाल-जवाब">FAQ</a>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"><svg viewBox="0 0 18 14" width="18" height="14" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"><path d="M1 1h16M1 7h16M1 13h16"/></svg></button>
     <button class="lb" onclick="toggleLang()" id="langBtn">हिंदी</button>
     <a href="https://forms.gle/o3rcneE2MNVFH863A" class="nc" target="_blank" rel="noopener" data-en="Register free →" data-hi="मुफ़्त रजिस्टर →">Register free →</a>
   </div>
@@ -421,6 +454,25 @@ footer{padding:48px 0 32px;background:var(--bg)}
   </div>
 </section>
 
+<section class="pc-actions">
+  <div class="pc-actions-row">
+    <button type="button" class="pc-action-btn pc-like" data-rid="gaurav" data-baseline="16">
+      <span class="pc-action-icon">♥</span>
+      <span class="pc-action-label">Like</span>
+      <span class="pc-like-count">16</span>
+    </button>
+    <button type="button" class="pc-action-btn pc-share" data-title="A Postcard from Gaurav · Saarthi Trust">
+      <span class="pc-action-icon">↗</span>
+      <span class="pc-action-label">Share</span>
+    </button>
+    <a class="pc-action-btn pc-comment" href="https://wa.me/917019593085?text=Hi%20Saarthi%20%F0%9F%99%8F%20I%20just%20read%20Gaurav%27s%20postcard%20and%20wanted%20to%20share%20a%20thought%3A%20" target="_blank" rel="noopener">
+      <span class="pc-action-icon">💬</span>
+      <span class="pc-action-label">Send a thought</span>
+    </a>
+  </div>
+  <p class="pc-actions-note">If this postcard helped, please pass it on to a student you know.</p>
+</section>
+
 
   <div class="pc-related">
     <div class="pc-related-text">
@@ -473,6 +525,80 @@ function toggleLang(){
     localStorage.setItem(k, Date.now());
     fetch('https://abacus.jasoncameron.dev/hit/saarthitrust/' + id, {mode:'cors'}).catch(function(){});
   } catch(e) {}
+})();
+</script>
+<script>
+
+/* ===== Postcard actions: like, share, toast ===== */
+(function(){
+  function showToast(msg){
+    var t = document.querySelector('.toast');
+    if(!t){ t = document.createElement('div'); t.className = 'toast'; document.body.appendChild(t); }
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, 1800);
+  }
+
+  // LIKE — localStorage prevents double-count; Abacus is the shared counter
+  document.querySelectorAll('.pc-like').forEach(function(btn){
+    var rid = btn.getAttribute('data-rid');
+    var base = parseInt(btn.getAttribute('data-baseline') || '0', 10);
+    var countEl = btn.querySelector('.pc-like-count');
+    var key = 'saarthi-like-' + rid;
+    var liked = !!localStorage.getItem(key);
+    if(liked) btn.classList.add('liked');
+
+    // Pull live count from Abacus and update display
+    fetch('https://abacus.jasoncameron.dev/get/saarthitrust/postcard-' + rid + '-likes', {mode:'cors'})
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if(typeof d.value === 'number'){
+          countEl.textContent = (base + d.value).toLocaleString('en-IN');
+        }
+      }).catch(function(){});
+
+    btn.addEventListener('click', function(){
+      if(localStorage.getItem(key)) return; // already liked from this device
+      localStorage.setItem(key, '1');
+      btn.classList.add('liked');
+      // optimistic update
+      countEl.textContent = (parseInt(countEl.textContent.replace(/[^0-9]/g,''),10) || base) + 1;
+      // hit Abacus to record the shared like
+      fetch('https://abacus.jasoncameron.dev/hit/saarthitrust/postcard-' + rid + '-likes', {mode:'cors'}).catch(function(){});
+    });
+  });
+
+  // SHARE — Web Share API on mobile, clipboard fallback on desktop
+  document.querySelectorAll('.pc-share').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var title = btn.getAttribute('data-title') || document.title;
+      var url = window.location.href;
+      if(navigator.share){
+        navigator.share({title:title, text:'Read this honest postcard from someone who walked the path:', url:url}).catch(function(){});
+      } else if(navigator.clipboard){
+        navigator.clipboard.writeText(url).then(function(){
+          btn.classList.add('copied');
+          showToast('Link copied to clipboard');
+          setTimeout(function(){ btn.classList.remove('copied'); }, 1500);
+        }).catch(function(){
+          showToast('Copy failed — long-press the URL bar to copy');
+        });
+      } else {
+        showToast('Copy this page URL to share');
+      }
+    });
+  });
+})();
+
+/* Mobile nav hamburger toggle */
+(function(){
+  var btn = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('nav');
+  if(!btn || !nav) return;
+  btn.addEventListener('click', function(){ nav.classList.toggle('nav-open'); });
+  document.querySelectorAll('.nav-menu .hm').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('nav-open'); });
+  });
 })();
 </script>
 </body>
