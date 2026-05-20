@@ -6,12 +6,12 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://saarthitrust.org/resources/</loc>
+    <loc>https://saarthitrust.org/journeys/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://saarthitrust.org/resources/raahein/</loc>
+    <loc>https://saarthitrust.org/journeys/raahein/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -21,22 +21,22 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://saarthitrust.org/resources/postcards/gaurav/</loc>
+    <loc>https://saarthitrust.org/journeys/postcards/gaurav/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://saarthitrust.org/resources/postcards/nikita/</loc>
+    <loc>https://saarthitrust.org/journeys/postcards/nikita/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://saarthitrust.org/resources/postcards/aniket/</loc>
+    <loc>https://saarthitrust.org/journeys/postcards/aniket/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://saarthitrust.org/resources/postcards/vaibhav/</loc>
+    <loc>https://saarthitrust.org/journeys/postcards/vaibhav/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
