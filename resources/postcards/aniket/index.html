@@ -518,15 +518,10 @@ function toggleLang(){
 </script>
 
 <script>
-/* View counter (Abacus + 30-min anti-spam) */
+/* View counter (Abacus — every page load increments) */
 (function(){
   try {
-    var id = 'postcard-aniket';
-    var k = 'saarthi-sv-' + id;
-    var last = parseInt(localStorage.getItem(k) || '0', 10);
-    if (Date.now() - last < 30 * 60 * 1000) return;
-    localStorage.setItem(k, Date.now());
-    fetch('https://abacus.jasoncameron.dev/hit/saarthitrust/' + id, {mode:'cors'}).catch(function(){});
+    fetch('https://abacus.jasoncameron.dev/hit/saarthitrust/postcard-aniket', {mode:'cors'}).catch(function(){});
   } catch(e) {}
 })();
 </script>

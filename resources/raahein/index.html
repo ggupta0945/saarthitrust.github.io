@@ -908,15 +908,10 @@ document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
 
 
 <script>
-/* View counter (Abacus + 30-min anti-spam) */
+/* View counter (Abacus — every page load increments) */
 (function(){
   try {
-    var id = 'raahein-map';
-    var k = 'saarthi-sv-' + id;
-    var last = parseInt(localStorage.getItem(k) || '0', 10);
-    if (Date.now() - last < 30 * 60 * 1000) return;
-    localStorage.setItem(k, Date.now());
-    fetch('https://abacus.jasoncameron.dev/hit/saarthitrust/' + id, {mode:'cors'}).catch(function(){});
+    fetch('https://abacus.jasoncameron.dev/hit/saarthitrust/raahein-map', {mode:'cors'}).catch(function(){});
   } catch(e) {}
 })();
 
