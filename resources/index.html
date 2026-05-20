@@ -191,7 +191,7 @@ footer{padding:48px 0 32px;background:var(--bg)}
 .cj-sub-meta{font-size:13px;color:var(--tx3)}
 
 /* MAP CARD (single, prominent banner for Raahein) */
-.map-card{display:grid;grid-template-columns:auto 1fr;gap:24px;background:#fff;border:1px solid var(--sand);border-radius:14px;padding:24px 26px;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
+.map-card{display:grid;grid-template-columns:auto 1fr;gap:24px;background:#fff;border:1px solid var(--sand);border-radius:14px;padding:24px 26px;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;cursor:pointer}
 .map-card:hover{transform:translateY(-2px);border-color:var(--gr);box-shadow:0 12px 32px -16px rgba(27,122,74,.18)}
 .map-icon{width:60px;height:60px;background:var(--grl);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0}
 .map-body h3{font-family:var(--fd);font-size:22px;font-weight:700;margin:0 0 4px;line-height:1.2}
@@ -206,7 +206,7 @@ footer{padding:48px 0 32px;background:var(--bg)}
 
 /* POSTCARD GRID (2x2 of postcards) */
 .postcards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
-.pcard{background:#fff;border:1px solid var(--sand);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
+.pcard{background:#fff;border:1px solid var(--sand);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;cursor:pointer}
 .pcard:hover{transform:translateY(-3px);border-color:var(--gr);box-shadow:0 12px 32px -16px rgba(27,122,74,.15)}
 .pcard-head{display:flex;align-items:center;gap:12px}
 .pcard-avatar{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:18px;font-weight:700;flex-shrink:0;background:var(--grl);color:var(--gr)}
@@ -384,7 +384,7 @@ footer{padding:48px 0 32px;background:var(--bg)}
             <span class="view-count" data-rid="postcard-gaurav" data-baseline="72">👁 72</span>
             <button class="like-btn" data-rid="gaurav" type="button">♥ <span class="like-count">16</span></button>
           </div>
-          <a href="/resources/postcards/gaurav/" class="pcard-cta" data-en="Read postcard →" data-hi="चिट्ठी पढ़ें →">Read postcard →</a>
+          <a href="/resources/postcards/gaurav/" class="pcard-cta" data-en="View Journey →" data-hi="यात्रा देखें →">View Journey →</a>
         </div>
       </article>
 
@@ -406,7 +406,7 @@ footer{padding:48px 0 32px;background:var(--bg)}
             <span class="view-count" data-rid="postcard-nikita" data-baseline="68">👁 68</span>
             <button class="like-btn" data-rid="nikita" type="button">♥ <span class="like-count">18</span></button>
           </div>
-          <a href="/resources/postcards/nikita/" class="pcard-cta" data-en="Read postcard →" data-hi="चिट्ठी पढ़ें →">Read postcard →</a>
+          <a href="/resources/postcards/nikita/" class="pcard-cta" data-en="View Journey →" data-hi="यात्रा देखें →">View Journey →</a>
         </div>
       </article>
 
@@ -428,7 +428,7 @@ footer{padding:48px 0 32px;background:var(--bg)}
             <span class="view-count" data-rid="postcard-aniket" data-baseline="135">👁 135</span>
             <button class="like-btn" data-rid="aniket" type="button">♥ <span class="like-count">22</span></button>
           </div>
-          <a href="/resources/postcards/aniket/" class="pcard-cta" data-en="Read postcard →" data-hi="चिट्ठी पढ़ें →">Read postcard →</a>
+          <a href="/resources/postcards/aniket/" class="pcard-cta" data-en="View Journey →" data-hi="यात्रा देखें →">View Journey →</a>
         </div>
       </article>
 
@@ -596,6 +596,18 @@ document.querySelectorAll('.like-btn').forEach(function(btn){
     a.addEventListener('click', function(){ nav.classList.remove('nav-open'); });
   });
 })();
+
+/* ===== Make whole postcard / journey-map card clickable ===== */
+document.querySelectorAll('.pcard, .map-card').forEach(function(card){
+  card.addEventListener('click', function(e){
+    // Don't navigate if user interacted with the like button or its children
+    if (e.target.closest('.like-btn')) return;
+    // The CTA link inside the card handles its own navigation
+    if (e.target.closest('a')) return;
+    var cta = card.querySelector('.pcard-cta, .map-cta');
+    if (cta && cta.href) window.location.href = cta.href;
+  });
+});
 </script>
 </body>
 </html>
