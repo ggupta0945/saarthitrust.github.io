@@ -726,9 +726,10 @@ var impactObserver = new IntersectionObserver(function(entries) {
 var impSection = document.querySelector('.imp');
 if (impSection) impactObserver.observe(impSection);
 
-var hi=false;
+var hi=localStorage.getItem('saarthi-lang')==='hi';
 function toggleLang(){
   hi=!hi;
+  localStorage.setItem('saarthi-lang', hi?'hi':'en');
   document.getElementById('langBtn').textContent=hi?'English':'हिंदी';
   document.documentElement.lang=hi?'hi':'en';
   // Update page title and meta description
@@ -747,6 +748,16 @@ function toggleLang(){
     if(val)els[i].innerHTML=val;
   }
 }
+/* Apply saved language preference on first load */
+if (hi) {
+  hi = false; // toggleLang will flip it back to true while applying Hindi
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', toggleLang);
+  } else {
+    toggleLang();
+  }
+}
+
 document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})});
 
 /* Mobile nav hamburger toggle */

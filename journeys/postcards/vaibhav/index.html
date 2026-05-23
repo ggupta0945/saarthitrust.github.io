@@ -599,5 +599,28 @@ footer{padding:48px 0 32px;background:var(--bg)}
 })();
 </script>
 
+<script>
+/* ===== Language toggle with localStorage persistence ===== */
+var hi = localStorage.getItem('saarthi-lang') === 'hi';
+function toggleLang(){
+  hi=!hi;
+  localStorage.setItem('saarthi-lang', hi?'hi':'en');
+  document.getElementById('langBtn').textContent=hi?'English':'हिंदी';
+  document.documentElement.lang=hi?'hi':'en';
+  var els=document.querySelectorAll('[data-en]');
+  for(var i=0;i<els.length;i++){
+    var val=els[i].getAttribute(hi?'data-hi':'data-en');
+    if(val)els[i].innerHTML=val;
+  }
+}
+if (hi) {
+  hi = false;
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', toggleLang);
+  } else {
+    toggleLang();
+  }
+}
+</script>
 </body>
 </html>

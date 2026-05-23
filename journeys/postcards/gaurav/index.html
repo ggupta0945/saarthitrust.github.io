@@ -512,9 +512,10 @@ footer{padding:48px 0 32px;background:var(--bg)}
 </footer>
 
 <script>
-var hi=false;
+var hi=localStorage.getItem('saarthi-lang')==='hi';
 function toggleLang(){
   hi=!hi;
+  localStorage.setItem('saarthi-lang', hi?'hi':'en');
   document.getElementById('langBtn').textContent=hi?'English':'हिंदी';
   document.documentElement.lang=hi?'hi':'en';
   var els=document.querySelectorAll('[data-en]');
@@ -523,6 +524,16 @@ function toggleLang(){
     if(val)els[i].innerHTML=val;
   }
 }
+/* Apply saved language preference on first load */
+if (hi) {
+  hi = false; // toggleLang will flip it back to true while applying Hindi
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', toggleLang);
+  } else {
+    toggleLang();
+  }
+}
+
 </script>
 
 <script>
