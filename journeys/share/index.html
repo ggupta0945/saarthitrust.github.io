@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Share your journey | Saarthi Trust — अपनी यात्रा बताएं</title>
+<meta name="description" content="Help a Class 10 student in small-town India see what's possible. Share your career journey in 10 questions — type or use voice. We'll write the postcard from your words.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://saarthitrust.org/journeys/share/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Share your journey | Saarthi Trust">
+<meta property="og:description" content="Help a Class 10 student see what's possible. Tell your story in 10 questions.">
+<meta property="og:image" content="https://saarthitrust.org/og-image.png">
+<meta property="og:url" content="https://saarthitrust.org/journeys/share/">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Libre+Baskerville:wght@400;700&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#FAFAF7; --cream:#FAF8F3; --sand:#E8E4DA;
+  --tx:#1A1A18; --tx2:#5C5B56; --tx3:#6b6965;
+  --gr:#1B7A4A; --grl:#E8F5EE; --grd:#0F5630;
+  --wr:#D4602C; --wrl:#FDF0EA;
+  --fd:'Book Antiqua','Libre Baskerville','Palatino Linotype',Palatino,serif;
+  --fb:'DM Sans',sans-serif;
+  --fh:'Noto Sans Devanagari','DM Sans',sans-serif;
+  --mw:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:var(--fb);line-height:1.55;-webkit-font-smoothing:antialiased}
+:lang(hi),[lang="hi"] body{font-family:var(--fh)}
+a{color:inherit;text-decoration:none}
+
+.w{max-width:var(--mw);margin:0 auto;padding:0 24px}
+
+/* NAV (matches site) */
+nav#nav{position:sticky;top:0;background:rgba(250,250,247,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--sand);z-index:50}
+.ni{max-width:var(--mw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.nl{font-family:var(--fd);font-size:21px;font-weight:700;color:var(--tx)}
+.nl i{color:var(--gr);font-style:normal}
+.nr{display:flex;align-items:center;gap:22px}
+.nav-menu{display:flex;align-items:center;gap:22px}
+.hm{font-size:14px;color:var(--tx2);font-weight:500}
+.hm:hover{color:var(--gr)}
+.lb{background:none;border:1px solid var(--sand);padding:6px 12px;border-radius:20px;font-size:13px;color:var(--tx2);cursor:pointer;font-family:inherit}
+.lb:hover{border-color:var(--gr);color:var(--gr)}
+.nc{background:var(--gr);color:#fff;padding:9px 16px;border-radius:24px;font-size:14px;font-weight:500}
+.nc:hover{background:var(--grd)}
+.nav-toggle{display:none;background:none;border:1px solid var(--sand);border-radius:8px;width:38px;height:38px;cursor:pointer;padding:0;align-items:center;justify-content:center;color:var(--tx)}
+@media(max-width:720px){
+  .nav-toggle{display:none}.nc{display:none}
+  .nav-menu{display:flex;position:static;background:none;box-shadow:none;border:none;padding:0;flex-direction:row;align-items:center;gap:14px}
+  .nav-menu .hm{display:none;font-size:13px;padding:0;background:none;color:var(--tx2);font-weight:500}
+  .nav-menu .hm[href*="journeys"],.nav-menu .hm[href*="faq"]{display:inline-block}
+  .nr{gap:10px}
+}
+
+/* PAGE HEADER */
+.page-hd{padding:60px 0 40px;text-align:center;border-bottom:1px solid var(--sand)}
+.crumb{font-size:13px;color:var(--tx3);margin-bottom:14px;letter-spacing:.04em;text-transform:uppercase}
+.crumb a{color:var(--gr)}
+.page-hd h1{font-family:var(--fd);font-size:clamp(32px,5vw,46px);font-weight:700;line-height:1.15;margin-bottom:14px;letter-spacing:-.01em;max-width:780px;margin-left:auto;margin-right:auto}
+.page-hd h1 em{font-style:italic;color:var(--gr)}
+.page-hd .lead{font-size:17px;color:var(--tx2);max-width:640px;margin:0 auto;line-height:1.65}
+
+/* FORM SECTION */
+.form-sec{padding:48px 0 80px}
+.form-wrap{max-width:720px;margin:0 auto}
+.form-intro{background:var(--cream);border:1px solid var(--sand);border-radius:14px;padding:22px 24px;margin-bottom:28px;font-size:15px;line-height:1.65;color:var(--tx2)}
+.form-intro p{margin:0 0 10px}
+.form-intro p:last-child{margin-bottom:0}
+.form-intro b{color:var(--tx)}
+
+.voice-hint{background:var(--grl);border:1px solid rgba(27,122,74,.2);border-radius:12px;padding:16px 20px;margin-bottom:28px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:space-between}
+.voice-hint-text{font-size:14px;color:var(--grd);line-height:1.5;flex:1;min-width:240px}
+.voice-hint-text b{font-weight:600}
+.voice-hint-lang{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--grd)}
+.voice-hint-lang select{padding:6px 10px;border-radius:8px;border:1px solid rgba(27,122,74,.3);background:#fff;font-family:inherit;font-size:13px;color:var(--tx)}
+
+.field{margin-bottom:22px}
+.field label.lbl{display:block;font-weight:600;font-size:14px;margin-bottom:8px;color:var(--tx);line-height:1.45}
+.field label.lbl .req{color:var(--wr);margin-left:3px}
+.field .help{font-size:12.5px;color:var(--tx3);margin-top:4px;margin-bottom:8px;line-height:1.5;font-style:italic}
+.field input[type="text"], .field textarea{width:100%;padding:11px 14px;border:1px solid var(--sand);border-radius:10px;font-family:inherit;font-size:14.5px;line-height:1.5;color:var(--tx);background:#fff;transition:border-color .15s ease,box-shadow .15s ease;resize:vertical}
+.field input[type="text"]:focus, .field textarea:focus{outline:none;border-color:var(--gr);box-shadow:0 0 0 3px rgba(27,122,74,.12)}
+.field textarea{min-height:84px;font-family:var(--fb);line-height:1.6}
+:lang(hi) .field textarea{font-family:var(--fh)}
+[lang="hi"] .field textarea{font-family:var(--fh)}
+
+.qsec-divider{height:1px;background:var(--sand);margin:30px 0;position:relative}
+.qsec-divider::after{content:attr(data-label);position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 14px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gr);font-weight:600}
+
+.q-field{margin-bottom:24px;background:#fff;border:1px solid var(--sand);border-radius:12px;padding:18px 20px}
+.q-field .q-num{display:inline-block;background:var(--grl);color:var(--gr);font-size:11px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:10px;margin-bottom:8px}
+.q-field label.lbl{font-family:var(--fd);font-size:15px;font-weight:600;line-height:1.4}
+
+.textarea-wrap{position:relative}
+.mic-btn{position:absolute;bottom:8px;right:8px;background:#fff;border:1px solid var(--sand);border-radius:20px;padding:6px 12px;font-family:inherit;font-size:12px;color:var(--tx2);cursor:pointer;display:inline-flex;align-items:center;gap:5px;transition:all .15s ease;line-height:1}
+.mic-btn:hover{border-color:var(--gr);color:var(--gr)}
+.mic-btn.recording{background:#fee;border-color:#c44;color:#c44;animation:pulse 1.2s infinite}
+.mic-btn .mic-icon{font-size:14px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.55}}
+
+.consent{display:flex;align-items:flex-start;gap:10px;background:var(--cream);border:1px solid var(--sand);border-radius:12px;padding:16px 18px;margin:28px 0 20px;cursor:pointer;font-size:14px;color:var(--tx2);line-height:1.55}
+.consent input{margin-top:3px;width:16px;height:16px;flex-shrink:0;cursor:pointer;accent-color:var(--gr)}
+
+.honeypot{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+
+.submit-btn{background:var(--gr);color:#fff;border:none;padding:14px 28px;border-radius:28px;font-family:inherit;font-size:15px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .15s ease;width:100%;justify-content:center}
+.submit-btn:hover:not(:disabled){background:var(--grd);transform:translateY(-1px);box-shadow:0 6px 18px rgba(27,122,74,.25)}
+.submit-btn:disabled{opacity:.6;cursor:not-allowed}
+
+.form-foot{text-align:center;font-size:12.5px;color:var(--tx3);margin-top:14px;line-height:1.5;font-style:italic}
+
+.success-state{background:linear-gradient(135deg,var(--grl) 0%,#fff 70%);border:1px solid var(--gr);border-radius:16px;padding:40px 30px;text-align:center}
+.success-state .icon{font-size:48px;margin-bottom:14px}
+.success-state h2{font-family:var(--fd);font-size:26px;font-weight:700;color:var(--tx);margin-bottom:12px}
+.success-state p{font-size:15.5px;color:var(--tx2);line-height:1.65;max-width:480px;margin:0 auto 8px}
+.success-state .back{display:inline-block;margin-top:22px;color:var(--gr);font-weight:600}
+.error-banner{background:#fee;border:1px solid #c44;color:#933;border-radius:10px;padding:12px 16px;font-size:13.5px;margin:0 0 18px;line-height:1.5;display:none}
+.error-banner.show{display:block}
+
+footer{padding:48px 0 36px;background:var(--tx);color:#aaa;border-top:1px solid var(--sand);font-family:var(--fh)}
+footer .fi{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-bottom:18px}
+footer .fb2{font-family:var(--fd);font-size:18px;color:#fff;font-weight:700}
+footer .fl{display:flex;gap:18px;flex-wrap:wrap}
+footer .fl a{color:#aaa;font-size:13px;transition:.2s}
+footer .fl a:hover{color:#fff}
+footer .fc{font-size:11.5px;color:#777;line-height:1.6}
+</style>
+
+<script defer data-domain="saarthitrust.org" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<nav id="nav">
+<div class="ni">
+  <a href="/" class="nl">Saarthi Trust<i>.</i></a>
+  <div class="nr">
+    <div class="nav-menu">
+    <a href="/faq.html" class="hm" data-en="FAQ" data-hi="सवाल-जवाब">FAQ</a>
+    <a href="/journeys/" class="hm" data-en="Journeys" data-hi="यात्राएं">Journeys</a>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"><svg viewBox="0 0 18 14" width="18" height="14" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"><path d="M1 1h16M1 7h16M1 13h16"/></svg></button>
+    <button class="lb" onclick="toggleLang()" id="langBtn">हिंदी</button>
+    <a href="https://forms.gle/o3rcneE2MNVFH863A" class="nc" target="_blank" data-en="Register free →" data-hi="मुफ़्त रजिस्टर →">Register free →</a>
+  </div>
+</div>
+</nav>
+
+<main id="main">
+
+<section class="page-hd">
+<div class="w">
+  <div class="crumb"><a href="/journeys/" data-en="← Journeys" data-hi="← यात्राएं">← Journeys</a></div>
+  <h1 data-en="Share <em>your</em> journey" data-hi="अपनी <em>यात्रा</em> बताएं">Share <em>your</em> journey</h1>
+  <p class="lead" data-en="A short letter from someone who walked the path can change a 15-year-old's life. Take 10 minutes, in any language — we'll do the rest." data-hi="जो रास्ता चल चुका हो, उसकी एक छोटी सी चिट्ठी एक 15 साल के बच्चे की ज़िंदगी बदल सकती है। 10 मिनट लो, किसी भी भाषा में — बाक़ी हम कर लेंगे।">A short letter from someone who walked the path can change a 15-year-old's life. Take 10 minutes, in any language — we'll do the rest.</p>
+</div>
+</section>
+
+<section class="form-sec">
+<div class="w">
+<div class="form-wrap">
+
+<div class="form-intro">
+<p data-en="We're building <b>Postcards from the Path</b> on the Saarthi website — short personal letters from real professionals, written for Class 10 students from small-town India who are confused about what to do after school." data-hi="हम सारथी वेबसाइट पर <b>राहों से चिट्ठियाँ</b> बना रहे हैं — असली पेशेवरों की छोटी निजी चिट्ठियाँ, जो छोटे शहर भारत के 10वीं के उन छात्रों के लिए लिखी जाती हैं जो स्कूल के बाद क्या करें इसे लेकर उलझे हैं।">We're building <b>Postcards from the Path</b> on the Saarthi website — short personal letters from real professionals, written for Class 10 students from small-town India who are confused about what to do after school.</p>
+<p data-en="Your journey is exactly the kind of story we want to share. Answer the 10 questions below — type, dictate, or mix both. <b>We'll write the postcard from your words, and show it to you before publishing.</b>" data-hi="आपकी यात्रा बिल्कुल वैसी ही कहानी है जो हम बताना चाहते हैं। नीचे के 10 सवालों के जवाब दो — लिखो, बोलो, या दोनों मिलाओ। <b>हम आपके शब्दों से चिट्ठी लिखेंगे, और पब्लिश करने से पहले आपको दिखाएँगे।</b>">Your journey is exactly the kind of story we want to share. Answer the 10 questions below — type, dictate, or mix both. <b>We'll write the postcard from your words, and show it to you before publishing.</b></p>
+</div>
+
+<div class="voice-hint">
+  <div class="voice-hint-text" data-en="<b>🎤 Tip:</b> Tap the mic button on any question to dictate your answer. Pick your language below — we'll transcribe as you speak." data-hi="<b>🎤 सुझाव:</b> किसी भी सवाल पर माइक बटन दबाकर बोलकर जवाब दो। नीचे अपनी भाषा चुनो — आप जैसे बोलोगे, हम वैसे टाइप करेंगे।"><b>🎤 Tip:</b> Tap the mic button on any question to dictate your answer. Pick your language below — we'll transcribe as you speak.</div>
+  <label class="voice-hint-lang">
+    <span data-en="Dictate in:" data-hi="भाषा:">Dictate in:</span>
+    <select id="dictLang">
+      <option value="en-IN">English</option>
+      <option value="hi-IN">हिंदी</option>
+      <option value="en-IN" data-hinglish="1">Hinglish</option>
+    </select>
+  </label>
+</div>
+
+<div class="error-banner" id="errorBanner"></div>
+
+<form id="journeyForm" novalidate>
+
+  <!-- Honeypot field (bots fill, humans don't see) -->
+  <input type="text" class="honeypot" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+  <div class="field">
+    <label class="lbl" data-en="Your name <span class='req'>*</span>" data-hi="आपका नाम <span class='req'>*</span>">Your name <span class="req">*</span></label>
+    <input type="text" name="name" required autocomplete="name">
+  </div>
+
+  <div class="field">
+    <label class="lbl" data-en="Email or WhatsApp number <span class='req'>*</span>" data-hi="ईमेल या WhatsApp नंबर <span class='req'>*</span>">Email or WhatsApp number <span class="req">*</span></label>
+    <div class="help" data-en="So we can send you the postcard draft before publishing." data-hi="ताकि हम पब्लिश करने से पहले आपको चिट्ठी का ड्राफ़्ट भेज सकें।">So we can send you the postcard draft before publishing.</div>
+    <input type="text" name="contact" required autocomplete="email">
+  </div>
+
+  <div class="field">
+    <label class="lbl" data-en="What you do today + city" data-hi="आज क्या करते हो + शहर">What you do today + city</label>
+    <div class="help" data-en="e.g. &quot;Data scientist at Flipkart, Bangalore&quot; or &quot;Cardiologist, Apollo Hyderabad&quot;" data-hi="जैसे &quot;Flipkart में डेटा साइंटिस्ट, बैंगलोर&quot; या &quot;कार्डियोलॉजिस्ट, Apollo हैदराबाद&quot;">e.g. "Data scientist at Flipkart, Bangalore" or "Cardiologist, Apollo Hyderabad"</div>
+    <input type="text" name="role">
+  </div>
+
+  <div class="qsec-divider" data-label="The 10 questions"></div>
+
+  <div class="q-field">
+    <span class="q-num">Q 1</span>
+    <label class="lbl" data-en="Where did you grow up, and what was your parents' background?" data-hi="आप कहाँ बड़े हुए, और आपके माता-पिता की पृष्ठभूमि क्या थी?">Where did you grow up, and what was your parents' background?</label>
+    <div class="textarea-wrap">
+      <textarea name="q1" rows="4"></textarea>
+      <button type="button" class="mic-btn" data-target="q1"><span class="mic-icon">🎤</span><span class="mic-label" data-en="Dictate" data-hi="बोलकर">Dictate</span></button>
+    </div>
+  </div>
+
+  <div class="q-field">
+    <span class="q-num">Q 2</span>
+    <label class="lbl" data-en="What kind of student were you in Class 10? What did you want to become at the time?" data-hi="10वीं में आप कैसे छात्र थे? उस वक़्त क्या बनना चाहते थे?">What kind of student were you in Class 10? What did you want to become at the time?</label>
+    <div class="textarea-wrap">
+      <textarea name="q2" rows="4"></textarea>
+      <button type="button" class="mic-btn" data-target="q2"><span class="mic-icon">🎤</span><span class="mic-label" data-en="Dictate" data-hi="बोलकर">Dictate</span></button>
+    </div>
+  </div>
+
+  <div class="q-field">
+    <span class="q-num">Q 3</span>
+    <label class="lbl" data-en="Which college and course did you do — and why did you choose that path?" data-hi="कौन सा कॉलेज और कोर्स किया — और वो रास्ता क्यों चुना?">Which college and course did you do — and why did you choose that path?</label>
+    <div class="textarea-wrap">
+      <textarea name="q3" rows="4"></textarea>
+      <button type="button" class="mic-btn" data-target="q3"><span class="mic-icon">🎤</span><span class="mic-label" data-en="Dictate" data-hi="बोलकर">Dictate</span></button>
+    </div>
+  </div>
+
+  <div class="q-field">
+    <span class="q-num">Q 4</span>
+    <label class="lbl" data-en="What was the moment or event that pointed you toward your current career?" data-hi="वो कौन सा पल या घटना थी जिसने आपको आज के करियर की ओर मोड़ा?">What was the moment or event that pointed you toward your current career?</label>
+    <div class="textarea-wrap">
+      <textarea name="q4" rows="4"></textarea>
+      <button type="button" class="mic-btn" data-target="q4"><span class="mic-icon">🎤</span><span class="mic-label" data-en="Dictate" data-hi="बोलकर">Dictate</span></button>
+    </div>
+  </div>
+
+  <div class="q-field">
+    <span class="q-num">Q 5</span>
+    <label class="lbl" data-en="Walk us through your big career steps — first job, switches, pivots, anything important." data-hi="अपने बड़े करियर क़दम बताओ — पहली नौकरी, बदलाव, मोड़, कुछ भी जो ज़रूरी हो।">Walk us through your big career steps — first job, switches, pivots, anything important.</label>
+    <div class="textarea-wrap">
+      <textarea name="q5" rows="5"></textarea>
+      <button type="button" class="mic-btn" data-target="q5"><span class="mic-icon">🎤</span><span class="mic-label" data-en="Dictate" data-hi="बोलकर">Dictate</span></button>
+    </div>
+  </div>
+
+  <div class="q-field">
+    <span class="q-num">Q 6</span>
+    <label class="lbl" data-en="Were there any failures, rejections, or low moments?" data-hi="कोई असफलताएँ, रिजेक्शन, या मुश्किल पल थे?">Were there any failures, rejections, or low moments?</label>
+    <div class="help" data-en="Please don't skip — students really need to hear this part." data-hi="कृपया छोड़ना मत — छात्रों को यही हिस्सा सबसे ज़रूरी सुनना है।">Please don't skip — students really need to hear this part.</div>
+    <div class="textarea-wrap">
+      <textarea name="q6" rows="5"></textarea>
+      <button type="button" class="mic-btn" data-target="q6"><span class="mic-icon">🎤</span><span class="mic-label" data-en="Dictate" data-hi="बोलकर">Dictate</span></button>
+    </div>
+  </div>
+
+  <div class="q-field">
+    <span class="q-num">Q 7</span>
+    <label class="lbl" data-en="What does your work life look like today — what you do, where you live, what's a typical day?" data-hi="आज आपकी कामकाजी ज़िंदगी कैसी है — क्या करते हो, कहाँ रहते हो, आम दिन कैसा दिखता है?">What does your work life look like today — what you do, where you live, what's a typical day?</label>
+    <div class="textarea-wrap">
+      <textarea name="q7" rows="4"></textarea>
+      <button type="button" class="mic-btn" data-target="q7"><span class="mic-icon">🎤</span><span class="mic-label" data-en="Dictate" data-hi="बोलकर">Dictate</span></button>
+    </div>
+  </div>
+
+  <div class="q-field">
+    <span class="q-num">Q 8</span>
+    <label class="lbl" data-en="What would you tell a Class 10 student who wants to follow a path like yours?" data-hi="उस 10वीं के छात्र को क्या कहोगे जो आपके जैसे रास्ते पर चलना चाहता है?">What would you tell a Class 10 student who wants to follow a path like yours?</label>
+    <div class="textarea-wrap">
+      <textarea name="q8" rows="4"></textarea>
+      <button type="button" class="mic-btn" data-target="q8"><span class="mic-icon">🎤</span><span class="mic-label" data-en="Dictate" data-hi="बोलकर">Dictate</span></button>
+    </div>
+  </div>
+
+  <div class="q-field">
+    <span class="q-num">Q 9</span>
+    <label class="lbl" data-en="What's one myth about your career you'd love to break?" data-hi="आपके करियर के बारे में एक मिथक जो आप तोड़ना चाहते हो?">What's one myth about your career you'd love to break?</label>
+    <div class="textarea-wrap">
+      <textarea name="q9" rows="4"></textarea>
+      <button type="button" class="mic-btn" data-target="q9"><span class="mic-icon">🎤</span><span class="mic-label" data-en="Dictate" data-hi="बोलकर">Dictate</span></button>
+    </div>
+  </div>
+
+  <div class="q-field">
+    <span class="q-num">Q 10</span>
+    <label class="lbl" data-en="If you could say one sentence to your 15-year-old self, what would it be?" data-hi="अगर आप अपने 15 साल के ख़ुद को एक वाक्य कह सकते, तो क्या कहते?">If you could say one sentence to your 15-year-old self, what would it be?</label>
+    <div class="textarea-wrap">
+      <textarea name="q10" rows="3"></textarea>
+      <button type="button" class="mic-btn" data-target="q10"><span class="mic-icon">🎤</span><span class="mic-label" data-en="Dictate" data-hi="बोलकर">Dictate</span></button>
+    </div>
+  </div>
+
+  <div class="field" style="margin-top:24px">
+    <label class="lbl" data-en="Anything else? (optional)" data-hi="कुछ और? (वैकल्पिक)">Anything else? (optional)</label>
+    <textarea name="anything" rows="2"></textarea>
+  </div>
+
+  <label class="consent">
+    <input type="checkbox" name="consent" required>
+    <span data-en="I'm OK with you publishing my postcard publicly with my name. <b>You'll show me the draft before publishing.</b>" data-hi="मुझे अपनी चिट्ठी मेरे नाम के साथ सार्वजनिक रूप से पब्लिश करने पर सहमति है। <b>पब्लिश करने से पहले आप मुझे ड्राफ़्ट दिखाएँगे।</b>">I'm OK with you publishing my postcard publicly with my name. <b>You'll show me the draft before publishing.</b></span>
+  </label>
+
+  <button type="submit" class="submit-btn" id="submitBtn">
+    <span data-en="Send my journey →" data-hi="मेरी यात्रा भेजो →">Send my journey →</span>
+  </button>
+  <p class="form-foot" data-en="We read every response personally. You'll hear back within a week." data-hi="हम हर जवाब ख़ुद पढ़ते हैं। एक हफ़्ते में जवाब मिल जाएगा।">We read every response personally. You'll hear back within a week.</p>
+
+</form>
+
+<div id="successState" class="success-state" style="display:none">
+  <div class="icon">🙏</div>
+  <h2 data-en="Thank you." data-hi="धन्यवाद।">Thank you.</h2>
+  <p data-en="Your journey is in. We'll read it personally, draft a postcard from your words, and send it to you for review before publishing." data-hi="आपकी यात्रा हमें मिल गई। हम इसे ख़ुद पढ़ेंगे, आपके शब्दों से एक चिट्ठी बनाएँगे, और पब्लिश करने से पहले आपको समीक्षा के लिए भेजेंगे।">Your journey is in. We'll read it personally, draft a postcard from your words, and send it to you for review before publishing.</p>
+  <p data-en="A 15-year-old somewhere is about to read something that changes their direction. Thank you for that." data-hi="कहीं कोई 15 साल का कुछ ऐसा पढ़ने वाला है जो उसकी दिशा बदल देगा। उसके लिए धन्यवाद।">A 15-year-old somewhere is about to read something that changes their direction. Thank you for that.</p>
+  <a href="/journeys/" class="back" data-en="← Back to Journeys" data-hi="← यात्राओं पर वापस">← Back to Journeys</a>
+</div>
+
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="w">
+  <div class="fi">
+    <div class="fb2">Saarthi Trust — सारथी ट्रस्ट</div>
+    <div class="fl">
+      <a href="/">Home</a>
+      <a href="/journeys/" data-en="Journeys" data-hi="यात्राएं">Journeys</a>
+      <a href="/faq.html" data-en="FAQ" data-hi="सवाल-जवाब">FAQ</a>
+      <a href="https://instagram.com/saarthi.trust" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://facebook.com/officialsaarthi" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+  <div class="fc">© 2025 Saarthi Trust. An initiative by IIT, IIM &amp; AIIMS alumni for Bharat.</div>
+</div>
+</footer>
+
+<script>
+/* ============================================================
+   Bilingual toggle (same pattern as the rest of the site)
+   ============================================================ */
+var hi=localStorage.getItem('saarthi-lang')==='hi';
+function toggleLang(){
+  hi=!hi;
+  localStorage.setItem('saarthi-lang', hi?'hi':'en');
+  document.getElementById('langBtn').textContent=hi?'English':'हिंदी';
+  document.documentElement.lang=hi?'hi':'en';
+  document.title = hi ? 'अपनी यात्रा बताएं | सारथी ट्रस्ट' : 'Share your journey | Saarthi Trust';
+  var els=document.querySelectorAll('[data-en]');
+  for(var i=0;i<els.length;i++){
+    var val=els[i].getAttribute(hi?'data-hi':'data-en');
+    if(val)els[i].innerHTML=val;
+  }
+}
+if (hi) {
+  hi = false;
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', toggleLang);
+  } else { toggleLang(); }
+}
+</script>
+
+<script>
+/* ============================================================
+   Web Speech API — dictation per textarea
+   Supports en-IN, hi-IN. For Hinglish we use en-IN since Chrome's
+   en-IN model picks up Indian-English well and tolerates Hindi
+   loanwords better than hi-IN with English words.
+   ============================================================ */
+(function(){
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) {
+    // Hide all mic buttons if no API support
+    document.querySelectorAll('.mic-btn').forEach(function(b){ b.style.display = 'none'; });
+    var hint = document.querySelector('.voice-hint');
+    if (hint) {
+      hint.style.opacity = '.5';
+      var t = hint.querySelector('.voice-hint-text');
+      if (t) t.innerHTML = '<b>Voice dictation:</b> Not supported in this browser. Please type your answers, or open this page in Chrome.';
+    }
+    return;
+  }
+
+  var currentRec = null;
+  var currentBtn = null;
+  var currentTextarea = null;
+  var currentBaseline = '';
+
+  function stopCurrent(){
+    if (currentRec) {
+      try { currentRec.stop(); } catch(e){}
+    }
+  }
+
+  document.querySelectorAll('.mic-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var targetName = btn.getAttribute('data-target');
+      var ta = document.querySelector('textarea[name="'+targetName+'"]');
+      if (!ta) return;
+
+      // If we're already recording into THIS button, stop.
+      if (currentBtn === btn) {
+        stopCurrent();
+        return;
+      }
+      // If recording into a different one, stop that first.
+      if (currentRec) stopCurrent();
+
+      var langSel = document.getElementById('dictLang');
+      var lang = langSel ? langSel.value : 'en-IN';
+
+      var rec = new SR();
+      rec.continuous = true;
+      rec.interimResults = true;
+      rec.lang = lang;
+
+      currentRec = rec;
+      currentBtn = btn;
+      currentTextarea = ta;
+      currentBaseline = ta.value ? (ta.value.replace(/\s+$/, '') + ' ') : '';
+
+      btn.classList.add('recording');
+      var label = btn.querySelector('.mic-label');
+      var langSetting = btn.querySelector('.lang-setting');
+      if (label) {
+        label.setAttribute('data-orig-en', label.getAttribute('data-en'));
+        label.setAttribute('data-orig-hi', label.getAttribute('data-hi'));
+        label.setAttribute('data-en', 'Stop');
+        label.setAttribute('data-hi', 'रोको');
+        label.textContent = document.documentElement.lang === 'hi' ? 'रोको' : 'Stop';
+      }
+
+      rec.onresult = function(ev){
+        var finalText = '';
+        var interimText = '';
+        for (var i = ev.resultIndex; i < ev.results.length; i++) {
+          var r = ev.results[i];
+          if (r.isFinal) finalText += r[0].transcript;
+          else interimText += r[0].transcript;
+        }
+        if (finalText) {
+          currentBaseline += finalText + ' ';
+        }
+        ta.value = (currentBaseline + interimText).replace(/\s+/g, ' ').trim();
+      };
+
+      rec.onerror = function(ev){
+        console.warn('Speech recognition error:', ev.error);
+        // Common errors: 'not-allowed' (mic denied), 'no-speech', 'network'
+        if (ev.error === 'not-allowed') {
+          alert(document.documentElement.lang === 'hi'
+            ? 'माइक की अनुमति नहीं मिली। ब्राउज़र सेटिंग में जाकर इस साइट को मिक एक्सेस दें।'
+            : 'Microphone permission denied. Please allow mic access in your browser settings for this site.');
+        }
+      };
+
+      rec.onend = function(){
+        btn.classList.remove('recording');
+        if (label) {
+          var origEn = label.getAttribute('data-orig-en') || 'Dictate';
+          var origHi = label.getAttribute('data-orig-hi') || 'बोलकर';
+          label.setAttribute('data-en', origEn);
+          label.setAttribute('data-hi', origHi);
+          label.textContent = document.documentElement.lang === 'hi' ? origHi : origEn;
+        }
+        currentRec = null;
+        currentBtn = null;
+        currentTextarea = null;
+        currentBaseline = '';
+      };
+
+      try {
+        rec.start();
+      } catch(e) {
+        // Some browsers throw if start() called twice
+        btn.classList.remove('recording');
+      }
+    });
+  });
+})();
+</script>
+
+<script>
+/* ============================================================
+   Form submission to Google Apps Script Web App
+   ----------------------------------------------------------------
+   IMPORTANT: replace ENDPOINT below with the URL Google gives you
+   after deploying the Apps Script as a Web App.
+   See APPS_SCRIPT_SETUP.md in this repo for one-time setup steps.
+   ============================================================ */
+var ENDPOINT = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+
+(function(){
+  var form = document.getElementById('journeyForm');
+  var submitBtn = document.getElementById('submitBtn');
+  var errBanner = document.getElementById('errorBanner');
+  var success = document.getElementById('successState');
+
+  function showError(msg){
+    errBanner.textContent = msg;
+    errBanner.classList.add('show');
+    errBanner.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+
+  function clearError(){
+    errBanner.textContent = '';
+    errBanner.classList.remove('show');
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    clearError();
+
+    // Honeypot — bots will fill this
+    if (form.elements['website'].value.trim() !== '') {
+      // Silently "succeed" for bots
+      form.style.display = 'none';
+      success.style.display = 'block';
+      return;
+    }
+
+    // Quick required-field check
+    var name = form.elements['name'].value.trim();
+    var contact = form.elements['contact'].value.trim();
+    var consent = form.elements['consent'].checked;
+    if (!name || !contact) {
+      showError(document.documentElement.lang === 'hi'
+        ? 'कृपया अपना नाम और संपर्क भरें।'
+        : 'Please fill in your name and contact.');
+      return;
+    }
+    if (!consent) {
+      showError(document.documentElement.lang === 'hi'
+        ? 'कृपया सहमति बॉक्स पर टिक करें।'
+        : 'Please tick the consent box so we can publish your postcard with your name.');
+      return;
+    }
+
+    // At least one answer should be filled to be meaningful
+    var hasAnswer = false;
+    for (var i = 1; i <= 10; i++) {
+      if (form.elements['q'+i].value.trim().length > 20) { hasAnswer = true; break; }
+    }
+    if (!hasAnswer) {
+      showError(document.documentElement.lang === 'hi'
+        ? 'कम से कम कुछ सवालों के जवाब दें — हम सब समझेंगे, बस कोशिश करो।'
+        : 'Please answer at least a few questions — even short answers help.');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span>' + (document.documentElement.lang === 'hi' ? 'भेज रहे हैं…' : 'Sending…') + '</span>';
+
+    var data = {
+      name: name,
+      contact: contact,
+      role: form.elements['role'].value.trim(),
+      q1: form.elements['q1'].value.trim(),
+      q2: form.elements['q2'].value.trim(),
+      q3: form.elements['q3'].value.trim(),
+      q4: form.elements['q4'].value.trim(),
+      q5: form.elements['q5'].value.trim(),
+      q6: form.elements['q6'].value.trim(),
+      q7: form.elements['q7'].value.trim(),
+      q8: form.elements['q8'].value.trim(),
+      q9: form.elements['q9'].value.trim(),
+      q10: form.elements['q10'].value.trim(),
+      anything: form.elements['anything'].value.trim(),
+      consent: consent,
+      lang: document.documentElement.lang || 'en',
+      submittedAt: new Date().toISOString()
+    };
+
+    if (ENDPOINT === 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE') {
+      // Endpoint not configured yet — log + show success (silent fallback)
+      console.warn('Apps Script endpoint not configured. Submitted data:', data);
+      form.style.display = 'none';
+      success.style.display = 'block';
+      window.scrollTo({top:0, behavior:'smooth'});
+      return;
+    }
+
+    // POST as text/plain so we skip CORS preflight. Apps Script reads
+    // e.postData.contents regardless. Use no-cors as belt-and-braces:
+    // we can't read the response, but the request still completes.
+    fetch(ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {'Content-Type': 'text/plain;charset=utf-8'},
+      body: JSON.stringify(data)
+    }).then(function(){
+      form.style.display = 'none';
+      success.style.display = 'block';
+      window.scrollTo({top:0, behavior:'smooth'});
+    }).catch(function(err){
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<span>' + (document.documentElement.lang === 'hi' ? 'मेरी यात्रा भेजो →' : 'Send my journey →') + '</span>';
+      console.error(err);
+      showError(document.documentElement.lang === 'hi'
+        ? 'भेजने में दिक्क़त हुई। कृपया फिर कोशिश करें या hi@saarthitrust.org पर ईमेल करें।'
+        : 'Something went wrong sending. Please try again, or email hi@saarthitrust.org instead.');
+    });
+  });
+
+  // Mobile nav hamburger
+  var navBtn = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('nav');
+  if (navBtn && nav) {
+    navBtn.addEventListener('click', function(){ nav.classList.toggle('nav-open'); });
+  }
+})();
+</script>
+
+</body>
+</html>
