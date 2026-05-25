@@ -213,6 +213,10 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
       <option value="en-IN" data-hinglish="1">Hinglish</option>
     </select>
   </label>
+  <button type="button" id="forceAudioMode" class="audio-fallback-btn" style="background:#fff;border-color:rgba(27,122,74,.3);color:var(--grd);font-weight:600">
+    <span class="mic-icon">🎙</span>
+    <span data-en="Dictate not working? Record audio →" data-hi="डिक्टेशन नहीं चल रहा? ऑडियो रिकॉर्ड करें →">Dictate not working? Record audio →</span>
+  </button>
 </div>
 
 <div class="error-banner" id="errorBanner"></div>
@@ -743,8 +747,29 @@ if (hi) {
   }
 
   // Expose so the manual "audio fallback" link in the voice-hint banner
-  // can call it too if we add one later.
+  // can call it too.
   window.__enableAudioFallback = enableAudioFallback;
+
+  // Manual one-click escape hatch: turn every question into a MediaRecorder
+  // panel right away. Useful for users on networks where Google's speech
+  // service is blocked.
+  var forceBtn = document.getElementById('forceAudioMode');
+  if (forceBtn){
+    forceBtn.addEventListener('click', function(){
+      document.querySelectorAll('.mic-btn').forEach(function(micBtn){
+        var qField = micBtn.closest('.q-field');
+        if (!qField) return;
+        if (qField.querySelector('.audio-fallback')) return; // already enabled
+        var ta = qField.querySelector('textarea');
+        if (ta) enableAudioFallback(micBtn, ta);
+      });
+      forceBtn.disabled = true;
+      forceBtn.style.opacity = '.5';
+      var lbl = forceBtn.querySelector('span:not(.mic-icon)');
+      if (lbl) lbl.textContent = isHi() ? '✓ ऑडियो मोड चालू' : '✓ Audio mode on';
+      toast(isHi() ? 'सभी सवालों में ऑडियो रिकॉर्डिंग चालू।' : 'Audio recording enabled for every question.', 'listening', 3500);
+    });
+  }
 })();
 </script>
 
