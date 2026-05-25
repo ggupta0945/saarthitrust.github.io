@@ -30,7 +30,7 @@ const SHEET_ID = '1b1TJnsNTMlrbasLFux0VPow3dGCEv5kvBgbRlkXLzNk';
 const SHEET_NAME = 'Inspirational';
 
 const HEADERS = [
-  'Timestamp', 'Name', 'Contact', 'Role + city',
+  'Timestamp', 'Name', 'Contact', 'Role + city', 'Social links',
   'Q1 Growing up + parents',
   'Q2 Class 10 self',
   'Q3 College + course choice',
@@ -53,9 +53,18 @@ function ensureSheet_() {
   if (!sheet) {
     sheet = ss.insertSheet(SHEET_NAME);
   }
-  // Write headers if the sheet is empty
-  if (sheet.getLastRow() === 0) {
-    sheet.appendRow(HEADERS);
+  // Sync the header row: write headers if missing OR if they don't match
+  // (e.g., a new column was added since the last deploy)
+  const lastCol = Math.max(1, sheet.getLastColumn());
+  const existing = sheet.getLastRow() === 0
+    ? []
+    : sheet.getRange(1, 1, 1, lastCol).getValues()[0];
+  let needsHeaders = existing.length === 0;
+  for (let i = 0; i < HEADERS.length && !needsHeaders; i++) {
+    if (existing[i] !== HEADERS[i]) needsHeaders = true;
+  }
+  if (needsHeaders) {
+    sheet.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]);
     sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold');
     sheet.setFrozenRows(1);
   }
@@ -72,6 +81,7 @@ function doPost(e) {
       data.name || '',
       data.contact || '',
       data.role || '',
+      data.socials || '',
       data.q1 || '',
       data.q2 || '',
       data.q3 || '',
@@ -175,6 +185,7 @@ The web app URL stays the same — no need to update the HTML again.
 | Name                         | Form field                      |
 | Contact                      | Form field (email or phone)     |
 | Role + city                  | Form field                      |
+| Social links                 | LinkedIn / Instagram / YouTube / etc. — pasted as free text |
 | Q1–Q10                       | Each textarea                   |
 | Anything else                | Optional textarea               |
 | Consent                      | Yes / No (must be Yes to submit) |

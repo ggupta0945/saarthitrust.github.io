@@ -220,6 +220,12 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
     <input type="text" name="role">
   </div>
 
+  <div class="field">
+    <label class="lbl" data-en="Where can we find you online?" data-hi="आप ऑनलाइन कहाँ मिलेंगे?">Where can we find you online?</label>
+    <div class="help" data-en="LinkedIn, Instagram, YouTube, X / Twitter, personal site — any one or more. Helps us verify and link your postcard back to your work." data-hi="LinkedIn, Instagram, YouTube, X / Twitter, निजी वेबसाइट — कोई एक या अधिक। हम सत्यापन कर सकें और आपकी चिट्ठी आपके काम से जोड़ सकें।">LinkedIn, Instagram, YouTube, X / Twitter, personal site — any one or more. Helps us verify and link your postcard back to your work.</div>
+    <textarea name="socials" rows="2" style="min-height:64px;padding-bottom:14px" placeholder="https://linkedin.com/in/... or https://instagram.com/... or any link"></textarea>
+  </div>
+
   <div class="qsec-divider" data-label="The 10 questions"></div>
 
   <div class="q-field">
@@ -580,6 +586,7 @@ var ENDPOINT = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
       name: name,
       contact: contact,
       role: form.elements['role'].value.trim(),
+      socials: form.elements['socials'].value.trim(),
       q1: form.elements['q1'].value.trim(),
       q2: form.elements['q2'].value.trim(),
       q3: form.elements['q3'].value.trim(),
