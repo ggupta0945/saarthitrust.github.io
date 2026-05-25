@@ -257,7 +257,9 @@ footer{padding:48px 0 32px;background:var(--bg)}
 .career-hub-head .eyebrow{font-size:12px;color:var(--gr);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
 .career-hub-head h3{font-family:var(--fd);font-size:22px;font-weight:700;line-height:1.3;color:var(--tx);max-width:520px;margin:0 auto 8px}
 .career-hub-head p{font-size:14px;color:var(--tx2);line-height:1.6;max-width:520px;margin:0 auto}
-.career-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.career-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:900px){.career-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:580px){.career-grid{grid-template-columns:1fr}}
 .career-card{position:relative;background:#fff;border:1px solid var(--sand);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;cursor:pointer;text-decoration:none;color:inherit;overflow:hidden}
 .career-card:hover{transform:translateY(-3px);border-color:var(--gr);box-shadow:0 12px 32px -16px rgba(27,122,74,.18)}
 .career-card-stripe{position:absolute;top:0;left:0;right:0;height:3px}
@@ -585,7 +587,6 @@ footer{padding:48px 0 32px;background:var(--bg)}
             </a>
 
           </div>
-          <p style="text-align:center;font-size:12px;color:var(--tx3);margin:18px auto 0;max-width:480px;line-height:1.55;font-style:italic" data-en="More paths coming — Law, Teaching, Design, Defense, and others." data-hi="और राहें आ रही हैं — क़ानून, शिक्षण, डिज़ाइन, रक्षा, और बहुत कुछ।">More paths coming — Law, Teaching, Design, Defense, and others.</p>
         </div>
 
 
@@ -823,6 +824,43 @@ footer{padding:48px 0 32px;background:var(--bg)}
           <div style="padding: 12px; background: var(--color-background-secondary); border-radius: var(--border-radius-md);">
             <p style="font-size: 13px; font-weight: 500; margin: 0 0 4px;"><i class="ti ti-rocket" style="font-size:16px; vertical-align:-2px; margin-right:6px; color: var(--color-text-secondary);" aria-hidden="true"></i>Founder / startup</p>
             <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5;" data-en="High risk, high reward, rare unicorns." data-hi="ऊँचा जोखिम, ऊँचा इनाम, दुर्लभ यूनिकॉर्न।">High risk, high reward, rare unicorns.</p>
+          </div>
+        </div>
+
+                <div style="width: 2px; height: 32px; background: var(--color-border-tertiary); margin: 24px 0 8px;"></div>
+
+        <div style="background: var(--color-background-secondary); padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 500; color: var(--color-text-secondary); margin-bottom: 12px;" data-en="a realistic money map" data-hi="असली पैसे का नक्शा">a realistic money map</div>
+        <p style="font-size: 13px; color: var(--color-text-secondary); text-align: center; margin: 0 0 16px; max-width: 460px;" data-en="A typical STEM grad's earning curve in India (huge variance — this is just the middle path)." data-hi="भारत में एक सामान्य STEM ग्रेजुएट का कमाई कर्व (बहुत भिन्नता — यह सिर्फ़ बीच का रास्ता है)।">A typical STEM grad's earning curve in India (huge variance — this is just the middle path).</p>
+
+        <div style="width: 100%; background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 16px;">
+          <div style="display: flex; align-items: stretch; gap: 16px; height: 180px; padding: 0 8px; border-bottom: 0.5px solid var(--color-border-tertiary);">
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; height: 100%;">
+              <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">₹8 L</p>
+              <div style="width: 100%; height: 18%; background: #B5D4F4; border-radius: 4px 4px 0 0;"></div>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; height: 100%;">
+              <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">₹18 L</p>
+              <div style="width: 100%; height: 35%; background: #85B7EB; border-radius: 4px 4px 0 0;"></div>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; height: 100%;">
+              <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">₹35 L</p>
+              <div style="width: 100%; height: 55%; background: #378ADD; border-radius: 4px 4px 0 0;"></div>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; height: 100%;">
+              <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">₹70 L</p>
+              <div style="width: 100%; height: 80%; background: #185FA5; border-radius: 4px 4px 0 0;"></div>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; height: 100%;">
+              <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">₹1.2 cr</p>
+              <div style="width: 100%; height: 100%; background: #0C447C; border-radius: 4px 4px 0 0;"></div>
+            </div>
+          </div>
+          <div style="display: flex; gap: 16px; padding: 8px 8px 0;">
+            <div style="flex: 1; text-align: center;"><p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;" data-en="age 22" data-hi="उम्र 22">age 22</p></div>
+            <div style="flex: 1; text-align: center;"><p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;" data-en="age 25" data-hi="उम्र 25">age 25</p></div>
+            <div style="flex: 1; text-align: center;"><p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;" data-en="age 28" data-hi="उम्र 28">age 28</p></div>
+            <div style="flex: 1; text-align: center;"><p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;" data-en="age 32" data-hi="उम्र 32">age 32</p></div>
+            <div style="flex: 1; text-align: center;"><p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;" data-en="age 40" data-hi="उम्र 40">age 40</p></div>
           </div>
         </div>
 
@@ -1240,42 +1278,7 @@ footer{padding:48px 0 32px;background:var(--bg)}
         </div>
 
 
-                <div style="width: 2px; height: 32px; background: var(--color-border-tertiary); margin: 24px 0 8px;"></div>
 
-        <div style="background: var(--color-background-secondary); padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 500; color: var(--color-text-secondary); margin-bottom: 12px;" data-en="a realistic money map" data-hi="असली पैसे का नक्शा">a realistic money map</div>
-        <p style="font-size: 13px; color: var(--color-text-secondary); text-align: center; margin: 0 0 16px; max-width: 460px;" data-en="A typical STEM grad's earning curve in India (huge variance — this is just the middle path)." data-hi="भारत में एक सामान्य STEM ग्रेजुएट का कमाई कर्व (बहुत भिन्नता — यह सिर्फ़ बीच का रास्ता है)।">A typical STEM grad's earning curve in India (huge variance — this is just the middle path).</p>
-
-        <div style="width: 100%; background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 16px;">
-          <div style="display: flex; align-items: stretch; gap: 16px; height: 180px; padding: 0 8px; border-bottom: 0.5px solid var(--color-border-tertiary);">
-            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; height: 100%;">
-              <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">₹8 L</p>
-              <div style="width: 100%; height: 18%; background: #B5D4F4; border-radius: 4px 4px 0 0;"></div>
-            </div>
-            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; height: 100%;">
-              <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">₹18 L</p>
-              <div style="width: 100%; height: 35%; background: #85B7EB; border-radius: 4px 4px 0 0;"></div>
-            </div>
-            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; height: 100%;">
-              <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">₹35 L</p>
-              <div style="width: 100%; height: 55%; background: #378ADD; border-radius: 4px 4px 0 0;"></div>
-            </div>
-            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; height: 100%;">
-              <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">₹70 L</p>
-              <div style="width: 100%; height: 80%; background: #185FA5; border-radius: 4px 4px 0 0;"></div>
-            </div>
-            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; height: 100%;">
-              <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">₹1.2 cr</p>
-              <div style="width: 100%; height: 100%; background: #0C447C; border-radius: 4px 4px 0 0;"></div>
-            </div>
-          </div>
-          <div style="display: flex; gap: 16px; padding: 8px 8px 0;">
-            <div style="flex: 1; text-align: center;"><p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;" data-en="age 22" data-hi="उम्र 22">age 22</p></div>
-            <div style="flex: 1; text-align: center;"><p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;" data-en="age 25" data-hi="उम्र 25">age 25</p></div>
-            <div style="flex: 1; text-align: center;"><p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;" data-en="age 28" data-hi="उम्र 28">age 28</p></div>
-            <div style="flex: 1; text-align: center;"><p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;" data-en="age 32" data-hi="उम्र 32">age 32</p></div>
-            <div style="flex: 1; text-align: center;"><p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0;" data-en="age 40" data-hi="उम्र 40">age 40</p></div>
-          </div>
-        </div>
 
         <p class="feat-mid-tag" data-en="&ldquo;You don&rsquo;t need to know the destination. You need to know what makes you curious.&rdquo;" data-hi="&ldquo;आपको मंज़िल जानने की ज़रूरत नहीं है। आपको यह जानने की ज़रूरत है कि आपको क्या जिज्ञासु बनाता है।&rdquo;">“You don't need to know the destination. You need to know what makes you curious.”</p>
 
