@@ -252,6 +252,24 @@ footer{padding:48px 0 32px;background:var(--bg)}
 .branches-newer li{font-size:13px;color:var(--tx2);padding-left:14px;position:relative;line-height:1.55}
 .branches-newer li::before{content:'›';color:var(--gr);position:absolute;left:0;font-weight:700}
 .branches-newer li b{color:var(--tx);font-weight:600}
+.career-hub{margin-top:40px;width:100%}
+.career-hub-head{text-align:center;margin-bottom:24px}
+.career-hub-head .eyebrow{font-size:12px;color:var(--gr);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.career-hub-head h3{font-family:var(--fd);font-size:22px;font-weight:700;line-height:1.3;color:var(--tx);max-width:520px;margin:0 auto 8px}
+.career-hub-head p{font-size:14px;color:var(--tx2);line-height:1.6;max-width:520px;margin:0 auto}
+.career-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.career-card{position:relative;background:#fff;border:1px solid var(--sand);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;cursor:pointer;text-decoration:none;color:inherit;overflow:hidden}
+.career-card:hover{transform:translateY(-3px);border-color:var(--gr);box-shadow:0 12px 32px -16px rgba(27,122,74,.18)}
+.career-card-stripe{position:absolute;top:0;left:0;right:0;height:3px}
+.career-card-icon{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.career-card-eyebrow{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.career-card h4{font-family:var(--fd);font-size:18px;font-weight:700;line-height:1.25;margin:0;color:var(--tx)}
+.career-card-sub{font-size:13px;color:var(--tx3);margin:-4px 0 0;line-height:1.4}
+.career-card-desc{font-size:13px;color:var(--tx2);line-height:1.6;margin:0;flex-grow:1}
+.career-card-footer{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:12px;border-top:1px solid var(--sand);margin-top:auto;flex-wrap:nowrap}
+.career-card-meta{font-size:12px;color:var(--tx3);display:inline-flex;align-items:center;gap:4px}
+.career-card-cta{font-size:12.5px;color:#fff;font-weight:600;display:inline-flex;align-items:center;gap:5px;padding:7px 13px;background:var(--gr);border-radius:18px;transition:background .15s ease,transform .15s ease,box-shadow .15s ease;white-space:nowrap;flex-shrink:0}
+.career-card:hover .career-card-cta{background:var(--grd);transform:translateX(2px);box-shadow:0 4px 12px rgba(27,122,74,.25)}
 
 .branch-truth{background:linear-gradient(135deg,var(--grl) 0%,#fff 70%);border:1px solid var(--gr);border-radius:14px;padding:24px;margin-top:24px;font-size:14px;line-height:1.7;color:var(--tx)}
 .branch-truth p{margin:0 0 12px}
@@ -454,6 +472,88 @@ footer{padding:48px 0 32px;background:var(--bg)}
           </div>
 
         </div>
+
+        <!-- ===== CAREER DEEP-DIVES HUB ===== -->
+        <div class="career-hub rv">
+          <div class="career-hub-head">
+            <div class="eyebrow" data-en="Career deep-dives" data-hi="करियर गहराई से">Career deep-dives</div>
+            <h3 data-en="Explore each road, honestly" data-hi="हर राह को ईमानदारी से देखो">Explore each road, honestly</h3>
+            <p data-en="Click into any path — what life looks like inside, real salary ranges, and who fits. More paths coming soon." data-hi="किसी भी राह में जाओ — अंदर की ज़िंदगी, असली सैलरी, और किसके लिए। और राहें जल्द आ रही हैं।">Click into any path — what life looks like inside, real salary ranges, and who fits. More paths coming soon.</p>
+          </div>
+          <div class="career-grid">
+
+            <a class="career-card" href="#engineering" aria-label="Engineering ke Andar">
+              <div class="career-card-stripe" style="background:#185FA5"></div>
+              <div style="display:flex;align-items:center;gap:12px">
+                <div class="career-card-icon" style="background:#E6F1FB;color:#0C447C"><i class="ti ti-cpu" aria-hidden="true"></i></div>
+                <div>
+                  <div class="career-card-eyebrow" style="color:#0C447C" data-en="Engineering" data-hi="इंजीनियरिंग">Engineering</div>
+                  <h4 data-en="Engineering ke Andar" data-hi="इंजीनियरिंग के अंदर">Engineering ke Andar</h4>
+                </div>
+              </div>
+              <p class="career-card-sub" data-en="6 branches, very different lives" data-hi="6 शाखाएँ, बिल्कुल अलग ज़िंदगियाँ">6 branches, very different lives</p>
+              <p class="career-card-desc" data-en="CSE writes apps. ECE designs chips. Civil builds bridges. Each branch leads to a completely different career — with honest salary ranges from ₹4 LPA to ₹2 crore." data-hi="CSE ऐप्स लिखता है। ECE चिप्स डिज़ाइन करता है। सिविल पुल बनाता है। हर शाखा एक बिल्कुल अलग करियर की ओर ले जाती है — ₹4 LPA से ₹2 करोड़ तक की ईमानदार सैलरी के साथ।">CSE writes apps. ECE designs chips. Civil builds bridges. Each branch leads to a completely different career — with honest salary ranges from ₹4 LPA to ₹2 crore.</p>
+              <div class="career-card-footer">
+                <span class="career-card-meta" data-en="~7 min read" data-hi="~7 मिनट">~7 min read</span>
+                <span class="career-card-cta" data-en="Read guide →" data-hi="गाइड पढ़ें →">Read guide →</span>
+              </div>
+            </a>
+
+            <a class="career-card" href="#medical" aria-label="Doctor ki Zindagi">
+              <div class="career-card-stripe" style="background:#0F6E56"></div>
+              <div style="display:flex;align-items:center;gap:12px">
+                <div class="career-card-icon" style="background:#E1F5EE;color:#0F6E56"><i class="ti ti-stethoscope" aria-hidden="true"></i></div>
+                <div>
+                  <div class="career-card-eyebrow" style="color:#0F6E56" data-en="Medicine" data-hi="चिकित्सा">Medicine</div>
+                  <h4 data-en="Doctor ki Zindagi" data-hi="डॉक्टर की ज़िंदगी">Doctor ki Zindagi</h4>
+                </div>
+              </div>
+              <p class="career-card-sub" data-en="MBBS to consultant — 11 years" data-hi="MBBS से कंसल्टेंट — 11 साल">MBBS to consultant — 11 years</p>
+              <p class="career-card-desc" data-en="6 specialties from cardiology to psychiatry. The full timeline from age 18 to your first real consultant salary. Govt vs private vs own clinic — honest tradeoffs." data-hi="कार्डियोलॉजी से मनोचिकित्सा तक 6 स्पेशलिटी। 18 की उम्र से पहली असली कंसल्टेंट सैलरी तक की पूरी टाइमलाइन। सरकारी बनाम निजी बनाम अपना क्लीनिक — ईमानदार तुलना।">6 specialties from cardiology to psychiatry. The full timeline from age 18 to your first real consultant salary. Govt vs private vs own clinic — honest tradeoffs.</p>
+              <div class="career-card-footer">
+                <span class="career-card-meta" data-en="~9 min read" data-hi="~9 मिनट">~9 min read</span>
+                <span class="career-card-cta" data-en="Read guide →" data-hi="गाइड पढ़ें →">Read guide →</span>
+              </div>
+            </a>
+
+            <a class="career-card" href="#mba" aria-label="MBA ke Andar">
+              <div class="career-card-stripe" style="background:#72243E"></div>
+              <div style="display:flex;align-items:center;gap:12px">
+                <div class="career-card-icon" style="background:#FBEAF0;color:#72243E"><i class="ti ti-briefcase" aria-hidden="true"></i></div>
+                <div>
+                  <div class="career-card-eyebrow" style="color:#72243E" data-en="MBA" data-hi="MBA">MBA</div>
+                  <h4 data-en="MBA ke Andar" data-hi="MBA के अंदर">MBA ke Andar</h4>
+                </div>
+              </div>
+              <p class="career-card-sub" data-en="4 roads after a top IIM" data-hi="किसी टॉप IIM के बाद 4 रास्ते">4 roads after a top IIM</p>
+              <p class="career-card-desc" data-en="Consulting, investment banking, product management, startup. What life actually looks like — the travel, salary, lifestyle, and who fits each road." data-hi="कंसल्टिंग, इन्वेस्टमेंट बैंकिंग, प्रोडक्ट मैनेजमेंट, स्टार्टअप। असली ज़िंदगी कैसी होती है — यात्रा, सैलरी, जीवनशैली, और हर रास्ता किसके लिए है।">Consulting, investment banking, product management, startup. What life actually looks like — the travel, salary, lifestyle, and who fits each road.</p>
+              <div class="career-card-footer">
+                <span class="career-card-meta" data-en="~6 min read" data-hi="~6 मिनट">~6 min read</span>
+                <span class="career-card-cta" data-en="Read guide →" data-hi="गाइड पढ़ें →">Read guide →</span>
+              </div>
+            </a>
+
+            <a class="career-card" href="#founder" aria-label="Founder ki Zindagi">
+              <div class="career-card-stripe" style="background:#993C1D"></div>
+              <div style="display:flex;align-items:center;gap:12px">
+                <div class="career-card-icon" style="background:#FAECE7;color:#993C1D"><i class="ti ti-rocket" aria-hidden="true"></i></div>
+                <div>
+                  <div class="career-card-eyebrow" style="color:#993C1D" data-en="Founder" data-hi="संस्थापक">Founder</div>
+                  <h4 data-en="Founder ki Zindagi" data-hi="संस्थापक की ज़िंदगी">Founder ki Zindagi</h4>
+                </div>
+              </div>
+              <p class="career-card-sub" data-en="The hard truth, and the other side" data-hi="कड़वी सच्चाई, और दूसरा पहलू">The hard truth, and the other side</p>
+              <p class="career-card-desc" data-en="12–14 hour days. 9 out of 10 startups fail. But the ones that succeed change everything. Honest money picture, lifestyle, and other kinds of entrepreneurs." data-hi="12–14 घंटे के दिन। 10 में से 9 स्टार्टअप असफल होते हैं। पर जो सफल होते हैं वो सब बदल देते हैं। ईमानदार पैसे की तस्वीर, जीवनशैली, और दूसरे तरह के उद्यमी।">12–14 hour days. 9 out of 10 startups fail. But the ones that succeed change everything. Honest money picture, lifestyle, and other kinds of entrepreneurs.</p>
+              <div class="career-card-footer">
+                <span class="career-card-meta" data-en="~6 min read" data-hi="~6 मिनट">~6 min read</span>
+                <span class="career-card-cta" data-en="Read guide →" data-hi="गाइड पढ़ें →">Read guide →</span>
+              </div>
+            </a>
+
+          </div>
+          <p style="text-align:center;font-size:12px;color:var(--tx3);margin:18px auto 0;max-width:480px;line-height:1.55;font-style:italic" data-en="More paths coming — UPSC, Law, Teaching, Design, Defense, and others." data-hi="और राहें आ रही हैं — UPSC, क़ानून, शिक्षण, डिज़ाइन, रक्षा, और बहुत कुछ।">More paths coming — UPSC, Law, Teaching, Design, Defense, and others.</p>
+        </div>
+
 
         <!-- ===== ENGINEERING BRANCHES ===== -->
         <div class="branches-section rv" id="engineering">
