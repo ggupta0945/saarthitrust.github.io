@@ -291,6 +291,8 @@ footer{padding:48px 0 32px;background:var(--bg)}
 .pc-like.liked{background:var(--grl);border-color:var(--gr);color:var(--gr)}
 .pc-like.liked .pc-action-icon{color:var(--wr)}
 .pc-share.copied{background:var(--grl);border-color:var(--gr);color:var(--gr)}
+.pc-views{cursor:default;color:var(--tx2);background:var(--cream)}
+.pc-views:hover{border-color:var(--sand);color:var(--tx2);transform:none}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--tx);color:#fff;padding:10px 20px;border-radius:24px;font-size:13.5px;opacity:0;transition:opacity .2s ease;z-index:1000;pointer-events:none;box-shadow:0 4px 14px rgba(0,0,0,.18)}
 .toast.show{opacity:1}
 </style>
@@ -872,10 +874,14 @@ footer{padding:48px 0 32px;background:var(--bg)}
 
 <section class="pc-actions">
   <div class="pc-actions-row">
-    <button type="button" class="pc-action-btn pc-like" data-rid="raahein" data-baseline="0">
+    <span class="pc-action-btn pc-views" data-rid="raahein-map" data-baseline="142" aria-label="Views">
+      <span class="pc-action-icon">👁</span>
+      <span class="pc-views-count">142</span>
+    </span>
+    <button type="button" class="pc-action-btn pc-like" data-rid="raahein-map" data-counter-key="raahein-map-likes" data-baseline="28">
       <span class="pc-action-icon">♥</span>
       <span class="pc-action-label" data-en="Like" data-hi="पसंद">Like</span>
-      <span class="pc-like-count">0</span>
+      <span class="pc-like-count">28</span>
     </button>
     <button type="button" class="pc-action-btn pc-share" data-title="Raahein · Possibilities ahead | Saarthi Trust" data-title-hi="राहें · आगे की संभावनाएं | सारथी ट्रस्ट">
       <span class="pc-action-icon">↗</span>
@@ -963,9 +969,24 @@ document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
     setTimeout(function(){ t.classList.remove('show'); }, 1800);
   }
 
+  // VIEWS — fetch live count from Abacus and display (baseline + live)
+  document.querySelectorAll('.pc-views').forEach(function(el){
+    var rid = el.getAttribute('data-rid');
+    var base = parseInt(el.getAttribute('data-baseline') || '0', 10);
+    var countEl = el.querySelector('.pc-views-count');
+    fetch('https://abacus.jasoncameron.dev/get/saarthitrust/' + rid, {mode:'cors'})
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if(typeof d.value === 'number' && countEl){
+          countEl.textContent = (base + d.value).toLocaleString('en-IN');
+        }
+      }).catch(function(){});
+  });
+
   // LIKE — localStorage prevents double-count; Abacus is the shared counter
   document.querySelectorAll('.pc-like').forEach(function(btn){
     var rid = btn.getAttribute('data-rid');
+    var counterKey = btn.getAttribute('data-counter-key') || (rid + '-likes');
     var base = parseInt(btn.getAttribute('data-baseline') || '0', 10);
     var countEl = btn.querySelector('.pc-like-count');
     var key = 'saarthi-like-' + rid;
@@ -973,7 +994,7 @@ document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
     if(liked) btn.classList.add('liked');
 
     // Pull live count from Abacus and update display
-    fetch('https://abacus.jasoncameron.dev/get/saarthitrust/' + rid + '-likes', {mode:'cors'})
+    fetch('https://abacus.jasoncameron.dev/get/saarthitrust/' + counterKey, {mode:'cors'})
       .then(function(r){ return r.json(); })
       .then(function(d){
         if(typeof d.value === 'number'){
@@ -988,7 +1009,7 @@ document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
       // optimistic update
       countEl.textContent = (parseInt(countEl.textContent.replace(/[^0-9]/g,''),10) || base) + 1;
       // hit Abacus to record the shared like
-      fetch('https://abacus.jasoncameron.dev/hit/saarthitrust/' + rid + '-likes', {mode:'cors'}).catch(function(){});
+      fetch('https://abacus.jasoncameron.dev/hit/saarthitrust/' + counterKey, {mode:'cors'}).catch(function(){});
     });
   });
 
