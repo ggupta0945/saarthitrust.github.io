@@ -212,7 +212,7 @@ footer{padding:48px 0 32px;background:var(--bg)}
 .cj-sub-meta{font-size:13px;color:var(--tx3)}
 
 /* MAP CARD (single, prominent banner for Raahein) */
-.map-card{display:grid;grid-template-columns:auto 1fr;gap:24px;background:#fff;border:1px solid var(--sand);border-radius:14px;padding:24px 26px;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;cursor:pointer}
+.map-card{position:relative;display:grid;grid-template-columns:auto 1fr;gap:24px;background:#fff;border:1px solid var(--sand);border-radius:14px;padding:24px 26px;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;cursor:pointer}
 .map-card:hover{transform:translateY(-2px);border-color:var(--gr);box-shadow:0 12px 32px -16px rgba(27,122,74,.18)}
 .map-icon{width:60px;height:60px;background:var(--grl);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0}
 .map-body h3{font-family:var(--fd);font-size:22px;font-weight:700;margin:0 0 4px;line-height:1.2}
@@ -220,14 +220,17 @@ footer{padding:48px 0 32px;background:var(--bg)}
 .map-body p{font-size:14px;color:var(--tx2);line-height:1.6;margin:0 0 14px}
 .map-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
 .map-chips span{background:var(--cream);border:1px solid var(--sand);padding:5px 12px;border-radius:14px;font-size:12px;color:var(--tx2)}
-.map-cta{display:inline-flex;background:var(--gr);color:#fff;padding:10px 18px;border-radius:22px;font-size:13px;font-weight:500;align-items:center;gap:6px}
-.map-cta:hover{background:var(--grd)}
+.map-cta{display:inline-flex;background:var(--gr);color:#fff;padding:10px 18px;border-radius:22px;font-size:13px;font-weight:600;align-items:center;gap:6px;transition:background .15s ease,transform .15s ease}
+/* Stretched-link: ::before spans the whole .map-card so anywhere clicks the CTA */
+.map-cta::before{content:'';position:absolute;inset:0;border-radius:14px;z-index:1}
+.map-card:hover .map-cta{background:var(--grd);transform:translateX(2px)}
 .map-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:14px;border-top:1px solid var(--sand);flex-wrap:wrap}
+.map-footer .like-btn{position:relative;z-index:2}
 @media(max-width:600px){.map-card{grid-template-columns:1fr}}
 
 /* POSTCARD GRID (2x2 of postcards) */
 .postcards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
-.pcard{background:#fff;border:1px solid var(--sand);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;cursor:pointer}
+.pcard{position:relative;background:#fff;border:1px solid var(--sand);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;cursor:pointer}
 .pcard:hover{transform:translateY(-3px);border-color:var(--gr);box-shadow:0 12px 32px -16px rgba(27,122,74,.15)}
 .pcard-head{display:flex;align-items:center;gap:12px}
 .pcard-avatar{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:18px;font-weight:700;flex-shrink:0;background:var(--grl);color:var(--gr)}
@@ -250,13 +253,15 @@ footer{padding:48px 0 32px;background:var(--bg)}
 .pcard-arc b{color:var(--gr);font-weight:600}
 .pcard-story{font-size:14px;color:var(--tx2);line-height:1.6;margin:0}
 .pcard-quote{font-family:var(--fd);font-style:italic;font-size:14px;line-height:1.55;color:var(--tx);border-left:3px solid var(--gr);padding:2px 0 2px 12px;margin:0}
-.pcard-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:14px;border-top:1px solid var(--sand);flex-wrap:wrap;margin-top:auto}
-.pcard-stats{display:flex;gap:14px;font-size:12px;color:var(--tx3);align-items:center}
-.pcard-stats .like-btn{background:none;border:none;padding:0;cursor:pointer;font:inherit;color:inherit;display:inline-flex;align-items:center;gap:4px;transition:color .15s ease}
+.pcard-footer{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:14px;border-top:1px solid var(--sand);flex-wrap:nowrap;margin-top:auto}
+.pcard-stats{display:flex;gap:10px;font-size:12px;color:var(--tx3);align-items:center;flex-shrink:0}
+.pcard-stats .like-btn{position:relative;z-index:2;background:none;border:none;padding:0;cursor:pointer;font:inherit;color:inherit;display:inline-flex;align-items:center;gap:4px;transition:color .15s ease}
 .pcard-stats .like-btn:hover{color:var(--wr)}
 .pcard-stats .like-btn.liked{color:var(--wr)}
-.pcard-cta{font-size:13px;color:var(--gr);font-weight:500;display:inline-flex;align-items:center;gap:4px}
-.pcard-cta:hover{color:var(--grd)}
+.pcard-cta{font-size:12.5px;color:#fff;font-weight:600;display:inline-flex;align-items:center;gap:5px;padding:7px 13px;background:var(--gr);border-radius:18px;transition:background .15s ease,transform .15s ease,box-shadow .15s ease;white-space:nowrap;flex-shrink:0}
+.pcard-cta:hover,.pcard:hover .pcard-cta{background:var(--grd);transform:translateX(2px);box-shadow:0 4px 12px rgba(27,122,74,.25)}
+/* Stretched-link: ::before spans the whole .pcard so anywhere clicks the CTA */
+.pcard-cta::before{content:'';position:absolute;inset:0;border-radius:14px;z-index:1}
 
 /* SHARE ROW — single centered card */
 .share-row{display:flex;justify-content:center}
@@ -406,11 +411,10 @@ footer{padding:48px 0 32px;background:var(--bg)}
         <div class="pcard-quote" data-en="“You don't need to know your destination at 15. Pick a direction, walk honestly, stay curious.”" data-hi="“15 साल की उम्र में मंज़िल पता होना ज़रूरी नहीं है। एक दिशा चुनो, ईमानदारी से चलो, जिज्ञासु रहो।”">“You don't need to know your destination at 15. Pick a direction, walk honestly, stay curious.”</div>
         <div class="pcard-footer">
           <div class="pcard-stats">
-            <span data-en="4 min read" data-hi="4 मिनट">4 min read</span>
             <span class="view-count" data-rid="postcard-gaurav" data-baseline="72">👁 72</span>
             <button class="like-btn" data-rid="gaurav" type="button">♥ <span class="like-count">16</span></button>
           </div>
-          <a href="/journeys/postcards/gaurav/" class="pcard-cta" data-en="View Journey →" data-hi="यात्रा देखें →">View Journey →</a>
+          <a href="/journeys/postcards/gaurav/" class="pcard-cta" data-en="Read full story →" data-hi="पूरी कहानी पढ़ें →">Read full story →</a>
         </div>
       </article>
 
@@ -428,11 +432,10 @@ footer{padding:48px 0 32px;background:var(--bg)}
         <div class="pcard-quote" data-en="“Dream a little bigger. The road is wider than your school is telling you.”" data-hi="“थोड़ा बड़ा सपना देखो। रास्ता उससे चौड़ा है जितना तुम्हारा स्कूल बता रहा है।”">“Dream a little bigger. The road is wider than your school is telling you.”</div>
         <div class="pcard-footer">
           <div class="pcard-stats">
-            <span data-en="6 min read" data-hi="6 मिनट">6 min read</span>
             <span class="view-count" data-rid="postcard-nikita" data-baseline="68">👁 68</span>
             <button class="like-btn" data-rid="nikita" type="button">♥ <span class="like-count">18</span></button>
           </div>
-          <a href="/journeys/postcards/nikita/" class="pcard-cta" data-en="View Journey →" data-hi="यात्रा देखें →">View Journey →</a>
+          <a href="/journeys/postcards/nikita/" class="pcard-cta" data-en="Read full story →" data-hi="पूरी कहानी पढ़ें →">Read full story →</a>
         </div>
       </article>
 
@@ -450,11 +453,10 @@ footer{padding:48px 0 32px;background:var(--bg)}
         <div class="pcard-quote" data-en="“Even if you never become a founder, someone in your generation will. Why not you? Dream a little crazier.”" data-hi="“अगर आप कभी संस्थापक नहीं बनेंगे, तो भी आपकी पीढ़ी का कोई बनेगा। आप क्यों नहीं? थोड़ा पागलपन वाला सपना देखो।”">“Even if you never become a founder, someone in your generation will. Why not you? Dream a little crazier.”</div>
         <div class="pcard-footer">
           <div class="pcard-stats">
-            <span data-en="7 min read" data-hi="7 मिनट">7 min read</span>
             <span class="view-count" data-rid="postcard-aniket" data-baseline="135">👁 135</span>
             <button class="like-btn" data-rid="aniket" type="button">♥ <span class="like-count">22</span></button>
           </div>
-          <a href="/journeys/postcards/aniket/" class="pcard-cta" data-en="View Journey →" data-hi="यात्रा देखें →">View Journey →</a>
+          <a href="/journeys/postcards/aniket/" class="pcard-cta" data-en="Read full story →" data-hi="पूरी कहानी पढ़ें →">Read full story →</a>
         </div>
       </article>
 
@@ -472,11 +474,10 @@ footer{padding:48px 0 32px;background:var(--bg)}
         <div class="pcard-quote" data-en="“Don't be embarrassed about your family business. There is a startup hidden in it, waiting for you to find it.”" data-hi="“अपने परिवारिक व्यवसाय पर शर्म मत करो। उसमें एक स्टार्टअप छुपा है, बस आपको ढूँढना है।”">“Don't be embarrassed about your family business. There is a startup hidden in it, waiting for you to find it.”</div>
         <div class="pcard-footer">
           <div class="pcard-stats">
-            <span data-en="8 min read" data-hi="8 मिनट">8 min read</span>
             <span class="view-count" data-rid="postcard-vaibhav" data-baseline="45">👁 45</span>
             <button class="like-btn" data-rid="vaibhav" type="button">♥ <span class="like-count">14</span></button>
           </div>
-          <a href="/journeys/postcards/vaibhav/" class="pcard-cta" data-en="View Journey →" data-hi="यात्रा देखें →">View Journey →</a>
+          <a href="/journeys/postcards/vaibhav/" class="pcard-cta" data-en="Read full story →" data-hi="पूरी कहानी पढ़ें →">Read full story →</a>
         </div>
       </article>
 
@@ -494,11 +495,10 @@ footer{padding:48px 0 32px;background:var(--bg)}
         <div class="pcard-quote" data-en="“Walk toward your dream long enough, and it walks back to meet you.”" data-hi="“अपने सपने की ओर इतना चलो कि वो तुम्हारी ओर लौट आए।”">“Walk toward your dream long enough, and it walks back to meet you.”</div>
         <div class="pcard-footer">
           <div class="pcard-stats">
-            <span data-en="9 min read" data-hi="9 मिनट">9 min read</span>
             <span class="view-count" data-rid="postcard-anju" data-baseline="62">👁 62</span>
             <button class="like-btn" data-rid="anju" type="button">♥ <span class="like-count">38</span></button>
           </div>
-          <a href="/journeys/postcards/anju/" class="pcard-cta" data-en="View Journey →" data-hi="यात्रा देखें →">View Journey →</a>
+          <a href="/journeys/postcards/anju/" class="pcard-cta" data-en="Read full story →" data-hi="पूरी कहानी पढ़ें →">Read full story →</a>
         </div>
       </article>
 
