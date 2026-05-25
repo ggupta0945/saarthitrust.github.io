@@ -103,6 +103,11 @@ nav#nav{position:sticky;top:0;background:rgba(250,250,247,.92);backdrop-filter:b
 .q-field{margin-bottom:24px;background:#fff;border:1px solid var(--sand);border-radius:12px;padding:18px 20px}
 .q-field .q-num{display:inline-block;background:var(--grl);color:var(--gr);font-size:11px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:10px;margin-bottom:8px}
 .q-field label.lbl{font-family:var(--fd);font-size:15px;font-weight:600;line-height:1.4}
+/* Visually distinct answer area so users don't paste/repeat the question */
+.q-field textarea{background:#FCFCFA}
+.q-field textarea:focus{background:#fff}
+.q-field textarea::placeholder{color:var(--tx3);opacity:.7;font-style:italic}
+
 /* Hindi: serif --fd has no Devanagari glyphs, fall back to Noto Sans Devanagari */
 :lang(hi) .q-field label.lbl, [lang="hi"] .q-field label.lbl,
 :lang(hi) .page-hd h1, [lang="hi"] .page-hd h1,
@@ -209,19 +214,19 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
 
   <div class="field">
     <label class="lbl" data-en="Your name <span class='req'>*</span>" data-hi="आपका नाम <span class='req'>*</span>">Your name <span class="req">*</span></label>
-    <input type="text" name="name" required autocomplete="name">
+    <input type="text" name="name" required autocomplete="name" maxlength="120" class="single-line">
   </div>
 
   <div class="field">
     <label class="lbl" data-en="Email or WhatsApp number <span class='req'>*</span>" data-hi="ईमेल या WhatsApp नंबर <span class='req'>*</span>">Email or WhatsApp number <span class="req">*</span></label>
     <div class="help" data-en="So we can send you the postcard draft before publishing." data-hi="ताकि हम पब्लिश करने से पहले आपको चिट्ठी का ड्राफ़्ट भेज सकें।">So we can send you the postcard draft before publishing.</div>
-    <input type="text" name="contact" required autocomplete="email">
+    <input type="text" name="contact" required autocomplete="email" maxlength="200" class="single-line">
   </div>
 
   <div class="field">
     <label class="lbl" data-en="What you do today + city" data-hi="आज क्या करते हो + शहर">What you do today + city</label>
     <div class="help" data-en="e.g. &quot;Data scientist at Flipkart, Bangalore&quot; or &quot;Cardiologist, Apollo Hyderabad&quot;" data-hi="जैसे &quot;Flipkart में डेटा साइंटिस्ट, बैंगलोर&quot; या &quot;कार्डियोलॉजिस्ट, Apollo हैदराबाद&quot;">e.g. "Data scientist at Flipkart, Bangalore" or "Cardiologist, Apollo Hyderabad"</div>
-    <input type="text" name="role">
+    <input type="text" name="role" maxlength="200" class="single-line">
   </div>
 
   <div class="field">
@@ -236,7 +241,7 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
     <span class="q-num">Q 1</span>
     <label class="lbl" data-en="Where did you grow up, and what was your parents' background?" data-hi="आप कहाँ बड़े हुए, और आपके माता-पिता की पृष्ठभूमि क्या थी?">Where did you grow up, and what was your parents' background?</label>
     <div class="textarea-wrap">
-      <textarea name="q1" rows="4"></textarea>
+      <textarea name="q1" rows="4" placeholder="e.g. I grew up in Sikar, Rajasthan. My father ran a small electronics shop, my mother taught at a govt school..." data-ph-en="e.g. I grew up in Sikar, Rajasthan. My father ran a small electronics shop, my mother taught at a govt school..." data-ph-hi="जैसे: मैं सीकर, राजस्थान में बड़ा हुआ। पिताजी एक छोटी इलेक्ट्रॉनिक्स की दुकान चलाते थे, माँ सरकारी स्कूल में पढ़ाती थीं..."></textarea>
       <button type="button" class="mic-btn" data-target="q1"><span class="mic-icon">🎤</span><span class="mic-label" data-en="Dictate" data-hi="बोलकर">Dictate</span></button>
     </div>
   </div>
@@ -245,7 +250,7 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
     <span class="q-num">Q 2</span>
     <label class="lbl" data-en="What kind of student were you in Class 10? What did you want to become at the time?" data-hi="10वीं में आप कैसे छात्र थे? उस वक़्त क्या बनना चाहते थे?">What kind of student were you in Class 10? What did you want to become at the time?</label>
     <div class="textarea-wrap">
-      <textarea name="q2" rows="4"></textarea>
+      <textarea name="q2" rows="4" placeholder="e.g. I was an average student in maths, struggled with English. I wanted to be a cricketer / a doctor / a teacher..." data-ph-en="e.g. I was an average student in maths, struggled with English. I wanted to be a cricketer / a doctor / a teacher..." data-ph-hi="जैसे: मैं गणित में औसत था, अंग्रेज़ी में मुश्किल आती थी। मैं क्रिकेटर / डॉक्टर / शिक्षक बनना चाहता था..."></textarea>
       <button type="button" class="mic-btn" data-target="q2"><span class="mic-icon">🎤</span><span class="mic-label" data-en="Dictate" data-hi="बोलकर">Dictate</span></button>
     </div>
   </div>
@@ -254,7 +259,7 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
     <span class="q-num">Q 3</span>
     <label class="lbl" data-en="Which college and course did you do — and why did you choose that path?" data-hi="कौन सा कॉलेज और कोर्स किया — और वो रास्ता क्यों चुना?">Which college and course did you do — and why did you choose that path?</label>
     <div class="textarea-wrap">
-      <textarea name="q3" rows="4"></textarea>
+      <textarea name="q3" rows="4" placeholder="e.g. I joined IIT KGP for B.Tech CSE because my coaching topper said it was the best ROI. Honestly I didn't know what CSE was..." data-ph-en="e.g. I joined IIT KGP for B.Tech CSE because my coaching topper said it was the best ROI. Honestly I didn't know what CSE was..." data-ph-hi="जैसे: मैं IIT खड़गपुर में B.Tech CSE में गया क्योंकि कोचिंग टॉपर ने कहा था यह सबसे अच्छा है। सच कहूँ तो मुझे पता नहीं था CSE क्या है..."></textarea>
       <button type="button" class="mic-btn" data-target="q3"><span class="mic-icon">🎤</span><span class="mic-label" data-en="Dictate" data-hi="बोलकर">Dictate</span></button>
     </div>
   </div>
@@ -263,7 +268,7 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
     <span class="q-num">Q 4</span>
     <label class="lbl" data-en="What was the moment or event that pointed you toward your current career?" data-hi="वो कौन सा पल या घटना थी जिसने आपको आज के करियर की ओर मोड़ा?">What was the moment or event that pointed you toward your current career?</label>
     <div class="textarea-wrap">
-      <textarea name="q4" rows="4"></textarea>
+      <textarea name="q4" rows="4" placeholder="e.g. In my second year, a senior showed me his summer internship work and I realised what real engineering actually is..." data-ph-en="e.g. In my second year, a senior showed me his summer internship work and I realised what real engineering actually is..." data-ph-hi="जैसे: दूसरे साल में, एक सीनियर ने मुझे अपना समर इंटर्नशिप का काम दिखाया और मुझे एहसास हुआ कि असली इंजीनियरिंग क्या है..."></textarea>
       <button type="button" class="mic-btn" data-target="q4"><span class="mic-icon">🎤</span><span class="mic-label" data-en="Dictate" data-hi="बोलकर">Dictate</span></button>
     </div>
   </div>
@@ -272,7 +277,7 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
     <span class="q-num">Q 5</span>
     <label class="lbl" data-en="Walk us through your big career steps — first job, switches, pivots, anything important." data-hi="अपने बड़े करियर क़दम बताओ — पहली नौकरी, बदलाव, मोड़, कुछ भी जो ज़रूरी हो।">Walk us through your big career steps — first job, switches, pivots, anything important.</label>
     <div class="textarea-wrap">
-      <textarea name="q5" rows="5"></textarea>
+      <textarea name="q5" rows="5" placeholder="e.g. First job: TCS Bangalore as a developer. Switched to Flipkart after 2 years. Pivoted into ML after taking a Coursera course in 2020..." data-ph-en="e.g. First job: TCS Bangalore as a developer. Switched to Flipkart after 2 years. Pivoted into ML after taking a Coursera course in 2020..." data-ph-hi="जैसे: पहली नौकरी: TCS बैंगलोर में डेवलपर। 2 साल बाद Flipkart गया। 2020 में Coursera कोर्स के बाद ML में मोड़ लिया..."></textarea>
       <button type="button" class="mic-btn" data-target="q5"><span class="mic-icon">🎤</span><span class="mic-label" data-en="Dictate" data-hi="बोलकर">Dictate</span></button>
     </div>
   </div>
@@ -282,7 +287,7 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
     <label class="lbl" data-en="Were there any failures, rejections, or low moments?" data-hi="कोई असफलताएँ, रिजेक्शन, या मुश्किल पल थे?">Were there any failures, rejections, or low moments?</label>
     <div class="help" data-en="Please don't skip — students really need to hear this part." data-hi="कृपया छोड़ना मत — छात्रों को यही हिस्सा सबसे ज़रूरी सुनना है।">Please don't skip — students really need to hear this part.</div>
     <div class="textarea-wrap">
-      <textarea name="q6" rows="5"></textarea>
+      <textarea name="q6" rows="5" placeholder="e.g. I failed JEE in my first attempt. Took a drop year. Got rejected from 14 companies on campus. Still hurts to talk about it but here goes..." data-ph-en="e.g. I failed JEE in my first attempt. Took a drop year. Got rejected from 14 companies on campus. Still hurts to talk about it but here goes..." data-ph-hi="जैसे: मेरा JEE पहले प्रयास में फ़ेल हुआ। ड्रॉप साल लिया। कैंपस में 14 कंपनियों से रिजेक्शन। आज भी बात करते हुए दर्द होता है पर बताता हूँ..."></textarea>
       <button type="button" class="mic-btn" data-target="q6"><span class="mic-icon">🎤</span><span class="mic-label" data-en="Dictate" data-hi="बोलकर">Dictate</span></button>
     </div>
   </div>
@@ -291,7 +296,7 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
     <span class="q-num">Q 7</span>
     <label class="lbl" data-en="What does your work life look like today — what you do, where you live, what's a typical day?" data-hi="आज आपकी कामकाजी ज़िंदगी कैसी है — क्या करते हो, कहाँ रहते हो, आम दिन कैसा दिखता है?">What does your work life look like today — what you do, where you live, what's a typical day?</label>
     <div class="textarea-wrap">
-      <textarea name="q7" rows="4"></textarea>
+      <textarea name="q7" rows="4" placeholder="e.g. I live in Bangalore. Wake at 8, gym, code from 10–6, evening walks with my wife. Two days a week I work from a cafe..." data-ph-en="e.g. I live in Bangalore. Wake at 8, gym, code from 10–6, evening walks with my wife. Two days a week I work from a cafe..." data-ph-hi="जैसे: मैं बैंगलोर में रहता हूँ। 8 बजे उठता हूँ, जिम, 10–6 कोड, शाम को पत्नी के साथ टहलना। हफ़्ते में 2 दिन कैफ़े से काम करता हूँ..."></textarea>
       <button type="button" class="mic-btn" data-target="q7"><span class="mic-icon">🎤</span><span class="mic-label" data-en="Dictate" data-hi="बोलकर">Dictate</span></button>
     </div>
   </div>
@@ -300,7 +305,7 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
     <span class="q-num">Q 8</span>
     <label class="lbl" data-en="What would you tell a Class 10 student who wants to follow a path like yours?" data-hi="उस 10वीं के छात्र को क्या कहोगे जो आपके जैसे रास्ते पर चलना चाहता है?">What would you tell a Class 10 student who wants to follow a path like yours?</label>
     <div class="textarea-wrap">
-      <textarea name="q8" rows="4"></textarea>
+      <textarea name="q8" rows="4" placeholder="e.g. Don't obsess over the branch name. Focus on what makes you curious. Try one small project this summer..." data-ph-en="e.g. Don't obsess over the branch name. Focus on what makes you curious. Try one small project this summer..." data-ph-hi="जैसे: ब्रांच के नाम पर मत अटको। जिज्ञासा पर ध्यान दो। इस गर्मी एक छोटा प्रोजेक्ट बनाओ..."></textarea>
       <button type="button" class="mic-btn" data-target="q8"><span class="mic-icon">🎤</span><span class="mic-label" data-en="Dictate" data-hi="बोलकर">Dictate</span></button>
     </div>
   </div>
@@ -309,7 +314,7 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
     <span class="q-num">Q 9</span>
     <label class="lbl" data-en="What's one myth about your career you'd love to break?" data-hi="आपके करियर के बारे में एक मिथक जो आप तोड़ना चाहते हो?">What's one myth about your career you'd love to break?</label>
     <div class="textarea-wrap">
-      <textarea name="q9" rows="4"></textarea>
+      <textarea name="q9" rows="4" placeholder="e.g. People think CS = high salary = easy life. The truth is most CS grads burn out by 30 because they never figured out what they like..." data-ph-en="e.g. People think CS = high salary = easy life. The truth is most CS grads burn out by 30 because they never figured out what they like..." data-ph-hi="जैसे: लोग सोचते हैं CS = ऊँची सैलरी = आसान ज़िंदगी। सच यह है कि ज़्यादातर CS ग्रेजुएट 30 तक बर्न-आउट हो जाते हैं क्योंकि उन्हें कभी पता नहीं चला कि उन्हें क्या पसंद है..."></textarea>
       <button type="button" class="mic-btn" data-target="q9"><span class="mic-icon">🎤</span><span class="mic-label" data-en="Dictate" data-hi="बोलकर">Dictate</span></button>
     </div>
   </div>
@@ -318,7 +323,7 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
     <span class="q-num">Q 10</span>
     <label class="lbl" data-en="If you could say one sentence to your 15-year-old self, what would it be?" data-hi="अगर आप अपने 15 साल के ख़ुद को एक वाक्य कह सकते, तो क्या कहते?">If you could say one sentence to your 15-year-old self, what would it be?</label>
     <div class="textarea-wrap">
-      <textarea name="q10" rows="3"></textarea>
+      <textarea name="q10" rows="3" placeholder="e.g. &quot;Stop comparing yourself to your cousin who got 95%. You don't need to.&quot;" data-ph-en="e.g. &quot;Stop comparing yourself to your cousin who got 95%. You don't need to.&quot;" data-ph-hi="जैसे: &quot;अपने उस कज़न से तुलना मत करो जिसको 95% मिला था। तुम्हें ज़रूरत नहीं है।&quot;"></textarea>
       <button type="button" class="mic-btn" data-target="q10"><span class="mic-icon">🎤</span><span class="mic-label" data-en="Dictate" data-hi="बोलकर">Dictate</span></button>
     </div>
   </div>
@@ -706,6 +711,59 @@ var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxOQv7OVtd_s0ITrkZ9YFYSc
   var nav = document.getElementById('nav');
   if (navBtn && nav) {
     navBtn.addEventListener('click', function(){ nav.classList.toggle('nav-open'); });
+  }
+})();
+</script>
+
+
+<script>
+/* ============================================================
+   Form hardening: sanitize identity inputs, swap Hindi placeholders,
+   and refuse to send back the question text as the answer.
+   ============================================================ */
+(function(){
+  // 4a. Strip newlines/tabs from single-line inputs as users type/paste
+  document.querySelectorAll('.single-line').forEach(function(input){
+    function clean(){
+      var cleaned = input.value.replace(/[\r\n\t]+/g, ' ').replace(/\s{2,}/g, ' ');
+      if (cleaned !== input.value) input.value = cleaned;
+    }
+    input.addEventListener('input', clean);
+    input.addEventListener('paste', function(){ setTimeout(clean, 0); });
+  });
+
+  // 4b. Swap question textarea placeholders on language toggle
+  function swapPlaceholders(){
+    var hi = document.documentElement.lang === 'hi';
+    document.querySelectorAll('textarea[data-ph-en]').forEach(function(ta){
+      var ph = hi ? ta.getAttribute('data-ph-hi') : ta.getAttribute('data-ph-en');
+      if (ph) ta.setAttribute('placeholder', ph);
+    });
+  }
+  // Initial run + observe lang attr changes
+  swapPlaceholders();
+  var langObs = new MutationObserver(swapPlaceholders);
+  langObs.observe(document.documentElement, {attributes:true, attributeFilter:['lang']});
+
+  // 4c. Before submit: if an answer equals its question label
+  // (or is a tiny variation of it), clear it. Belt-and-braces guard
+  // against the recent "Q1 == question text" bug we saw in the sheet.
+  var form = document.getElementById('journeyForm');
+  if (form){
+    form.addEventListener('submit', function(){
+      for (var i = 1; i <= 10; i++){
+        var ta = form.elements['q'+i];
+        if (!ta) continue;
+        var labelEl = ta.closest('.q-field') && ta.closest('.q-field').querySelector('label.lbl');
+        if (!labelEl) continue;
+        var labelText = (labelEl.textContent || '').replace(/\s+/g,' ').trim().toLowerCase();
+        var answer = (ta.value || '').replace(/\s+/g,' ').trim().toLowerCase();
+        if (answer && labelText && answer === labelText){
+          ta.value = '';
+          console.log('Cleared q'+i+' — answer was identical to the question.');
+        }
+      }
+    }, true /* capture phase so this runs before the main submit handler */);
   }
 })();
 </script>
