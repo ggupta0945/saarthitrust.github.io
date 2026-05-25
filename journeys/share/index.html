@@ -110,11 +110,17 @@ nav#nav{position:sticky;top:0;background:rgba(250,250,247,.92);backdrop-filter:b
 :lang(hi) .page-hd h1, [lang="hi"] .page-hd h1{font-weight:700}
 
 .textarea-wrap{position:relative}
-.mic-btn{position:absolute;bottom:10px;right:10px;background:#fff;border:1px solid var(--sand);border-radius:20px;padding:6px 12px;font-family:inherit;font-size:12px;color:var(--tx2);cursor:pointer;display:inline-flex;align-items:center;gap:5px;transition:all .15s ease;line-height:1;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.mic-btn{position:absolute;bottom:10px;right:10px;background:#fff;border:1px solid var(--sand);border-radius:20px;padding:6px 12px;font-family:inherit;font-size:12px;color:var(--tx2);cursor:pointer;display:inline-flex;align-items:center;gap:5px;transition:all .15s ease;line-height:1;box-shadow:0 1px 4px rgba(0,0,0,.04);z-index:2}
 .mic-btn:hover{border-color:var(--gr);color:var(--gr)}
+.mic-btn:disabled{opacity:.5;cursor:not-allowed}
 .mic-btn.recording{background:#fee;border-color:#c44;color:#c44;animation:pulse 1.2s infinite}
 .mic-btn .mic-icon{font-size:14px}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.55}}
+/* Floating status toast for voice events */
+.voice-toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--tx);color:#fff;padding:12px 20px;border-radius:24px;font-size:13.5px;font-weight:500;opacity:0;transition:opacity .25s ease,transform .25s ease;z-index:1000;pointer-events:none;box-shadow:0 6px 20px rgba(0,0,0,.2);max-width:90vw;text-align:center;line-height:1.4}
+.voice-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.voice-toast.error{background:#c44}
+.voice-toast.listening{background:var(--gr)}
 
 .consent{display:flex;align-items:flex-start;gap:10px;background:var(--cream);border:1px solid var(--sand);border-radius:12px;padding:16px 18px;margin:28px 0 20px;cursor:pointer;font-size:14px;color:var(--tx2);line-height:1.55}
 .consent input{margin-top:3px;width:16px;height:16px;flex-shrink:0;cursor:pointer;accent-color:var(--gr)}
@@ -392,117 +398,180 @@ if (hi) {
 <script>
 /* ============================================================
    Web Speech API — dictation per textarea
-   Supports en-IN, hi-IN. For Hinglish we use en-IN since Chrome's
-   en-IN model picks up Indian-English well and tolerates Hindi
-   loanwords better than hi-IN with English words.
+   With visible diagnostics for every failure mode so users
+   can actually see why mic isn't working.
    ============================================================ */
 (function(){
   var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if (!SR) {
-    // Hide all mic buttons if no API support
-    document.querySelectorAll('.mic-btn').forEach(function(b){ b.style.display = 'none'; });
-    var hint = document.querySelector('.voice-hint');
-    if (hint) {
-      hint.style.opacity = '.5';
-      var t = hint.querySelector('.voice-hint-text');
-      if (t) t.innerHTML = '<b>Voice dictation:</b> Not supported in this browser. Please type your answers, or open this page in Chrome.';
+  var isHi = function(){ return document.documentElement.lang === 'hi'; };
+  var hint = document.querySelector('.voice-hint');
+  var hintText = hint && hint.querySelector('.voice-hint-text');
+
+  // -------- Floating toast for status / errors --------
+  var toastEl = null;
+  var toastTimer = null;
+  function toast(msg, kind, ttl){
+    if (!toastEl){
+      toastEl = document.createElement('div');
+      toastEl.className = 'voice-toast';
+      document.body.appendChild(toastEl);
     }
+    toastEl.className = 'voice-toast show' + (kind ? ' ' + kind : '');
+    toastEl.textContent = msg;
+    if (toastTimer) clearTimeout(toastTimer);
+    if (ttl) toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, ttl);
+  }
+  function clearToast(){
+    if (toastEl) toastEl.classList.remove('show');
+    if (toastTimer){ clearTimeout(toastTimer); toastTimer = null; }
+  }
+
+  // -------- Disable mic buttons + show explanation in the hint banner --------
+  function disableMics(reason){
+    document.querySelectorAll('.mic-btn').forEach(function(b){
+      b.disabled = true;
+      b.title = reason;
+    });
+    if (hint){
+      hint.style.background = '#fff5f0';
+      hint.style.borderColor = '#f0c0a0';
+    }
+    if (hintText) hintText.innerHTML = '<b>⚠ ' + (isHi() ? 'वॉइस उपलब्ध नहीं:' : 'Voice not available:') + '</b> ' + reason + ' ' + (isHi() ? 'आप टाइप कर के जवाब दे सकते हो।' : 'You can still type your answers.');
+  }
+
+  // -------- HTTPS guard (Web Speech API needs secure context) --------
+  if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1'){
+    disableMics(isHi() ? 'HTTPS ज़रूरी है। कृपया saarthitrust.org पर खोलो।' : 'HTTPS required. Please open this page on saarthitrust.org.');
+    console.warn('Voice: blocked — not on HTTPS. protocol=' + location.protocol);
     return;
   }
 
+  // -------- Browser support check --------
+  if (!SR){
+    disableMics(isHi() ? 'इस ब्राउज़र में वॉइस सपोर्ट नहीं है। Chrome / Edge / Safari 17+ इस्तेमाल करें।' : 'This browser does not support voice dictation. Try Chrome, Edge, or Safari 17+.');
+    console.warn('Voice: SpeechRecognition API not available. userAgent=' + navigator.userAgent);
+    return;
+  }
+  console.log('Voice: SpeechRecognition API is available.');
+
+  // -------- State --------
   var currentRec = null;
   var currentBtn = null;
-  var currentTextarea = null;
   var currentBaseline = '';
 
+  function setLabel(btn, txt){
+    var label = btn.querySelector('.mic-label');
+    if (label) label.textContent = txt;
+  }
+
   function stopCurrent(){
-    if (currentRec) {
-      try { currentRec.stop(); } catch(e){}
+    if (currentRec){
+      try { currentRec.stop(); } catch(e){ console.warn('rec.stop() threw:', e); }
     }
   }
 
+  function errorMessage(code){
+    if (isHi()){
+      switch(code){
+        case 'not-allowed':
+        case 'service-not-allowed': return 'माइक की अनुमति नहीं मिली। ब्राउज़र के एड्रेस बार के बाएं ताले पर क्लिक करके माइक allow करो।';
+        case 'no-speech': return 'कुछ सुनाई नहीं दिया। फिर से कोशिश करो।';
+        case 'audio-capture': return 'माइक नहीं मिला। चेक करो कि कंप्यूटर का माइक काम कर रहा है।';
+        case 'network': return 'इंटरनेट कनेक्शन की समस्या। फिर कोशिश करो।';
+        case 'aborted': return 'रिकॉर्डिंग रुक गई।';
+        case 'language-not-supported': return 'यह भाषा सपोर्ट नहीं है। दूसरी भाषा चुनो।';
+        case 'bad-grammar': return 'व्याकरण फ़ाइल में दिक्क़त।';
+        default: return 'दिक्क़त हुई: ' + code;
+      }
+    }
+    switch(code){
+      case 'not-allowed':
+      case 'service-not-allowed': return 'Mic permission denied. Click the 🔒 lock in your browser\'s address bar and allow microphone for this site.';
+      case 'no-speech': return 'Didn\'t catch anything. Try speaking again, a bit louder.';
+      case 'audio-capture': return 'No microphone found. Check that your computer\'s mic is working.';
+      case 'network': return 'Network problem. Speech recognition needs internet — please retry.';
+      case 'aborted': return 'Recording stopped.';
+      case 'language-not-supported': return 'This language is not supported. Try a different one.';
+      case 'bad-grammar': return 'Grammar config problem.';
+      default: return 'Something went wrong: ' + code;
+    }
+  }
+
+  // -------- Click handlers --------
   document.querySelectorAll('.mic-btn').forEach(function(btn){
     btn.addEventListener('click', function(){
       var targetName = btn.getAttribute('data-target');
       var ta = document.querySelector('textarea[name="'+targetName+'"]');
       if (!ta) return;
 
-      // If we're already recording into THIS button, stop.
-      if (currentBtn === btn) {
+      // Click on the CURRENT button → stop
+      if (currentBtn === btn){
         stopCurrent();
         return;
       }
-      // If recording into a different one, stop that first.
+      // Click on a DIFFERENT button → stop the previous one first
       if (currentRec) stopCurrent();
 
       var langSel = document.getElementById('dictLang');
-      var lang = langSel ? langSel.value : 'en-IN';
+      var lang = (langSel && langSel.value) || 'en-IN';
 
-      var rec = new SR();
+      var rec;
+      try {
+        rec = new SR();
+      } catch(e){
+        console.error('Voice: new SR() threw:', e);
+        toast(isHi() ? 'वॉइस शुरू नहीं हुई।' : 'Could not start voice recognition.', 'error', 3500);
+        return;
+      }
       rec.continuous = true;
       rec.interimResults = true;
       rec.lang = lang;
+      console.log('Voice: starting in ' + lang);
 
       currentRec = rec;
       currentBtn = btn;
-      currentTextarea = ta;
       currentBaseline = ta.value ? (ta.value.replace(/\s+$/, '') + ' ') : '';
-
       btn.classList.add('recording');
-      var label = btn.querySelector('.mic-label');
-      var langSetting = btn.querySelector('.lang-setting');
-      if (label) {
-        label.setAttribute('data-orig-en', label.getAttribute('data-en'));
-        label.setAttribute('data-orig-hi', label.getAttribute('data-hi'));
-        label.setAttribute('data-en', 'Stop');
-        label.setAttribute('data-hi', 'रोको');
-        label.textContent = document.documentElement.lang === 'hi' ? 'रोको' : 'Stop';
-      }
+      setLabel(btn, isHi() ? 'रोको' : 'Stop');
+      toast(isHi() ? '🎙 सुन रहा हूँ… (बंद करने के लिए mic फिर दबाओ)' : '🎙 Listening… (tap mic again to stop)', 'listening', 0);
 
       rec.onresult = function(ev){
         var finalText = '';
         var interimText = '';
-        for (var i = ev.resultIndex; i < ev.results.length; i++) {
+        for (var i = ev.resultIndex; i < ev.results.length; i++){
           var r = ev.results[i];
           if (r.isFinal) finalText += r[0].transcript;
           else interimText += r[0].transcript;
         }
-        if (finalText) {
-          currentBaseline += finalText + ' ';
-        }
-        ta.value = (currentBaseline + interimText).replace(/\s+/g, ' ').trim();
+        if (finalText) currentBaseline += finalText + ' ';
+        ta.value = (currentBaseline + interimText).replace(/\s+/g,' ').trim();
       };
 
       rec.onerror = function(ev){
-        console.warn('Speech recognition error:', ev.error);
-        // Common errors: 'not-allowed' (mic denied), 'no-speech', 'network'
-        if (ev.error === 'not-allowed') {
-          alert(document.documentElement.lang === 'hi'
-            ? 'माइक की अनुमति नहीं मिली। ब्राउज़र सेटिंग में जाकर इस साइट को मिक एक्सेस दें।'
-            : 'Microphone permission denied. Please allow mic access in your browser settings for this site.');
-        }
+        console.warn('Voice: onerror code=' + ev.error, ev);
+        toast(errorMessage(ev.error), 'error', 5000);
       };
 
       rec.onend = function(){
+        console.log('Voice: onend');
         btn.classList.remove('recording');
-        if (label) {
-          var origEn = label.getAttribute('data-orig-en') || 'Dictate';
-          var origHi = label.getAttribute('data-orig-hi') || 'बोलकर';
-          label.setAttribute('data-en', origEn);
-          label.setAttribute('data-hi', origHi);
-          label.textContent = document.documentElement.lang === 'hi' ? origHi : origEn;
-        }
+        setLabel(btn, isHi() ? 'बोलकर' : 'Dictate');
         currentRec = null;
         currentBtn = null;
-        currentTextarea = null;
         currentBaseline = '';
+        // Hide the "Listening…" toast (only if we didn't just replace it with an error)
+        if (toastEl && toastEl.classList.contains('listening')) clearToast();
       };
 
       try {
         rec.start();
-      } catch(e) {
-        // Some browsers throw if start() called twice
+      } catch(e){
+        console.error('Voice: rec.start() threw:', e);
+        toast(isHi() ? 'माइक शुरू नहीं हुआ। दूसरी बार कोशिश करो।' : 'Could not start mic. Try again in a moment.', 'error', 3500);
         btn.classList.remove('recording');
+        setLabel(btn, isHi() ? 'बोलकर' : 'Dictate');
+        currentRec = null;
+        currentBtn = null;
       }
     });
   });
