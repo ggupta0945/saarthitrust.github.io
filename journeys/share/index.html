@@ -91,11 +91,11 @@ nav#nav{position:sticky;top:0;background:rgba(250,250,247,.92);backdrop-filter:b
 .field label.lbl{display:block;font-weight:600;font-size:14px;margin-bottom:8px;color:var(--tx);line-height:1.45}
 .field label.lbl .req{color:var(--wr);margin-left:3px}
 .field .help{font-size:12.5px;color:var(--tx3);margin-top:4px;margin-bottom:8px;line-height:1.5;font-style:italic}
-.field input[type="text"], .field textarea{width:100%;padding:11px 14px;border:1px solid var(--sand);border-radius:10px;font-family:inherit;font-size:14.5px;line-height:1.5;color:var(--tx);background:#fff;transition:border-color .15s ease,box-shadow .15s ease;resize:vertical}
-.field input[type="text"]:focus, .field textarea:focus{outline:none;border-color:var(--gr);box-shadow:0 0 0 3px rgba(27,122,74,.12)}
-.field textarea{min-height:84px;font-family:var(--fb);line-height:1.6}
-:lang(hi) .field textarea{font-family:var(--fh)}
-[lang="hi"] .field textarea{font-family:var(--fh)}
+.field input[type="text"], .field textarea, .q-field textarea{width:100%;padding:11px 14px;border:1px solid var(--sand);border-radius:10px;font-family:inherit;font-size:14.5px;line-height:1.5;color:var(--tx);background:#fff;transition:border-color .15s ease,box-shadow .15s ease;resize:vertical}
+.field input[type="text"]:focus, .field textarea:focus, .q-field textarea:focus{outline:none;border-color:var(--gr);box-shadow:0 0 0 3px rgba(27,122,74,.12)}
+.field textarea, .q-field textarea{min-height:130px;font-family:var(--fb);line-height:1.6;padding-bottom:46px}
+:lang(hi) .field textarea, :lang(hi) .q-field textarea{font-family:var(--fh)}
+[lang="hi"] .field textarea, [lang="hi"] .q-field textarea{font-family:var(--fh)}
 
 .qsec-divider{height:1px;background:var(--sand);margin:30px 0;position:relative}
 .qsec-divider::after{content:attr(data-label);position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 14px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gr);font-weight:600}
@@ -103,9 +103,14 @@ nav#nav{position:sticky;top:0;background:rgba(250,250,247,.92);backdrop-filter:b
 .q-field{margin-bottom:24px;background:#fff;border:1px solid var(--sand);border-radius:12px;padding:18px 20px}
 .q-field .q-num{display:inline-block;background:var(--grl);color:var(--gr);font-size:11px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:10px;margin-bottom:8px}
 .q-field label.lbl{font-family:var(--fd);font-size:15px;font-weight:600;line-height:1.4}
+/* Hindi: serif --fd has no Devanagari glyphs, fall back to Noto Sans Devanagari */
+:lang(hi) .q-field label.lbl, [lang="hi"] .q-field label.lbl,
+:lang(hi) .page-hd h1, [lang="hi"] .page-hd h1,
+:lang(hi) .success-state h2, [lang="hi"] .success-state h2{font-family:var(--fh);font-weight:600}
+:lang(hi) .page-hd h1, [lang="hi"] .page-hd h1{font-weight:700}
 
 .textarea-wrap{position:relative}
-.mic-btn{position:absolute;bottom:8px;right:8px;background:#fff;border:1px solid var(--sand);border-radius:20px;padding:6px 12px;font-family:inherit;font-size:12px;color:var(--tx2);cursor:pointer;display:inline-flex;align-items:center;gap:5px;transition:all .15s ease;line-height:1}
+.mic-btn{position:absolute;bottom:10px;right:10px;background:#fff;border:1px solid var(--sand);border-radius:20px;padding:6px 12px;font-family:inherit;font-size:12px;color:var(--tx2);cursor:pointer;display:inline-flex;align-items:center;gap:5px;transition:all .15s ease;line-height:1;box-shadow:0 1px 4px rgba(0,0,0,.04)}
 .mic-btn:hover{border-color:var(--gr);color:var(--gr)}
 .mic-btn.recording{background:#fee;border-color:#c44;color:#c44;animation:pulse 1.2s infinite}
 .mic-btn .mic-icon{font-size:14px}
@@ -315,7 +320,7 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
 
   <label class="consent">
     <input type="checkbox" name="consent" required>
-    <span data-en="I'm OK with you publishing my postcard publicly with my name. <b>You'll show me the draft before publishing.</b>" data-hi="मुझे अपनी चिट्ठी मेरे नाम के साथ सार्वजनिक रूप से पब्लिश करने पर सहमति है। <b>पब्लिश करने से पहले आप मुझे ड्राफ़्ट दिखाएँगे।</b>">I'm OK with you publishing my postcard publicly with my name. <b>You'll show me the draft before publishing.</b></span>
+    <span data-en="I'm OK with you publishing my postcard publicly with my name." data-hi="मुझे अपनी चिट्ठी मेरे नाम के साथ सार्वजनिक रूप से पब्लिश करने पर सहमति है।">I'm OK with you publishing my postcard publicly with my name.</span>
   </label>
 
   <button type="submit" class="submit-btn" id="submitBtn">
