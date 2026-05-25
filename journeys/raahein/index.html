@@ -281,6 +281,18 @@ footer{padding:48px 0 32px;background:var(--bg)}
   .nav-menu .hm:hover{color:var(--gr);background:none}
   .nr{gap:10px}
 }
+
+/* ---------- ARTICLE ACTIONS (like / share) ---------- */
+.pc-actions{max-width:880px;margin:8px auto 0;padding:28px 1.4rem 0;border-top:1px solid var(--sand)}
+.pc-actions-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.pc-action-btn{background:#fff;border:1px solid var(--sand);border-radius:24px;padding:10px 18px;font-size:14px;font-weight:500;color:var(--tx);cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:8px;transition:all .15s ease;text-decoration:none}
+.pc-action-btn:hover{border-color:var(--gr);color:var(--gr);transform:translateY(-2px)}
+.pc-action-btn .pc-action-icon{font-size:16px;line-height:1}
+.pc-like.liked{background:var(--grl);border-color:var(--gr);color:var(--gr)}
+.pc-like.liked .pc-action-icon{color:var(--wr)}
+.pc-share.copied{background:var(--grl);border-color:var(--gr);color:var(--gr)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--tx);color:#fff;padding:10px 20px;border-radius:24px;font-size:13.5px;opacity:0;transition:opacity .2s ease;z-index:1000;pointer-events:none;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.toast.show{opacity:1}
 </style>
 
 <script defer data-domain="saarthitrust.org" src="https://plausible.io/js/script.js"></script>
@@ -858,6 +870,20 @@ footer{padding:48px 0 32px;background:var(--bg)}
 </div>
 </section>
 
+<section class="pc-actions">
+  <div class="pc-actions-row">
+    <button type="button" class="pc-action-btn pc-like" data-rid="raahein" data-baseline="0">
+      <span class="pc-action-icon">♥</span>
+      <span class="pc-action-label" data-en="Like" data-hi="पसंद">Like</span>
+      <span class="pc-like-count">0</span>
+    </button>
+    <button type="button" class="pc-action-btn pc-share" data-title="Raahein · Possibilities ahead | Saarthi Trust" data-title-hi="राहें · आगे की संभावनाएं | सारथी ट्रस्ट">
+      <span class="pc-action-icon">↗</span>
+      <span class="pc-action-label" data-en="Share" data-hi="साझा करें">Share</span>
+    </button>
+  </div>
+</section>
+
 <section class="cta">
 <div class="w">
   <h2 data-en="Want to explore more?" data-hi="और देखना चाहते हैं?">Want to explore more?</h2>
@@ -925,6 +951,72 @@ document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
   try {
     fetch('https://abacus.jasoncameron.dev/hit/saarthitrust/raahein-map', {mode:'cors'}).catch(function(){});
   } catch(e) {}
+})();
+
+/* ===== Article actions: like, share, toast ===== */
+(function(){
+  function showToast(msg){
+    var t = document.querySelector('.toast');
+    if(!t){ t = document.createElement('div'); t.className = 'toast'; document.body.appendChild(t); }
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, 1800);
+  }
+
+  // LIKE — localStorage prevents double-count; Abacus is the shared counter
+  document.querySelectorAll('.pc-like').forEach(function(btn){
+    var rid = btn.getAttribute('data-rid');
+    var base = parseInt(btn.getAttribute('data-baseline') || '0', 10);
+    var countEl = btn.querySelector('.pc-like-count');
+    var key = 'saarthi-like-' + rid;
+    var liked = !!localStorage.getItem(key);
+    if(liked) btn.classList.add('liked');
+
+    // Pull live count from Abacus and update display
+    fetch('https://abacus.jasoncameron.dev/get/saarthitrust/' + rid + '-likes', {mode:'cors'})
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if(typeof d.value === 'number'){
+          countEl.textContent = (base + d.value).toLocaleString('en-IN');
+        }
+      }).catch(function(){});
+
+    btn.addEventListener('click', function(){
+      if(localStorage.getItem(key)) return; // already liked from this device
+      localStorage.setItem(key, '1');
+      btn.classList.add('liked');
+      // optimistic update
+      countEl.textContent = (parseInt(countEl.textContent.replace(/[^0-9]/g,''),10) || base) + 1;
+      // hit Abacus to record the shared like
+      fetch('https://abacus.jasoncameron.dev/hit/saarthitrust/' + rid + '-likes', {mode:'cors'}).catch(function(){});
+    });
+  });
+
+  // SHARE — Web Share API on mobile, clipboard fallback on desktop
+  document.querySelectorAll('.pc-share').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var isHi = localStorage.getItem('saarthi-lang') === 'hi';
+      var title = (isHi && btn.getAttribute('data-title-hi')) || btn.getAttribute('data-title') || document.title;
+      var text = isHi ? 'STEM के बाद की संभावनाओं का एक नक़्शा — सारथी ट्रस्ट से:' : 'A map of what comes after STEM — from Saarthi Trust:';
+      var copied = isHi ? 'लिंक कॉपी हो गया' : 'Link copied to clipboard';
+      var failed = isHi ? 'कॉपी नहीं हुआ — URL bar को दबाकर कॉपी करें' : 'Copy failed — long-press the URL bar to copy';
+      var fallback = isHi ? 'इस पेज का URL कॉपी करके शेयर करें' : 'Copy this page URL to share';
+      var url = window.location.href;
+      if(navigator.share){
+        navigator.share({title:title, text:text, url:url}).catch(function(){});
+      } else if(navigator.clipboard){
+        navigator.clipboard.writeText(url).then(function(){
+          btn.classList.add('copied');
+          showToast(copied);
+          setTimeout(function(){ btn.classList.remove('copied'); }, 1500);
+        }).catch(function(){
+          showToast(failed);
+        });
+      } else {
+        showToast(fallback);
+      }
+    });
+  });
 })();
 
 /* Mobile nav hamburger toggle */
