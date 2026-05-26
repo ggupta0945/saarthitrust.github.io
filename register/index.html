@@ -167,6 +167,21 @@ footer .fl{display:flex;gap:18px;flex-wrap:wrap}
 footer .fl a{color:#aaa;font-size:13px;transition:.2s}
 footer .fl a:hover{color:#fff}
 footer .fc{font-size:11.5px;color:#777;line-height:1.6}
+
+/* About-Saarthi intro card under the page header */
+.about-saarthi{padding:26px 0 12px}
+.about-card{max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--sand);border-radius:14px;padding:24px 26px}
+.about-eyebrow{font-size:12px;color:var(--gr);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;font-family:var(--fb)}
+.about-card .about-hi{font-family:var(--fh);font-size:15.5px;color:var(--tx);line-height:1.75;margin:0 0 8px}
+.about-card .about-hi b{font-weight:700;color:var(--grd)}
+.about-card .about-en{font-family:var(--fb);font-size:13.5px;color:var(--tx3);line-height:1.7;margin:0;font-style:italic}
+.about-card .about-en b{font-weight:600;color:var(--tx2);font-style:normal}
+.about-sep{border:none;border-top:1px dashed var(--sand);margin:18px 0}
+
+/* Merged quote + intro into one card */
+.flow-info{background:#fff;border:1px solid var(--sand);border-radius:12px;overflow:hidden;margin:0 0 26px}
+.flow-info .quote-band{background:linear-gradient(135deg,var(--grl) 0%,#fff 70%);border:none;border-left:4px solid var(--gr);padding:18px 22px;margin:0;border-radius:0}
+.flow-info .flow-intro{background:#fff;border:none;border-top:1px solid var(--sand);padding:16px 22px;margin:0;border-radius:0;line-height:1.7}
 </style>
 
 <script defer data-domain="saarthitrust.org" src="https://plausible.io/js/script.js"></script>
@@ -195,6 +210,19 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
   <div class="h1-en">Register free</div>
   <p class="lead">सारथी एक मुफ़्त, समुदाय-आधारित मंच है। हम भवानी मंडी, झालावाड़ और आस-पास के मध्य प्रदेश के क़स्बों में स्थानीय प्रतिभा को स्थानीय अवसर से जोड़ते हैं।</p>
   <p class="lead-en">Saarthi is a free, community-driven platform connecting local talent with local opportunity around Bhawani Mandi, Jhalawar &amp; nearby MP towns. An initiative by young IITians, IIMians &amp; AIIMS doctors for Bharat 🇮🇳</p>
+</div>
+</section>
+
+<section class="about-saarthi">
+<div class="w">
+  <div class="about-card">
+    <div class="about-eyebrow">सारथी क्या है? · About Saarthi</div>
+    <p class="about-hi">सारथी एक <b>समुदाय-आधारित, बिना किसी शुल्क का प्रयास</b> है जो भवानी मंडी और आस-पास के क्षेत्रों के बेरोज़गार युवाओं को रोज़गार के अवसरों से जोड़ता है। IITs, IIMs और AIIMS से निकले युवाओं की एक पहल — भारत के लिए एक मददगार हाथ बनने की ओर 🇮🇳</p>
+    <p class="about-en">Saarthi is a <b>community-driven, no-cost initiative</b> that helps unemployed youth find meaningful job opportunities in and around Bhawani Mandi. An initiative by young minds from IITs, IIMs, and AIIMS to be a helping hand for Bharat 🇮🇳</p>
+    <hr class="about-sep">
+    <p class="about-hi">हम स्थानीय युवाओं और स्थानीय व्यवसायों के बीच <b>पुल का काम</b> करते हैं — ताकि युवाओं को काम मिले और व्यापारों को योग्य लोग। चाहे आप फुल टाइम, पार्ट टाइम या कुछ महीनों का काम ढूँढ रहे हों — सारथी आपकी मदद के लिए तैयार है।</p>
+    <p class="about-en">We act as a <b>bridge</b> between local talent and local demand — connecting youth with businesses, shops, homes, and other employers who need reliable people. Whether you're looking for full-time, part-time, or short-term work — Saarthi is here to guide, support, and connect you.</p>
+  </div>
 </div>
 </section>
 
@@ -243,13 +271,15 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
        FLOW: JOB SEEKER · नौकरी चाहने वाले
        ============================================================ -->
   <div class="flow" data-flow="seeker">
-    <div class="quote-band">
+    <div class="flow-info">
+      <div class="quote-band">
       <span class="qhi">"सारथी में सबसे बड़ी योग्यता है — काम करने का इरादा। बाक़ी सब हम मिलकर सीख लेंगे।"</span>
       <span class="qen">At Saarthi, the biggest qualification is the will to work. The rest, we'll figure out together.</span>
     </div>
-    <div class="flow-intro">
+      <div class="flow-intro">
       <span class="fi-hi">हर हुनर की एक पहचान होती है, और हर मेहनत का हक़दार होता है सम्मान। सारथी का उद्देश्य है — आपको सही अवसर से जोड़ना। <b>आपसे अनुरोध है कि अपनी सही और सटीक जानकारी ही साझा करें।</b></span>
       <span class="fi-en">Every skill deserves recognition, and every effort deserves respect. Saarthi's purpose is to connect you to the right opportunity — please share accurate, complete information.</span>
+    </div>
     </div>
 
     <div class="field">
@@ -320,22 +350,21 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
 
     <div class="field">
       <label class="lbl">
-        <span class="lh">किस प्रकार का काम चाहिए?</span>
-        <span class="le">What type of work are you looking for?</span>
+        <span class="lh">किस प्रकार का काम चाहिए? <span style="font-weight:500;font-size:13px;color:var(--tx3)">(एक से ज़्यादा चुन सकते हैं)</span></span>
+        <span class="le">What type of work are you looking for? <span style="font-style:normal">(pick all that apply)</span></span>
       </label>
-      <select name="seeker_worktype">
-        <option value="">— चुनें / Select —</option>
-        <option>किराना दुकान / Kirana store</option>
-        <option>कपड़ों की दुकान / Clothing store</option>
-        <option>मिठाई की दुकान / Sweets store</option>
-        <option>घरेलू काम / House help</option>
-        <option>निर्माण कार्य / Construction work</option>
-        <option>बिक्री और प्रचार / Sales &amp; Marketing</option>
-        <option>लेखा / हिसाब-किताब / Accounting / Bank</option>
-        <option>कंप्यूटर का काम / Computer / online work</option>
-        <option>इलेक्ट्रॉनिक्स / Electronics shop</option>
-        <option value="__other__">अन्य / Other</option>
-      </select>
+      <div class="choice-grid">
+        <label class="choice-card"><input type="checkbox" name="seeker_worktype" value="Kirana store"><span class="ch-hi">किराना दुकान</span><span class="ch-en">Kirana store</span></label>
+        <label class="choice-card"><input type="checkbox" name="seeker_worktype" value="Clothing store"><span class="ch-hi">कपड़ों की दुकान</span><span class="ch-en">Clothing store</span></label>
+        <label class="choice-card"><input type="checkbox" name="seeker_worktype" value="Sweets store"><span class="ch-hi">मिठाई की दुकान</span><span class="ch-en">Sweets store</span></label>
+        <label class="choice-card"><input type="checkbox" name="seeker_worktype" value="House help"><span class="ch-hi">घरेलू काम</span><span class="ch-en">House help</span></label>
+        <label class="choice-card"><input type="checkbox" name="seeker_worktype" value="Construction work"><span class="ch-hi">निर्माण कार्य</span><span class="ch-en">Construction work</span></label>
+        <label class="choice-card"><input type="checkbox" name="seeker_worktype" value="Sales & Marketing"><span class="ch-hi">बिक्री और प्रचार</span><span class="ch-en">Sales &amp; Marketing</span></label>
+        <label class="choice-card"><input type="checkbox" name="seeker_worktype" value="Accounting / Bank"><span class="ch-hi">लेखा / हिसाब-किताब</span><span class="ch-en">Accounting / Bank</span></label>
+        <label class="choice-card"><input type="checkbox" name="seeker_worktype" value="Computer / online work"><span class="ch-hi">कंप्यूटर का काम</span><span class="ch-en">Computer / online work</span></label>
+        <label class="choice-card"><input type="checkbox" name="seeker_worktype" value="Electronics shop"><span class="ch-hi">इलेक्ट्रॉनिक्स</span><span class="ch-en">Electronics shop</span></label>
+        <label class="choice-card" data-other="seeker_worktype"><input type="checkbox" name="seeker_worktype" value="Other"><span class="ch-hi">अन्य</span><span class="ch-en">Other</span></label>
+      </div>
       <input type="text" name="seeker_worktype_other" class="other-input" placeholder="अन्य हो तो लिखें / Specify if Other">
     </div>
 
@@ -397,13 +426,15 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
        FLOW: HIRER · काम देने वाले
        ============================================================ -->
   <div class="flow" data-flow="hirer">
-    <div class="quote-band">
-      <span class="qhi">"जिस हाथ से रोटी बनती है, उस हाथ का भी सम्मान हो। सारथी सिर्फ़ जोड़ता है — मालिक और मेहनत को।"</span>
-      <span class="qen">The hand that earns bread deserves respect too. Please give the people you hire fair pay and dignity.</span>
+    <div class="flow-info">
+      <div class="quote-band">
+      <span class="qhi">"जिस हाथ से रोटी बनती है, उस हाथ का भी सम्मान हो। सारथी सिर्फ़ जोड़ता है — मालिक और मेहनत को। हम आपसे उम्मीद करते हैं कि जो भी काम पर रखें, उसे <b>इंसाफ़, इज्ज़त और सही मेहनताना</b> ज़रूर दें।"</span>
+      <span class="qen">The hand that earns bread deserves respect too. Saarthi only connects — owner with effort. We trust you to give whoever you hire <b>fairness, dignity, and an honest wage</b>.</span>
     </div>
-    <div class="flow-intro">
+      <div class="flow-intro">
       <span class="fi-hi">अगर आप किसी काम के लिए कर्मचारी ढूँढ रहे हैं — तो कृपया नीचे की जानकारी भरें। हम आपके क्षेत्र से <b>उपयुक्त उम्मीदवारों की सूची</b> WhatsApp पर भेजने का प्रयास करेंगे।</span>
       <span class="fi-en">If you're hiring, fill in the details below. We'll send you a shortlist of suitable candidates from your area on WhatsApp.</span>
+    </div>
     </div>
 
     <div class="field">
@@ -492,13 +523,15 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
        FLOW: HIRED FEEDBACK · पहले से रख चुके हैं
        ============================================================ -->
   <div class="flow" data-flow="hired">
-    <div class="quote-band">
+    <div class="flow-info">
+      <div class="quote-band">
       <span class="qhi">"आपकी एक सही पहल, किसी की ज़िंदगी बदल सकती है। आपकी ईमानदारी हमारी सेवा को बेहतर बनाएगी।"</span>
       <span class="qen">Your honest update can change someone's life path — and it keeps our database clean so we don't keep bothering the candidate.</span>
     </div>
-    <div class="flow-intro">
+      <div class="flow-intro">
       <span class="fi-hi">अगर आपने सारथी के ज़रिए किसी को काम पर रखा है, तो कृपया अपना अनुभव साझा करें। <b>इससे हमारा डेटा अपडेट होता है</b> और उम्मीदवार को बार-बार कॉल नहीं आते।</span>
       <span class="fi-en">If you have hired through our platform, please share your experience. It helps us keep the database clean and saves the candidate from unnecessary back-and-forth calls.</span>
+    </div>
     </div>
 
     <div class="field">
@@ -546,13 +579,15 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
        FLOW: VOLUNTEER · स्वयंसेवक
        ============================================================ -->
   <div class="flow" data-flow="volunteer">
-    <div class="quote-band">
+    <div class="flow-info">
+      <div class="quote-band">
       <span class="qhi">"हम ज़्यादा नहीं माँगते — बस एक खुला दिल और थोड़ा वक़्त। बाक़ी, साथ मिलकर तय करेंगे।"</span>
       <span class="qen">We don't ask for much — just an open heart and a little time. The rest, we'll figure out together.</span>
     </div>
-    <div class="flow-intro">
+      <div class="flow-intro">
       <span class="fi-hi">सारथी पूरी तरह स्वयंसेवकों द्वारा चलाया जाता है — ऐसे लोगों द्वारा जो अपनी जड़ों को वापस देने में विश्वास रखते हैं। चाहे आप 1 घंटा दे सकें या 10, चाहे आप छात्र हों, नौकरीपेशा हों, या अपना कारोबार चलाते हों — <b>यहाँ आपके लिए एक भूमिका ज़रूर है।</b></span>
       <span class="fi-en">Saarthi is run entirely by volunteers — people who believe in giving back, not just in miles but in meaning. Whether you can spare 1 hour or 10, whether you're a student, professional, or running your own business — there is a role for you here.</span>
+    </div>
     </div>
 
     <div class="field">
@@ -739,6 +774,17 @@ document.querySelectorAll('select').forEach(function(sel){
   });
 });
 
+/* Reveal Other text input when its checkbox is ticked */
+document.querySelectorAll('.choice-card[data-other]').forEach(function(card){
+  var input = card.querySelector('input');
+  var fieldName = card.getAttribute('data-other');
+  var otherInput = document.querySelector('input[name="'+fieldName+'_other"]');
+  if (!otherInput) return;
+  input.addEventListener('change', function(){
+    otherInput.classList.toggle('show', input.checked);
+  });
+});
+
 /* ============================================================
    Submit handler — POST to Apps Script
    ============================================================ */
@@ -778,6 +824,20 @@ var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxOQv7OVtd_s0ITrkZ9YFYSc
     var arr = [];
     document.querySelectorAll('input[name="'+name+'"]:checked').forEach(function(c){ arr.push(c.value); });
     return arr.join(', ');
+  }
+
+  function collectMultiWithOther(name){
+    // Multi-select checkboxes; if 'Other' is checked, append the text from <name>_other
+    var vals = [];
+    document.querySelectorAll('input[name="'+name+'"]:checked').forEach(function(c){
+      if (c.value === 'Other') {
+        var oth = getVal(name + '_other');
+        vals.push(oth ? 'Other: ' + oth : 'Other');
+      } else {
+        vals.push(c.value);
+      }
+    });
+    return vals.join(', ');
   }
 
   function flattenOther(selectName){
@@ -828,7 +888,7 @@ var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxOQv7OVtd_s0ITrkZ9YFYSc
       data.gender    = getVal('seeker_gender');
       data.phone     = getVal('seeker_phone');
       data.area      = flattenOther('seeker_area');
-      data.worktype  = flattenOther('seeker_worktype');
+      data.worktype  = collectMultiWithOther('seeker_worktype');
       data.duration  = getVal('seeker_duration');
       data.startDate = getVal('seeker_start');
     } else if (role === 'hirer') {
