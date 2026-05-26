@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register free | Saarthi Trust — मुफ़्त रजिस्टर</title>
+<meta name="description" content="Register with Saarthi — for free. Looking for work, looking to hire, already hired through us, or want to volunteer — pick one and we'll take it from there.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://saarthitrust.org/register/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Register free | Saarthi Trust">
+<meta property="og:description" content="Looking for work, hiring, or want to volunteer? Fill in 2 minutes — we'll do the rest.">
+<meta property="og:image" content="https://saarthitrust.org/og-image.png">
+<meta property="og:url" content="https://saarthitrust.org/register/">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Libre+Baskerville:wght@400;700&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#FAFAF7; --cream:#FAF8F3; --sand:#E8E4DA;
+  --tx:#1A1A18; --tx2:#5C5B56; --tx3:#6b6965;
+  --gr:#1B7A4A; --grl:#E8F5EE; --grd:#0F5630;
+  --wr:#D4602C; --wrl:#FDF0EA;
+  --fd:'Book Antiqua','Libre Baskerville','Palatino Linotype',Palatino,serif;
+  --fb:'DM Sans',sans-serif;
+  --fh:'Noto Sans Devanagari','DM Sans',sans-serif;
+  --mw:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:var(--fb);line-height:1.55;-webkit-font-smoothing:antialiased}
+:lang(hi),[lang="hi"] body{font-family:var(--fh)}
+a{color:inherit;text-decoration:none}
+
+.w{max-width:var(--mw);margin:0 auto;padding:0 24px}
+
+/* NAV */
+nav#nav{position:sticky;top:0;background:rgba(250,250,247,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--sand);z-index:50}
+.ni{max-width:var(--mw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.nl{font-family:var(--fd);font-size:21px;font-weight:700;color:var(--tx)}
+.nl i{color:var(--gr);font-style:normal}
+.nr{display:flex;align-items:center;gap:22px}
+.nav-menu{display:flex;align-items:center;gap:22px}
+.hm{font-size:14px;color:var(--tx2);font-weight:500}
+.hm:hover{color:var(--gr)}
+.lb{background:none;border:1px solid var(--sand);padding:6px 12px;border-radius:20px;font-size:13px;color:var(--tx2);cursor:pointer;font-family:inherit}
+.lb:hover{border-color:var(--gr);color:var(--gr)}
+.nav-toggle{display:none}
+@media(max-width:720px){
+  .nav-menu{display:flex;position:static;background:none;box-shadow:none;border:none;padding:0;flex-direction:row;align-items:center;gap:14px}
+  .nav-menu .hm{display:none;font-size:13px;padding:0;background:none;color:var(--tx2);font-weight:500}
+  .nav-menu .hm[href*="journeys"],.nav-menu .hm[href*="faq"]{display:inline-block}
+  .nr{gap:10px}
+}
+
+/* PAGE HEADER */
+.page-hd{padding:54px 0 32px;text-align:center;border-bottom:1px solid var(--sand)}
+.crumb{font-size:13px;color:var(--tx3);margin-bottom:14px;letter-spacing:.04em;text-transform:uppercase}
+.crumb a{color:var(--gr)}
+.page-hd h1{font-family:var(--fd);font-size:clamp(34px,5.5vw,52px);font-weight:700;line-height:1.12;margin-bottom:14px;letter-spacing:-.01em;max-width:780px;margin-left:auto;margin-right:auto}
+.page-hd h1 em{font-style:italic;color:var(--gr)}
+.page-hd .lead{font-size:17px;color:var(--tx2);max-width:620px;margin:0 auto;line-height:1.65}
+.page-hd .lead-hi{font-family:var(--fh);font-size:14.5px;color:var(--tx3);margin-top:10px;font-style:italic}
+:lang(hi) .page-hd h1, [lang="hi"] .page-hd h1{font-family:var(--fh);font-weight:600}
+
+/* FORM SECTION */
+.form-sec{padding:36px 0 80px}
+.form-wrap{max-width:720px;margin:0 auto}
+
+.section-eyebrow{font-size:12px;color:var(--gr);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;text-align:center}
+.section-title{font-family:var(--fd);font-size:22px;font-weight:700;line-height:1.3;text-align:center;color:var(--tx);margin-bottom:6px}
+:lang(hi) .section-title, [lang="hi"] .section-title{font-family:var(--fh);font-weight:600}
+.section-sub{font-size:14px;color:var(--tx2);text-align:center;max-width:520px;margin:0 auto 22px;line-height:1.6}
+
+/* Role picker cards */
+.role-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:28px}
+@media(max-width:580px){.role-grid{grid-template-columns:1fr}}
+.role-card{position:relative;background:#fff;border:1px solid var(--sand);border-radius:12px;padding:18px 18px;cursor:pointer;transition:all .15s ease;display:flex;flex-direction:column;gap:6px}
+.role-card:hover{border-color:var(--gr);transform:translateY(-1px);box-shadow:0 6px 18px -10px rgba(27,122,74,.18)}
+.role-card input[type="radio"]{position:absolute;opacity:0;pointer-events:none}
+.role-card.selected{border-color:var(--gr);background:var(--grl)}
+.role-card .role-icon{font-size:24px;line-height:1}
+.role-card .role-en{font-family:var(--fd);font-size:15.5px;font-weight:700;color:var(--tx);line-height:1.25}
+.role-card .role-hi{font-family:var(--fh);font-size:13.5px;color:var(--tx2);line-height:1.4}
+
+/* Quote bands */
+.quote-band{background:var(--cream);border-left:3px solid var(--gr);padding:14px 18px;margin:0 0 22px;border-radius:6px;font-size:14px;line-height:1.65;color:var(--tx)}
+.quote-band .qhi{font-family:var(--fh);font-style:italic;color:var(--grd);display:block;margin-bottom:6px}
+.quote-band .qen{font-style:italic;color:var(--tx2)}
+
+/* Conditional sections (hidden by default; shown when role picked) */
+.flow{display:none}
+.flow.active{display:block}
+
+.field{margin-bottom:18px}
+.field label.lbl{display:block;font-weight:600;font-size:14px;margin-bottom:6px;color:var(--tx);line-height:1.45}
+.field label.lbl .req{color:var(--wr);margin-left:3px}
+.field label.lbl .hi{display:block;font-family:var(--fh);font-size:13px;font-weight:500;color:var(--tx2);margin-top:2px}
+.field .help{font-size:12.5px;color:var(--tx3);margin-top:4px;line-height:1.5;font-style:italic}
+.field input[type="text"], .field input[type="tel"], .field input[type="number"], .field select, .field textarea{
+  width:100%;padding:11px 14px;border:1px solid var(--sand);border-radius:10px;font-family:inherit;font-size:14.5px;line-height:1.5;color:var(--tx);background:#fff;transition:border-color .15s ease,box-shadow .15s ease
+}
+.field textarea{min-height:84px;line-height:1.6;resize:vertical}
+.field input:focus, .field select:focus, .field textarea:focus{outline:none;border-color:var(--gr);box-shadow:0 0 0 3px rgba(27,122,74,.12)}
+
+.choice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+@media(max-width:520px){.choice-grid{grid-template-columns:1fr}}
+.choice-card{position:relative;background:#fff;border:1px solid var(--sand);border-radius:10px;padding:10px 14px;cursor:pointer;transition:all .15s ease;font-size:13.5px;line-height:1.4;color:var(--tx)}
+.choice-card:hover{border-color:var(--gr)}
+.choice-card input{position:absolute;opacity:0;pointer-events:none}
+.choice-card.checked{border-color:var(--gr);background:var(--grl);color:var(--grd);font-weight:600}
+.choice-card .ch-hi{display:block;font-family:var(--fh);font-size:12.5px;color:var(--tx3);font-weight:400;margin-top:2px}
+.choice-card.checked .ch-hi{color:var(--grd)}
+
+.honeypot{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+
+.submit-btn{background:var(--gr);color:#fff;border:none;padding:14px 28px;border-radius:28px;font-family:inherit;font-size:15px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .15s ease;width:100%;justify-content:center;margin-top:12px}
+.submit-btn:hover:not(:disabled){background:var(--grd);transform:translateY(-1px);box-shadow:0 6px 18px rgba(27,122,74,.25)}
+.submit-btn:disabled{opacity:.6;cursor:not-allowed}
+
+.form-foot{text-align:center;font-size:12.5px;color:var(--tx3);margin-top:14px;line-height:1.55;font-style:italic}
+
+.success-state{background:linear-gradient(135deg,var(--grl) 0%,#fff 70%);border:1px solid var(--gr);border-radius:16px;padding:40px 30px;text-align:center}
+.success-state .icon{font-size:48px;margin-bottom:14px}
+.success-state h2{font-family:var(--fd);font-size:26px;font-weight:700;color:var(--tx);margin-bottom:12px}
+:lang(hi) .success-state h2, [lang="hi"] .success-state h2{font-family:var(--fh);font-weight:600}
+.success-state p{font-size:15.5px;color:var(--tx2);line-height:1.65;max-width:520px;margin:0 auto 8px}
+.success-state .back{display:inline-block;margin-top:22px;color:var(--gr);font-weight:600}
+
+.error-banner{background:#fee;border:1px solid #c44;color:#933;border-radius:10px;padding:12px 16px;font-size:13.5px;margin:0 0 18px;line-height:1.5;display:none}
+.error-banner.show{display:block}
+
+footer{padding:48px 0 36px;background:var(--tx);color:#aaa;border-top:1px solid var(--sand);font-family:var(--fh)}
+footer .fi{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-bottom:18px}
+footer .fb2{font-family:var(--fd);font-size:18px;color:#fff;font-weight:700}
+footer .fl{display:flex;gap:18px;flex-wrap:wrap}
+footer .fl a{color:#aaa;font-size:13px;transition:.2s}
+footer .fl a:hover{color:#fff}
+footer .fc{font-size:11.5px;color:#777;line-height:1.6}
+</style>
+
+<script defer data-domain="saarthitrust.org" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+<nav id="nav">
+<div class="ni">
+  <a href="/" class="nl">Saarthi Trust<i>.</i></a>
+  <div class="nr">
+    <div class="nav-menu">
+    <a href="/faq.html" class="hm" data-en="FAQ" data-hi="सवाल-जवाब">FAQ</a>
+    <a href="/journeys/" class="hm" data-en="Journeys" data-hi="यात्राएं">Journeys</a>
+    </div>
+    <button class="lb" onclick="toggleLang()" id="langBtn">हिंदी</button>
+  </div>
+</div>
+</nav>
+
+<main>
+
+<section class="page-hd">
+<div class="w">
+  <div class="crumb"><a href="/" data-en="← Home" data-hi="← घर">← Home</a></div>
+  <h1 data-en="Register <em>free</em>" data-hi="<em>मुफ़्त</em> रजिस्टर">Register <em>free</em></h1>
+  <p class="lead" data-en="Saarthi is community-driven and zero-cost. We connect local talent with local opportunity in and around Bhawani Mandi, Jhalawar, and Madhya Pradesh towns nearby." data-hi="सारथी समुदाय-आधारित है और बिल्कुल मुफ़्त। हम भवानी मंडी, झालावाड़ और आसपास के MP क़स्बों में स्थानीय प्रतिभा को स्थानीय अवसर से जोड़ते हैं।">Saarthi is community-driven and zero-cost. We connect local talent with local opportunity in and around Bhawani Mandi, Jhalawar, and Madhya Pradesh towns nearby.</p>
+  <p class="lead-hi" data-en="An initiative by young minds from IITs, IIMs, and AIIMS — a helping hand for Bharat 🇮🇳" data-hi="IITs, IIMs और AIIMS से निकले युवाओं की एक पहल — भारत के लिए एक मददगार हाथ 🇮🇳">An initiative by young minds from IITs, IIMs, and AIIMS — a helping hand for Bharat 🇮🇳</p>
+</div>
+</section>
+
+<section class="form-sec">
+<div class="w">
+<div class="form-wrap">
+
+  <div class="section-eyebrow" data-en="Step 1" data-hi="चरण 1">Step 1</div>
+  <h2 class="section-title" data-en="How would you like to use Saarthi today?" data-hi="आज आप सारथी का उपयोग कैसे करना चाहेंगे?">How would you like to use Saarthi today?</h2>
+  <p class="section-sub" data-en="Pick one to continue." data-hi="जारी रखने के लिए एक चुनें।">Pick one to continue.</p>
+
+  <div class="role-grid" role="radiogroup">
+    <label class="role-card" data-role="seeker">
+      <input type="radio" name="role" value="seeker">
+      <span class="role-icon">🛠️</span>
+      <span class="role-en">I'm looking for a job</span>
+      <span class="role-hi">मैं नौकरी की तलाश में हूँ</span>
+    </label>
+    <label class="role-card" data-role="hirer">
+      <input type="radio" name="role" value="hirer">
+      <span class="role-icon">💼</span>
+      <span class="role-en">I want to hire someone</span>
+      <span class="role-hi">मुझे किसी को काम पर रखना है</span>
+    </label>
+    <label class="role-card" data-role="hired">
+      <input type="radio" name="role" value="hired">
+      <span class="role-icon">✅</span>
+      <span class="role-en">I've already hired through Saarthi</span>
+      <span class="role-hi">मैंने पहले ही सारथी के ज़रिए किसी को रखा है</span>
+    </label>
+    <label class="role-card" data-role="volunteer">
+      <input type="radio" name="role" value="volunteer">
+      <span class="role-icon">🤝</span>
+      <span class="role-en">Be someone's Saarthi</span>
+      <span class="role-hi">किसी के सारथी बनें — स्वयंसेवा</span>
+    </label>
+  </div>
+
+  <div class="error-banner" id="errorBanner"></div>
+
+  <form id="registerForm" novalidate>
+  <input type="text" class="honeypot" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <input type="hidden" name="role" id="hiddenRole" value="">
+
+  <!-- ============================================================
+       FLOW: JOB SEEKER
+       ============================================================ -->
+  <div class="flow" data-flow="seeker">
+    <div class="quote-band">
+      <span class="qhi">"सारथी में सबसे बड़ी योग्यता है — मेहनत करने का इरादा। बाक़ी सब हम मिलकर सीख लेंगे।"</span>
+      <span class="qen">At Saarthi, the biggest qualification is the will to work. The rest, we'll figure out together.</span>
+    </div>
+
+    <div class="field">
+      <label class="lbl">Full name <span class="req">*</span><span class="hi">पूरा नाम</span></label>
+      <input type="text" name="seeker_name" autocomplete="name" maxlength="120">
+    </div>
+    <div class="field">
+      <label class="lbl">Age <span class="req">*</span><span class="hi">उम्र</span></label>
+      <input type="number" name="seeker_age" min="14" max="80" inputmode="numeric">
+    </div>
+    <div class="field">
+      <label class="lbl">Gender <span class="req">*</span><span class="hi">लिंग</span></label>
+      <div class="choice-grid">
+        <label class="choice-card"><input type="radio" name="seeker_gender" value="Male">Male<span class="ch-hi">पुरुष</span></label>
+        <label class="choice-card"><input type="radio" name="seeker_gender" value="Female">Female<span class="ch-hi">महिला</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label class="lbl">Phone number (WhatsApp) <span class="req">*</span><span class="hi">फ़ोन नंबर (WhatsApp वाला)</span></label>
+      <input type="tel" name="seeker_phone" inputmode="tel" maxlength="15" placeholder="10-digit number">
+    </div>
+    <div class="field">
+      <label class="lbl">Village / area name <span class="req">*</span><span class="hi">गाँव या क्षेत्र का नाम</span></label>
+      <select name="seeker_area">
+        <option value="">— Select an area —</option>
+        <option>Bhawani Mandi / भवानीमंडी</option>
+        <option>Sunel / सुनेल</option>
+        <option>Pirawa / पिरावा</option>
+        <option>Jhalawar / झालावाड़</option>
+        <option>Kota / कोटा</option>
+        <option>Rajgarh / राजगढ़ (MP)</option>
+        <option>Jirapur / जीरापुर (MP)</option>
+        <option>Pachor / पचोर (MP)</option>
+        <option>Khilchipur / खिलचीपुर (MP)</option>
+        <option>Biaora / ब्यावरा (MP)</option>
+        <option value="__other__">Other / अन्य</option>
+      </select>
+      <input type="text" name="seeker_area_other" placeholder="If Other, please specify / अन्य हो तो लिखें" style="margin-top:8px;display:none">
+    </div>
+    <div class="field">
+      <label class="lbl">What type of work are you looking for?<span class="hi">आप किस प्रकार की नौकरी ढूँढ रहे हैं?</span></label>
+      <select name="seeker_worktype">
+        <option value="">— Select —</option>
+        <option>Kirana store / किराना दुकान</option>
+        <option>Clothing store / कपड़ों की दुकान</option>
+        <option>Sweets store / मिठाई की दुकान</option>
+        <option>House help / घरेलू काम</option>
+        <option>Construction work / निर्माण कार्य</option>
+        <option>Sales &amp; Marketing / बिक्री और प्रचार</option>
+        <option>Accounting / Bank / लेखा / हिसाब-किताब</option>
+        <option>Computer / online work / कंप्यूटर कार्य</option>
+        <option>Electronics shop / इलेक्ट्रॉनिक्स</option>
+        <option value="__other__">Other / अन्य</option>
+      </select>
+      <input type="text" name="seeker_worktype_other" placeholder="If Other, please specify / अन्य हो तो लिखें" style="margin-top:8px;display:none">
+    </div>
+    <div class="field">
+      <label class="lbl">Full-time or part-time?<span class="hi">फुल टाइम या पार्ट टाइम?</span></label>
+      <div class="choice-grid">
+        <label class="choice-card"><input type="radio" name="seeker_duration" value="Full time">Full time<span class="ch-hi">फुल टाइम</span></label>
+        <label class="choice-card"><input type="radio" name="seeker_duration" value="Part time">Part time<span class="ch-hi">पार्ट टाइम</span></label>
+        <label class="choice-card"><input type="radio" name="seeker_duration" value="A few months">Only for a few months<span class="ch-hi">सिर्फ़ कुछ महीनों के लिए</span></label>
+        <label class="choice-card"><input type="radio" name="seeker_duration" value="Open to all">Open to all<span class="ch-hi">कोई भी चलेगा</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label class="lbl">When can you start?<span class="hi">आप काम कब से शुरू कर सकते हैं?</span></label>
+      <div class="choice-grid">
+        <label class="choice-card"><input type="radio" name="seeker_start" value="Immediately">Immediately<span class="ch-hi">तुरंत</span></label>
+        <label class="choice-card"><input type="radio" name="seeker_start" value="Next week">From next week<span class="ch-hi">अगले सप्ताह से</span></label>
+        <label class="choice-card"><input type="radio" name="seeker_start" value="Next month">From next month<span class="ch-hi">अगले महीने से</span></label>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FLOW: HIRER / EMPLOYER
+       ============================================================ -->
+  <div class="flow" data-flow="hirer">
+    <div class="quote-band">
+      <span class="qhi">"जिस हाथ से रोटी बनती है, उस हाथ का भी सम्मान हो। सारथी सिर्फ़ जोड़ता है — मालिक और मेहनत को।"</span>
+      <span class="qen">The hand that earns bread deserves respect too. Saarthi only connects — please give the people you hire fair pay and dignity.</span>
+    </div>
+
+    <div class="field">
+      <label class="lbl">Your name <span class="req">*</span><span class="hi">आपका नाम</span></label>
+      <input type="text" name="hirer_name" autocomplete="name" maxlength="120">
+    </div>
+    <div class="field">
+      <label class="lbl">Your contact number <span class="req">*</span><span class="hi">फ़ोन नंबर</span></label>
+      <input type="tel" name="hirer_phone" inputmode="tel" maxlength="15" placeholder="10-digit number">
+    </div>
+    <div class="field">
+      <label class="lbl">Business type<span class="hi">व्यवसाय का प्रकार (shop, home, warehouse, etc.)</span></label>
+      <select name="hirer_business">
+        <option value="">— Select —</option>
+        <option>Kirana store / किराना दुकान</option>
+        <option>Clothing store / कपड़ों की दुकान</option>
+        <option>Sweets store / मिठाई की दुकान</option>
+        <option>Construction work / निर्माण कार्य</option>
+        <option>Sales &amp; Marketing / बिक्री और प्रचार</option>
+        <option value="__other__">Other / अन्य</option>
+      </select>
+      <input type="text" name="hirer_business_other" placeholder="If Other, please specify / अन्य हो तो लिखें" style="margin-top:8px;display:none">
+    </div>
+    <div class="field">
+      <label class="lbl">Area <span class="req">*</span><span class="hi">क्षेत्र (शहर / इलाक़ा बताएँ)</span></label>
+      <input type="text" name="hirer_area" maxlength="120" placeholder="City / area">
+    </div>
+    <div class="field">
+      <label class="lbl">What kind of worker do you need?<span class="hi">आपको किस प्रकार का कर्मचारी चाहिए?</span></label>
+      <textarea name="hirer_need" maxlength="500" rows="2" placeholder="Briefly describe the role / भूमिका संक्षेप में बताएँ"></textarea>
+    </div>
+    <div class="field">
+      <label class="lbl">How many people do you want to hire?<span class="hi">कितने लोगों को काम पर रखना चाहते हैं?</span></label>
+      <input type="number" name="hirer_count" min="1" max="500" inputmode="numeric">
+    </div>
+    <div class="field">
+      <label class="lbl">Minimum salary you can offer<span class="hi">न्यूनतम वेतन या भुगतान</span></label>
+      <div class="choice-grid">
+        <label class="choice-card"><input type="radio" name="hirer_salary" value="5000-8000">₹5,000–8,000<span class="ch-hi">/ महीना</span></label>
+        <label class="choice-card"><input type="radio" name="hirer_salary" value="8000-12000">₹8,000–12,000<span class="ch-hi">/ महीना</span></label>
+        <label class="choice-card"><input type="radio" name="hirer_salary" value="12000+">₹12,000+<span class="ch-hi">/ महीना</span></label>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FLOW: HIRED FEEDBACK
+       ============================================================ -->
+  <div class="flow" data-flow="hired">
+    <div class="quote-band">
+      <span class="qhi">"आपकी एक सही पहल, किसी की ज़िंदगी बदल सकती है। आपकी ईमानदारी हमारी सेवा को बेहतर बनाएगी।"</span>
+      <span class="qen">Your one honest update can change someone's life path. It also keeps our database clean so we don't keep bothering the candidate.</span>
+    </div>
+
+    <div class="field">
+      <label class="lbl">Your name<span class="hi">आपका नाम</span></label>
+      <input type="text" name="hired_name" autocomplete="name" maxlength="120">
+    </div>
+    <div class="field">
+      <label class="lbl">Your contact number<span class="hi">फ़ोन नंबर</span></label>
+      <input type="tel" name="hired_phone" inputmode="tel" maxlength="15">
+    </div>
+    <div class="field">
+      <label class="lbl">Whom did you hire? <span class="req">*</span><span class="hi">आपने किसे रखा था? (नाम)</span></label>
+      <input type="text" name="hired_who" maxlength="120">
+    </div>
+    <div class="field">
+      <label class="lbl">Contact number of the person hired <span class="req">*</span><span class="hi">जिनको रखा है, उनका संपर्क नंबर (यदि उपलब्ध हो)</span></label>
+      <input type="tel" name="hired_who_phone" inputmode="tel" maxlength="15">
+    </div>
+    <div class="field">
+      <label class="lbl">Any suggestions to improve Saarthi?<span class="hi">सारथी को बेहतर बनाने के लिए सुझाव</span></label>
+      <textarea name="hired_suggestions" rows="3" maxlength="800" placeholder="Your honest feedback / आपकी ईमानदार राय"></textarea>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FLOW: VOLUNTEER
+       ============================================================ -->
+  <div class="flow" data-flow="volunteer">
+    <div class="quote-band">
+      <span class="qhi">"हम ज़्यादा नहीं माँगते — बस एक खुला दिल और थोड़ा वक़्त। बाक़ी, साथ मिलकर तय करेंगे।"</span>
+      <span class="qen">We don't ask for much — just an open heart and a little time. This form takes 2 minutes. The rest, we'll figure out together.</span>
+    </div>
+
+    <div class="field">
+      <label class="lbl">Your name <span class="req">*</span><span class="hi">आपका नाम</span></label>
+      <input type="text" name="vol_name" autocomplete="name" maxlength="120">
+    </div>
+    <div class="field">
+      <label class="lbl">Phone number (WhatsApp) <span class="req">*</span><span class="hi">फ़ोन नंबर</span></label>
+      <input type="tel" name="vol_phone" inputmode="tel" maxlength="15" placeholder="10-digit number">
+    </div>
+    <div class="field">
+      <label class="lbl">Area<span class="hi">क्षेत्र (शहर / इलाक़ा बताएँ)</span></label>
+      <input type="text" name="vol_area" maxlength="120" placeholder="City / area">
+    </div>
+    <div class="field">
+      <label class="lbl">How would you like to contribute? <span style="font-weight:400;font-size:12.5px;color:var(--tx3)">(pick all that apply)</span><span class="hi">आप कैसे योगदान देना चाहेंगे? (एक से ज़्यादा चुन सकते हैं)</span></label>
+      <div class="choice-grid">
+        <label class="choice-card"><input type="checkbox" name="vol_contrib" value="Donate books or study material">Donate books / study material<span class="ch-hi">किताबें या पढ़ाई का सामान दें</span></label>
+        <label class="choice-card"><input type="checkbox" name="vol_contrib" value="Feed someone in need">Feed someone in need<span class="ch-hi">किसी को खाना खिलाएँ</span></label>
+        <label class="choice-card"><input type="checkbox" name="vol_contrib" value="Visit a school & share your story">Visit a school &amp; share your story<span class="ch-hi">स्कूल जाएँ, अपनी कहानी सुनाएँ</span></label>
+        <label class="choice-card"><input type="checkbox" name="vol_contrib" value="Spend time with kids in school">Spend time with kids in school<span class="ch-hi">बच्चों के साथ समय बिताएँ</span></label>
+        <label class="choice-card"><input type="checkbox" name="vol_contrib" value="Give career guidance">Give career guidance<span class="ch-hi">करियर मार्गदर्शन दें</span></label>
+        <label class="choice-card"><input type="checkbox" name="vol_contrib" value="Share Saarthi in your network">Share Saarthi in your network<span class="ch-hi">सारथी को शेयर करें</span></label>
+        <label class="choice-card"><input type="checkbox" name="vol_contrib" value="Other">Other<span class="ch-hi">अन्य</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label class="lbl">Any suggestions?<span class="hi">कोई सुझाव?</span></label>
+      <textarea name="vol_suggestions" rows="3" maxlength="800"></textarea>
+    </div>
+  </div>
+
+  <!-- Submit button (shown only after a role is selected) -->
+  <button type="submit" class="submit-btn" id="submitBtn" style="display:none">
+    <span data-en="Submit →" data-hi="जमा करें →">Submit →</span>
+  </button>
+
+  </form>
+
+  <div id="successState" class="success-state" style="display:none">
+    <div class="icon">🙏</div>
+    <h2 data-en="Got it. Thank you." data-hi="मिल गया। धन्यवाद।">Got it. Thank you.</h2>
+    <p id="successMsg" data-en="We've received your details. Someone from Saarthi will reach out to you on WhatsApp soon — usually within a few days." data-hi="हमें आपकी जानकारी मिल गई। सारथी का कोई व्यक्ति जल्द ही WhatsApp पर आपसे संपर्क करेगा — आमतौर पर कुछ दिनों में।">We've received your details. Someone from Saarthi will reach out to you on WhatsApp soon — usually within a few days.</p>
+    <a href="/" class="back" data-en="← Back to home" data-hi="← घर वापस">← Back to home</a>
+  </div>
+
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="w">
+  <div class="fi">
+    <div class="fb2">Saarthi Trust — सारथी ट्रस्ट</div>
+    <div class="fl">
+      <a href="/">Home</a>
+      <a href="/journeys/" data-en="Journeys" data-hi="यात्राएं">Journeys</a>
+      <a href="/faq.html" data-en="FAQ" data-hi="सवाल-जवाब">FAQ</a>
+      <a href="https://instagram.com/saarthi.trust" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://facebook.com/officialsaarthi" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+  <div class="fc">© 2025 Saarthi Trust. An initiative by IIT, IIM &amp; AIIMS alumni for Bharat.</div>
+</div>
+</footer>
+
+<script>
+/* Language toggle (matches site pattern) */
+var hi=localStorage.getItem('saarthi-lang')==='hi';
+function toggleLang(){
+  hi=!hi;
+  localStorage.setItem('saarthi-lang', hi?'hi':'en');
+  document.getElementById('langBtn').textContent=hi?'English':'हिंदी';
+  document.documentElement.lang=hi?'hi':'en';
+  document.title = hi ? 'मुफ़्त रजिस्टर | सारथी ट्रस्ट' : 'Register free | Saarthi Trust — मुफ़्त रजिस्टर';
+  var els=document.querySelectorAll('[data-en]');
+  for(var i=0;i<els.length;i++){
+    var val=els[i].getAttribute(hi?'data-hi':'data-en');
+    if(val)els[i].innerHTML=val;
+  }
+}
+if (hi) { hi = false; if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', toggleLang); else toggleLang(); }
+
+/* ============================================================
+   Role picker → show matching flow
+   ============================================================ */
+document.querySelectorAll('.role-card').forEach(function(card){
+  card.addEventListener('click', function(){
+    var role = card.getAttribute('data-role');
+    var radio = card.querySelector('input[type="radio"]');
+    radio.checked = true;
+    // Toggle visual selected state
+    document.querySelectorAll('.role-card').forEach(function(c){ c.classList.remove('selected'); });
+    card.classList.add('selected');
+    // Toggle flow visibility
+    document.querySelectorAll('.flow').forEach(function(f){
+      f.classList.toggle('active', f.getAttribute('data-flow') === role);
+    });
+    // Store hidden role + reveal submit
+    document.getElementById('hiddenRole').value = role;
+    document.getElementById('submitBtn').style.display = 'inline-flex';
+    // Scroll to the flow on small screens
+    var flow = document.querySelector('.flow.active');
+    if (flow) flow.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
+/* Choice-card visual state for radio + checkbox */
+document.querySelectorAll('.choice-card').forEach(function(card){
+  var input = card.querySelector('input');
+  if (!input) return;
+  input.addEventListener('change', function(){
+    if (input.type === 'radio') {
+      var name = input.name;
+      document.querySelectorAll('input[name="'+name+'"]').forEach(function(i){
+        i.closest('.choice-card').classList.toggle('checked', i.checked);
+      });
+    } else {
+      card.classList.toggle('checked', input.checked);
+    }
+  });
+});
+
+/* Show "other" text input when an Other option is selected from a select */
+document.querySelectorAll('select').forEach(function(sel){
+  sel.addEventListener('change', function(){
+    var name = sel.name + '_other';
+    var other = document.querySelector('input[name="'+name+'"]');
+    if (other) other.style.display = (sel.value === '__other__') ? 'block' : 'none';
+  });
+});
+
+/* ============================================================
+   Submit handler — POST to Apps Script
+   ============================================================ */
+var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxOQv7OVtd_s0ITrkZ9YFYScHSCTDQDISexELRRXnvVIthz4KBFTMIKt89K_XvewC5t/exec';
+
+(function(){
+  var form = document.getElementById('registerForm');
+  var submitBtn = document.getElementById('submitBtn');
+  var errBanner = document.getElementById('errorBanner');
+  var success = document.getElementById('successState');
+
+  function showError(msg){
+    errBanner.textContent = msg;
+    errBanner.classList.add('show');
+    errBanner.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+
+  /* Required-field rules per flow */
+  var REQUIRED = {
+    seeker:   ['seeker_name','seeker_age','seeker_gender','seeker_phone','seeker_area'],
+    hirer:    ['hirer_name','hirer_phone','hirer_area'],
+    hired:    ['hired_who','hired_who_phone'],
+    volunteer:['vol_name','vol_phone']
+  };
+
+  function isHi(){ return document.documentElement.lang === 'hi'; }
+
+  function getVal(name){
+    var el = form.elements[name];
+    if (!el) return '';
+    if (el instanceof RadioNodeList || (el.length && el[0] && el[0].type === 'radio')) {
+      for (var i = 0; i < el.length; i++) if (el[i].checked) return el[i].value;
+      return '';
+    }
+    if (el.type === 'checkbox') return el.checked ? el.value : '';
+    return (el.value || '').toString().trim();
+  }
+
+  function getMulti(name){
+    var arr = [];
+    document.querySelectorAll('input[name="'+name+'"]:checked').forEach(function(c){ arr.push(c.value); });
+    return arr.join(', ');
+  }
+
+  function flattenOther(selectName){
+    // If select chose __other__, replace with the text in <selectName>_other
+    var v = getVal(selectName);
+    if (v === '__other__') {
+      var other = getVal(selectName + '_other');
+      return other ? 'Other: ' + other : 'Other';
+    }
+    return v;
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errBanner.classList.remove('show');
+
+    // Honeypot
+    if (form.elements['website'].value.trim() !== '') {
+      form.style.display = 'none';
+      success.style.display = 'block';
+      return;
+    }
+
+    var role = document.getElementById('hiddenRole').value;
+    if (!role) {
+      showError(isHi() ? 'कृपया पहले एक विकल्प चुनें।' : 'Please pick one of the four options at the top first.');
+      return;
+    }
+
+    // Required-field check
+    var missing = [];
+    REQUIRED[role].forEach(function(n){
+      if (!getVal(n)) missing.push(n);
+    });
+    if (missing.length) {
+      showError(isHi()
+        ? 'कुछ ज़रूरी फ़ील्ड बाक़ी हैं। कृपया उन्हें भरें।'
+        : 'Some required fields are missing — please fill them in.');
+      return;
+    }
+
+    // Phone validation — must be 10 digits (allow +91 prefix, spaces)
+    var phoneField = {seeker:'seeker_phone', hirer:'hirer_phone', hired:'hired_who_phone', volunteer:'vol_phone'}[role];
+    var phoneVal = getVal(phoneField).replace(/[^0-9]/g, '');
+    if (phoneVal.length < 10) {
+      showError(isHi() ? 'फ़ोन नंबर 10 अंकों का होना चाहिए।' : 'Phone number should be at least 10 digits.');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span>' + (isHi() ? 'भेज रहे हैं…' : 'Sending…') + '</span>';
+
+    var data = {flow: 'register-' + role, role: role, lang: document.documentElement.lang || 'en', submittedAt: new Date().toISOString()};
+
+    if (role === 'seeker') {
+      data.name      = getVal('seeker_name');
+      data.age       = getVal('seeker_age');
+      data.gender    = getVal('seeker_gender');
+      data.phone     = getVal('seeker_phone');
+      data.area      = flattenOther('seeker_area');
+      data.worktype  = flattenOther('seeker_worktype');
+      data.duration  = getVal('seeker_duration');
+      data.startDate = getVal('seeker_start');
+    } else if (role === 'hirer') {
+      data.name      = getVal('hirer_name');
+      data.phone     = getVal('hirer_phone');
+      data.business  = flattenOther('hirer_business');
+      data.area      = getVal('hirer_area');
+      data.need      = getVal('hirer_need');
+      data.count     = getVal('hirer_count');
+      data.salary    = getVal('hirer_salary');
+    } else if (role === 'hired') {
+      data.name           = getVal('hired_name');
+      data.phone          = getVal('hired_phone');
+      data.whoHired       = getVal('hired_who');
+      data.whoHiredPhone  = getVal('hired_who_phone');
+      data.suggestions    = getVal('hired_suggestions');
+    } else if (role === 'volunteer') {
+      data.name         = getVal('vol_name');
+      data.phone        = getVal('vol_phone');
+      data.area         = getVal('vol_area');
+      data.contribution = getMulti('vol_contrib');
+      data.suggestions  = getVal('vol_suggestions');
+    }
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {'Content-Type': 'text/plain;charset=utf-8'},
+      body: JSON.stringify(data)
+    }).then(function(){
+      form.style.display = 'none';
+      success.style.display = 'block';
+      // Tailor success message slightly per role
+      var msg = document.getElementById('successMsg');
+      if (role === 'hirer') {
+        msg.setAttribute('data-en', "We've received your hiring request. We'll send a shortlist of suitable candidates from your area on WhatsApp soon.");
+        msg.setAttribute('data-hi', 'हमें आपकी ज़रूरत मिल गई। हम आपके क्षेत्र से उपयुक्त उम्मीदवारों की सूची जल्द ही WhatsApp पर भेजेंगे।');
+      } else if (role === 'volunteer') {
+        msg.setAttribute('data-en', "We're so glad you want to help. Someone from the Saarthi team will message you on WhatsApp to figure out how you'd like to contribute.");
+        msg.setAttribute('data-hi', 'आपकी मदद की भावना देखकर ख़ुशी हुई। सारथी टीम का कोई व्यक्ति WhatsApp पर आपसे संपर्क करेगा।');
+      } else if (role === 'hired') {
+        msg.setAttribute('data-en', "Thank you for the update — this keeps our database honest and saves the candidate from unnecessary calls.");
+        msg.setAttribute('data-hi', 'अपडेट के लिए धन्यवाद — इससे हमारा डेटा साफ़ रहता है और उम्मीदवार को अनावश्यक कॉल नहीं आते।');
+      }
+      msg.innerHTML = msg.getAttribute(isHi() ? 'data-hi' : 'data-en');
+      window.scrollTo({top:0, behavior:'smooth'});
+    }).catch(function(err){
+      console.error(err);
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<span>' + (isHi() ? 'जमा करें →' : 'Submit →') + '</span>';
+      showError(isHi()
+        ? 'भेजने में दिक्क़त हुई। कृपया फिर कोशिश करें या hi@saarthitrust.org पर ईमेल करें।'
+        : 'Something went wrong sending. Please try again, or email hi@saarthitrust.org instead.');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
