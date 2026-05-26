@@ -242,6 +242,8 @@ footer{padding:48px 0 32px;background:var(--bg)}
 .pcard-avatar.reinventor{background:#E1F5EE;color:#0F6E56}
 .pcard-avatar.civil-servant{background:#EEEDFE;color:#5B21B6}
 .pcard-avatar.officer{background:#E0F2FE;color:#075985}
+.pcard-avatar{overflow:hidden}
+.pcard-avatar img{width:100%;height:100%;object-fit:cover;display:block;border-radius:50%}
 /* Social icon next to the avatar/name row */
 .pcard-social{position:relative;z-index:2;margin-left:auto;flex-shrink:0;width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--tx2);background:var(--cream);border:1px solid var(--sand);transition:all .15s ease}
 .pcard-social:hover{color:#fff;border-color:var(--gr);background:var(--gr);transform:translateY(-1px)}
@@ -408,7 +410,7 @@ footer{padding:48px 0 32px;background:var(--bg)}
 
       <article class="pcard">
         <div class="pcard-head">
-          <div class="pcard-avatar builder">G</div>
+          <div class="pcard-avatar builder"><img src="/journeys/postcards/gaurav/gaurav.jpg" alt="Gaurav" onerror="this.outerHTML='G'"></div>
           <div>
             <div class="pcard-name">Gaurav</div>
             <div class="pcard-role" data-en="IIT KGP · Data Scientist" data-hi="IIT खड़गपुर · डेटा साइंटिस्ट">IIT KGP · Data Scientist</div>
