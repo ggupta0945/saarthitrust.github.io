@@ -184,15 +184,17 @@ nav.sc{box-shadow:0 2px 20px rgba(0,0,0,.06)}
 .vd{width:6px;height:6px;border-radius:50%}
 @media(max-width:768px){.abg{grid-template-columns:1fr;gap:1.8rem}}
 
-/* RECOGNITION (with Jhalawar Collector) */
+/* RECOGNITION (with Jhalawar administration) */
 .rec{padding:3rem 0;background:var(--cream)}
-.rec-card{display:grid;grid-template-columns:1fr 340px;gap:2rem;background:#fff;border:1px solid var(--sand);border-radius:14px;padding:1.5rem;align-items:center;max-width:900px;margin:0 auto;box-shadow:0 4px 20px rgba(0,0,0,.04)}
+.rec-stack{display:flex;flex-direction:column;gap:1.4rem;max-width:900px;margin:0 auto}
+.rec-card{display:grid;grid-template-columns:1fr 340px;gap:2rem;background:#fff;border:1px solid var(--sand);border-radius:14px;padding:1.5rem;align-items:center;box-shadow:0 4px 20px rgba(0,0,0,.04)}
+.rec-card.flip{grid-template-columns:340px 1fr}  /* photo on the left for the alternate card */
 .rec-text .rec-eyebrow{font-size:.74rem;color:var(--gr);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.5rem}
 .rec-text h3{font-family:var(--fd);font-size:1.25rem;font-weight:700;margin-bottom:.6rem;line-height:1.3;color:var(--tx)}
 .rec-text p{font-size:.92rem;color:var(--tx2);line-height:1.65;margin:0}
 .rec-text .rec-name{font-size:.82rem;color:var(--tx3);margin-top:.7rem;font-style:italic}
 .rec-photo img{width:100%;height:auto;border-radius:10px;display:block;aspect-ratio:4/3;object-fit:cover;background:var(--sand)}
-@media(max-width:780px){.rec-card{grid-template-columns:1fr;padding:1.2rem;gap:1.2rem}.rec-photo img{aspect-ratio:auto}}
+@media(max-width:780px){.rec-card,.rec-card.flip{grid-template-columns:1fr;padding:1.2rem;gap:1.2rem}.rec-photo img{aspect-ratio:auto}}
 
 /* FAQ (homepage compact) */
 .faq-intro{display:flex;justify-content:space-between;align-items:flex-end;gap:1.2rem;flex-wrap:wrap;margin-bottom:1.6rem}
@@ -598,16 +600,32 @@ footer{padding:2rem 0;background:var(--tx);color:rgba(255,255,255,.5)}
 <!-- RECOGNITION -->
 <section class="rec">
 <div class="w">
-  <div class="rec-card rv">
-    <div class="rec-text">
-      <div class="rec-eyebrow" data-en="In the community" data-hi="समुदाय के साथ">In the community</div>
-      <h3 data-en="With the Jhalawar District Collector" data-hi="झालावाड़ ज़िला कलेक्टर के साथ">With the Jhalawar District Collector</h3>
-      <p data-en="Sharing the Saarthi work with Shri Ajay Singh Rathor — District Collector &amp; District Magistrate, Jhalawar. Local administration support has been one of the quiet engines behind matching young people to local opportunity." data-hi="सारथी का काम साझा करते हुए — श्री अजय सिंह राठौड़ के साथ, ज़िला कलेक्टर एवं ज़िला मजिस्ट्रेट, झालावाड़। स्थानीय प्रशासन का साथ ही वो शांत वजह है जिससे युवा स्थानीय अवसरों से जुड़ पा रहे हैं।">Sharing the Saarthi work with Shri Ajay Singh Rathor — District Collector &amp; District Magistrate, Jhalawar. Local administration support has been one of the quiet engines behind matching young people to local opportunity.</p>
-      <p class="rec-name" data-en="Shri Ajay Singh Rathor · DC &amp; DM, Jhalawar · with the Saarthi team" data-hi="श्री अजय सिंह राठौड़ · ज़िला कलेक्टर एवं ज़िला मजिस्ट्रेट, झालावाड़ · सारथी टीम के साथ">Shri Ajay Singh Rathor · DC &amp; DM, Jhalawar · with the Saarthi team</p>
+  <div class="rec-stack">
+
+    <div class="rec-card rv">
+      <div class="rec-text">
+        <div class="rec-eyebrow" data-en="In the community" data-hi="समुदाय के साथ">In the community</div>
+        <h3 data-en="With the Jhalawar District Collector" data-hi="झालावाड़ ज़िला कलेक्टर के साथ">With the Jhalawar District Collector</h3>
+        <p data-en="Sharing the Saarthi work with Shri Ajay Singh Rathor — District Collector &amp; District Magistrate, Jhalawar. Local administration support has been one of the quiet engines behind matching young people to local opportunity." data-hi="सारथी का काम साझा करते हुए — श्री अजय सिंह राठौड़ के साथ, ज़िला कलेक्टर एवं ज़िला मजिस्ट्रेट, झालावाड़। स्थानीय प्रशासन का साथ ही वो शांत वजह है जिससे युवा स्थानीय अवसरों से जुड़ पा रहे हैं।">Sharing the Saarthi work with Shri Ajay Singh Rathor — District Collector &amp; District Magistrate, Jhalawar. Local administration support has been one of the quiet engines behind matching young people to local opportunity.</p>
+        <p class="rec-name" data-en="Shri Ajay Singh Rathor · DC &amp; DM, Jhalawar · with the Saarthi team" data-hi="श्री अजय सिंह राठौड़ · ज़िला कलेक्टर एवं ज़िला मजिस्ट्रेट, झालावाड़ · सारथी टीम के साथ">Shri Ajay Singh Rathor · DC &amp; DM, Jhalawar · with the Saarthi team</p>
+      </div>
+      <div class="rec-photo">
+        <img src="/recognition/collector-jhalawar.jpg" alt="Saarthi team with Shri Ajay Singh Rathor, District Collector & District Magistrate, Jhalawar" loading="lazy" onerror="this.parentElement.style.display='none';this.parentElement.parentElement.style.gridTemplateColumns='1fr';this.parentElement.parentElement.style.maxWidth='760px'">
+      </div>
     </div>
-    <div class="rec-photo">
-      <img src="/recognition/collector-jhalawar.jpg" alt="Saarthi team with Shri Ajay Singh Rathor, District Collector & District Magistrate, Jhalawar" loading="lazy" onerror="this.parentElement.style.display='none';this.parentElement.parentElement.style.gridTemplateColumns='1fr';this.parentElement.parentElement.style.maxWidth='760px'">
+
+    <div class="rec-card flip rv">
+      <div class="rec-photo">
+        <img src="/recognition/sp-jhalawar.jpg" alt="Saarthi team with Shri Amit Kumar Budania IPS, Superintendent of Police, Jhalawar" loading="lazy" onerror="this.parentElement.style.display='none';this.parentElement.parentElement.style.gridTemplateColumns='1fr';this.parentElement.parentElement.style.maxWidth='760px'">
+      </div>
+      <div class="rec-text">
+        <div class="rec-eyebrow" data-en="In the community" data-hi="समुदाय के साथ">In the community</div>
+        <h3 data-en="With the Jhalawar Superintendent of Police" data-hi="झालावाड़ पुलिस अधीक्षक के साथ">With the Jhalawar Superintendent of Police</h3>
+        <p data-en="Briefing Shri Amit Kumar Budania (IPS) — Superintendent of Police, Jhalawar — on Saarthi's work and the kind of safety net we want to build around it for first-time job-seekers in the district." data-hi="सारथी के काम के बारे में बातचीत — श्री अमित कुमार बुडानिया (IPS), पुलिस अधीक्षक, झालावाड़ के साथ। पहली बार नौकरी ढूँढने वाले युवाओं के लिए ज़िले में जो सुरक्षा का घेरा हम बनाना चाहते हैं, उस पर भी चर्चा।">Briefing Shri Amit Kumar Budania (IPS) — Superintendent of Police, Jhalawar — on Saarthi's work and the kind of safety net we want to build around it for first-time job-seekers in the district.</p>
+        <p class="rec-name" data-en="Shri Amit Kumar Budania, IPS · Superintendent of Police, Jhalawar · with the Saarthi team" data-hi="श्री अमित कुमार बुडानिया, IPS · पुलिस अधीक्षक, झालावाड़ · सारथी टीम के साथ">Shri Amit Kumar Budania, IPS · Superintendent of Police, Jhalawar · with the Saarthi team</p>
+      </div>
     </div>
+
   </div>
 </div>
 </section>
