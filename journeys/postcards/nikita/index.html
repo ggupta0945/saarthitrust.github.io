@@ -341,6 +341,28 @@ footer{padding:48px 0 32px;background:var(--bg)}
   .nav-menu .hm:hover{color:var(--gr);background:none}
   .nr{gap:10px}
 }
+
+/* ===== Mobile nav: three-dots dropdown (FAQ, Journeys, About us, Raahein) ===== */
+@media(max-width:720px){
+  nav#nav .nav-toggle{display:flex !important}
+  nav#nav .nav-menu{
+    display:none;position:absolute;top:calc(100% + 4px);right:18px;
+    background:#fff;border:1px solid var(--sand);border-radius:12px;
+    padding:8px 0;box-shadow:0 14px 36px rgba(0,0,0,.14);
+    flex-direction:column;align-items:stretch;gap:0;
+    min-width:180px;z-index:100;
+  }
+  nav#nav.nav-open .nav-menu{display:flex}
+  nav#nav .nav-menu .hm{
+    display:block !important;padding:11px 18px !important;
+    font-size:14.5px !important;background:none !important;
+    color:var(--tx) !important;font-weight:500 !important;
+    width:100% !important;text-align:left !important;
+  }
+  nav#nav .nav-menu .hm:hover, nav#nav .nav-menu .hm:active{
+    color:var(--gr) !important;background:var(--cream) !important;
+  }
+}
 </style>
 
 <script defer data-domain="saarthitrust.org" src="https://plausible.io/js/script.js"></script>
@@ -355,10 +377,11 @@ footer{padding:48px 0 32px;background:var(--bg)}
   <div class="nr">
     <div class="nav-menu">
     <a href="/journeys/" class="hm" data-en="Journeys" data-hi="यात्राएं">Journeys</a>
+    <a href="/#about" class="hm" data-en="About us" data-hi="हमारे बारे में">About us</a>
     <a href="/raahein/" class="hm" data-en="Raahein" data-hi="राहें">Raahein</a>
     <a href="/faq.html" class="hm" data-en="FAQ" data-hi="सवाल-जवाब">FAQ</a>
     </div>
-    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"><svg viewBox="0 0 18 14" width="18" height="14" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"><path d="M1 1h16M1 7h16M1 13h16"/></svg></button>
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"><svg viewBox="0 0 4 16" width="4" height="16" fill="currentColor" aria-hidden="true"><circle cx="2" cy="2" r="1.7"/><circle cx="2" cy="8" r="1.7"/><circle cx="2" cy="14" r="1.7"/></svg></button>
     <button class="lb" onclick="toggleLang()" id="langBtn">हिंदी</button>
     <a href="/register/" class="nc" data-en="Register free →" data-hi="मुफ़्त रजिस्टर →">Register free →</a>
   </div>

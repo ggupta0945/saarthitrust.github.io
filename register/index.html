@@ -182,6 +182,28 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
 .flow-info{background:#fff;border:1px solid var(--sand);border-radius:12px;overflow:hidden;margin:0 0 26px}
 .flow-info .quote-band{background:linear-gradient(135deg,var(--grl) 0%,#fff 70%);border:none;border-left:4px solid var(--gr);padding:18px 22px;margin:0;border-radius:0}
 .flow-info .flow-intro{background:#fff;border:none;border-top:1px solid var(--sand);padding:16px 22px;margin:0;border-radius:0;line-height:1.7}
+
+/* ===== Mobile nav: three-dots dropdown (FAQ, Journeys, About us, Raahein) ===== */
+@media(max-width:720px){
+  nav#nav .nav-toggle{display:flex !important}
+  nav#nav .nav-menu{
+    display:none;position:absolute;top:calc(100% + 4px);right:18px;
+    background:#fff;border:1px solid var(--sand);border-radius:12px;
+    padding:8px 0;box-shadow:0 14px 36px rgba(0,0,0,.14);
+    flex-direction:column;align-items:stretch;gap:0;
+    min-width:180px;z-index:100;
+  }
+  nav#nav.nav-open .nav-menu{display:flex}
+  nav#nav .nav-menu .hm{
+    display:block !important;padding:11px 18px !important;
+    font-size:14.5px !important;background:none !important;
+    color:var(--tx) !important;font-weight:500 !important;
+    width:100% !important;text-align:left !important;
+  }
+  nav#nav .nav-menu .hm:hover, nav#nav .nav-menu .hm:active{
+    color:var(--gr) !important;background:var(--cream) !important;
+  }
+}
 </style>
 
 <script defer data-domain="saarthitrust.org" src="https://plausible.io/js/script.js"></script>
@@ -193,10 +215,12 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
   <a href="/" class="nl">Saarthi Trust<i>.</i></a>
   <div class="nr">
     <div class="nav-menu">
+    <a href="/#about" class="hm" data-en="About us" data-hi="हमारे बारे में">हमारे बारे में</a>
     <a href="/raahein/" class="hm" data-en="Raahein" data-hi="राहें">राहें</a>
     <a href="/faq.html" class="hm" data-en="FAQ" data-hi="सवाल-जवाब">सवाल-जवाब</a>
     <a href="/journeys/" class="hm" data-en="Journeys" data-hi="यात्राएं">यात्राएं</a>
     </div>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 4 16" width="4" height="16" fill="currentColor" aria-hidden="true"><circle cx="2" cy="2" r="1.7"/><circle cx="2" cy="8" r="1.7"/><circle cx="2" cy="14" r="1.7"/></svg></button>
     <button class="lb" onclick="toggleLang()" id="langBtn">English</button>
   </div>
 </div>
@@ -942,6 +966,17 @@ var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxOQv7OVtd_s0ITrkZ9YFYSc
         'Something went wrong sending. Please try again, or email hi@saarthitrust.org.'
       );
     });
+  });
+})();
+
+/* Mobile nav three-dots toggle */
+(function(){
+  var btn = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function(){ nav.classList.toggle('nav-open'); });
+  document.querySelectorAll('.nav-menu .hm').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('nav-open'); });
   });
 })();
 </script>
