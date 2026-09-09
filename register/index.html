@@ -293,6 +293,12 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
       <span class="role-hi">किसी के सारथी बनूँ</span>
       <span class="role-en">Be someone's Saarthi (volunteer)</span>
     </label>
+    <label class="role-card" data-role="provider">
+      <input type="radio" name="role" value="provider">
+      <span class="role-icon">🔧</span>
+      <span class="role-hi">सेवा सूची में नाम जुड़वाऊँ</span>
+      <span class="role-en">Get listed as a service provider (electrician, plumber…)</span>
+    </label>
   </div>
 
   <div class="error-banner" id="errorBanner"></div>
@@ -701,6 +707,98 @@ footer .fc{font-size:11.5px;color:#777;line-height:1.6}
     </div>
   </div>
 
+  <!-- ============================================================
+       FLOW: SERVICE PROVIDER · सेवा सूची में नाम जुड़वाएँ
+       ============================================================ -->
+  <div class="flow" data-flow="provider">
+    <div class="flow-info">
+      <div class="quote-band">
+      <span class="qhi">"हुनर आपका, पहचान पूरे शहर में। नाम जुड़वाना मुफ़्त — कोई कमीशन नहीं, कभी नहीं।"</span>
+      <span class="qen">Your skill, known across your town. Listing is free — no commission, ever.</span>
+    </div>
+      <div class="flow-intro">
+      <span class="fi-hi">आपका नाम, काम और फ़ोन नंबर हमारी <b>सेवा सूची</b> (saarthitrust.org/services) पर सार्वजनिक रूप से दिखेगा, ताकि आपके शहर के लोग सीधे आपसे संपर्क कर सकें। सूची में जुड़ने से पहले सारथी टीम WhatsApp पर आपसे बात करके नंबर जाँचेगी। <b>जब चाहें, एक मैसेज भेजकर नाम हटवा सकते हैं।</b></span>
+      <span class="fi-en">Your name, trade and phone number will appear publicly on our services directory (saarthitrust.org/services) so people in your town can reach you directly. Before you appear, the Saarthi team will confirm your number on WhatsApp. You can have your listing removed anytime with one message.</span>
+    </div>
+    </div>
+
+    <div class="field">
+      <label class="lbl">
+        <span class="lh">पूरा नाम<span class="req">*</span></span>
+        <span class="le">Full name</span>
+      </label>
+      <input type="text" name="provider_name" autocomplete="name" maxlength="120" placeholder="जैसे: रमेश कुमार">
+    </div>
+
+    <div class="field">
+      <label class="lbl">
+        <span class="lh">फ़ोन नंबर (WhatsApp)<span class="req">*</span></span>
+        <span class="le">Phone number (WhatsApp) — this will be shown publicly</span>
+      </label>
+      <input type="tel" name="provider_phone" inputmode="tel" maxlength="15" placeholder="10 अंक का नंबर">
+    </div>
+
+    <div class="field">
+      <label class="lbl">
+        <span class="lh">आपका काम / हुनर<span class="req">*</span></span>
+        <span class="le">Your trade / skill</span>
+      </label>
+      <select name="provider_trade">
+        <option value="">— चुनें / Select —</option>
+        <option>बिजली मिस्त्री / Electrician</option>
+        <option>प्लंबर / Plumber</option>
+        <option>राजमिस्त्री / Mason</option>
+        <option>बढ़ई / Carpenter</option>
+        <option>पेंटर / Painter</option>
+        <option>वेल्डर / Welder</option>
+        <option>AC-फ्रिज मरम्मत / AC &amp; fridge repair</option>
+        <option>ड्राइवर / Driver</option>
+        <option>दर्जी / Tailor</option>
+        <option>मज़दूरी / Labour</option>
+        <option value="__other__">अन्य / Other</option>
+      </select>
+      <input type="text" name="provider_trade_other" class="other-input" placeholder="अन्य हो तो लिखें / Specify if Other">
+    </div>
+
+    <div class="field">
+      <label class="lbl">
+        <span class="lh">शहर / क्षेत्र<span class="req">*</span></span>
+        <span class="le">City / area where you work</span>
+      </label>
+      <select name="provider_city">
+        <option value="">— चुनें / Select —</option>
+        <option>भवानीमंडी / Bhawani Mandi</option>
+        <option>सुनेल / Sunel</option>
+        <option>पिरावा / Pirawa</option>
+        <option>झालावाड़ / Jhalawar</option>
+        <option>कोटा / Kota</option>
+        <option>राजगढ़ MP / Rajgarh (MP)</option>
+        <option>जीरापुर MP / Jirapur (MP)</option>
+        <option>पचोर MP / Pachor (MP)</option>
+        <option>खिलचीपुर MP / Khilchipur (MP)</option>
+        <option>ब्यावरा MP / Biaora (MP)</option>
+        <option value="__other__">अन्य / Other</option>
+      </select>
+      <input type="text" name="provider_city_other" class="other-input" placeholder="अन्य हो तो लिखें / Specify if Other">
+    </div>
+
+    <div class="field">
+      <label class="lbl">
+        <span class="lh">काम के बारे में एक लाइन</span>
+        <span class="le">One line about your work (shown on your card)</span>
+      </label>
+      <input type="text" name="provider_note" maxlength="120" placeholder="जैसे: घर की वायरिंग, पंखा और मोटर मरम्मत">
+    </div>
+
+    <div class="field">
+      <label class="choice-card" style="min-height:auto">
+        <input type="checkbox" name="provider_consent" value="yes">
+        <span class="ch-hi">मैं सहमत हूँ कि मेरा नाम, काम और फ़ोन नंबर सारथी की सेवा सूची में सार्वजनिक रूप से दिखाया जाए।<span class="req">*</span></span>
+        <span class="ch-en">I agree that my name, trade and phone number may be shown publicly on Saarthi's services directory.</span>
+      </label>
+    </div>
+  </div>
+
   <button type="submit" class="submit-btn" id="submitBtn" style="display:none">
     <span>जमा करें →</span>
     <span class="btn-en">Submit</span>
@@ -784,6 +882,16 @@ document.querySelectorAll('.role-card').forEach(function(card){
   });
 });
 
+/* Deep link: /register/?role=provider preselects that role card */
+(function(){
+  try {
+    var want = new URLSearchParams(window.location.search).get('role');
+    if (!want) return;
+    var card = document.querySelector('.role-card[data-role="' + want.replace(/[^a-z]/g,'') + '"]');
+    if (card) card.click();
+  } catch(e){}
+})();
+
 /* Choice-card visual state for radio + checkbox */
 document.querySelectorAll('.choice-card').forEach(function(card){
   var input = card.querySelector('input');
@@ -840,7 +948,8 @@ var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxOQv7OVtd_s0ITrkZ9YFYSc
     seeker:    ['seeker_name','seeker_age','seeker_gender','seeker_phone','seeker_area'],
     hirer:     ['hirer_name','hirer_phone','hirer_area'],
     hired:     ['hired_who','hired_who_phone'],
-    volunteer: ['vol_name','vol_phone']
+    volunteer: ['vol_name','vol_phone'],
+    provider:  ['provider_name','provider_phone','provider_trade','provider_city']
   };
 
   function getVal(name){
@@ -893,7 +1002,7 @@ var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxOQv7OVtd_s0ITrkZ9YFYSc
 
     var role = document.getElementById('hiddenRole').value;
     if (!role) {
-      showError('कृपया पहले एक विकल्प चुनें।', 'Please pick one of the four options at the top first.');
+      showError('कृपया पहले एक विकल्प चुनें।', 'Please pick one of the options at the top first.');
       return;
     }
 
@@ -904,7 +1013,12 @@ var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxOQv7OVtd_s0ITrkZ9YFYSc
       return;
     }
 
-    var phoneField = {seeker:'seeker_phone', hirer:'hirer_phone', hired:'hired_who_phone', volunteer:'vol_phone'}[role];
+    if (role === 'provider' && !getVal('provider_consent')) {
+      showError('सेवा सूची में जुड़ने के लिए सहमति ज़रूरी है — कृपया नीचे वाला बॉक्स टिक करें।', 'To be listed publicly, please tick the consent box.');
+      return;
+    }
+
+    var phoneField = {seeker:'seeker_phone', hirer:'hirer_phone', hired:'hired_who_phone', volunteer:'vol_phone', provider:'provider_phone'}[role];
     var phoneVal = getVal(phoneField).replace(/[^0-9]/g, '');
     if (phoneVal.length < 10) {
       showError('फ़ोन नंबर 10 अंकों का होना चाहिए।', 'Phone number should be at least 10 digits.');
@@ -945,6 +1059,13 @@ var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxOQv7OVtd_s0ITrkZ9YFYSc
       data.area         = getVal('vol_area');
       data.contribution = getMulti('vol_contrib');
       data.suggestions  = getVal('vol_suggestions');
+    } else if (role === 'provider') {
+      data.name    = getVal('provider_name');
+      data.phone   = getVal('provider_phone');
+      data.trade   = flattenOther('provider_trade');
+      data.area    = flattenOther('provider_city');
+      data.note    = getVal('provider_note');
+      data.consent = 'yes';
     }
 
     fetch(ENDPOINT, {
@@ -966,6 +1087,9 @@ var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxOQv7OVtd_s0ITrkZ9YFYSc
       } else if (role === 'hired') {
         msg.innerHTML = 'अपडेट के लिए धन्यवाद — इससे हमारा डेटा साफ़ रहता है और उम्मीदवार को अनावश्यक कॉल नहीं आते।';
         msgEn.innerHTML = "Thank you for the update — this keeps our database honest and saves the candidate from unnecessary calls.";
+      } else if (role === 'provider') {
+        msg.innerHTML = 'आपकी जानकारी मिल गई। सारथी टीम WhatsApp पर आपका नंबर जाँचेगी, फिर आपका नाम सेवा सूची में जुड़ जाएगा — आमतौर पर कुछ ही दिनों में।';
+        msgEn.innerHTML = "We've got your details. The Saarthi team will confirm your number on WhatsApp, and then your listing will appear in the services directory — usually within a few days.";
       }
       window.scrollTo({top:0, behavior:'smooth'});
     }).catch(function(err){
