@@ -116,6 +116,16 @@ select#cityFilter:focus{outline:none;border-color:var(--gr);box-shadow:0 0 0 3px
 .sv-cat{padding:.42rem .9rem;background:#fff;border:1px solid var(--sand);border-radius:100px;font-size:.8rem;font-weight:500;color:var(--tx2);cursor:pointer;transition:.15s;font-family:var(--fh);display:inline-flex;align-items:center;gap:.35rem}
 .sv-cat:hover{border-color:var(--gr);color:var(--gr)}
 .sv-cat.on{background:var(--gr);border-color:var(--gr);color:#fff;font-weight:600}
+.sv-add-btn{margin-left:auto;display:inline-flex;align-items:center;gap:.35rem;padding:.42rem 1rem;background:var(--grl);border:1.5px solid var(--gr);border-radius:100px;font-size:.8rem;font-weight:600;color:var(--grd);font-family:var(--fh);transition:.15s;white-space:nowrap}
+.sv-add-btn:hover{background:var(--gr);color:#fff;transform:translateY(-1px)}
+@media(max-width:720px){.sv-add-btn{margin-left:0}}
+
+/* "Add your service" card at the end of the grid */
+.sv-add-card{background:var(--cream);border:1.5px dashed var(--gr);border-radius:14px;padding:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px;min-height:180px;transition:transform .15s ease,box-shadow .15s ease;cursor:pointer;text-decoration:none!important}
+.sv-add-card:hover{transform:translateY(-2px);box-shadow:0 12px 32px -16px rgba(27,122,74,.25);background:var(--grl)}
+.sv-add-card .sa-ico{width:46px;height:46px;background:#fff;border:1.5px dashed var(--gr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--gr);font-weight:600}
+.sv-add-card .sa-title{font-family:var(--fh);font-size:15.5px;font-weight:700;color:var(--grd)}
+.sv-add-card .sa-sub{font-size:12.5px;color:var(--tx2);font-family:var(--fh);line-height:1.5;max-width:230px}
 
 /* RESULTS */
 .sv-results{padding:2rem 0 3rem;min-height:340px}
@@ -219,6 +229,7 @@ footer{padding:2rem 0;background:var(--tx);color:rgba(255,255,255,.5)}
       </select>
     </div>
     <div class="sv-cats" id="catChips"></div>
+    <a class="sv-add-btn" href="/register/?role=provider" data-en="➕ Add your service" data-hi="➕ अपनी सेवा जुड़वाएँ">➕ Add your service</a>
   </div>
 </div>
 </section>
@@ -456,6 +467,16 @@ function renderDirectory(){
     if (note) card.querySelector('.sv-note').textContent = note;
     grid.appendChild(card);
   });
+
+  // Always end the grid with an "add your service" card
+  var add = document.createElement('a');
+  add.className = 'sv-add-card';
+  add.href = '/register/?role=provider';
+  add.innerHTML =
+    '<div class="sa-ico">+</div>' +
+    '<div class="sa-title">' + (hi ? 'अपनी सेवा जुड़वाएँ' : 'Add your service') + '</div>' +
+    '<div class="sa-sub">' + (hi ? 'मुफ़्त लिस्टिंग — कोई कमीशन नहीं। पूरा शहर आप तक पहुँचे।' : 'Free listing, no commission. Let your whole town find you.') + '</div>';
+  grid.appendChild(add);
 }
 
 buildFilters();
