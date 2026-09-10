@@ -382,8 +382,15 @@ function toggleLang(){
 })();
 
 /* ============ SERVICES DIRECTORY ============ */
-// Phase 2 can point this at a Google Apps Script web-app URL serving the same JSON shape.
+// Listings come from two places, merged:
+//   1. data.json in this folder (hand-curated entries)
+//   2. REMOTE_URL — the Apps Script feed of team-APPROVED register-form
+//      submissions (see apps-script/directory.gs). Approving a row in
+//      the Google Sheet puts that person on this page automatically.
+// Leave REMOTE_URL empty until the script is deployed; the page then
+// runs on data.json alone.
 var DATA_URL = 'data.json';
+var REMOTE_URL = ''; // e.g. 'https://script.google.com/macros/s/XXXX/exec?fn=providers'
 
 var CATEGORIES = [
   {id:'all',        en:'All',              hi:'सभी',              ico:''},
@@ -521,16 +528,31 @@ function renderDirectory(){
 buildFilters();
 if (hi) applyLang();
 
-fetch(DATA_URL)
-  .then(function(r){ return r.json(); })
-  .then(function(d){
-    PEOPLE = (d && d.people) ? d.people : [];
-    renderDirectory();
-  })
-  .catch(function(){
-    PEOPLE = [];
-    renderDirectory();
+function loadSource(url){
+  return fetch(url)
+    .then(function(r){ return r.json(); })
+    .then(function(d){ return (d && d.people) ? d.people : []; })
+    .catch(function(){ return []; }); // either source failing never blanks the page
+}
+
+Promise.all([
+  loadSource(DATA_URL),
+  REMOTE_URL ? loadSource(REMOTE_URL) : Promise.resolve([])
+]).then(function(results){
+  var seen = {};
+  PEOPLE = [];
+  // Sheet-approved entries first, then hand-curated ones; dedupe by phone
+  results[1].concat(results[0]).forEach(function(p){
+    var key = p.phone ? String(p.phone).replace(/\D/g,'').slice(-10) : (p.id || Math.random());
+    if (seen[key]) return;
+    seen[key] = true;
+    PEOPLE.push(p);
   });
+  // Once real people exist, stop showing the sample placeholders
+  var hasReal = PEOPLE.some(function(p){ return !p.sample; });
+  if (hasReal) PEOPLE = PEOPLE.filter(function(p){ return !p.sample; });
+  renderDirectory();
+});
 </script>
 </body>
 </html>
