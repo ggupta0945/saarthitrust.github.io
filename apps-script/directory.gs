@@ -1,207 +1,355 @@
-/**
- * Saarthi Trust — register-form storage + services-directory feed
- * ================================================================
- *
- * What this does
- *   doPost : receives every /register/ submission (all five flows) and
- *            appends it to a tab in this spreadsheet. Provider
- *            submissions ("register-provider") go to the "Providers"
- *            tab with an Approved column your team controls.
- *   doGet  : ?fn=providers returns approved providers as JSON in
- *            exactly the shape /services/ already reads. The services
- *            page fetches this, so approving a row in the Sheet is all
- *            it takes for a person to appear on the site.
- *
- * SETUP for the EXISTING Saarthi responses spreadsheet (~5 minutes)
- * (the one already receiving website registrations — docs.google.com/
- *  spreadsheets/d/1b1TJnsNTMlrbasLFux0VPow3dGCEv5kvBgbRlkXLzNk)
- *
- *   KNOWN ISSUE this fixes: a provider test submission already reached
- *   the sheet (row dated 9/10/2026) with ONLY "provider" recorded and
- *   every other field blank. Your current script forwards submissions to
- *   the Google Form, and that Form has no provider questions — so name,
- *   phone, trade and city are silently dropped. Step 2b below is the fix.
- *
- *   1. Open the spreadsheet → Extensions → Apps Script (your existing
- *      project — the one deployed at the ENDPOINT URL in register/index.html).
- *   2a. Paste in, from this file: PROVIDERS_TAB, TRADE_MAP, CITY_MAP,
- *       mapByContains, saveProviderRow, and doGet. (If your script already
- *       has a doGet, merge the ?fn=providers branch into it instead.)
- *   2b. In your EXISTING doPost, right after it parses the JSON body, add:
- *
- *         if (d.flow === 'register-provider') {
- *           saveProviderRow(d);
- *           return ContentService.createTextOutput('{"ok":true}')
- *             .setMimeType(ContentService.MimeType.JSON);
- *         }
- *
- *       Do NOT replace your doPost — the other four flows must keep
- *       going to the Google Form exactly as they do today.
- *   3. Deploy → Manage deployments → edit (pencil) → Version: New version
- *      → Deploy. The SAME /exec URL keeps working; register page untouched.
- *   4. In services/index.html set REMOTE_URL to
- *      '<your existing /exec URL>?fn=providers'.
- *   5. Delete that blank 9/10/2026 provider test row from the sheet.
- *
- * (Starting fresh instead? This file also works standalone: paste all of
- *  it into a new sheet's Apps Script, deploy as Web app (Execute as: Me,
- *  Access: Anyone), point ENDPOINT and REMOTE_URL at the new URL.)
- *
- * MODERATION WORKFLOW
- *   - New provider rows arrive with Approved = "" (pending, NOT public).
- *   - WhatsApp the person, confirm number + consent.
- *   - Type "yes" in the Approved column and today's date in VerifiedOn
- *     (e.g. 2026-09). Within a minute the person is live on /services/.
- *   - To remove someone later: clear the Approved cell. Done.
- */
+// ============================================================
+// Saarthi · combined backend  (v5)
+//   /register/         → web_registration tab (mirrors Form Responses 1 columns)
+//   /register/ provider→ Providers tab (moderated services directory)
+//   /journeys/share/   → Inspirational tab    (unchanged)
+//   GET ?fn=providers  → JSON feed of APPROVED providers for /services/
+//
+// WHAT CHANGED FROM v4 (all additive — nothing existing was altered):
+//   1. PROVIDERS_TAB / PROVIDER_HEADERS / TRADE_MAP / CITY_MAP constants
+//   2. mapByContains_() and rowForProvider_() helpers
+//   3. doPost: a `register-provider` branch placed BEFORE the generic
+//      `register-` branch. v4 let provider submissions fall into
+//      rowForRegister_(), whose switch has no provider case — so every
+//      field except Timestamp and the role label was dropped. (That is
+//      the blank 9/10/2026 row in the sheet; safe to delete it.)
+//   4. doGet: now answers ?fn=providers with JSON. Without params it
+//      still returns the plain-text "endpoint is live" message.
+//
+// HOW TO DEPLOY
+//   1. Open the sheet → Extensions → Apps Script
+//   2. Select all the existing code and paste this file over it
+//   3. Deploy → Manage deployments → pencil icon → Version: New version
+//      → Deploy.  The /exec URL does not change, so register/index.html
+//      needs no edit.
+//   4. Copy the /exec URL into services/index.html as
+//        var REMOTE_URL = '<that URL>?fn=providers';
+//
+// MODERATION WORKFLOW
+//   - New provider rows land in the Providers tab with Approved BLANK.
+//     Blank is never published — nothing goes public on its own.
+//   - WhatsApp the person, confirm the number works and they still consent.
+//   - Type `yes` in Approved and e.g. 2026-09 in VerifiedOn.
+//     They appear on /services/ on the next page load.
+//   - To remove someone later: clear the Approved cell. That is the whole
+//     un-publish step.
+// ============================================================
 
-var PROVIDERS_TAB = 'Providers';
+const SHEET_ID = '1b1TJnsNTMlrbasLFux0VPow3dGCEv5kvBgbRlkXLzNk';
 
-/* Display strings from the register form → ids used by /services/ filters */
-var TRADE_MAP = {
+const REGISTER_TAB      = 'web_registration';
+const INSPIRATIONAL_TAB = 'Inspirational';
+const PROVIDERS_TAB     = 'Providers';
+
+// 33 columns — matches Form Responses 1 exactly, in the same order.
+// Each role fills only its own positional slice; others stay blank.
+const REGISTER_HEADERS = [
+  'Timestamp',                                                                                                  //  0
+  'Full Name / पूरा नाम',                                                                                       //  1  (seeker)
+  'Age / उम्र',                                                                                                //  2  (seeker)
+  'What is your gender? / आपका लिंग क्या है?',                                                                  //  3  (seeker)
+  'Phone Number (WhatsApp) / फोन नंबर (WhatsApp वाला)',                                                         //  4  (seeker)
+  'Village/Area Name / गांव या क्षेत्र का नाम',                                                                  //  5  (seeker)
+  'What type of work are you looking for? / आप किस प्रकार की नौकरी ढूंढ रहे हैं?',                              //  6  (seeker)
+  'Preferred Job Location / आपकी पसंदीदा नौकरी का स्थान',                                                        //  7  (not asked on /register/)
+  'Are you looking for full-time or part-time work? / आप फुल टाइम या पार्ट टाइम काम ढूंढ रहे हैं?',              //  8  (seeker)
+  'When can you start working? / आप काम कब से शुरू कर सकते हैं?',                                              //  9  (seeker)
+  'How would you like to use Saarthi today? / आप सारथी प्लेटफ़ॉर्म का उपयोग किस उद्देश्य से कर रहे हैं?**',     // 10  (role label)
+  'Whom did you hire? / आपने किसे रखा था? (name)',                                                            // 11  (hired)
+  'Contact number of the person hired / जिनको आपने काम पर रखा है, उनका संपर्क नंबर (यदि उपलब्ध हो)',           // 12  (hired)
+  'Any suggestions to improve Saarthi? / सारथी को बेहतर बनाने के लिए आपके सुझाव [हम आपकी ईमानदार राय की सराहना करेंगे]', // 13 (hired)
+  'whatsapp_sent_jobgiver',                                                                                    // 14  (admin column, blank)
+  'Your Name / आपका नाम',                                                                                      // 15  (hirer)
+  'Business type / व्यवसाय का प्रकार (shop, home, warehouse, etc.)',                                            // 16  (hirer)
+  'Area / क्षेत्र (Please specify city/ area)',                                                                 // 17  (hirer)
+  'What kind of worker do you need? आपको किस प्रकार का कर्मचारी चाहिए?',                                       // 18  (hirer)
+  'Your contact number / फोन नंबर ',                                                                            // 19  (hirer)
+  'How many people you are looking to hire? / आप कितने लोगों को काम पर रखना चाहते हैं?',                         // 20  (hirer)
+  'Min Salary or payment offered / न्यूनतम वेतन या भुगतान कितना देंगे?',                                         // 21  (hirer)
+  'Your Name / आपका नाम',                                                                                      // 22  (hired self-name)
+  'Your contact number / फोन नंबर ',                                                                            // 23  (hired self-phone)
+  'Your Name / आपका नाम',                                                                                      // 24  (volunteer)
+  'Phone Number (WhatsApp) / फोन नंबर ',                                                                       // 25  (volunteer)
+  'How would you like to contribute? / आप कैसे योगदान देना चाहेंगे?',                                          // 26  (volunteer)
+  'Any Suggestions ? ',                                                                                        // 27  (volunteer)
+  'Area / क्षेत्र (Please specify city/ area)',                                                                 // 28  (volunteer)
+  'Column 25',                                                                                                 // 29  (legacy placeholder, blank)
+  'Would you like to reciece contact details of people via whatsapp',                                          // 30  (not asked on /register/, blank)
+  'Where are you looking to hire / Area ?',                                                                    // 31  (not asked, blank)
+  'status'                                                                                                     // 32  (admin column, blank)
+];
+
+const INSPIRATIONAL_HEADERS = [
+  'Timestamp', 'Name', 'Contact', 'Role + city', 'Social links',
+  'Q1 Growing up + parents', 'Q2 Class 10 self', 'Q3 College + course choice',
+  'Q4 Pivotal moment', 'Q5 Career steps', 'Q6 Failures + low moments',
+  'Q7 Work life today', 'Q8 Advice to Class 10', 'Q9 Myth to break',
+  'Q10 To 15-year-old self', 'Anything else', 'Consent', 'Language', 'User agent'
+];
+
+// Providers tab. Approved and VerifiedOn are filled in BY HAND by the team.
+// Approved blank = pending = not on the website.
+const PROVIDER_HEADERS = [
+  'Timestamp',    //  0
+  'Name',         //  1
+  'Phone',        //  2
+  'Trade',        //  3
+  'City',         //  4
+  'Note',         //  5
+  'Consent',      //  6  ('yes' — the tick box on the form
+  'Lang',         //  7
+  'Approved',     //  8  ← type yes here to publish; clear it to un-publish
+  'VerifiedOn'    //  9  ← e.g. 2026-09, shown on the card's verified badge
+];
+
+// Bilingual labels for the "How would you like to use Saarthi today?" column.
+// Match the four options users see in the role picker on the Google Form.
+const ROLE_LABEL = {
+  'register-seeker':    'I am looking for a job / मैं नौकरी की तलाश में हूँ',
+  'register-hirer':     'I want to hire someone / मुझे किसी को काम पर रखना है',
+  'register-hired':     'I have already hired through Saarthi / मैं पहले ही सारथी के ज़रिए किसी को काम पर रख चुका हूँ',
+  'register-volunteer': "Be Someone's Saarthi / किसी के सारथी बनें"
+};
+
+// The register form submits bilingual display strings ("प्लंबर / Plumber").
+// /services/ filters on short ids. These map one to the other.
+const TRADE_MAP = {
   'Electrician': 'electrician',
-  'Plumber': 'plumber',
-  'Mason': 'mason',
-  'Carpenter': 'carpenter',
-  'Painter': 'painter',
-  'Welder': 'welder',
-  'AC & fridge repair': 'ac-repair',
-  'Driver': 'driver',
-  'Tailor': 'tailor',
-  'Labour': 'labour'
+  'Plumber':     'plumber',
+  'Mason':       'mason',
+  'Carpenter':   'carpenter',
+  'Painter':     'painter',
+  'Welder':      'welder',
+  'AC':          'ac-repair',   // "AC-फ्रिज मरम्मत / AC & fridge repair"
+  'Driver':      'driver',
+  'Tailor':      'tailor',
+  'Labour':      'labour'
 };
 
-var CITY_MAP = {
+const CITY_MAP = {
   'Bhawani Mandi': 'bhawani-mandi',
-  'Sunel': 'sunel',
-  'Pirawa': 'pirawa',
-  'Jhalawar': 'jhalawar',
-  'Kota': 'kota',
-  'Rajgarh': 'rajgarh',
-  'Jirapur': 'jirapur',
-  'Pachor': 'pachor',
-  'Khilchipur': 'khilchipur',
-  'Biaora': 'biaora'
+  'Sunel':         'sunel',
+  'Pirawa':        'pirawa',
+  'Jhalawar':      'jhalawar',
+  'Kota':          'kota',
+  'Rajgarh':       'rajgarh',
+  'Jirapur':       'jirapur',
+  'Pachor':        'pachor',
+  'Khilchipur':    'khilchipur',
+  'Biaora':        'biaora'
 };
 
-function mapByContains(map, text) {
+// ---------------- Helpers ----------------
+function ensureSheet_(tabName, headers) {
+  const ss = SpreadsheetApp.openById(SHEET_ID);
+  let sheet = ss.getSheetByName(tabName);
+  if (!sheet) {
+    sheet = ss.insertSheet(tabName);
+    sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
+    sheet.getRange(1, 1, 1, headers.length).setFontWeight('bold');
+    sheet.setFrozenRows(1);
+  }
+  // Headers are written only at tab-creation time, so the user can tweak
+  // them later (renames, reorders) without the script overwriting them.
+  return sheet;
+}
+
+// Turn a bilingual display string into the short id /services/ filters on.
+// Unmapped values (someone picked "Other" and typed their own trade or town)
+// are returned as clean text: they show under "All" with a generic icon
+// rather than being filed under the wrong filter chip.
+function mapByContains_(map, text) {
   text = String(text || '');
-  for (var key in map) {
+  for (const key in map) {
     if (text.indexOf(key) !== -1) return map[key];
   }
-  // Unmapped — someone picked "Other" and typed their own trade/town.
-  // Strip the "अन्य / Other:" wrapper so the card reads cleanly. The value
-  // stays unmapped on purpose: it shows under "All" with a generic icon
-  // rather than being filed under the wrong filter chip.
   return text
     .replace(/^\s*अन्य\s*\/\s*/, '')
     .replace(/^\s*Other\s*:\s*/i, '')
     .trim();
 }
 
-/* ------------------------------------------------------------------ */
-/* saveProviderRow — writes one provider submission to the Providers tab.
-   Self-contained: paste this whole function into your existing script.   */
-/* ------------------------------------------------------------------ */
-function saveProviderRow(d) {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var sh = ss.getSheetByName(PROVIDERS_TAB) || ss.insertSheet(PROVIDERS_TAB);
-  if (sh.getLastRow() === 0) {
-    sh.appendRow(['Timestamp', 'Name', 'Phone', 'Trade', 'City', 'Note',
-                  'Consent', 'Lang', 'Approved', 'VerifiedOn']);
-    sh.setFrozenRows(1);
+function rowForRegister_(data) {
+  const N = REGISTER_HEADERS.length;
+  const row = new Array(N).fill('');
+  row[0] = new Date();                                  // Timestamp
+  row[10] = ROLE_LABEL[data.flow] || data.role || '';   // "How would you like to use Saarthi today?"
+
+  switch (data.flow) {
+    case 'register-seeker':
+      row[1] = data.name      || '';   // Full Name
+      row[2] = data.age       || '';   // Age
+      row[3] = data.gender    || '';   // Gender
+      row[4] = data.phone     || '';   // Phone (WhatsApp)
+      row[5] = data.area      || '';   // Village/Area Name
+      row[6] = data.worktype  || '';   // Work type
+      // row[7] Preferred Job Location — not asked on /register/
+      row[8] = data.duration  || '';   // Full/Part time
+      row[9] = data.startDate || '';   // When can you start
+      break;
+
+    case 'register-hirer':
+      row[15] = data.name     || '';   // Your Name (hirer)
+      row[16] = data.business || '';   // Business type
+      row[17] = data.area     || '';   // Area
+      row[18] = data.need     || '';   // What kind of worker
+      row[19] = data.phone    || '';   // Your contact number
+      row[20] = data.count    || '';   // How many people
+      row[21] = data.salary   || '';   // Min Salary
+      break;
+
+    case 'register-hired':
+      row[11] = data.whoHired      || '';   // Whom did you hire?
+      row[12] = data.whoHiredPhone || '';   // Contact number of the person hired
+      row[13] = data.suggestions   || '';   // Any suggestions to improve Saarthi?
+      row[22] = data.name          || '';   // Your Name (hired-feedback)
+      row[23] = data.phone         || '';   // Your contact number
+      break;
+
+    case 'register-volunteer':
+      row[24] = data.name         || '';   // Your Name (volunteer)
+      row[25] = data.phone        || '';   // Phone Number (WhatsApp)
+      row[26] = data.contribution || '';   // How would you like to contribute?
+      row[27] = data.suggestions  || '';   // Any Suggestions ?
+      row[28] = data.area         || '';   // Area
+      break;
   }
-  sh.appendRow([
-    d.submittedAt || new Date().toISOString(),
-    d.name || '',
-    "'" + (d.phone || ''),   // leading apostrophe keeps the number as text
-    d.trade || '',
-    d.area || '',
-    d.note || '',
-    d.consent || '',
-    d.lang || '',
-    '',                      // Approved  — blank = pending, never published
-    ''                       // VerifiedOn — fill as e.g. 2026-09 when you verify
-  ]);
+  return row;
 }
 
-/* ------------------------------------------------------------------ */
-/* doPost — store every register-form submission                       */
-/*                                                                     */
-/* MERGING INTO YOUR EXISTING SCRIPT: don't replace your doPost. Just  */
-/* add these three lines immediately after it parses the JSON body:    */
-/*                                                                     */
-/*     if (d.flow === 'register-provider') {                           */
-/*       saveProviderRow(d);                                           */
-/*       return ContentService.createTextOutput('{"ok":true}')         */
-/*         .setMimeType(ContentService.MimeType.JSON);                 */
-/*     }                                                               */
-/*                                                                     */
-/* (use whatever variable your script parsed the body into). That one  */
-/* early return is what stops provider submissions from falling into   */
-/* the Google-Form forwarding path, which has no provider fields and   */
-/* silently drops them.                                                */
-/* ------------------------------------------------------------------ */
+// Provider rows do NOT fit the 33-column Form mirror (no trade, consent or
+// approval columns exist there), so they get their own tab.
+function rowForProvider_(data) {
+  return [
+    new Date(),                        // Timestamp
+    data.name || '',                   // Name
+    "'" + (data.phone || ''),          // Phone — leading ' keeps it text, not a number
+    data.trade || '',                  // Trade  (bilingual string as submitted)
+    data.area || '',                   // City   (bilingual string as submitted)
+    data.note || '',                   // Note   (one line shown on the card)
+    data.consent || '',                // Consent — 'yes' from the tick box
+    data.lang || '',                   // Lang
+    '',                                // Approved   — BLANK on purpose: pending
+    ''                                 // VerifiedOn — filled when the team verifies
+  ];
+}
+
+function rowForInspirational_(data) {
+  return [
+    new Date(),
+    data.name || '', data.contact || '', data.role || '', data.socials || '',
+    data.q1 || '', data.q2 || '', data.q3 || '', data.q4 || '', data.q5 || '',
+    data.q6 || '', data.q7 || '', data.q8 || '', data.q9 || '', data.q10 || '',
+    data.anything || '',
+    data.consent ? 'Yes' : 'No',
+    data.lang || '',
+    (data.userAgent || '')
+  ];
+}
+
+// ---------------- Web-app endpoints ----------------
 function doPost(e) {
-  var out = { ok: false };
   try {
-    var d = JSON.parse(e.postData.contents);
+    const data = JSON.parse(e.postData.contents || '{}');
 
-    if (d.flow === 'register-provider') {
-      saveProviderRow(d);
-    } else {
-      // Every other flow: one tab per flow, generic key/value storage
-      var ss = SpreadsheetApp.getActiveSpreadsheet();
-      var tab = (d.flow || 'other').replace(/[^a-z0-9-]/gi, '');
-      var sh2 = ss.getSheetByName(tab) || ss.insertSheet(tab);
-      if (sh2.getLastRow() === 0) {
-        sh2.appendRow(['Timestamp', 'JSON']);
-        sh2.setFrozenRows(1);
-      }
-      sh2.appendRow([d.submittedAt || new Date().toISOString(), JSON.stringify(d)]);
+    // Providers first — this branch must come BEFORE the generic
+    // 'register-' test below, which would otherwise swallow it and drop
+    // every provider field (the v4 bug).
+    if (data.flow === 'register-provider') {
+      const sheet = ensureSheet_(PROVIDERS_TAB, PROVIDER_HEADERS);
+      sheet.appendRow(rowForProvider_(data));
+      return ContentService
+        .createTextOutput(JSON.stringify({status:'ok', tab:PROVIDERS_TAB}))
+        .setMimeType(ContentService.MimeType.JSON);
     }
-    out.ok = true;
+
+    if (data.flow && data.flow.indexOf('register-') === 0) {
+      const sheet = ensureSheet_(REGISTER_TAB, REGISTER_HEADERS);
+      sheet.appendRow(rowForRegister_(data));
+      return ContentService
+        .createTextOutput(JSON.stringify({status:'ok', tab:REGISTER_TAB}))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
+    // Default: share-journey
+    const sheet = ensureSheet_(INSPIRATIONAL_TAB, INSPIRATIONAL_HEADERS);
+    sheet.appendRow(rowForInspirational_(data));
+    return ContentService
+      .createTextOutput(JSON.stringify({status:'ok', tab:INSPIRATIONAL_TAB}))
+      .setMimeType(ContentService.MimeType.JSON);
   } catch (err) {
-    out.error = String(err);
+    return ContentService
+      .createTextOutput(JSON.stringify({status:'error', message:String(err)}))
+      .setMimeType(ContentService.MimeType.JSON);
   }
-  return ContentService.createTextOutput(JSON.stringify(out))
-    .setMimeType(ContentService.MimeType.JSON);
 }
 
-/* ------------------------------------------------------------------ */
-/* doGet — JSON feed of APPROVED providers for /services/              */
-/* ------------------------------------------------------------------ */
+// GET ?fn=providers → the JSON /services/ reads.
+// Only rows the team marked Approved are ever included.
 function doGet(e) {
   if (!e || !e.parameter || e.parameter.fn !== 'providers') {
-    return ContentService.createTextOutput(JSON.stringify({ ok: true, hint: 'use ?fn=providers' }))
+    return ContentService
+      .createTextOutput('Saarthi combined endpoint is live (v5 — web_registration + Providers directory feed).')
+      .setMimeType(ContentService.MimeType.TEXT);
+  }
+
+  const people = [];
+  try {
+    const ss = SpreadsheetApp.openById(SHEET_ID);
+    const sheet = ss.getSheetByName(PROVIDERS_TAB);
+
+    if (sheet && sheet.getLastRow() > 1) {
+      const rows = sheet.getRange(2, 1, sheet.getLastRow() - 1, PROVIDER_HEADERS.length).getValues();
+
+      rows.forEach(function (r, i) {
+        // 1. Must be explicitly approved by a human.
+        const approved = String(r[8] || '').trim().toLowerCase();
+        if (['yes', 'y', 'true', 'haan', 'हाँ', 'ok'].indexOf(approved) === -1) return;
+
+        // 2. Must have a usable 10-digit Indian mobile number.
+        const phone = String(r[2] || '').replace(/\D/g, '').slice(-10);
+        if (phone.length !== 10) return;
+
+        // 3. VerifiedOn may be a real Date cell — render it as YYYY-MM.
+        let verified = r[9];
+        if (verified instanceof Date) {
+          verified = verified.getFullYear() + '-' + ('0' + (verified.getMonth() + 1)).slice(-2);
+        }
+
+        people.push({
+          id:       'sheet-' + (i + 2),   // sheet row number, so ids stay stable
+          name:     String(r[1] || ''),
+          category: mapByContains_(TRADE_MAP, r[3]),
+          city:     mapByContains_(CITY_MAP, r[4]),
+          phone:    phone,
+          verified: String(verified || ''),
+          note:     String(r[5] || '')
+        });
+      });
+    }
+  } catch (err) {
+    // Never 500 the website. An empty feed just means /services/ falls
+    // back to whatever is in services/data.json.
+    return ContentService
+      .createTextOutput(JSON.stringify({version:1, source:'sheet', error:String(err), people:[]}))
       .setMimeType(ContentService.MimeType.JSON);
   }
 
-  var people = [];
-  var sh = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(PROVIDERS_TAB);
-  if (sh && sh.getLastRow() > 1) {
-    var rows = sh.getRange(2, 1, sh.getLastRow() - 1, 10).getValues();
-    rows.forEach(function (r, i) {
-      var approved = String(r[8] || '').trim().toLowerCase();
-      if (['yes', 'y', 'true', 'haan', 'हाँ', 'ok'].indexOf(approved) === -1) return; // pending rows are never published
-      var phone = String(r[2] || '').replace(/\D/g, '').slice(-10);
-      if (phone.length !== 10) return;
-      var verified = r[9];
-      if (verified instanceof Date) {
-        verified = verified.getFullYear() + '-' + ('0' + (verified.getMonth() + 1)).slice(-2);
-      }
-      people.push({
-        id: 'sheet-' + (i + 2),
-        name: String(r[1] || ''),
-        category: mapByContains(TRADE_MAP, r[3]),
-        city: mapByContains(CITY_MAP, r[4]),
-        phone: phone,
-        verified: String(verified || ''),
-        note: String(r[5] || '')
-      });
-    });
-  }
-
-  return ContentService.createTextOutput(JSON.stringify({ version: 1, source: 'sheet', people: people }))
+  return ContentService
+    .createTextOutput(JSON.stringify({version:1, source:'sheet', people:people}))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+function backfillRegisterHeaders() {
+  const ss = SpreadsheetApp.openById(SHEET_ID);
+  const sheet = ss.getSheetByName(REGISTER_TAB);
+  if (!sheet) { Logger.log('web_registration tab not found'); return; }
+  // If row 1 already contains a data row (no headers yet), push it down
+  if (sheet.getRange(1, 1).getValue() !== '') {
+    sheet.insertRowBefore(1);
+  }
+  sheet.getRange(1, 1, 1, REGISTER_HEADERS.length).setValues([REGISTER_HEADERS]);
+  sheet.getRange(1, 1, 1, REGISTER_HEADERS.length).setFontWeight('bold');
+  sheet.setFrozenRows(1);
+  Logger.log('✓ Headers written: ' + REGISTER_HEADERS.length + ' columns');
 }
