@@ -387,10 +387,11 @@ function toggleLang(){
 //   2. REMOTE_URL — the Apps Script feed of team-APPROVED register-form
 //      submissions (see apps-script/directory.gs). Approving a row in
 //      the Google Sheet puts that person on this page automatically.
-// Leave REMOTE_URL empty until the script is deployed; the page then
-// runs on data.json alone.
+// Until the v5 script is deployed this URL answers with a plain-text
+// banner instead of JSON; that is handled — the page just runs on
+// data.json alone until the deploy happens.
 var DATA_URL = 'data.json';
-var REMOTE_URL = ''; // e.g. 'https://script.google.com/macros/s/XXXX/exec?fn=providers'
+var REMOTE_URL = 'https://script.google.com/macros/s/AKfycbxOQv7OVtd_s0ITrkZ9YFYScHSCTDQDISexELRRXnvVIthz4KBFTMIKt89K_XvewC5t/exec?fn=providers';
 
 var CATEGORIES = [
   {id:'all',        en:'All',              hi:'सभी',              ico:''},
@@ -528,21 +529,30 @@ function renderDirectory(){
 buildFilters();
 if (hi) applyLang();
 
-function loadSource(url){
-  return fetch(url)
-    .then(function(r){ return r.json(); })
+// The two sources load INDEPENDENTLY and the page repaints as each
+// arrives. data.json is same-origin and lands in milliseconds; the Apps
+// Script feed is cross-origin and takes seconds (Google bounces it
+// through a redirect). Waiting for both before the first paint left the
+// page blank for ~8s on a good connection — far worse on 2G, and forever
+// if Apps Script hung. So: paint local first, fold in remote when it
+// shows up.
+var LOCAL_PEOPLE = [], REMOTE_PEOPLE = [];
+
+function loadSource(url, timeoutMs){
+  var ctrl = ('AbortController' in window) ? new AbortController() : null;
+  var timer = timeoutMs ? setTimeout(function(){ if (ctrl) ctrl.abort(); }, timeoutMs) : null;
+  return fetch(url, ctrl ? {signal: ctrl.signal} : {})
+    .then(function(r){ return r.json(); })   // non-JSON (e.g. the pre-v5 text banner) throws → caught below
     .then(function(d){ return (d && d.people) ? d.people : []; })
-    .catch(function(){ return []; }); // either source failing never blanks the page
+    .catch(function(){ return []; })          // a failing source never blanks the page
+    .then(function(list){ if (timer) clearTimeout(timer); return list; });
 }
 
-Promise.all([
-  loadSource(DATA_URL),
-  REMOTE_URL ? loadSource(REMOTE_URL) : Promise.resolve([])
-]).then(function(results){
+function mergeAndRender(){
   var seen = {};
   PEOPLE = [];
   // Sheet-approved entries first, then hand-curated ones; dedupe by phone
-  results[1].concat(results[0]).forEach(function(p){
+  REMOTE_PEOPLE.concat(LOCAL_PEOPLE).forEach(function(p){
     var key = p.phone ? String(p.phone).replace(/\D/g,'').slice(-10) : (p.id || Math.random());
     if (seen[key]) return;
     seen[key] = true;
@@ -552,7 +562,20 @@ Promise.all([
   var hasReal = PEOPLE.some(function(p){ return !p.sample; });
   if (hasReal) PEOPLE = PEOPLE.filter(function(p){ return !p.sample; });
   renderDirectory();
+}
+
+loadSource(DATA_URL).then(function(list){
+  LOCAL_PEOPLE = list;
+  mergeAndRender();               // first paint — fast, same origin
 });
+
+if (REMOTE_URL) {
+  loadSource(REMOTE_URL, 10000).then(function(list){
+    if (!list.length) return;     // nothing approved yet, or script not deployed: leave the page as-is
+    REMOTE_PEOPLE = list;
+    mergeAndRender();             // second paint — real listings replace the samples
+  });
+}
 </script>
 </body>
 </html>
