@@ -1,12 +1,12 @@
 // ============================================================
 // Saarthi · combined backend  (v5)
 //   /register/         → web_registration tab (mirrors Form Responses 1 columns)
-//   /register/ provider→ Providers tab (moderated services directory)
+//   /register/ provider→ services_registration tab (moderated directory)
 //   /journeys/share/   → Inspirational tab    (unchanged)
 //   GET ?fn=providers  → JSON feed of APPROVED providers for /services/
 //
 // WHAT CHANGED FROM v4 (all additive — nothing existing was altered):
-//   1. PROVIDERS_TAB / PROVIDER_HEADERS / TRADE_MAP / CITY_MAP constants
+//   1. SERVICES_TAB / SERVICES_HEADERS / TRADE_MAP / CITY_MAP constants
 //   2. mapByContains_() and rowForProvider_() helpers
 //   3. doPost: a `register-provider` branch placed BEFORE the generic
 //      `register-` branch. v4 let provider submissions fall into
@@ -26,7 +26,7 @@
 //        var REMOTE_URL = '<that URL>?fn=providers';
 //
 // MODERATION WORKFLOW
-//   - New provider rows land in the Providers tab with Approved BLANK.
+//   - New provider rows land in services_registration with Approved BLANK.
 //     Blank is never published — nothing goes public on its own.
 //   - WhatsApp the person, confirm the number works and they still consent.
 //   - Type `yes` in Approved and e.g. 2026-09 in VerifiedOn.
@@ -39,7 +39,7 @@ const SHEET_ID = '1b1TJnsNTMlrbasLFux0VPow3dGCEv5kvBgbRlkXLzNk';
 
 const REGISTER_TAB      = 'web_registration';
 const INSPIRATIONAL_TAB = 'Inspirational';
-const PROVIDERS_TAB     = 'Providers';
+const SERVICES_TAB      = 'services_registration';
 
 // 33 columns — matches Form Responses 1 exactly, in the same order.
 // Each role fills only its own positional slice; others stay blank.
@@ -87,9 +87,10 @@ const INSPIRATIONAL_HEADERS = [
   'Q10 To 15-year-old self', 'Anything else', 'Consent', 'Language', 'User agent'
 ];
 
-// Providers tab. Approved and VerifiedOn are filled in BY HAND by the team.
+// services_registration tab. Approved and VerifiedOn are filled in BY HAND
+// by the team.
 // Approved blank = pending = not on the website.
-const PROVIDER_HEADERS = [
+const SERVICES_HEADERS = [
   'Timestamp',    //  0
   'Name',         //  1
   'Phone',        //  2
@@ -252,14 +253,14 @@ function doPost(e) {
   try {
     const data = JSON.parse(e.postData.contents || '{}');
 
-    // Providers first — this branch must come BEFORE the generic
+    // services_registration first — must come BEFORE the generic
     // 'register-' test below, which would otherwise swallow it and drop
     // every provider field (the v4 bug).
     if (data.flow === 'register-provider') {
-      const sheet = ensureSheet_(PROVIDERS_TAB, PROVIDER_HEADERS);
+      const sheet = ensureSheet_(SERVICES_TAB, SERVICES_HEADERS);
       sheet.appendRow(rowForProvider_(data));
       return ContentService
-        .createTextOutput(JSON.stringify({status:'ok', tab:PROVIDERS_TAB}))
+        .createTextOutput(JSON.stringify({status:'ok', tab:SERVICES_TAB}))
         .setMimeType(ContentService.MimeType.JSON);
     }
 
@@ -289,17 +290,17 @@ function doPost(e) {
 function doGet(e) {
   if (!e || !e.parameter || e.parameter.fn !== 'providers') {
     return ContentService
-      .createTextOutput('Saarthi combined endpoint is live (v5 — web_registration + Providers directory feed).')
+      .createTextOutput('Saarthi combined endpoint is live (v5 — web_registration + services_registration feed).')
       .setMimeType(ContentService.MimeType.TEXT);
   }
 
   const people = [];
   try {
     const ss = SpreadsheetApp.openById(SHEET_ID);
-    const sheet = ss.getSheetByName(PROVIDERS_TAB);
+    const sheet = ss.getSheetByName(SERVICES_TAB);
 
     if (sheet && sheet.getLastRow() > 1) {
-      const rows = sheet.getRange(2, 1, sheet.getLastRow() - 1, PROVIDER_HEADERS.length).getValues();
+      const rows = sheet.getRange(2, 1, sheet.getLastRow() - 1, SERVICES_HEADERS.length).getValues();
 
       rows.forEach(function (r, i) {
         // 1. Must be explicitly approved by a human.
