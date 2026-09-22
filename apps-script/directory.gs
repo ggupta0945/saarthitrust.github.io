@@ -3,7 +3,7 @@
 //   /register/         → web_registration tab (mirrors Form Responses 1 columns)
 //   /register/ provider→ services_registration tab (moderated directory)
 //   /journeys/share/   → Inspirational tab    (unchanged)
-//   GET ?fn=providers  → JSON feed of APPROVED providers for /services/
+//   GET ?fn=providers  → JSON feed of APPROVED providers for /directory/
 //
 // WHAT CHANGED FROM v4 (all additive — nothing existing was altered):
 //   1. SERVICES_TAB / SERVICES_HEADERS / TRADE_MAP / CITY_MAP constants
@@ -22,7 +22,7 @@
 //   3. Deploy → Manage deployments → pencil icon → Version: New version
 //      → Deploy.  The /exec URL does not change, so register/index.html
 //      needs no edit.
-//   4. Copy the /exec URL into services/index.html as
+//   4. Copy the /exec URL into directory/index.html as
 //        var REMOTE_URL = '<that URL>?fn=providers';
 //
 // MODERATION WORKFLOW
@@ -30,7 +30,7 @@
 //     Blank is never published — nothing goes public on its own.
 //   - WhatsApp the person, confirm the number works and they still consent.
 //   - Type `yes` in Approved and e.g. 2026-09 in VerifiedOn.
-//     They appear on /services/ on the next page load.
+//     They appear on /directory/ on the next page load.
 //   - To remove someone later: clear the Approved cell. That is the whole
 //     un-publish step.
 // ============================================================
@@ -113,7 +113,7 @@ const ROLE_LABEL = {
 };
 
 // The register form submits bilingual display strings ("प्लंबर / Plumber").
-// /services/ filters on short ids. These map one to the other.
+// /directory/ filters on short ids. These map one to the other.
 const TRADE_MAP = {
   'Electrician': 'electrician',
   'Plumber':     'plumber',
@@ -155,7 +155,7 @@ function ensureSheet_(tabName, headers) {
   return sheet;
 }
 
-// Turn a bilingual display string into the short id /services/ filters on.
+// Turn a bilingual display string into the short id /directory/ filters on.
 // Unmapped values (someone picked "Other" and typed their own trade or town)
 // are returned as clean text: they show under "All" with a generic icon
 // rather than being filed under the wrong filter chip.
@@ -285,7 +285,7 @@ function doPost(e) {
   }
 }
 
-// GET ?fn=providers → the JSON /services/ reads.
+// GET ?fn=providers → the JSON /directory/ reads.
 // Only rows the team marked Approved are ever included.
 function doGet(e) {
   if (!e || !e.parameter || e.parameter.fn !== 'providers') {
@@ -329,7 +329,7 @@ function doGet(e) {
       });
     }
   } catch (err) {
-    // Never 500 the website. An empty feed just means /services/ falls
+    // Never 500 the website. An empty feed just means /directory/ falls
     // back to whatever is in services/data.json.
     return ContentService
       .createTextOutput(JSON.stringify({version:1, source:'sheet', error:String(err), people:[]}))
