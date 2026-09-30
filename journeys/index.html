@@ -328,6 +328,21 @@ footer{padding:48px 0 32px;background:var(--bg)}
     color:var(--gr) !important;background:var(--cream) !important;
   }
 }
+
+/* ===== Canonical site header — identical on every page ===== */
+nav#nav .ni{max-width:var(--mw);margin:0 auto;padding:.7rem 1.5rem;display:flex;align-items:center;justify-content:space-between;min-height:61px}
+/* min-height keeps the bar the same height on /register/, which omits the Register CTA */
+nav#nav .nl{font-family:var(--fd);font-size:1.2rem;font-weight:700;color:var(--grd);text-decoration:none;white-space:nowrap}
+nav#nav .nl i{font-style:normal;color:var(--wr)}
+nav#nav .nr{display:flex;gap:1.5rem;align-items:center}
+nav#nav .nr a{font-size:.82rem;font-weight:500;color:var(--tx2);text-decoration:none;transition:.2s}
+nav#nav .nr a:hover{color:var(--gr)}
+nav#nav .nr a.act{color:var(--gr);font-weight:600}
+nav#nav .lb{font-size:.74rem;padding:.28rem .7rem;border:1.5px solid var(--sand);border-radius:100px;cursor:pointer;background:none;color:var(--tx2);font-weight:600;font-family:var(--fh);transition:.2s}
+nav#nav .lb:hover{border-color:var(--gr);color:var(--gr)}
+nav#nav .nc{background:var(--gr);color:#fff!important;padding:.45rem 1rem;border-radius:100px;font-size:.78rem;font-weight:600;transition:.2s;white-space:nowrap}
+nav#nav .nc:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(27,122,74,.25)}
+@media(max-width:720px){ nav#nav .nr{gap:10px} }
 </style>
 
 <script defer data-domain="saarthitrust.org" src="https://plausible.io/js/script.js"></script>
