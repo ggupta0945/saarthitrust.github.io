@@ -138,9 +138,12 @@ select#cityFilter:focus{outline:none;border-color:var(--gr);box-shadow:0 0 0 3px
 .sv-name{font-family:var(--fh);font-size:16.5px;font-weight:700;color:var(--tx);line-height:1.3}
 .sv-meta{font-size:12.5px;color:var(--tx3);font-family:var(--fh);margin-top:2px}
 .sv-note{font-size:13px;color:var(--tx2);font-family:var(--fh);line-height:1.55}
+.sv-phone{display:inline-flex;align-items:center;gap:6px;font-family:var(--fb);font-size:16px;font-weight:700;color:var(--grd);letter-spacing:.04em;text-decoration:none;align-self:flex-start;user-select:all;-webkit-user-select:all}
+.sv-phone:hover{color:var(--gr)}
 .sv-badges{display:flex;gap:6px;flex-wrap:wrap}
 .sv-verified{display:inline-flex;align-items:center;gap:4px;background:var(--grl);color:var(--grd);font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:100px;font-family:var(--fh)}
 .sv-sample-chip{display:inline-flex;align-items:center;background:var(--wrl);color:var(--wr);font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:100px;font-family:var(--fh)}
+.sv-listed{display:inline-flex;align-items:center;background:var(--cream);color:var(--tx3);border:1px solid var(--sand);font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:100px;font-family:var(--fh)}
 .sv-actions{display:flex;gap:8px;margin-top:auto;padding-top:6px}
 .sv-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 12px;border-radius:10px;font-size:13px;font-weight:600;font-family:var(--fh);transition:.15s;border:none;cursor:pointer;text-decoration:none!important}
 .sv-btn-wa{background:var(--gr);color:#fff}
@@ -417,6 +420,8 @@ var CATEGORIES = [
   {id:'painter',    en:'Painter',          hi:'पेंटर',             ico:'🎨'},
   {id:'welder',     en:'Welder',           hi:'वेल्डर',            ico:'🔥'},
   {id:'ac-repair',  en:'AC / Fridge',      hi:'AC / फ्रिज',        ico:'❄️'},
+  {id:'washing-machine',en:'Washing machine',hi:'वॉशिंग मशीन',    ico:'🧺'},
+  {id:'upholstery', en:'Sofa & cushion',   hi:'सोफ़ा–गद्दी',       ico:'🛋️'},
   {id:'driver',     en:'Driver',           hi:'ड्राइवर',           ico:'🚗'},
   {id:'tailor',     en:'Tailor',           hi:'दर्जी',             ico:'🧵'},
   {id:'labour',     en:'Labour',           hi:'मज़दूरी',           ico:'💪'}
@@ -503,9 +508,16 @@ function renderDirectory(){
     var card = document.createElement('article');
     card.className = 'sv-card';
 
-    var badge = isSample
-      ? '<span class="sv-sample-chip">' + (hi ? 'उदाहरण — जल्द असली नाम' : 'Sample — real listings soon') + '</span>'
-      : '<span class="sv-verified">✓ ' + (hi ? 'सारथी जाँचा' : 'Saarthi verified') + (p.verified ? ' · ' + p.verified : '') + '</span>';
+    // Three states. The verified badge is only shown once someone has actually
+    // rung the number and confirmed consent — i.e. once `verified` holds a month.
+    var badge;
+    if (isSample) {
+      badge = '<span class="sv-sample-chip">' + (hi ? 'उदाहरण — जल्द असली नाम' : 'Sample — real listings soon') + '</span>';
+    } else if (p.verified) {
+      badge = '<span class="sv-verified">✓ ' + (hi ? 'सारथी जाँचा' : 'Saarthi verified') + ' · ' + p.verified + '</span>';
+    } else {
+      badge = '<span class="sv-listed">' + (hi ? 'समुदाय से मिला नंबर' : 'Community listing') + '</span>';
+    }
 
     var waLabel = hi ? 'WhatsApp करें' : 'WhatsApp';
     var callLabel = hi ? 'कॉल करें' : 'Call';
@@ -515,12 +527,21 @@ function renderDirectory(){
       : '<span class="sv-btn sv-btn-wa" aria-disabled="true">' + waLabel + '</span>' +
         '<span class="sv-btn sv-btn-call" aria-disabled="true">' + callLabel + '</span>';
 
+    // Show the number itself, not just the buttons — people want to save it,
+    // read it out, or dial from another handset. user-select:all means one
+    // click selects the whole number to copy.
+    var phoneLine = hasPhone
+      ? '<a class="sv-phone" href="tel:+91' + phone10 + '">📞 ' +
+        phone10.slice(0,5) + ' ' + phone10.slice(5) + '</a>'
+      : '';
+
     card.innerHTML =
       '<div class="sv-top">' +
         '<div class="sv-icon">' + (cat.ico || '🛠️') + '</div>' +
         '<div><div class="sv-name"></div>' +
         '<div class="sv-meta">' + (hi ? cat.hi : cat.en) + ' · ' + (hi ? city.hi : city.en) + '</div></div>' +
       '</div>' +
+      phoneLine +
       (note ? '<div class="sv-note"></div>' : '') +
       '<div class="sv-badges">' + badge + '</div>' +
       '<div class="sv-actions">' + actions + '</div>';
@@ -568,7 +589,10 @@ function mergeAndRender(){
   PEOPLE = [];
   // Sheet-approved entries first, then hand-curated ones; dedupe by phone
   REMOTE_PEOPLE.concat(LOCAL_PEOPLE).forEach(function(p){
-    var key = p.phone ? String(p.phone).replace(/\D/g,'').slice(-10) : (p.id || Math.random());
+    // key on phone+trade: someone who does two trades should appear under
+    // both filter chips, but never twice within one chip
+    var key = p.phone ? String(p.phone).replace(/\D/g,'').slice(-10) + '|' + (p.category || '')
+                      : (p.id || Math.random());
     if (seen[key]) return;
     seen[key] = true;
     PEOPLE.push(p);
