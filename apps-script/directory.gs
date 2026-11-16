@@ -122,6 +122,8 @@ const TRADE_MAP = {
   'Painter':     'painter',
   'Welder':      'welder',
   'AC':          'ac-repair',   // "AC-फ्रिज मरम्मत / AC & fridge repair"
+  'Washing machine': 'washing-machine',
+  'Sofa':        'upholstery',
   'Driver':      'driver',
   'Tailor':      'tailor',
   'Labour':      'labour'

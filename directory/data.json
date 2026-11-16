@@ -1,79 +1,83 @@
 {
   "version": 1,
-  "updated": "2026-09-09",
-  "note": "Team-edited directory data. Set sample:false (or remove the flag) and fill a real 10-digit phone once a person has given consent on WhatsApp and their number is verified. 'verified' is the YYYY-MM you last confirmed the number works. Categories: electrician, plumber, mason, carpenter, painter, welder, ac-repair, driver, tailor, labour. Cities: bhawani-mandi, sunel, pirawa, jhalawar, kota, rajgarh, jirapur, pachor, khilchipur, biaora.",
+  "updated": "2026-11-16",
+  "note": "Team-edited directory. Collected in Bhawani Mandi, Nov 2026. 'verified' is the YYYY-MM you last rang the number and confirmed the person is happy to stay listed — leave it EMPTY until that call happens and the card shows a neutral 'listed' chip instead of the Saarthi-verified badge. Categories: electrician, plumber, mason, carpenter, painter, welder, ac-repair, washing-machine, upholstery, driver, tailor, labour. Cities: bhawani-mandi, sunel, pirawa, jhalawar, kota, rajgarh, jirapur, pachor, khilchipur, biaora.",
   "people": [
     {
-      "id": "sample-electrician-1",
-      "name": "Ramesh Kumar",
-      "nameHi": "रमेश कुमार",
+      "id": "bm-electrician-1",
+      "name": "Electrician 1",
+      "nameHi": "बिजली मिस्त्री 1",
       "category": "electrician",
       "city": "bhawani-mandi",
-      "phone": "",
-      "verified": "2026-09",
-      "note": "House wiring, fan & motor repair",
-      "noteHi": "घर की वायरिंग, पंखा और मोटर मरम्मत",
-      "sample": true
+      "phone": "9587707675",
+      "verified": ""
     },
     {
-      "id": "sample-plumber-1",
-      "name": "Salim Bhai",
-      "nameHi": "सलीम भाई",
+      "id": "bm-electrician-2",
+      "name": "Electrician 2",
+      "nameHi": "बिजली मिस्त्री 2",
+      "category": "electrician",
+      "city": "bhawani-mandi",
+      "phone": "9829531764",
+      "verified": ""
+    },
+    {
+      "id": "bm-electrician-3",
+      "name": "Electrician 3",
+      "nameHi": "बिजली मिस्त्री 3",
+      "category": "electrician",
+      "city": "bhawani-mandi",
+      "phone": "9584227504",
+      "verified": "",
+      "note": "Also does tap & pipe fitting",
+      "noteHi": "नल और पाइप फिटिंग भी करते हैं"
+    },
+    {
+      "id": "bm-electrician-sarfaraj",
+      "name": "Sarfaraj",
+      "nameHi": "सरफ़राज़",
+      "category": "electrician",
+      "city": "bhawani-mandi",
+      "phone": "8955985958",
+      "verified": ""
+    },
+    {
+      "id": "bm-plumber-1",
+      "name": "Plumber 1",
+      "nameHi": "प्लंबर 1",
       "category": "plumber",
       "city": "bhawani-mandi",
-      "phone": "",
-      "verified": "2026-09",
-      "note": "Taps, tanks, pipeline & bathroom fittings",
-      "noteHi": "नल, टंकी, पाइपलाइन और बाथरूम फिटिंग",
-      "sample": true
+      "phone": "9584227504",
+      "verified": "",
+      "note": "Tap & pipe fitting; also does electrical work",
+      "noteHi": "नल और पाइप फिटिंग; बिजली का काम भी करते हैं"
     },
     {
-      "id": "sample-mason-1",
-      "name": "Devilal Prajapat",
-      "nameHi": "देवीलाल प्रजापत",
-      "category": "mason",
-      "city": "sunel",
-      "phone": "",
-      "verified": "2026-09",
-      "note": "House construction, plaster, tiles",
-      "noteHi": "मकान निर्माण, प्लास्टर, टाइल्स",
-      "sample": true
+      "id": "bm-washing-machine-1",
+      "name": "Washing machine repair 1",
+      "nameHi": "वॉशिंग मशीन मरम्मत 1",
+      "category": "washing-machine",
+      "city": "bhawani-mandi",
+      "phone": "7898293334",
+      "verified": ""
     },
     {
-      "id": "sample-carpenter-1",
-      "name": "Mukesh Suthar",
-      "nameHi": "मुकेश सुथार",
+      "id": "bm-upholstery-1",
+      "name": "Sofa & cushion 1",
+      "nameHi": "सोफ़ा–गद्दी 1",
+      "category": "upholstery",
+      "city": "bhawani-mandi",
+      "phone": "7073255888",
+      "verified": ""
+    },
+    {
+      "id": "bm-carpenter-1",
+      "name": "Carpenter 1",
+      "nameHi": "बढ़ई 1",
       "category": "carpenter",
-      "city": "jhalawar",
-      "phone": "",
-      "verified": "2026-09",
-      "note": "Doors, windows, furniture repair",
-      "noteHi": "दरवाज़े, खिड़कियाँ, फर्नीचर मरम्मत",
-      "sample": true
-    },
-    {
-      "id": "sample-painter-1",
-      "name": "Arjun Verma",
-      "nameHi": "अर्जुन वर्मा",
-      "category": "painter",
-      "city": "pirawa",
-      "phone": "",
-      "verified": "2026-09",
-      "note": "House painting, putty, waterproofing",
-      "noteHi": "घर की पुताई, पुट्टी, वॉटरप्रूफिंग",
-      "sample": true
-    },
-    {
-      "id": "sample-ac-1",
-      "name": "Firoz Khan",
-      "nameHi": "फ़िरोज़ ख़ान",
-      "category": "ac-repair",
-      "city": "kota",
-      "phone": "",
-      "verified": "2026-09",
-      "note": "AC, fridge & cooler service",
-      "noteHi": "AC, फ्रिज और कूलर सर्विस",
-      "sample": true
+      "city": "bhawani-mandi",
+      "phone": "9785398351",
+      "verified": ""
     }
   ]
 }
